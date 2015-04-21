@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/06/15 16:05:54.281.dproj,D:\RAD Studio\Projects\Project1.dproj=D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\DevolucionProveedorCelular\Project\DevolucionProveedorCelular.dproj</Transaction>
+    <Transaction>2010/06/16 12:00:44.625.pas,D:\RAD Studio\Projects\CiveLoo\GeN\DataModule\ImprimirDM.pas=</Transaction>
+    <Transaction>2010/06/16 12:00:44.625.dfm,D:\RAD Studio\Projects\CiveLoo\GeN\DataModule\ImprimirDM.dfm=</Transaction>
+    <Transaction>2010/06/16 12:01:03.828.pas,D:\RAD Studio\Projects\CiveLoo\GeN\Demo\Demo.pas=</Transaction>
+    <Transaction>2010/06/16 12:01:03.828.dfm,D:\RAD Studio\Projects\CiveLoo\GeN\Demo\Demo.dfm=</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="-1" SortType="1"/>
+</BorlandProject>

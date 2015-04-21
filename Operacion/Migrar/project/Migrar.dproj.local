@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/11/13 12:39:13.500.pas,F:\Projects\DeGsoft\GeN\Operacion\Migrar\form\MigrarF.pas=C:\Documents and Settings\Cive\Mis documentos\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2010/11/13 12:39:13.515.dfm,F:\Projects\DeGsoft\GeN\Operacion\Migrar\form\MigrarF.dfm=C:\Documents and Settings\Cive\Mis documentos\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2010/11/13 12:39:33.968.dproj,F:\Projects\DeGsoft\GeN\Operacion\Migrar\project\Migrar.dproj=C:\Documents and Settings\Cive\Mis documentos\RAD Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="-1" SortType="1"/>
+</BorlandProject>

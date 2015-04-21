@@ -1,0 +1,15 @@
+program Licencia;
+
+uses
+  Forms,
+  MenuF in '..\Form\MenuF.pas' {NumeroSerieForm};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.Title := 'Licencia';
+  Application.CreateForm(TNumeroSerieForm, NumeroSerieForm);
+  Application.Run;
+end.

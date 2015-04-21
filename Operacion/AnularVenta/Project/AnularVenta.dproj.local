@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<ProjectSortOrder AutoSort="-1" SortType="1"/>
+	<Transactions>
+    <Transaction>2010/10/18 12:21:52.656.dfm,C:\Documents and Settings\BackUp\Mis documentos\WORK\projects\DeGsoft\GeN\Operacion\AnularVenta\Form\AnularVtaF.dfm=C:\Documents and Settings\BackUp\Mis documentos\WORK\projects\DeGsoft\GeN\Operacion\AnularVenta\Form\UFAnulaReimp.dfm</Transaction>
+    <Transaction>2010/10/18 12:21:52.656.pas,C:\Documents and Settings\BackUp\Mis documentos\WORK\projects\DeGsoft\GeN\Operacion\AnularVenta\Form\AnularVtaF.pas=C:\Documents and Settings\BackUp\Mis documentos\WORK\projects\DeGsoft\GeN\Operacion\AnularVenta\Form\UFAnulaReimp.pas</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,298 @@
+object BuscaFacturaForm: TBuscaFacturaForm
+  Left = 192
+  Top = 128
+  Caption = 'Buscar Venta'
+  ClientHeight = 466
+  ClientWidth = 792
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnDestroy = FormDestroy
+  OnKeyUp = FormKeyUp
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 792
+    Height = 67
+    Align = alTop
+    Color = clBlack
+    ParentBackground = False
+    TabOrder = 0
+    object Label2: TLabel
+      Left = 11
+      Top = 4
+      Width = 65
+      Height = 24
+      Caption = 'VENTA'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label1: TLabel
+      Left = 200
+      Top = 4
+      Width = 61
+      Height = 24
+      Caption = 'LETRA'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object ventaEdit: TEdit
+      Left = 11
+      Top = 26
+      Width = 183
+      Height = 32
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+    end
+    object LetraEdit: TEdit
+      Left = 200
+      Top = 26
+      Width = 183
+      Height = 32
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+    end
+  end
+  object Panel2: TPanel
+    Left = 692
+    Top = 67
+    Width = 100
+    Height = 399
+    Align = alRight
+    BevelOuter = bvLowered
+    Color = clBlack
+    ParentBackground = False
+    TabOrder = 1
+    object Label7: TLabel
+      Left = 13
+      Top = 316
+      Width = 75
+      Height = 13
+      Caption = 'Seleccionar?'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object SiBitBtn: TBitBtn
+      Left = 11
+      Top = 259
+      Width = 80
+      Height = 50
+      Caption = 'Si'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      Kind = bkYes
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 0
+      OnClick = SiBitBtnClick
+    end
+    object NoBitBtn: TBitBtn
+      Left = 11
+      Top = 336
+      Width = 80
+      Height = 50
+      Caption = 'No'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      Kind = bkNo
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 1
+      OnClick = NoBitBtnClick
+    end
+    object todoBitBtn: TBitBtn
+      Left = 8
+      Top = 10
+      Width = 80
+      Height = 50
+      Caption = 'TODO'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      Glyph.Data = {
+        F2010000424DF201000000000000760000002800000024000000130000000100
+        0400000000007C01000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333334433333
+        3333333333388F3333333333000033334224333333333333338338F333333333
+        0000333422224333333333333833338F33333333000033422222243333333333
+        83333338F3333333000034222A22224333333338F33F33338F33333300003222
+        A2A2224333333338F383F3338F33333300003A2A222A222433333338F8333F33
+        38F33333000034A22222A22243333338833333F3338F333300004222A2222A22
+        2433338F338F333F3338F3330000222A3A2224A22243338F3838F338F3338F33
+        0000A2A333A2224A2224338F83338F338F3338F300003A33333A2224A2224338
+        333338F338F3338F000033333333A2224A2243333333338F338F338F00003333
+        33333A2224A2233333333338F338F83300003333333333A2224A333333333333
+        8F338F33000033333333333A222433333333333338F338F30000333333333333
+        A224333333333333338F38F300003333333333333A223333333333333338F8F3
+        000033333333333333A3333333333333333383330000}
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 2
+      OnClick = todoBitBtnClick
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 67
+    Width = 692
+    Height = 399
+    Align = alClient
+    DataSource = DS
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    TabOrder = 2
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    OnDblClick = DBGrid1DblClick
+    OnKeyDown = DBGrid1KeyDown
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'OPERACION'
+        Title.Caption = 'NRO'
+        Width = 45
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'LETRA'
+        Title.Caption = 'L'
+        Width = 15
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'FECHA'
+        Width = 131
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NOMBRE'
+        Width = 118
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DESCRIPCION'
+        Width = 100
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PRECIO'
+        Width = 60
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'TOTAL'
+        Width = 95
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PAGADO'
+        Width = 83
+        Visible = True
+      end>
+  end
+  object DS: TDataSource
+    DataSet = Tabla
+    Left = 110
+    Top = 384
+  end
+  object Tabla: TIBQuery
+    Database = DM.BaseDatos
+    Transaction = DM.Transaccion
+    SQL.Strings = (
+      'SELECT'
+      '  '#39'Mi Empresa'#39' As Empresa,'
+      '  "Cliente".NOMBRE,'
+      '  "Cliente".TITULAR,'
+      '  "Cliente".DIRECCION,'
+      '  "Cliente".DIRECCIONCOMERCIAL,'
+      '  "Articulo".DESCRIPCION,'
+      '  "VentaItem".OPERACION,'
+      '  "VentaItem".ARTICULO,'
+      '  "VentaItem".CANTIDAD,'
+      '  "VentaItem".PRECIO,'
+      '  ("VentaItem".PRECIO * "VentaItem".CANTIDAD ) as PREXCANT,'
+      '  "VentaItem".SERVICIO,'
+      '  "VentaItem".DESCRIPCION AS DESCR,'
+      '  "Venta".CODIGO,'
+      '  "Venta".LETRA,'
+      '  "Venta".FECHA,'
+      '  "Venta".COMPROBANTE,'
+      '  "Venta".IVA3,'
+      '  "Venta".TOTAL,'
+      '  "Venta".CONTADO,'
+      '  "Venta".CLIENTE,'
+      '  "Venta".SUBTOTAL,'
+      '  "Venta".DESCUENTO,'
+      '  "Venta".IMPUESTO,'
+      '  "Venta".IVA2,'
+      '  "Venta".IVA1,'
+      '  "Venta".EXCENTO,'
+      '  "Venta".SALDO,'
+      '  "Venta".PAGADO'
+      ' FROM'
+      '  "Venta"'
+      
+        '  INNER JOIN "VentaItem" ON ("Venta".CODIGO = "VentaItem".OPERAC' +
+        'ION)'
+      
+        '  INNER JOIN "Articulo" ON ("VentaItem".ARTICULO = "Articulo".CO' +
+        'DIGO)'
+      '  INNER JOIN "Cliente" ON ("Venta".CLIENTE = "Cliente".CODIGO)'
+      '')
+    Left = 77
+    Top = 382
+  end
+end

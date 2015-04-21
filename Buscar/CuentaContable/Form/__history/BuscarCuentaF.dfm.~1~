@@ -1,0 +1,221 @@
+object BuscarCuentaForm: TBuscarCuentaForm
+  Left = 419
+  Top = 224
+  Caption = 'Buscar Cuenta'
+  ClientHeight = 499
+  ClientWidth = 792
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnKeyDown = FormKeyDown
+  OnKeyUp = FormKeyUp
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 67
+    Width = 694
+    Height = 432
+    Align = alClient
+    DataSource = DataSource
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    OnDblClick = DBGrid1DblClick
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'JERARQUIA'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 77
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DESCRIPCION'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 246
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'RUBRO'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 198
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CAPITULO'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 139
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'TIPOGASTO'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Visible = True
+      end>
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 792
+    Height = 67
+    Align = alTop
+    Color = clBlack
+    ParentBackground = False
+    TabOrder = 0
+    ExplicitTop = -6
+    object Label2: TLabel
+      Left = 10
+      Top = 4
+      Width = 105
+      Height = 24
+      Caption = 'Descripci'#243'n:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object DescripcionEdit: TEdit
+      Left = 8
+      Top = 28
+      Width = 289
+      Height = 32
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+    end
+  end
+  object Panel2: TPanel
+    Left = 694
+    Top = 67
+    Width = 98
+    Height = 432
+    Align = alRight
+    Color = clBlack
+    ParentBackground = False
+    TabOrder = 2
+    ExplicitTop = 76
+    ExplicitHeight = 392
+    object Label1: TLabel
+      Left = 12
+      Top = 185
+      Width = 75
+      Height = 13
+      Caption = 'Seleccionar?'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object BitBtn1: TBitBtn
+      Left = 9
+      Top = 127
+      Width = 80
+      Height = 50
+      Caption = 'Si'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      Kind = bkYes
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 0
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 9
+      Top = 204
+      Width = 80
+      Height = 50
+      Caption = 'No'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      Kind = bkNo
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 1
+      OnClick = BitBtn2Click
+    end
+  end
+  object DataSource: TDataSource
+    DataSet = Tabla
+    Left = 252
+    Top = 352
+  end
+  object Tabla: TIBQuery
+    Database = DM.BaseDatos
+    Transaction = DM.Transaccion
+    SQL.Strings = (
+      'SELECT '
+      '  "Cuenta".JERARQUIA,'
+      '  "Cuenta".DESCRIPCION,'
+      '  "RubroContable".DESCRIPCION AS RUBRO,'
+      '  "Capitulo".DESCRIPCION AS CAPITULO,'
+      '  "TipoGasto".DESCRIPCION AS TIPOGASTO,'
+      '  "Cuenta".CODIGO'
+      'FROM'
+      '  "Cuenta"'
+      
+        '  INNER JOIN "RubroContable" ON ("Cuenta".RUBRO = "RubroContable' +
+        '".CODIGO)'
+      
+        '  INNER JOIN "Capitulo" ON ("Cuenta".CAPITULO = "Capitulo".CODIG' +
+        'O)'
+      
+        '  INNER JOIN "TipoGasto" ON ("Cuenta".TIPOGASTO = "TipoGasto".CO' +
+        'DIGO)')
+    Left = 208
+    Top = 352
+  end
+end

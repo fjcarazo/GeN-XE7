@@ -1,0 +1,280 @@
+object FBuscaCliente: TFBuscaCliente
+  Left = 189
+  Top = 157
+  BorderIcons = [biSystemMenu, biMinimize, biMaximize, biHelp]
+  Caption = 'Buscar Cliente'
+  ClientHeight = 466
+  ClientWidth = 790
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 59
+    Width = 690
+    Height = 407
+    Align = alClient
+    DataSource = DataSource
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    OnDblClick = DBGrid1DblClick
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'CODIGO'
+        Title.Caption = 'C'#243'digo'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NOMBRE'
+        Title.Caption = 'Cliente'
+        Width = 194
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'TITULAR'
+        Title.Caption = 'Titular'
+        Width = 173
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'TELEFONO'
+        Width = 109
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CELULAR'
+        Width = 128
+        Visible = True
+      end>
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 790
+    Height = 59
+    Align = alTop
+    BevelOuter = bvLowered
+    Color = clBlack
+    ParentBackground = False
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 8
+      Top = 4
+      Width = 44
+      Height = 13
+      Caption = 'Nombre'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object DescripcionEdit: TEdit
+      Left = 8
+      Top = 20
+      Width = 337
+      Height = 32
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      OnKeyUp = DescripcionEditKeyUp
+    end
+  end
+  object Panel2: TPanel
+    Left = 690
+    Top = 59
+    Width = 100
+    Height = 407
+    Align = alRight
+    BevelOuter = bvLowered
+    Color = clBlack
+    ParentBackground = False
+    TabOrder = 2
+    object DBText1: TDBText
+      Left = 11
+      Top = 29
+      Width = 80
+      Height = 17
+      Alignment = taRightJustify
+      DataField = 'Direccion'
+      DataSource = DataSource
+    end
+    object DBText2: TDBText
+      Left = 11
+      Top = 52
+      Width = 80
+      Height = 17
+      Alignment = taRightJustify
+      DataField = 'DIRECCIONCOMERCIAL'
+      DataSource = DataSource
+    end
+    object DBText3: TDBText
+      Left = 11
+      Top = 92
+      Width = 80
+      Height = 17
+      Alignment = taRightJustify
+      DataField = 'Provincia'
+      DataSource = DataSource
+    end
+    object DBText4: TDBText
+      Left = 11
+      Top = 134
+      Width = 80
+      Height = 17
+      Alignment = taRightJustify
+      DataField = 'Departamento'
+      DataSource = DataSource
+    end
+    object DBText5: TDBText
+      Left = 11
+      Top = 179
+      Width = 80
+      Height = 17
+      Alignment = taRightJustify
+      DataField = 'Ciudad'
+      DataSource = DataSource
+    end
+    object Label4: TLabel
+      Left = 11
+      Top = 72
+      Width = 58
+      Height = 13
+      Caption = 'Provincia:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 11
+      Top = 115
+      Width = 43
+      Height = 13
+      Caption = 'Depart:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 11
+      Top = 160
+      Width = 44
+      Height = 13
+      Caption = 'Ciudad:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 11
+      Top = 18
+      Width = 59
+      Height = 13
+      Caption = 'Direcci'#243'n:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label7: TLabel
+      Left = 11
+      Top = 322
+      Width = 75
+      Height = 13
+      Caption = 'Seleccionar?'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object SiBitBtn: TBitBtn
+      Left = 11
+      Top = 265
+      Width = 80
+      Height = 50
+      Caption = 'Si'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      Kind = bkYes
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 0
+      OnClick = SiBitBtnClick
+    end
+    object NoBitBtn: TBitBtn
+      Left = 11
+      Top = 344
+      Width = 80
+      Height = 50
+      Caption = 'No'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      Kind = bkNo
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 1
+      OnClick = NoBitBtnClick
+    end
+  end
+  object DataSource: TDataSource
+    DataSet = Tabla
+    Left = 341
+    Top = 278
+  end
+  object Tabla: TIBQuery
+    Database = DM.BaseDatos
+    Transaction = DM.Transaccion
+    Active = True
+    SQL.Strings = (
+      'Select * from "Cliente"')
+    Left = 285
+    Top = 278
+  end
+end

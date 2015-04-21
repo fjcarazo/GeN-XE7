@@ -1,0 +1,84 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{074C8160-363E-436B-90EE-24622060D2CA}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="..\..\Menu\GestionCobranza\Project\MenuGestionCobranza.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Operacion\GestionCobranza\Project\GestionCobranza.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Operacion\GestionCobranzaExtraJudicial\Project\CobranzaExtraJudicial.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Operacion\GestionCobranzaJudicial\Project\CobranzaJudicial.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Operacion\GestionCobranzaIncobrable\Project\CobranzaIncobrable.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="MenuGestionCobranza">
+			<MSBuild Projects="..\..\Menu\GestionCobranza\Project\MenuGestionCobranza.dproj"/>
+		</Target>
+		<Target Name="MenuGestionCobranza:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Menu\GestionCobranza\Project\MenuGestionCobranza.dproj"/>
+		</Target>
+		<Target Name="MenuGestionCobranza:Make">
+			<MSBuild Targets="Make" Projects="..\..\Menu\GestionCobranza\Project\MenuGestionCobranza.dproj"/>
+		</Target>
+		<Target Name="GestionCobranza">
+			<MSBuild Projects="..\..\Operacion\GestionCobranza\Project\GestionCobranza.dproj"/>
+		</Target>
+		<Target Name="GestionCobranza:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Operacion\GestionCobranza\Project\GestionCobranza.dproj"/>
+		</Target>
+		<Target Name="GestionCobranza:Make">
+			<MSBuild Targets="Make" Projects="..\..\Operacion\GestionCobranza\Project\GestionCobranza.dproj"/>
+		</Target>
+		<Target Name="CobranzaExtraJudicial">
+			<MSBuild Projects="..\..\Operacion\GestionCobranzaExtraJudicial\Project\CobranzaExtraJudicial.dproj"/>
+		</Target>
+		<Target Name="CobranzaExtraJudicial:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Operacion\GestionCobranzaExtraJudicial\Project\CobranzaExtraJudicial.dproj"/>
+		</Target>
+		<Target Name="CobranzaExtraJudicial:Make">
+			<MSBuild Targets="Make" Projects="..\..\Operacion\GestionCobranzaExtraJudicial\Project\CobranzaExtraJudicial.dproj"/>
+		</Target>
+		<Target Name="CobranzaJudicial">
+			<MSBuild Projects="..\..\Operacion\GestionCobranzaJudicial\Project\CobranzaJudicial.dproj"/>
+		</Target>
+		<Target Name="CobranzaJudicial:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Operacion\GestionCobranzaJudicial\Project\CobranzaJudicial.dproj"/>
+		</Target>
+		<Target Name="CobranzaJudicial:Make">
+			<MSBuild Targets="Make" Projects="..\..\Operacion\GestionCobranzaJudicial\Project\CobranzaJudicial.dproj"/>
+		</Target>
+		<Target Name="CobranzaIncobrable">
+			<MSBuild Projects="..\..\Operacion\GestionCobranzaIncobrable\Project\CobranzaIncobrable.dproj"/>
+		</Target>
+		<Target Name="CobranzaIncobrable:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Operacion\GestionCobranzaIncobrable\Project\CobranzaIncobrable.dproj"/>
+		</Target>
+		<Target Name="CobranzaIncobrable:Make">
+			<MSBuild Targets="Make" Projects="..\..\Operacion\GestionCobranzaIncobrable\Project\CobranzaIncobrable.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="MenuGestionCobranza;GestionCobranza;CobranzaExtraJudicial;CobranzaJudicial;CobranzaIncobrable"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="MenuGestionCobranza:Clean;GestionCobranza:Clean;CobranzaExtraJudicial:Clean;CobranzaJudicial:Clean;CobranzaIncobrable:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="MenuGestionCobranza:Make;GestionCobranza:Make;CobranzaExtraJudicial:Make;CobranzaJudicial:Make;CobranzaIncobrable:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

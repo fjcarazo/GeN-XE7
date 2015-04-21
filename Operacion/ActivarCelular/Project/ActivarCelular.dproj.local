@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/06/15 18:57:28.046.pas,D:\RAD Studio\Projects\CiveLoo\GeN\DataModule\ImprimirDM.pas=</Transaction>
+    <Transaction>2010/06/15 18:57:28.046.dfm,D:\RAD Studio\Projects\CiveLoo\GeN\DataModule\ImprimirDM.dfm=</Transaction>
+    <Transaction>2010/06/15 18:59:01.171.dproj,D:\RAD Studio\Projects\Project1.dproj=D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\ActivarCelular\Project\ActivarCelular.dproj</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="-1" SortType="1"/>
+</BorlandProject>

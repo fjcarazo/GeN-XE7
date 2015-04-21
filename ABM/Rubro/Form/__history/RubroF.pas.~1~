@@ -1,0 +1,62 @@
+unit RubroF;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, ExtCtrls, DBCtrls, Grids, DBGrids, DB,
+  Mask, ADODB, DataModule;
+
+type
+  TRubroForm = class(TForm)
+    TRubro: TADOTable;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    DSRubro: TDataSource;
+    DBGrid1: TDBGrid;
+    DBNavigator1: TDBNavigator;
+    BitBtn1: TBitBtn;
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+  desc:string;
+    { Public declarations }
+  end;
+
+var
+  RubroForm: TRubroForm;
+
+implementation
+
+{$R *.dfm}
+
+procedure TRubroForm.FormCreate(Sender: TObject);
+begin
+   TRubro.Active:=true;
+end;
+
+procedure TRubroForm.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+   TRubro.Active:=false;
+end;
+
+procedure TRubroForm.BitBtn1Click(Sender: TObject);
+begin
+   desc := DBEdit1.Text;
+   If (TRubro.State = dsEdit) or (TRubro.State = dsInsert) then If DBEdit1.Text <> '' then
+   begin
+   TRubro.Post;
+   end;
+   Close;
+end;
+
+procedure TRubroForm.FormShow(Sender: TObject);
+begin
+TRubro.Insert;
+end;
+
+end.

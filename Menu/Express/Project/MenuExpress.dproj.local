@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/06/24 22:44:23.218.dproj,D:\RAD Studio\Projects\DeGsoft\GeN\Menu\Completo\Project\Menu.dproj=D:\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2010/09/14 19:38:08.375.pas,C:\Documents and Settings\BackUp\Mis documentos\WORK\projects\DeGsoft\GeN\Demo\Demo.pas=</Transaction>
+    <Transaction>2010/09/14 19:38:08.390.dfm,C:\Documents and Settings\BackUp\Mis documentos\WORK\projects\DeGsoft\GeN\Demo\Demo.dfm=</Transaction>
+    <Transaction>2010/11/19 10:39:16.921.dproj,F:\Projects\DeGsoft\GeN\Menu\PuntoVenta\Project\MenuPV.dproj=F:\Projects\DeGsoft\GeN\Menu\PuntoVenta\Project\Menu.dproj</Transaction>
+    <Transaction>2010/11/19 10:39:32.500.dfm,F:\Projects\DeGsoft\GeN\Menu\PuntoVenta\Form\MenuPVF.dfm=F:\Projects\DeGsoft\GeN\Menu\PuntoVenta\Form\UMainF.dfm</Transaction>
+    <Transaction>2010/11/19 10:39:32.500.pas,F:\Projects\DeGsoft\GeN\Menu\PuntoVenta\Form\MenuPVF.pas=F:\Projects\DeGsoft\GeN\Menu\PuntoVenta\Form\UMainF.pas</Transaction>
+    <Transaction>2010/12/19 16:04:48.109.dproj,F:\Projects\DeGsoft\GeN\Menu\Express\Project\MenuExpress.dproj=F:\Projects\DeGsoft\GeN\Menu\Express\Project\MenuPV.dproj</Transaction>
+    <Transaction>2010/12/19 16:05:23.140.pas,F:\Projects\DeGsoft\GeN\Menu\Express\Form\MenuExpressF.pas=F:\Projects\DeGsoft\GeN\Menu\Express\Form\MenuPVF.pas</Transaction>
+    <Transaction>2010/12/19 16:05:23.140.dfm,F:\Projects\DeGsoft\GeN\Menu\Express\Form\MenuExpressF.dfm=F:\Projects\DeGsoft\GeN\Menu\Express\Form\MenuPVF.dfm</Transaction>
+    <Transaction>2010/12/19 16:05:29.156.dfm,F:\Projects\DeGsoft\GeN\SubOperacion\Login\Form\LoginF.dfm=</Transaction>
+    <Transaction>2010/12/19 16:05:29.156.pas,F:\Projects\DeGsoft\GeN\SubOperacion\Login\Form\LoginF.pas=</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="..\..\Express"/>
+    <File Path="..\Form"/>
+    <File Path="..\Form\MenuExpressF.pas"/>
+    <File Path="..\Form\MenuExpressF.dfm"/>
+    <File Path="..\..\..\..\GeN-XE7"/>
+    <File Path="..\..\..\DataModule"/>
+    <File Path="..\..\..\DataModule\DataModule.pas"/>
+    <File Path="..\..\..\DataModule\DataModule.dfm"/>
+    <File Path="..\..\..\SubOperacion"/>
+    <File Path="..\..\..\SubOperacion\Login"/>
+    <File Path="..\..\..\SubOperacion\Login\Form"/>
+    <File Path="..\..\..\SubOperacion\Login\Form\LoginF.pas"/>
+    <File Path="..\..\..\SubOperacion\Login\Form\LoginF.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>

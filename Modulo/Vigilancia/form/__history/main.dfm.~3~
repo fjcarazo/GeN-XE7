@@ -1,0 +1,313 @@
+object mainForm: TmainForm
+  Left = 54
+  Top = 153
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'DeG'
+  ClientHeight = 312
+  ClientWidth = 636
+  Color = clWhite
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clBlack
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  Icon.Data = {
+    0000010001002020100000000000E80200001600000028000000200000004000
+    0000010004000000000080020000000000000000000000000000000000000000
+    0000000080000080000000808000800000008000800080800000C0C0C0008080
+    80000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0777777777777777770000000000000077777777777777777770000000000007
+    77FFFFFFFFFFF77887700000008000077088888888888F777770700008800007
+    7088888888888F7007700708888000077088777777788F777770700888800007
+    7088777777788F7007700708888000077088888888888F777770700008800007
+    7700000000000770077000000080000777777777777777777770000000000007
+    7777777777777770000000000000080000000000000000000000000000000888
+    8888888888800000000000000000088000000000000000000000000000000800
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    000000000000000000000000000000000000000000000000000000000000FFFF
+    FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF80003FFF000
+    01FFE00000FCC0000018C0000000C0000000C0000000C0000000C0000000C000
+    0018C00000FC000001FF00001FFF00007FFF0001FFFF1FFFFFFF3FFFFFFFFFFF
+    FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label9: TLabel
+    Left = 612
+    Top = 0
+    Width = 13
+    Height = 24
+    Cursor = crHandPoint
+    Caption = '?'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -21
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    OnClick = Label9Click
+  end
+  object bIniciarCamara: TButton
+    Left = 6
+    Top = 4
+    Width = 90
+    Height = 25
+    Hint = 'Inicia la c'#225'mara'
+    Caption = '&Iniciar c'#225'mara'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 0
+    OnClick = bIniciarCamaraClick
+  end
+  object bDetener: TButton
+    Left = 102
+    Top = 4
+    Width = 91
+    Height = 25
+    Caption = '&Detener c'#225'mara'
+    Enabled = False
+    TabOrder = 1
+    OnClick = bDetenerClick
+  end
+  object bCerrar: TButton
+    Left = 286
+    Top = 4
+    Width = 40
+    Height = 25
+    Hint = 'Cierra esta aplicaci'#243'n'
+    Cancel = True
+    Caption = 'C&errar'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
+    OnClick = bCerrarClick
+  end
+  object pImagen: TPanel
+    Left = 5
+    Top = 31
+    Width = 324
+    Height = 242
+    Color = clBlack
+    TabOrder = 3
+    object Label5: TLabel
+      Left = 8
+      Top = 48
+      Width = 294
+      Height = 132
+      Alignment = taCenter
+      Caption = 'Sensor de Movimiento con WebCam'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clNavy
+      Font.Height = -37
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+      WordWrap = True
+    end
+  end
+  object bGuardarImagen: TButton
+    Left = 5
+    Top = 282
+    Width = 124
+    Height = 25
+    Hint = 'Guarda la imagen capturada en un fichero'
+    Caption = '&Guardar imagen actual'
+    Enabled = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+    OnClick = bGuardarImagenClick
+  end
+  object bGuardarVideo: TButton
+    Left = 252
+    Top = 283
+    Width = 77
+    Height = 25
+    Hint = 'Guarda el video capturado'
+    Caption = 'G&uardar video'
+    Enabled = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 5
+    OnClick = bGuardarVideoClick
+  end
+  object GroupBox1: TGroupBox
+    Left = 365
+    Top = 31
+    Width = 263
+    Height = 208
+    Caption = 'Opciones '
+    TabOrder = 6
+    object Label3: TLabel
+      Left = 6
+      Top = 21
+      Width = 129
+      Height = 13
+      Caption = 'Velocidad de Detecci'#243'n >>'
+    end
+    object Label2: TLabel
+      Left = 12
+      Top = 53
+      Width = 123
+      Height = 13
+      Caption = 'Sensibilidad de cambio >>'
+    end
+    object Label4: TLabel
+      Left = 5
+      Top = 111
+      Width = 187
+      Height = 13
+      Caption = 'Carpeta y nombre im'#225'genes capturadas'
+    end
+    object tbVelocidad: TTrackBar
+      Left = 134
+      Top = 18
+      Width = 121
+      Height = 25
+      Max = 1000
+      Min = 50
+      Frequency = 100
+      Position = 999
+      TabOrder = 0
+      OnChange = tbVelocidadChange
+    end
+    object tbSensibilidad: TTrackBar
+      Left = 134
+      Top = 50
+      Width = 121
+      Height = 33
+      Max = 99
+      Frequency = 10
+      Position = 12
+      TabOrder = 1
+      OnChange = tbSensibilidadChange
+    end
+    object txtPScroll: TEdit
+      Left = 199
+      Top = 51
+      Width = 18
+      Height = 19
+      Color = clInfoBk
+      Ctl3D = False
+      Enabled = False
+      ParentCtl3D = False
+      ReadOnly = True
+      TabOrder = 2
+      Text = '50'
+    end
+    object bSelFichero: TButton
+      Left = 233
+      Top = 127
+      Width = 19
+      Height = 21
+      Hint = 
+        'Seleccionar carpeta donde guardar las im'#225'genes de movimiento cap' +
+        'turadas'
+      Caption = '...'
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 3
+      OnClick = bSelFicheroClick
+    end
+    object txtUbicacionImg: TEdit
+      Left = 4
+      Top = 127
+      Width = 231
+      Height = 21
+      TabOrder = 4
+      Text = '\img\f.bmp'
+    end
+    object bIniciarDeteccion: TButton
+      Left = 60
+      Top = 159
+      Width = 161
+      Height = 33
+      Hint = 'Activa la captura de im'#225'genes si se detecta movimiento'
+      Caption = 'Iniciar detecci'#243'n movimiento'
+      Enabled = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 5
+      OnClick = bIniciarDeteccionClick
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 365
+    Top = 238
+    Width = 263
+    Height = 70
+    TabOrder = 7
+    object Label1: TLabel
+      Left = 12
+      Top = 30
+      Width = 111
+      Height = 13
+      Caption = '% de movimiento actual'
+    end
+    object txtError: TEdit
+      Left = 128
+      Top = 19
+      Width = 115
+      Height = 38
+      Ctl3D = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -27
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentCtl3D = False
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 0
+    end
+  end
+  object dlGuardar: TSaveDialog
+    Left = 418
+  end
+  object temporizador: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = temporizadorTimer
+    Left = 467
+  end
+  object IdSSLIOHandlerSocketOpenSSL: TIdSSLIOHandlerSocketOpenSSL
+    MaxLineAction = maException
+    Port = 0
+    DefaultPort = 0
+    SSLOptions.Method = sslvSSLv2
+    SSLOptions.Mode = sslmUnassigned
+    SSLOptions.VerifyMode = []
+    SSLOptions.VerifyDepth = 0
+    Left = 584
+  end
+  object IdSMTP: TIdSMTP
+    SASLMechanisms = <>
+    Left = 552
+  end
+  object IdMessage: TIdMessage
+    AttachmentEncoding = 'UUE'
+    BccList = <>
+    CCList = <>
+    Encoding = meDefault
+    FromList = <
+      item
+      end>
+    Recipients = <>
+    ReplyTo = <>
+    ConvertPreamble = True
+    Left = 520
+  end
+end

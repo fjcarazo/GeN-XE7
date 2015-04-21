@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/06/24 17:44:32.421.dproj,D:\RAD Studio\Projects\DeGsoft\GeN\Operacion\VenderCodBarra\Project\Vender.dproj=D:\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2010/07/24 18:36:20.656.pas,G:\projects\DeGsoft\GeN\SubOperacion\ManoObra\Form\servicio.pas=</Transaction>
+    <Transaction>2010/07/24 18:36:20.656.dfm,G:\projects\DeGsoft\GeN\SubOperacion\ManoObra\Form\servicio.dfm=</Transaction>
+    <Transaction>2010/07/24 18:37:43.078.dfm,G:\projects\DeGsoft\GeN\Buscar\Cobrador\Form\BuscarCobrador.dfm=</Transaction>
+    <Transaction>2010/07/24 18:37:43.078.pas,G:\projects\DeGsoft\GeN\Buscar\Cobrador\Form\BuscarCobrador.pas=</Transaction>
+    <Transaction>2010/07/24 18:38:09.281.dfm,G:\projects\DeGsoft\GeN\Buscar\Plan\Form\BuscarPlan.dfm=</Transaction>
+    <Transaction>2010/07/24 18:38:09.281.pas,G:\projects\DeGsoft\GeN\Buscar\Plan\Form\BuscarPlan.pas=</Transaction>
+    <Transaction>2010/07/30 17:44:39.015.dproj,G:\projects\DeGsoft\GeN\Operacion\CrearPedido\Project\CrearPedido.dproj=G:\projects\DeGsoft\GeN\Operacion\CrearPedido\Project\Vender.dproj</Transaction>
+    <Transaction>2010/07/30 17:44:57.890.dfm,G:\projects\DeGsoft\GeN\Operacion\CrearPedido\Form\CrearPedidoF.dfm=G:\projects\DeGsoft\GeN\Operacion\CrearPedido\Form\VenderF.dfm</Transaction>
+    <Transaction>2010/07/30 17:44:57.890.pas,G:\projects\DeGsoft\GeN\Operacion\CrearPedido\Form\CrearPedidoF.pas=G:\projects\DeGsoft\GeN\Operacion\CrearPedido\Form\VenderF.pas</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="-1" SortType="1"/>
+</BorlandProject>

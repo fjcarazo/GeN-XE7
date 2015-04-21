@@ -1,0 +1,16 @@
+program Categoria;
+
+uses
+  Forms,
+  RubroF in '..\..\Rubro\Form\RubroF.pas' {FCategorias},
+  DataModule in '..\..\..\DataModule\DataModule.pas' {DM: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.Title := 'Categoría';
+  Application.CreateForm(TFCategorias, FCategorias);
+  Application.Run;
+end.

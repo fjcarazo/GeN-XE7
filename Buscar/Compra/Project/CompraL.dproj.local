@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/11/24 12:21:48.171.dproj,F:\Projects\DeGsoft\GeN\Buscar\Venta\Project\VentaL.dproj=C:\Documents and Settings\Cive\Mis documentos\RAD Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2010/11/24 12:28:20.296.dproj,F:\Projects\DeGsoft\GeN\Buscar\Compra\Project\CompraL.dproj=F:\Projects\DeGsoft\GeN\Buscar\Compra\Project\VentaL.dproj</Transaction>
+    <Transaction>2010/11/24 12:28:46.156.dfm,F:\Projects\DeGsoft\GeN\Buscar\Compra\Form\BuscaCompra.dfm=F:\Projects\DeGsoft\GeN\Buscar\Compra\Form\BuscaFactura.dfm</Transaction>
+    <Transaction>2010/11/24 12:28:46.156.pas,F:\Projects\DeGsoft\GeN\Buscar\Compra\Form\BuscaCompra.pas=F:\Projects\DeGsoft\GeN\Buscar\Compra\Form\BuscaFactura.pas</Transaction>
+  </Transactions>
+</BorlandProject>

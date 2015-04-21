@@ -1,0 +1,21 @@
+program Comprar;
+
+uses
+  Forms,
+  ComprarF in '..\Form\ComprarF.pas' {ComprarForm},
+  DataModule in '..\..\..\DataModule\DataModule.pas' {DM: TDataModule},
+  UFBuscaProve in '..\..\..\Buscar\Proveedor\Form\UFBuscaProve.pas' {FBuscaProve},
+  UFBuscaArticulos in '..\..\..\Buscar\Articulo\Form\UFBuscaArticulos.pas' {FBuscaArticulo},
+  BuscarCheques in '..\..\..\Buscar\Cheque\Form\BuscarCheques.pas' {BuscarChequesForm},
+  UFFormaPago in '..\..\..\SubOperacion\FormaPago\Form\UFFormaPago.pas' {FFormaPago},
+  UFSelProdFact in '..\..\..\SubOperacion\SelecionarPrecio\Form\UFSelProdFact.pas' {FSelProdFact};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.Title := 'Comprar';
+  Application.CreateForm(TComprarForm, ComprarForm);
+  Application.Run;
+end.

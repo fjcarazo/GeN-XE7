@@ -1,0 +1,83 @@
+object IncrementoForm: TIncrementoForm
+  Left = 424
+  Top = 174
+  BorderIcons = []
+  BorderStyle = bsSingle
+  Caption = 'Incrementar Importe'
+  ClientHeight = 205
+  ClientWidth = 287
+  Color = clBlack
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clBlack
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = [fsBold]
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 195
+    Top = 43
+    Width = 22
+    Height = 29
+    Caption = '%'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -24
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Edit1: TEdit
+    Left = 72
+    Top = 40
+    Width = 121
+    Height = 37
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -24
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+  end
+  object BitBtn1: TBitBtn
+    Left = 32
+    Top = 122
+    Width = 75
+    Height = 50
+    Caption = 'Si'
+    DoubleBuffered = True
+    Kind = bkYes
+    ParentDoubleBuffered = False
+    TabOrder = 1
+    OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 179
+    Top = 122
+    Width = 75
+    Height = 50
+    Caption = 'No'
+    DoubleBuffered = True
+    Kind = bkNo
+    ParentDoubleBuffered = False
+    TabOrder = 2
+    OnClick = BitBtn2Click
+  end
+  object Q: TIBQuery
+    Database = DM.BaseDatos
+    Transaction = DM.Transaccion
+    Left = 74
+    Top = 80
+  end
+  object T: TIBQuery
+    Database = DM.BaseDatos
+    Transaction = DM.Transaccion
+    Left = 162
+    Top = 80
+  end
+end

@@ -1,0 +1,144 @@
+unit ListarPedidoF;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, ADODB, RpCon, RpConDS, RpRave, RpDefine, RpBase, RpSystem,
+  StdCtrls, Buttons, ComCtrls, ExtCtrls, Grids, DBGrids, DataModule;
+
+type
+  TListarPedidoForm = class(TForm)
+    Panel1: TPanel;
+    RvSystem1: TRvSystem;
+    RvProject1: TRvProject;
+    RvDataSetConnection1: TRvDataSetConnection;
+    Query: TADOQuery;
+    DateTimePicker1: TDateTimePicker;
+    DateTimePicker2: TDateTimePicker;
+    BitBtn8: TBitBtn;
+    Edit3: TEdit;
+    Label16: TLabel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Panel2: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    StringGrid1: TStringGrid;
+    Query1: TADOQuery;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn8Click(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ListarPedidoForm: TListarPedidoForm;
+
+implementation
+
+uses BuscarVendedor;
+
+{$R *.dfm}
+
+procedure TListarPedidoForm.BitBtn1Click(Sender: TObject);
+var i:integer;
+begin
+StringGrid1.Cells[0,1] := '';
+StringGrid1.Cells[1,1] := '';
+StringGrid1.Cells[2,1] := '';
+StringGrid1.RowCount := 1;
+Query.SQL.Text:='SELECT FacturaItem.CodParte, FacturaItem.ItemDetalle, Sum(FacturaItem.Cantidad) as Cant'+
+' FROM FacturaItem'+
+' INNER JOIN Factura'+
+' ON Factura.CodFactura = FacturaItem.CodFactura'+
+' WHERE (FacturaItem.Tipo= ''P'')'+
+' AND (Factura.Pasivo = False)'+
+' AND (Factura.Vendedor = '+Edit3.Text+')'+
+' AND (Factura.Fecha >= #'+DateToStr(DateTimePicker1.Date)+'#)'+
+' AND (Factura.Fecha <= #'+DateToStr(DateTimePicker2.Date)+'#)'+
+' GROUP BY FacturaItem.CodParte, FacturaItem.ItemDetalle';
+Query.Open;
+for i:= 1 to Query.RecordCount do
+ begin
+ StringGrid1.RowCount := StringGrid1.RowCount +1;
+ StringGrid1.Cells[0,i] := Query.FieldByName('CodParte').AsString;
+ StringGrid1.Cells[1,i] := Query.FieldByName('Cant').AsString;
+ StringGrid1.Cells[2,i] := Query.FieldByName('ItemDetalle').AsString;
+ Query.Next;
+ end;
+ if StringGrid1.RowCount = 1 then StringGrid1.RowCount := StringGrid1.RowCount +1;
+ StringGrid1.FixedRows := 1;
+end;
+
+procedure TListarPedidoForm.BitBtn2Click(Sender: TObject);
+var i: integer;
+begin
+ RvProject1.ProjectFile:=Path+'Report\Pedidos.rav';
+ RvProject1.Execute;
+ // Iniciar la Transaccion
+ DM.AC1.BeginTrans;
+ Query1.SQL.Text:='SELECT FacturaItem.CodParte, FacturaItem.ItemDetalle, Sum(FacturaItem.Cantidad) as Cant, FacturaItem.CodFactura'+
+ ' FROM FacturaItem'+
+ ' INNER JOIN Factura'+
+ ' ON Factura.CodFactura = FacturaItem.CodFactura'+
+ ' WHERE (FacturaItem.Tipo= ''P'')'+
+ ' AND (Factura.Pasivo = False)'+
+ ' AND (Factura.Vendedor = '+Edit3.Text+')'+
+ ' AND (Factura.Fecha >= #'+DateToStr(DateTimePicker1.Date)+'#)'+
+ ' AND (Factura.Fecha <= #'+DateToStr(DateTimePicker2.Date)+'#)'+
+ ' GROUP BY FacturaItem.CodFactura, FacturaItem.CodParte, FacturaItem.ItemDetalle';
+ Query1.Open;
+ for i:= 1 to Query1.RecordCount do
+ begin
+ Query.SQL.Text:='Update Factura Set Tipo = ''L'' Where '+
+                 'CodFactura = '+Query1.FieldByName('CodFactura').AsString;;
+ Query.ExecSQL;
+ Query.SQL.Text:='Update FacturaItem Set Tipo = ''L'' Where '+
+                 'CodFactura = '+Query1.FieldByName('CodFactura').AsString;;
+ Query.ExecSQL;
+ Query1.Next;
+ end;
+ // Completa la Transaccion
+ DM.AC1.CommitTrans;
+end;
+
+procedure TListarPedidoForm.FormShow(Sender: TObject);
+begin
+DateTimePicker2.Date:=Date;
+ StringGrid1.Cells[0,0] := 'Código';
+ StringGrid1.Cells[1,0] := 'Cantidad';
+ StringGrid1.Cells[2,0] := 'Detalle';
+end;
+
+procedure TListarPedidoForm.BitBtn8Click(Sender: TObject);
+begin
+ BuscarVendedorForm:=TBuscarVendedorForm.Create(self);
+   try
+      BuscarVendedorForm.ShowModal;
+   finally
+      Edit3.Text:= BuscarVendedorForm.ATVendedores.FieldByName('Codigo').AsString;
+      BuscarVendedorForm.Free;
+   end;
+end;
+
+procedure TListarPedidoForm.FormCreate(Sender: TObject);
+begin
+DM:=TDM.Create(Self);
+end;
+
+procedure TListarPedidoForm.FormKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+IF Key = VK_F3 then BitBtn8.Click;//CLIENTES
+end;
+
+end.

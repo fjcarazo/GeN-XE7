@@ -1,0 +1,599 @@
+object EstadoCuentaLForm: TEstadoCuentaLForm
+  Left = 636
+  Top = 160
+  BorderStyle = bsSingle
+  Caption = 'Estado de Cuenta de Clientes'
+  ClientHeight = 468
+  ClientWidth = 794
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 794
+    Height = 121
+    Align = alTop
+    Color = clBlack
+    ParentBackground = False
+    TabOrder = 0
+    object Label3: TLabel
+      Left = 19
+      Top = 19
+      Width = 40
+      Height = 13
+      Align = alCustom
+      Caption = 'Cliente'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object ClienteLabel: TLabel
+      Left = 65
+      Top = 38
+      Width = 152
+      Height = 25
+      AutoSize = False
+      Caption = '...'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Label8: TLabel
+      Left = 191
+      Top = 19
+      Width = 26
+      Height = 13
+      Caption = 'Plan'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object PlanLabel: TLabel
+      Left = 223
+      Top = 43
+      Width = 9
+      Height = 16
+      Alignment = taCenter
+      Caption = '...'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label11: TLabel
+      Left = 177
+      Top = 63
+      Width = 40
+      Height = 13
+      Caption = 'Cuotas'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label12: TLabel
+      Left = 174
+      Top = 91
+      Width = 43
+      Height = 13
+      Caption = 'Importe'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object CuotasLabel: TLabel
+      Left = 223
+      Top = 63
+      Width = 6
+      Height = 13
+      Alignment = taCenter
+      Caption = '0'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object TotalLabel: TLabel
+      Left = 223
+      Top = 91
+      Width = 6
+      Height = 13
+      Alignment = taCenter
+      Caption = '0'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 711
+      Top = 7
+      Width = 62
+      Height = 13
+      Caption = 'MOSTRAR'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label7: TLabel
+      Left = 263
+      Top = 63
+      Width = 54
+      Height = 13
+      Align = alCustom
+      Caption = 'Rendidas'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object RendidasLabel: TLabel
+      Left = 323
+      Top = 63
+      Width = 6
+      Height = 13
+      Align = alCustom
+      Caption = '0'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object GroupBox1: TGroupBox
+      Left = 400
+      Top = 19
+      Width = 210
+      Height = 75
+      BiDiMode = bdLeftToRight
+      Caption = ' Fechas '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentBiDiMode = False
+      ParentFont = False
+      TabOrder = 0
+      object Label2: TLabel
+        Left = 75
+        Top = 44
+        Width = 22
+        Height = 13
+        Caption = 'Fin:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label1: TLabel
+        Left = 61
+        Top = 16
+        Width = 36
+        Height = 13
+        Caption = 'Inicio:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object DTP1: TDateTimePicker
+        Left = 98
+        Top = 16
+        Width = 93
+        Height = 21
+        Date = 40179.873243958300000000
+        Time = 40179.873243958300000000
+        TabOrder = 0
+        OnCloseUp = DTP1CloseUp
+      end
+      object DTP2: TDateTimePicker
+        Left = 98
+        Top = 44
+        Width = 94
+        Height = 21
+        Date = 37668.873295891200000000
+        Time = 37668.873295891200000000
+        TabOrder = 1
+        OnCloseUp = DTP2CloseUp
+      end
+    end
+    object ClienteEdit: TEdit
+      Left = 65
+      Top = 16
+      Width = 40
+      Height = 21
+      Align = alCustom
+      TabOrder = 1
+      Text = '0'
+    end
+    object BuscarBitBtn: TBitBtn
+      Left = 103
+      Top = 14
+      Width = 50
+      Height = 25
+      Align = alCustom
+      Caption = 'F5...'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clTeal
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 2
+      OnClick = BuscarBitBtnClick
+    end
+    object PlanEdit: TEdit
+      Left = 223
+      Top = 16
+      Width = 41
+      Height = 21
+      TabOrder = 3
+      Text = '0'
+    end
+    object PlanBitBtn: TBitBtn
+      Left = 263
+      Top = 14
+      Width = 49
+      Height = 24
+      Caption = 'F8...'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clTeal
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 4
+      OnClick = PlanBitBtnClick
+    end
+    object BitBtn1: TBitBtn
+      Left = 697
+      Top = 26
+      Width = 49
+      Height = 24
+      Caption = 'A...z'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGreen
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 5
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 745
+      Top = 26
+      Width = 49
+      Height = 24
+      Caption = 'Z...a'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGreen
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 6
+      OnClick = BitBtn2Click
+    end
+    object BitBtn3: TBitBtn
+      Left = 697
+      Top = 56
+      Width = 49
+      Height = 24
+      Caption = 'IMP'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGreen
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 7
+      OnClick = BitBtn3Click
+    end
+    object BitBtn4: TBitBtn
+      Left = 697
+      Top = 86
+      Width = 97
+      Height = 24
+      Caption = 'TODAS'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGreen
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 8
+      OnClick = BitBtn4Click
+    end
+    object BitBtn5: TBitBtn
+      Left = 745
+      Top = 56
+      Width = 49
+      Height = 24
+      Caption = 'PAG'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGreen
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 9
+      OnClick = BitBtn5Click
+    end
+    object BitBtn6: TBitBtn
+      Left = 409
+      Top = 35
+      Width = 49
+      Height = 49
+      Caption = 'Buscar'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clGreen
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 10
+      OnClick = BitBtn6Click
+    end
+  end
+  object Panel2: TPanel
+    Left = 698
+    Top = 121
+    Width = 96
+    Height = 347
+    Align = alRight
+    Color = clBlack
+    ParentBackground = False
+    TabOrder = 1
+    object ImprimirBitBtn: TBitBtn
+      Left = 8
+      Top = 14
+      Width = 80
+      Height = 50
+      Caption = 'Imprimir'
+      Default = True
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ModalResult = 6
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 0
+      OnClick = ImprimirBitBtnClick
+    end
+    object ConsultarBitBtn: TBitBtn
+      Left = 8
+      Top = 284
+      Width = 80
+      Height = 50
+      Caption = 'mostrar'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      Kind = bkYes
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 1
+      OnClick = ConsultarBitBtnClick
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 121
+    Width = 698
+    Height = 347
+    Align = alClient
+    DataSource = DataSource
+    TabOrder = 2
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'CUOTA'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 47
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CUOTAS'
+        Title.Caption = 'TOTAL'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 45
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'RENDIDAS'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 60
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'VENCE'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 62
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'IMPORTE'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 60
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PAGADO'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 60
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'APAGAR'
+        Title.Caption = 'A PAGAR'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 60
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'OPERACION'
+        Title.Caption = 'PLAN'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 60
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'COBRADOR'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 179
+        Visible = True
+      end>
+  end
+  object DataSource: TDataSource
+    DataSet = Tabla
+    Left = 409
+    Top = 320
+  end
+  object Tabla: TIBQuery
+    Database = DM.BaseDatos
+    Transaction = DM.Transaccion
+    SQL.Strings = (
+      'SELECT '
+      '  "CtaCteItem".CODIGO,'
+      '  "CtaCteItem".CUOTA,'
+      '  "CtaCteItem".VENCE,'
+      '  "CtaCteItem".IMPORTE,'
+      '  "CtaCteItem".PAGADO,'
+      '  ("CtaCteItem".IMPORTE - "CtaCteItem".PAGADO) AS APAGAR,'
+      '  "Cliente".NOMBRE AS CLIENTE,'
+      '  "CtaCte".OPERACION,'
+      '  "Cobrador".NOMBRE AS COBRADOR,'
+      '  "CtaCte".CUOTAS,'
+      '  "CtaCte".SALDO,'
+      '  "CtaCte".RENDIDAS'
+      'FROM'
+      '  "CtaCte"'
+      
+        '  INNER JOIN "CtaCteItem" ON ("CtaCte".OPERACION = "CtaCteItem".' +
+        'OPERACION)'
+      '  INNER JOIN "Cliente" ON ("CtaCte".CLIENTE = "Cliente".CODIGO)'
+      
+        '  INNER JOIN "Cobrador" ON ("CtaCte".COBRADOR = "Cobrador".CODIG' +
+        'O)'
+      'ORDER BY'
+      '  "CtaCteItem".CUOTA DESC')
+    Left = 360
+    Top = 320
+  end
+end

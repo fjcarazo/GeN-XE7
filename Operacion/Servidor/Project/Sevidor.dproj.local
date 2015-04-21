@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2009/11/16 11:36:47.953.pas,C:\Documents and Settings\Cti6292\Mis documentos\RAD Studio\Projects\Unit1.pas=C:\Documents and Settings\Cti6292\Mis documentos\downloads\Projects\CiveLoo\ViS\Configurar\Form\Menu.pas</Transaction>
+    <Transaction>2009/11/16 11:36:47.953.dfm,C:\Documents and Settings\Cti6292\Mis documentos\RAD Studio\Projects\Unit1.dfm=C:\Documents and Settings\Cti6292\Mis documentos\downloads\Projects\CiveLoo\ViS\Configurar\Form\Menu.dfm</Transaction>
+    <Transaction>2009/11/16 11:37:38.109.dproj,C:\Documents and Settings\Cti6292\Mis documentos\RAD Studio\Projects\Project1.dproj=C:\Documents and Settings\Cti6292\Mis documentos\downloads\Projects\CiveLoo\ViS\Configurar\Project\Configurar.dproj</Transaction>
+    <Transaction>2010/07/19 16:01:19.625.dproj,G:\projects\DeGsoft\ViS\Configurar\Project\Configurar.dproj=G:\projects\DeGsoft\GeN\Operacion\Servidor\Project\Sevidor.dproj</Transaction>
+    <Transaction>2010/07/19 16:02:11.578.pas,G:\projects\DeGsoft\ViS\Configurar\Form\Menu.pas=G:\projects\DeGsoft\GeN\Operacion\Servidor\Form\ServidorF.pas</Transaction>
+    <Transaction>2010/07/19 16:02:11.578.dfm,G:\projects\DeGsoft\ViS\Configurar\Form\Menu.dfm=G:\projects\DeGsoft\GeN\Operacion\Servidor\Form\ServidorF.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

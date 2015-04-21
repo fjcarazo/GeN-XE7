@@ -1,0 +1,19 @@
+program Migrar;
+
+uses
+  Forms,
+  MigrarF in '..\form\MigrarF.pas' {MigrarForm},
+  DataModule in '..\..\..\DataModule\DataModule.pas' {DM: TDataModule},
+  OperacionDM in '..\..\..\DataModule\OperacionDM.pas' {OperacionDataModule: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.Title := 'MIGRAR';
+  Application.CreateForm(TMigrarForm, MigrarForm);
+  Application.CreateForm(TDM, DM);
+  Application.CreateForm(TOperacionDataModule, OperacionDataModule);
+  Application.Run;
+end.

@@ -1,0 +1,171 @@
+object BuscarTipoGastoForm: TBuscarTipoGastoForm
+  Left = 193
+  Top = 128
+  BorderIcons = [biSystemMenu, biMinimize, biMaximize, biHelp]
+  BorderStyle = bsSingle
+  Caption = 'Buscar'
+  ClientHeight = 468
+  ClientWidth = 794
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnKeyDown = FormKeyDown
+  OnKeyUp = FormKeyUp
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 76
+    Width = 696
+    Height = 392
+    Align = alClient
+    DataSource = DS
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    OnDblClick = DBGrid1DblClick
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'CODIGO'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 55
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DESCRIPCION'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 596
+        Visible = True
+      end>
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 794
+    Height = 76
+    Align = alTop
+    Color = clBlack
+    ParentBackground = False
+    TabOrder = 0
+    object Label2: TLabel
+      Left = 14
+      Top = 6
+      Width = 74
+      Height = 24
+      Caption = 'Nombre:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object descEdit: TEdit
+      Left = 12
+      Top = 32
+      Width = 247
+      Height = 32
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+    end
+  end
+  object Panel2: TPanel
+    Left = 696
+    Top = 76
+    Width = 98
+    Height = 392
+    Align = alRight
+    Color = clBlack
+    ParentBackground = False
+    TabOrder = 2
+    object Label1: TLabel
+      Left = 12
+      Top = 185
+      Width = 75
+      Height = 13
+      Caption = 'Seleccionar?'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object BitBtn1: TBitBtn
+      Left = 9
+      Top = 127
+      Width = 80
+      Height = 50
+      Caption = 'Si'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      Kind = bkYes
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 0
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 9
+      Top = 204
+      Width = 80
+      Height = 50
+      Caption = 'No'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      Kind = bkNo
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 1
+      OnClick = BitBtn2Click
+    end
+  end
+  object DS: TDataSource
+    DataSet = Tabla
+    Left = 62
+    Top = 280
+  end
+  object Tabla: TIBQuery
+    Database = DM.BaseDatos
+    Transaction = DM.Transaccion
+    SQL.Strings = (
+      'select *  from "TipoGasto"')
+    Left = 24
+    Top = 280
+  end
+end

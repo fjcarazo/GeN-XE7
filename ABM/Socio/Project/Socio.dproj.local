@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/06/24 19:59:39.406.dproj,D:\RAD Studio\Projects\DeGsoft\GeN\ABM\Proveedor\Project\Proveedor.dproj=D:\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2010/07/15 16:46:11.029.dproj,D:\projects\DeGsoft\GeN\ABM\Socio\Project\Socio.dproj=D:\projects\DeGsoft\GeN\ABM\Socio\Project\Proveedor.dproj</Transaction>
+    <Transaction>2010/07/15 16:46:27.545.dfm,D:\projects\DeGsoft\GeN\ABM\Socio\Form\SocioF.dfm=D:\projects\DeGsoft\GeN\ABM\Socio\Form\ProveedorF.dfm</Transaction>
+    <Transaction>2010/07/15 16:46:27.545.pas,D:\projects\DeGsoft\GeN\ABM\Socio\Form\SocioF.pas=D:\projects\DeGsoft\GeN\ABM\Socio\Form\ProveedorF.pas</Transaction>
+    <Transaction>2010/07/15 16:48:20.982.pas,D:\projects\DeGsoft\GeN\Buscar\Socio\Form\BuscaSocioF.pas=D:\projects\DeGsoft\GeN\Buscar\Proveedor\Form\UFBuscaProve.pas</Transaction>
+    <Transaction>2010/07/15 16:48:20.982.dfm,D:\projects\DeGsoft\GeN\Buscar\Socio\Form\BuscaSocioF.dfm=D:\projects\DeGsoft\GeN\Buscar\Proveedor\Form\UFBuscaProve.dfm</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="-1" SortType="1"/>
+</BorlandProject>

@@ -1,0 +1,20 @@
+program PagoProveedor;
+
+uses
+  Forms,
+  CtaCteProveedores in '..\Form\CtaCteProveedores.pas' {CtaCteProveedoresForm},
+  DataModule in '..\..\..\DataModule\DataModule.pas' {DM: TDataModule},
+  Entrega in '..\..\..\SubOperacion\EntregaDinero\Form\Entrega.pas' {EntregaForm},
+  UFBuscaProve in '..\..\..\Buscar\Proveedor\Form\UFBuscaProve.pas' {FBuscaProve},
+  UFFormaPago in '..\..\..\SubOperacion\FormaPago\Form\UFFormaPago.pas' {FFormaPago},
+  BuscarCheques in '..\..\..\Buscar\Cheque\Form\BuscarCheques.pas' {BuscarChequesForm};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.Title := 'Pago a Proveedor';
+  Application.CreateForm(TCtaCteProveedoresForm, CtaCteProveedoresForm);
+  Application.Run;
+end.

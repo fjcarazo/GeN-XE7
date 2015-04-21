@@ -1,0 +1,355 @@
+object CtaCteProveedoresForm: TCtaCteProveedoresForm
+  Left = 317
+  Top = 221
+  Caption = 'Pago a Proveedor'
+  ClientHeight = 466
+  ClientWidth = 792
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  OnKeyUp = FormKeyUp
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 0
+    Width = 576
+    Height = 466
+    Align = alClient
+    DataSource = DS
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'FECHA'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 150
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'OPERACION'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 81
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DESCRIPCION'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 152
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'SALDO'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 89
+        Visible = True
+      end>
+  end
+  object Panel1: TPanel
+    Left = 576
+    Top = 0
+    Width = 216
+    Height = 466
+    Align = alRight
+    Color = clBlack
+    ParentBackground = False
+    TabOrder = 1
+    object Label10: TLabel
+      Left = 94
+      Top = 230
+      Width = 74
+      Height = 24
+      Caption = 'Entrega'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+    end
+    object Label13: TLabel
+      Left = 61
+      Top = 230
+      Width = 31
+      Height = 24
+      Caption = 'F8:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+    end
+    object Label4: TLabel
+      Left = 6
+      Top = 10
+      Width = 33
+      Height = 13
+      Caption = 'Saldo'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+    end
+    object Label16: TLabel
+      Left = 85
+      Top = 261
+      Width = 31
+      Height = 24
+      Caption = 'F9:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+    end
+    object Label1: TLabel
+      Left = 21
+      Top = 94
+      Width = 63
+      Height = 13
+      Caption = 'Proveedor:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object NombreLabel: TLabel
+      Left = 21
+      Top = 126
+      Width = 68
+      Height = 13
+      Caption = 'PROVEEDOR'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 21
+      Top = 159
+      Width = 50
+      Height = 13
+      Caption = 'Gerente:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object GerenteLabel: TLabel
+      Left = 21
+      Top = 177
+      Width = 37
+      Height = 13
+      Caption = 'Nombre'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+    end
+    object CancelarBitBtn: TBitBtn
+      Left = 76
+      Top = 295
+      Width = 80
+      Height = 50
+      Cancel = True
+      Caption = '&Salir'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clNavy
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00388888888877
+        F7F787F8888888888333333F00004444400888FFF444448888888888F333FF8F
+        000033334D5007FFF4333388888888883338888F0000333345D50FFFF4333333
+        338F888F3338F33F000033334D5D0FFFF43333333388788F3338F33F00003333
+        45D50FEFE4333333338F878F3338F33F000033334D5D0FFFF43333333388788F
+        3338F33F0000333345D50FEFE4333333338F878F3338F33F000033334D5D0FFF
+        F43333333388788F3338F33F0000333345D50FEFE4333333338F878F3338F33F
+        000033334D5D0EFEF43333333388788F3338F33F0000333345D50FEFE4333333
+        338F878F3338F33F000033334D5D0EFEF43333333388788F3338F33F00003333
+        4444444444333333338F8F8FFFF8F33F00003333333333333333333333888888
+        8888333F00003333330000003333333333333FFFFFF3333F00003333330AAAA0
+        333333333333888888F3333F00003333330000003333333333338FFFF8F3333F
+        0000}
+      NumGlyphs = 2
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 0
+      OnClick = CancelarBitBtnClick
+    end
+    object SaldoDBEdit: TDBEdit
+      Left = 6
+      Top = 29
+      Width = 201
+      Height = 32
+      Color = clWhite
+      DataField = 'SALDO'
+      DataSource = DS
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -21
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+    end
+    object ImprimirBitBtn: TBitBtn
+      Left = 118
+      Top = 265
+      Width = 25
+      Height = 17
+      DoubleBuffered = True
+      Glyph.Data = {
+        36030000424D3603000000000000360000002800000010000000100000000100
+        1800000000000003000000000000000000000000000000000000FF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFFFFFFFF00FFFF00FF00000000000000000000000000000000
+        0000000000000000000000000000000000FF00FFFF00FFFF00FFFF00FF000000
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF000000FF00
+        FF000000FF00FFFF00FF00000000000000000000000000000000000000000000
+        0000000000000000000000000000000000FF00FF000000FF00FF000000FF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FF00FFFF00FFFF00FFFFFF00FFFF00FF0000
+        00000000000000FF00FF000000FF00FFFF00FFFF00FFFF00FFFF00FFFF00FF7F
+        7F7F7F7F7F7F7F7FFF00FFFF00FF000000FF00FF000000FF00FF000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        00FF00FFFF00FF000000000000FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FF000000FF00FF000000FF00FF000000FF00FF000000
+        000000000000000000000000000000000000000000000000000000FF00FF0000
+        00FF00FF000000000000FF00FFFF00FF000000FFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFF000000FF00FF000000FF00FF000000FF00FFFF00FF
+        FF00FF000000FFFFFF000000000000000000000000000000FFFFFF0000000000
+        00000000000000FF00FFFF00FFFF00FFFF00FF000000FFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FF000000FFFFFF000000000000000000000000000000FFFFFF0000
+        00FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF000000FFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FF0000000000000000000000000000000000000000000000
+        00000000FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
+      ParentDoubleBuffered = False
+      TabOrder = 2
+    end
+    object CodigoEdit: TEdit
+      Left = 94
+      Top = 90
+      Width = 57
+      Height = 21
+      ReadOnly = True
+      TabOrder = 3
+      Text = '0'
+    end
+    object ProveedorBitBtn: TBitBtn
+      Left = 147
+      Top = 88
+      Width = 49
+      Height = 25
+      Caption = 'F1...'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clTeal
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 4
+      OnClick = ProveedorBitBtnClick
+    end
+  end
+  object DS: TDataSource
+    DataSet = Tabla
+    Left = 128
+    Top = 288
+  end
+  object Tabla: TIBQuery
+    Database = DM.BaseDatos
+    Transaction = DM.Transaccion
+    SQL.Strings = (
+      'SELECT '
+      '  "CtaCte".FECHA,'
+      '  "CtaCte".PROVEEDOR,'
+      '  "CtaCte".SALDO,'
+      '  "CtaCteItem".DESCRIPCION,'
+      '  "Proveedor".NOMBRE,'
+      '  "Proveedor".GERENTE,'
+      '  "Proveedor".CTANOMBRE,'
+      '  "Proveedor".CTATIPO,'
+      '  "Proveedor".CTAANTICIPO,'
+      '  "CtaCteItem".OPERACION AS OPERACION1'
+      'FROM'
+      '  "CtaCte"'
+      
+        '  INNER JOIN "CtaCteItem" ON ("CtaCte".PROVEEDOR = "CtaCteItem".' +
+        'PROVEEDOR)'
+      
+        '  INNER JOIN "Proveedor" ON ("CtaCteItem".PROVEEDOR = "Proveedor' +
+        '".CODIGO)')
+    Left = 96
+    Top = 288
+  end
+  object Q: TIBQuery
+    Database = DM.BaseDatos
+    Transaction = DM.Transaccion
+    Left = 296
+    Top = 192
+  end
+  object Query: TIBQuery
+    Database = DM.BaseDatos
+    Transaction = DM.Transaccion
+    Left = 232
+    Top = 192
+  end
+end

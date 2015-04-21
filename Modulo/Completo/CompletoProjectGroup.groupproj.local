@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/05/14 09:52:12.453.groupproj,D:\RAD Studio\Projects\ProjectGroup1.groupproj=D:\RAD Studio\Projects\CiveLoo\GeN\Menu\Principal\Project\ProjectGroup1.groupproj</Transaction>
+    <Transaction>2010/05/14 09:53:08.015.groupproj,D:\RAD Studio\Projects\CiveLoo\GeN\Menu\Principal\Project\ProjectGroup1.groupproj=D:\RAD Studio\Projects\CiveLoo\GeN\Modulo\Principal\PrincipalProjectGroup.groupproj</Transaction>
+    <Transaction>2010/06/10 04:10:05.296.groupproj,D:\RAD Studio\Projects\CiveLoo\GeN\Modulo\Completo\PrincipalProjectGroup.groupproj=D:\RAD Studio\Projects\CiveLoo\GeN\Modulo\Completo\CompletoProjectGroup.groupproj</Transaction>
+  </Transactions>
+	<Default.Personality>
+		<Projects ActiveProject="Menu.exe"/>
+	</Default.Personality>
+</BorlandProject>

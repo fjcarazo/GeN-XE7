@@ -1,0 +1,72 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{9F34FD70-C7E5-47E8-BBFA-D30D0BC9A108}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="..\..\Menu\Stock\Project\MenuStock.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ABM\Articulo\Project\Articulos.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Licencia\Project\Licencia.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\AcercaDe\project\about.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="MenuStock">
+			<MSBuild Projects="..\..\Menu\Stock\Project\MenuStock.dproj"/>
+		</Target>
+		<Target Name="MenuStock:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Menu\Stock\Project\MenuStock.dproj"/>
+		</Target>
+		<Target Name="MenuStock:Make">
+			<MSBuild Targets="Make" Projects="..\..\Menu\Stock\Project\MenuStock.dproj"/>
+		</Target>
+		<Target Name="Articulos">
+			<MSBuild Projects="..\..\ABM\Articulo\Project\Articulos.dproj"/>
+		</Target>
+		<Target Name="Articulos:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\ABM\Articulo\Project\Articulos.dproj"/>
+		</Target>
+		<Target Name="Articulos:Make">
+			<MSBuild Targets="Make" Projects="..\..\ABM\Articulo\Project\Articulos.dproj"/>
+		</Target>
+		<Target Name="Licencia">
+			<MSBuild Projects="..\..\Licencia\Project\Licencia.dproj"/>
+		</Target>
+		<Target Name="Licencia:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Licencia\Project\Licencia.dproj"/>
+		</Target>
+		<Target Name="Licencia:Make">
+			<MSBuild Targets="Make" Projects="..\..\Licencia\Project\Licencia.dproj"/>
+		</Target>
+		<Target Name="about">
+			<MSBuild Projects="..\..\AcercaDe\project\about.dproj"/>
+		</Target>
+		<Target Name="about:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\AcercaDe\project\about.dproj"/>
+		</Target>
+		<Target Name="about:Make">
+			<MSBuild Targets="Make" Projects="..\..\AcercaDe\project\about.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="MenuStock;Articulos;Licencia;about"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="MenuStock:Clean;Articulos:Clean;Licencia:Clean;about:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="MenuStock:Make;Articulos:Make;Licencia:Make;about:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

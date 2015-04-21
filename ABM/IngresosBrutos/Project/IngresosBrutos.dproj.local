@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/11/24 10:51:45.937.pas,F:\Projects\DeGsoft\GeN\ABM\IngresosBrutos\Form\IngresosBrutosF.pas=F:\Projects\DeGsoft\GeN\ABM\IngresosBrutos\Form\IngresosBrutos.pas</Transaction>
+    <Transaction>2010/11/24 10:51:45.937.dfm,F:\Projects\DeGsoft\GeN\ABM\IngresosBrutos\Form\IngresosBrutosF.dfm=F:\Projects\DeGsoft\GeN\ABM\IngresosBrutos\Form\IngresosBrutos.dfm</Transaction>
+    <Transaction>2010/11/24 10:53:28.984.dproj,F:\Projects\DeGsoft\GeN\ABM\IngresosBrutos\Project\IngresosBrutos.dproj=C:\Documents and Settings\Cive\Mis documentos\RAD Studio\Projects\Project2.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

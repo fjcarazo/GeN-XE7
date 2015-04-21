@@ -1,0 +1,442 @@
+object CuentasForm: TCuentasForm
+  Left = 636
+  Top = 160
+  BorderIcons = [biSystemMenu, biMaximize]
+  BorderStyle = bsSingle
+  Caption = 'Libro IVA Ventas'
+  ClientHeight = 468
+  ClientWidth = 794
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 0
+    Width = 640
+    Height = 468
+    Align = alClient
+    DataSource = DS
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Alignment = taCenter
+        Expanded = False
+        FieldName = 'FECHA'
+        Title.Alignment = taCenter
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 78
+        Visible = True
+      end
+      item
+        Alignment = taCenter
+        Expanded = False
+        FieldName = 'FACTURA'
+        Title.Alignment = taCenter
+        Title.Caption = 'COMPROBANTE'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 100
+        Visible = True
+      end
+      item
+        Alignment = taCenter
+        Expanded = False
+        FieldName = 'CLIENTE'
+        Title.Alignment = taCenter
+        Title.Caption = 'Cliente'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 210
+        Visible = True
+      end
+      item
+        Alignment = taCenter
+        Expanded = False
+        FieldName = 'CUIT'
+        Title.Alignment = taCenter
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 73
+        Visible = True
+      end
+      item
+        Alignment = taCenter
+        Expanded = False
+        FieldName = 'NG1'
+        Title.Alignment = taCenter
+        Title.Caption = 'NG10,5%'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 54
+        Visible = True
+      end
+      item
+        Alignment = taCenter
+        Expanded = False
+        FieldName = 'NG2'
+        Title.Alignment = taCenter
+        Title.Caption = 'NG21%'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 50
+        Visible = True
+      end
+      item
+        Alignment = taCenter
+        Expanded = False
+        FieldName = 'IVA1'
+        Title.Alignment = taCenter
+        Title.Caption = 'IVA10,5%'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 54
+        Visible = True
+      end
+      item
+        Alignment = taCenter
+        Expanded = False
+        FieldName = 'IVA2'
+        Title.Alignment = taCenter
+        Title.Caption = 'IVA21%'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 52
+        Visible = True
+      end
+      item
+        Alignment = taCenter
+        Expanded = False
+        FieldName = 'OEIIBB'
+        Title.Alignment = taCenter
+        Title.Caption = 'IIBB'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 48
+        Visible = True
+      end
+      item
+        Alignment = taCenter
+        Expanded = False
+        FieldName = 'IDERPYPAC'
+        Title.Alignment = taCenter
+        Title.Caption = 'Pagos a cta'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 76
+        Visible = True
+      end
+      item
+        Alignment = taCenter
+        Expanded = False
+        FieldName = 'ITF'
+        Title.Alignment = taCenter
+        Title.Caption = 'Total'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'MS Sans Serif'
+        Title.Font.Style = [fsBold]
+        Width = 99
+        Visible = True
+      end>
+  end
+  object Panel2: TPanel
+    Left = 640
+    Top = 0
+    Width = 154
+    Height = 468
+    Align = alRight
+    Color = clBlack
+    ParentBackground = False
+    TabOrder = 1
+    object Label3: TLabel
+      Left = 52
+      Top = 356
+      Width = 50
+      Height = 13
+      Caption = 'Mostrar?'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object BitBtn1: TBitBtn
+      Left = 37
+      Top = 292
+      Width = 80
+      Height = 50
+      Caption = 'Si'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      Kind = bkYes
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 0
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 37
+      Top = 380
+      Width = 80
+      Height = 50
+      Caption = 'No'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      Kind = bkNo
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 1
+      OnClick = BitBtn2Click
+    end
+    object BitBtn3: TBitBtn
+      Left = 37
+      Top = 9
+      Width = 80
+      Height = 50
+      Caption = 'Imprimir'
+      DoubleBuffered = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clPurple
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 2
+      OnClick = BitBtn3Click
+    end
+    object GroupBox1: TGroupBox
+      Left = 7
+      Top = 128
+      Width = 141
+      Height = 121
+      Caption = ' Fechas '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 3
+      object Label2: TLabel
+        Left = 10
+        Top = 66
+        Width = 22
+        Height = 13
+        Caption = 'Fin:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label1: TLabel
+        Left = 12
+        Top = 20
+        Width = 36
+        Height = 13
+        Caption = 'Inicio:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object DTP1: TDateTimePicker
+        Left = 12
+        Top = 39
+        Width = 113
+        Height = 21
+        Date = 40179.873243958300000000
+        Time = 40179.873243958300000000
+        TabOrder = 0
+        OnCloseUp = DTP1CloseUp
+      end
+      object DTP2: TDateTimePicker
+        Left = 12
+        Top = 85
+        Width = 113
+        Height = 21
+        Date = 37668.873295891200000000
+        Time = 37668.873295891200000000
+        TabOrder = 1
+        OnCloseUp = DTP2CloseUp
+      end
+    end
+  end
+  object DS: TDataSource
+    DataSet = Tabla
+    Left = 320
+    Top = 360
+  end
+  object Tabla: TIBQuery
+    Database = DM.BaseDatos
+    Transaction = DM.Transaccion
+    SQL.Strings = (
+      'SELECT '
+      '  '#39'MiEmpresa'#39' AS "Empresa",'
+      '  '#39'01/01/2010'#39' AS "Desde",'
+      '  '#39'01/01/2012'#39' AS "Hasta",'
+      '  "LibroIVAventa".CODIGO,'
+      '  "LibroIVAventa".FECHA,'
+      '  "LibroIVAventa".FACTURA,'
+      '  "LibroIVAventa".CLIENTE,'
+      '  "LibroIVAventa".CUIT,'
+      '  "LibroIVAventa".CONDICION,'
+      '  "LibroIVAventa".NG1,'
+      '  "LibroIVAventa".NG2,'
+      '  "LibroIVAventa".NG3,'
+      '  "LibroIVAventa".IVA1,'
+      '  "LibroIVAventa".IVA2,'
+      '  "LibroIVAventa".IVA3,'
+      '  "LibroIVAventa".OEIIBB,'
+      '  "LibroIVAventa".IDERPYPAC,'
+      '  "LibroIVAventa".ITF'
+      'FROM'
+      '  "LibroIVAventa"'
+      'ORDER BY'
+      '  "LibroIVAventa".CODIGO')
+    Left = 288
+    Top = 360
+    object TablaEmpresa: TIBStringField
+      FieldName = 'Empresa'
+      ProviderFlags = []
+      FixedChar = True
+      Size = 9
+    end
+    object TablaDesde: TIBStringField
+      FieldName = 'Desde'
+      ProviderFlags = []
+      FixedChar = True
+      Size = 10
+    end
+    object TablaHasta: TIBStringField
+      FieldName = 'Hasta'
+      ProviderFlags = []
+      FixedChar = True
+      Size = 10
+    end
+    object TablaCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"LibroIVAventa"."CODIGO"'
+    end
+    object TablaFECHA: TDateTimeField
+      FieldName = 'FECHA'
+      Origin = '"LibroIVAventa"."FECHA"'
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object TablaFACTURA: TIBStringField
+      FieldName = 'FACTURA'
+      Origin = '"LibroIVAventa"."FACTURA"'
+      Size = 50
+    end
+    object TablaCLIENTE: TIBStringField
+      FieldName = 'CLIENTE'
+      Origin = '"LibroIVAventa"."CLIENTE"'
+      Size = 50
+    end
+    object TablaCUIT: TIBStringField
+      FieldName = 'CUIT'
+      Origin = '"LibroIVAventa"."CUIT"'
+      Size = 50
+    end
+    object TablaCONDICION: TIBStringField
+      FieldName = 'CONDICION'
+      Origin = '"LibroIVAventa"."CONDICION"'
+      Size = 50
+    end
+    object TablaNG1: TFloatField
+      FieldName = 'NG1'
+      Origin = '"LibroIVAventa"."NG1"'
+    end
+    object TablaNG2: TFloatField
+      FieldName = 'NG2'
+      Origin = '"LibroIVAventa"."NG2"'
+    end
+    object TablaNG3: TFloatField
+      FieldName = 'NG3'
+      Origin = '"LibroIVAventa"."NG3"'
+    end
+    object TablaIVA1: TFloatField
+      FieldName = 'IVA1'
+      Origin = '"LibroIVAventa"."IVA1"'
+    end
+    object TablaIVA2: TFloatField
+      FieldName = 'IVA2'
+      Origin = '"LibroIVAventa"."IVA2"'
+    end
+    object TablaIVA3: TFloatField
+      FieldName = 'IVA3'
+      Origin = '"LibroIVAventa"."IVA3"'
+    end
+    object TablaOEIIBB: TFloatField
+      FieldName = 'OEIIBB'
+      Origin = '"LibroIVAventa"."OEIIBB"'
+    end
+    object TablaIDERPYPAC: TFloatField
+      FieldName = 'IDERPYPAC'
+      Origin = '"LibroIVAventa"."IDERPYPAC"'
+    end
+    object TablaITF: TFloatField
+      FieldName = 'ITF'
+      Origin = '"LibroIVAventa"."ITF"'
+    end
+  end
+end

@@ -1,0 +1,210 @@
+unit ServidorF;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DataModule, ExtCtrls, Menus, StdCtrls, TLHelp32, UrlMon, jpeg;
+
+type
+  TServidor = class(TForm)
+    TrayIcon1: TTrayIcon;
+    PopupMenu1: TPopupMenu;
+    Cerrar1: TMenuItem;
+    Button1: TButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    abrirButton: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    Button8: TButton;
+    Button9: TButton;
+    Button10: TButton;
+    Button11: TButton;
+    Image1: TImage;
+    procedure FormCreate(Sender: TObject);
+    procedure Cerrar1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure cerrarSistema;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure abrirButtonClick(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
+    procedure Button11Click(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    function FormHelp(Command: Word; Data: Integer;
+      var CallHelp: Boolean): Boolean;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+        WindowList1 : TList;
+        Path:string;
+  end;
+
+var
+  Servidor: TServidor;
+
+implementation
+
+{$R *.dfm}
+
+procedure TServidor.cerrarSistema;
+function KillTask(FileName:String):integer;
+var
+    ContinueLoop:BOOL;
+    FSnapshotHandle:THandle;
+    FProcessEntry32:TProcessEntry32;
+const
+    PROCESS_TERMINATE=$0001;
+begin
+    FSnapshotHandle:=CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0);
+    FProcessEntry32.dwSize:=Sizeof(FProcessEntry32);
+    ContinueLoop:=Process32First(FSnapshotHandle,FProcessEntry32);
+    while integer(ContinueLoop)<>0 do
+    begin
+        if
+((UpperCase(ExtractFileName(FProcessEntry32.szExeFile))=UpperCase(FileName))
+            or (UpperCase(FProcessEntry32.szExeFile)=UpperCase(FileName)))
+then
+
+Result:=Integer(TerminateProcess(OpenProcess(PROCESS_TERMINATE,BOOL(0),
+
+                                    FProcessEntry32.th32ProcessID),0));
+          ContinueLoop:=Process32Next(FSnapshotHandle,FProcessEntry32);
+    end;
+    CloseHandle(FSnapshotHandle);
+end;
+
+begin
+  KillTask('Menu.exe');
+  KillTask('MenuContable.exe');
+  KillTask('MenuCobranza.exe');
+  KillTask('MenuPV.exe');
+  KillTask('MenuCreditos.exe');
+end;
+
+procedure TServidor.abrirButtonClick(Sender: TObject);
+begin
+WinExec(PAnsiChar(AnsiString(Path+'Menu.exe')),SW_SHOWNORMAL);
+end;
+
+procedure TServidor.Button10Click(Sender: TObject);
+begin
+WinExec(PAnsiChar(AnsiString(Path+'about.exe')),SW_SHOWNORMAL);
+end;
+
+procedure TServidor.Button11Click(Sender: TObject);
+begin
+ HlinkNavigateString(Nil, pChar(path+'ayuda\index.htm'));
+end;
+
+procedure TServidor.Button1Click(Sender: TObject);
+begin
+close;
+end;
+
+procedure TServidor.Button2Click(Sender: TObject);
+begin
+WinExec(PAnsiChar(AnsiString(Path+'MenuContable.exe')),SW_SHOWNORMAL);
+end;
+
+procedure TServidor.Button3Click(Sender: TObject);
+begin
+WinExec(PAnsiChar(AnsiString(Path+'MenuCobranza.exe')),SW_SHOWNORMAL);
+end;
+
+procedure TServidor.Button4Click(Sender: TObject);
+begin
+WinExec(PAnsiChar(AnsiString(Path+'MenuPV.exe')),SW_SHOWNORMAL);
+end;
+
+procedure TServidor.Button5Click(Sender: TObject);
+begin
+WinExec(PAnsiChar(AnsiString(Path+'MenuCreditos.exe')),SW_SHOWNORMAL);
+end;
+
+procedure TServidor.Button6Click(Sender: TObject);
+begin
+showmessage('PARA COMPRAR ESTE MODULO CONTACTENOS A consultas@degsoft.com.ar');
+end;
+
+procedure TServidor.Button7Click(Sender: TObject);
+begin
+WinExec(PAnsiChar(AnsiString(Path+'Vigilancia.exe')),SW_SHOWNORMAL);
+end;
+
+procedure TServidor.Button8Click(Sender: TObject);
+begin
+showmessage('PARA COMPRAR ESTE MODULO CONTACTENOS A consultas@degsoft.com.ar');
+end;
+
+procedure TServidor.Button9Click(Sender: TObject);
+begin
+showmessage('PARA COMPRAR ESTE MODULO CONTACTENOS A consultas@degsoft.com.ar');
+end;
+
+procedure TServidor.Cerrar1Click(Sender: TObject);
+begin
+close;
+end;
+
+procedure TServidor.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+cerrarSistema;
+end;
+
+procedure TServidor.FormCreate(Sender: TObject);
+var
+  Process: Cardinal;
+begin
+//LEVANTAR SERVIDOR DE DATOS
+if Path='' then Path := ExtractFilePath(Application.ExeName);
+Process := dm.ExecuteProcess(Path+'bin\install_super.bat',Path+'bin\');
+if Process <> 0 then
+   WaitForSingleObject(Process, INFINITE);
+Application.Restore;
+end;
+
+procedure TServidor.FormDestroy(Sender: TObject);
+var
+  Process: Cardinal;
+begin
+  Application.Minimize;
+  //BAJAR SERVIDOR DE DATOS
+  Process := dm.ExecuteProcess(Path+'bin\uninstall.bat',Path+'bin\');
+  if Process <> 0 then
+     WaitForSingleObject(Process, INFINITE);
+  Application.Restore;
+end;
+
+function TServidor.FormHelp(Command: Word; Data: Integer;
+  var CallHelp: Boolean): Boolean;
+begin
+WinExec(PAnsiChar(AnsiString(Path+'about.exe')),SW_SHOWNORMAL);
+end;
+
+procedure TServidor.FormShow(Sender: TObject);
+begin
+ShowWindow(Application.Handle, SW_HIDE);
+end;
+
+procedure TServidor.Image1Click(Sender: TObject);
+begin
+WinExec(PAnsiChar(AnsiString(Path+'MenuStock.exe')),SW_SHOWNORMAL);
+end;
+
+end.

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/06/24 17:25:27.140.dproj,D:\RAD Studio\Projects\DeGsoft\GeN\Operacion\RendicionCliente\Project\RendicionCliente.dproj=D:\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2010/07/16 16:14:05.031.dproj,G:\projects\DeGsoft\GeN\Operacion\RendicionCarton\Project\RendicionCarton.dproj=G:\projects\DeGsoft\GeN\Operacion\RendicionCarton\Project\RendicionCliente.dproj</Transaction>
+    <Transaction>2010/07/16 16:14:45.171.dfm,G:\projects\DeGsoft\GeN\Operacion\RendicionCarton\Form\RendicionCartonF.dfm=G:\projects\DeGsoft\GeN\Operacion\RendicionCarton\Form\RendicionClienteF.dfm</Transaction>
+    <Transaction>2010/07/16 16:14:45.171.pas,G:\projects\DeGsoft\GeN\Operacion\RendicionCarton\Form\RendicionCartonF.pas=G:\projects\DeGsoft\GeN\Operacion\RendicionCarton\Form\RendicionClienteF.pas</Transaction>
+    <Transaction>2010/07/16 17:13:13.843.dfm,G:\projects\DeGsoft\GeN\SubOperacion\SeleccionarCarton\Form\SeleccionarCartonF.dfm=G:\projects\DeGsoft\GeN\Operacion\RendicionCarton\Project\Unit1.dfm</Transaction>
+    <Transaction>2010/07/16 17:13:13.843.pas,G:\projects\DeGsoft\GeN\SubOperacion\SeleccionarCarton\Form\SeleccionarCartonF.pas=G:\projects\DeGsoft\GeN\Operacion\RendicionCarton\Project\Unit1.pas</Transaction>
+    <Transaction>2010/07/19 01:45:57.421.pas,G:\projects\DeGsoft\GeN\SubOperacion\SeleccionarCarton\Form\SeleccionarCartonF.pas=</Transaction>
+    <Transaction>2010/07/19 01:45:57.421.dfm,G:\projects\DeGsoft\GeN\SubOperacion\SeleccionarCarton\Form\SeleccionarCartonF.dfm=</Transaction>
+    <Transaction>2010/07/19 01:46:03.125.pas,G:\projects\DeGsoft\GeN\Buscar\Cliente\Form\UFBuscaCliente.pas=</Transaction>
+    <Transaction>2010/07/19 01:46:03.125.dfm,G:\projects\DeGsoft\GeN\Buscar\Cliente\Form\UFBuscaCliente.dfm=</Transaction>
+    <Transaction>2010/07/19 01:46:08.062.pas,G:\projects\DeGsoft\GeN\Buscar\PlanProcesado\Form\BuscarPlanFacturado.pas=</Transaction>
+    <Transaction>2010/07/19 01:46:08.062.dfm,G:\projects\DeGsoft\GeN\Buscar\PlanProcesado\Form\BuscarPlanFacturado.dfm=</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="-1" SortType="1"/>
+</BorlandProject>

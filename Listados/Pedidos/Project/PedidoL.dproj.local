@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/06/24 22:08:30.203.dproj,D:\RAD Studio\Projects\DeGsoft\GeN\Listados\Pedidos\Project\ListarPedido.dproj=D:\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2010/11/12 16:38:07.421.dproj,F:\Projects\DeGsoft\GeN\Listados\Pedidos\Project\PedidoL.dproj=F:\Projects\DeGsoft\GeN\Listados\Pedidos\Project\ListarPedido.dproj</Transaction>
+    <Transaction>2010/11/12 16:38:48.796.pas,F:\Projects\DeGsoft\GeN\Listados\Pedidos\Form\PedidoLF.pas=F:\Projects\DeGsoft\GeN\Listados\Pedidos\Form\ListarPedidoF.pas</Transaction>
+    <Transaction>2010/11/12 16:38:48.796.dfm,F:\Projects\DeGsoft\GeN\Listados\Pedidos\Form\PedidoLF.dfm=F:\Projects\DeGsoft\GeN\Listados\Pedidos\Form\ListarPedidoF.dfm</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="-1" SortType="1"/>
+</BorlandProject>

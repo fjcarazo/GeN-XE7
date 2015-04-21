@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/06/01 08:33:14.390.dfm,D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaExtraJudicial\Form\CobranzaExtraJudicial.dfm=D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaExtraJudicial\Form\VerCobranza.dfm</Transaction>
+    <Transaction>2010/06/01 08:33:14.390.pas,D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaExtraJudicial\Form\CobranzaExtraJudicial.pas=D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaExtraJudicial\Form\VerCobranza.pas</Transaction>
+    <Transaction>2010/06/01 08:33:24.968.dfm,D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaExtraJudicial\Form\CobranzaExtraJudicialF.dfm=D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaExtraJudicial\Form\CobranzaExtraJudicial.dfm</Transaction>
+    <Transaction>2010/06/01 08:33:24.968.pas,D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaExtraJudicial\Form\CobranzaExtraJudicialF.pas=D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaExtraJudicial\Form\CobranzaExtraJudicial.pas</Transaction>
+    <Transaction>2010/06/01 08:34:53.765.dproj,D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaExtraJudicial\Project\CobranzaExtraJudicial.dproj=D:\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2010/06/01 09:30:56.890.dproj,D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaJudicial\Project\CobranzaJudicial.dproj=D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaJudicial\Project\CobranzaExtraJudicial.dproj</Transaction>
+    <Transaction>2010/06/01 09:31:19.734.dfm,D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaJudicial\Form\CobranzaJudicialF.dfm=D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaJudicial\Form\CobranzaExtraJudicialF.dfm</Transaction>
+    <Transaction>2010/06/01 09:31:19.734.pas,D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaJudicial\Form\CobranzaJudicialF.pas=D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaJudicial\Form\CobranzaExtraJudicialF.pas</Transaction>
+    <Transaction>2010/06/01 09:40:01.296.dproj,D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaJudicial\Project\CobranzaIncobrable.dproj=D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaJudicial\Project\CobranzaJudicial.dproj</Transaction>
+    <Transaction>2010/06/01 09:40:23.843.dfm,D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaJudicial\Form\CobranzaIncobrableF.dfm=D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaJudicial\Form\CobranzaJudicialF.dfm</Transaction>
+    <Transaction>2010/06/01 09:40:23.843.pas,D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaJudicial\Form\CobranzaIncobrableF.pas=D:\RAD Studio\Projects\CiveLoo\GeN\Operacion\GestionCobranzaJudicial\Form\CobranzaJudicialF.pas</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="-1" SortType="1"/>
+</BorlandProject>

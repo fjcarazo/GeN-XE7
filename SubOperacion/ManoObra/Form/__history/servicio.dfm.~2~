@@ -1,0 +1,112 @@
+object ServForm: TServForm
+  Left = 209
+  Top = 282
+  BorderIcons = []
+  BorderStyle = bsSingle
+  Caption = 'NUEVO ARTICULO'
+  ClientHeight = 297
+  ClientWidth = 496
+  Color = clBlack
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnKeyPress = FormKeyPress
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label4: TLabel
+    Left = 3
+    Top = 5
+    Width = 67
+    Height = 24
+    Caption = 'Precio:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -19
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label33: TLabel
+    Left = 214
+    Top = 251
+    Width = 46
+    Height = 13
+    Caption = 'Grabar?'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Memo1: TMemo
+    Left = -1
+    Top = 40
+    Width = 497
+    Height = 169
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+  end
+  object PrecioEdit: TEdit
+    Left = 77
+    Top = 4
+    Width = 145
+    Height = 32
+    BiDiMode = bdRightToLeft
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentBiDiMode = False
+    ParentFont = False
+    TabOrder = 0
+    Text = '0'
+  end
+  object BitBtn1: TBitBtn
+    Left = 128
+    Top = 231
+    Width = 80
+    Height = 50
+    Caption = 'Si'
+    DoubleBuffered = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    Kind = bkYes
+    ParentDoubleBuffered = False
+    ParentFont = False
+    TabOrder = 2
+    OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 272
+    Top = 231
+    Width = 80
+    Height = 50
+    Caption = 'No'
+    DoubleBuffered = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    Kind = bkNo
+    ParentDoubleBuffered = False
+    ParentFont = False
+    TabOrder = 3
+    OnClick = BitBtn2Click
+  end
+end

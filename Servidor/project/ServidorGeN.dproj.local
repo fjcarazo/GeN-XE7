@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/10/14 13:56:19.796.pas,C:\Documents and Settings\BackUp\Mis documentos\RAD Studio\Projects\Unit1.pas=C:\Documents and Settings\BackUp\Mis documentos\WORK\projects\DeGsoft\GeN\Servidor\form\Servidor.pas</Transaction>
+    <Transaction>2010/10/14 13:56:19.796.dfm,C:\Documents and Settings\BackUp\Mis documentos\RAD Studio\Projects\Unit1.dfm=C:\Documents and Settings\BackUp\Mis documentos\WORK\projects\DeGsoft\GeN\Servidor\form\Servidor.dfm</Transaction>
+    <Transaction>2010/10/14 13:57:12.156.pas,C:\Documents and Settings\BackUp\Mis documentos\WORK\projects\DeGsoft\GeN\Servidor\form\Servidor.pas=C:\Documents and Settings\BackUp\Mis documentos\WORK\projects\DeGsoft\GeN\Servidor\form\ServidorF.pas</Transaction>
+    <Transaction>2010/10/14 13:57:12.156.dfm,C:\Documents and Settings\BackUp\Mis documentos\WORK\projects\DeGsoft\GeN\Servidor\form\Servidor.dfm=C:\Documents and Settings\BackUp\Mis documentos\WORK\projects\DeGsoft\GeN\Servidor\form\ServidorF.dfm</Transaction>
+    <Transaction>2010/10/14 13:57:32.281.dproj,C:\Documents and Settings\BackUp\Mis documentos\RAD Studio\Projects\Project1.dproj=C:\Documents and Settings\BackUp\Mis documentos\WORK\projects\DeGsoft\GeN\Servidor\form\ServidorGeN.dproj</Transaction>
+    <Transaction>2010/10/14 18:40:58.937.dproj,C:\Documents and Settings\BackUp\Mis documentos\WORK\projects\DeGsoft\GeN\Servidor\form\ServidorGeN.dproj=C:\Documents and Settings\BackUp\Mis documentos\WORK\projects\DeGsoft\GeN\Servidor\project\ServidorGeN.dproj</Transaction>
+    <Transaction>2010/11/08 17:23:59.140.pas,F:\Projects\DeGsoft\GeN\DataModule\DataModule.pas=</Transaction>
+    <Transaction>2010/11/08 17:23:59.140.dfm,F:\Projects\DeGsoft\GeN\DataModule\DataModule.dfm=</Transaction>
+    <Transaction>2010/11/11 07:12:54.250.pas,F:\Projects\DeGsoft\GeN\DataModule\DataModule.pas=</Transaction>
+    <Transaction>2010/11/11 07:12:54.250.dfm,F:\Projects\DeGsoft\GeN\DataModule\DataModule.dfm=</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="-1" SortType="1"/>
+</BorlandProject>

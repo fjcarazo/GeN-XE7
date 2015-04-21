@@ -1,0 +1,804 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{F2537749-E516-4EE1-995F-7F3184806E1C}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="..\Servidor\project\GeN.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Menu\Completo\Project\Menu.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Menu\Cobranza\Project\MenuCobranza.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Menu\Contable\Project\MenuContable.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Menu\Creditos\Project\MenuCreditos.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Menu\PuntoVenta\Project\MenuPV.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Menu\Stock\Project\MenuStock.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Menu\Express\Project\MenuExpress.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\AcercaDe\project\about.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\AporteCapital\Project\AporteCapital.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\AnularVenta\Project\AnularVenta.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ABM\Articulo\Project\Articulos.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\Comprar\Project\Comprar.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Buscar\Compra\Project\CompraL.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ABM\Categoria\Project\Categoria.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ABM\Capitulo\Project\Capitulo.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Listados\Caja\Project\CajaL.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\CrearCredito\Project\CrearCredito.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\CrearPedido\Project\CrearPedido.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\GestionCobranzaExtraJudicial\Project\CobranzaExtraJudicial.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\GestionCobranzaIncobrable\Project\CobranzaIncobrable.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\GestionCobranzaJudicial\Project\CobranzaJudicial.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Listados\CartonCobranza\Project\CartonCobranza.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ABM\Cliente\Project\Clientes.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\CtaCte\Project\CtaCte.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ABM\Cobrador\Project\Cobrador.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Configuracion\Sistema\Project\Configuracion.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ABM\CuentaContable\Project\CuentaContable.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Listados\Clientes\Project\ClientesL.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Listados\EstadoCuenta\Project\EstadoCuentaL.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ABM\Empresa\Project\Empresa.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\GestionCobranza\Project\GestionCobranza.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Listados\Ganancias\Project\GananciaXvta.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\IncrementarValorPorc\Project\IncrementarValor.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ABM\IngresosBrutos\Project\IngresosBrutos.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Listados\LibroDiario\Project\LibroDiarioL.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Listados\LibroIVACompras\Project\LibroIVACompras.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Listados\LibroIVAVentas\Project\LibroIVAVentas.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Licencia\Project\Licencia.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\Migrar\project\Migrar.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\NotaCreditoPlan\Project\NotaCreditoPlan.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\PagoCobrador\Project\PagoCobrador.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\PagoIVA\Project\PagoIVA.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Listados\Pedidos\Project\PedidoL.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\PagoProveedor\Project\PagoProveedor.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Listados\Precios\Project\PreciosL.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ABM\Proveedor\Project\Proveedor.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\PagoVendedor\Project\PagoVendedor.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\RendicionCarton\Project\RendicionCarton.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\RendicionCliente\Project\RendicionCliente.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\RetiroCaja\Project\RetiroCaja.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ABM\Rubro\Project\Rubro.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ABM\Plan\Project\Plan.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ABM\RubroContable\Project\RubroContable.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Listados\RendicionCliente\Project\RendicionClienteL.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Listados\RendicionCobrador\Project\RendicionCobradorL.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ABM\Socio\Project\Socio.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Buscar\Articulo\Project\Stock.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ABM\TipoGasto\Project\TipoGasto.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ABM\Usuarios\Project\Usuarios.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\VaciarBase\Project\VaciarBase.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ABM\Vendedor\Project\Vendedor.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Operacion\VenderCodBarra\Project\Vender.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Modulo\Vigilancia\project\Vigilancia.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ABM\Marca\Project\Marca.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="GeN">
+			<MSBuild Projects="..\Servidor\project\GeN.dproj"/>
+		</Target>
+		<Target Name="GeN:Clean">
+			<MSBuild Targets="Clean" Projects="..\Servidor\project\GeN.dproj"/>
+		</Target>
+		<Target Name="GeN:Make">
+			<MSBuild Targets="Make" Projects="..\Servidor\project\GeN.dproj"/>
+		</Target>
+		<Target Name="Menu">
+			<MSBuild Projects="..\Menu\Completo\Project\Menu.dproj"/>
+		</Target>
+		<Target Name="Menu:Clean">
+			<MSBuild Targets="Clean" Projects="..\Menu\Completo\Project\Menu.dproj"/>
+		</Target>
+		<Target Name="Menu:Make">
+			<MSBuild Targets="Make" Projects="..\Menu\Completo\Project\Menu.dproj"/>
+		</Target>
+		<Target Name="MenuCobranza">
+			<MSBuild Projects="..\Menu\Cobranza\Project\MenuCobranza.dproj"/>
+		</Target>
+		<Target Name="MenuCobranza:Clean">
+			<MSBuild Targets="Clean" Projects="..\Menu\Cobranza\Project\MenuCobranza.dproj"/>
+		</Target>
+		<Target Name="MenuCobranza:Make">
+			<MSBuild Targets="Make" Projects="..\Menu\Cobranza\Project\MenuCobranza.dproj"/>
+		</Target>
+		<Target Name="MenuContable">
+			<MSBuild Projects="..\Menu\Contable\Project\MenuContable.dproj"/>
+		</Target>
+		<Target Name="MenuContable:Clean">
+			<MSBuild Targets="Clean" Projects="..\Menu\Contable\Project\MenuContable.dproj"/>
+		</Target>
+		<Target Name="MenuContable:Make">
+			<MSBuild Targets="Make" Projects="..\Menu\Contable\Project\MenuContable.dproj"/>
+		</Target>
+		<Target Name="MenuCreditos">
+			<MSBuild Projects="..\Menu\Creditos\Project\MenuCreditos.dproj"/>
+		</Target>
+		<Target Name="MenuCreditos:Clean">
+			<MSBuild Targets="Clean" Projects="..\Menu\Creditos\Project\MenuCreditos.dproj"/>
+		</Target>
+		<Target Name="MenuCreditos:Make">
+			<MSBuild Targets="Make" Projects="..\Menu\Creditos\Project\MenuCreditos.dproj"/>
+		</Target>
+		<Target Name="MenuPV">
+			<MSBuild Projects="..\Menu\PuntoVenta\Project\MenuPV.dproj"/>
+		</Target>
+		<Target Name="MenuPV:Clean">
+			<MSBuild Targets="Clean" Projects="..\Menu\PuntoVenta\Project\MenuPV.dproj"/>
+		</Target>
+		<Target Name="MenuPV:Make">
+			<MSBuild Targets="Make" Projects="..\Menu\PuntoVenta\Project\MenuPV.dproj"/>
+		</Target>
+		<Target Name="MenuStock">
+			<MSBuild Projects="..\Menu\Stock\Project\MenuStock.dproj"/>
+		</Target>
+		<Target Name="MenuStock:Clean">
+			<MSBuild Targets="Clean" Projects="..\Menu\Stock\Project\MenuStock.dproj"/>
+		</Target>
+		<Target Name="MenuStock:Make">
+			<MSBuild Targets="Make" Projects="..\Menu\Stock\Project\MenuStock.dproj"/>
+		</Target>
+		<Target Name="MenuExpress">
+			<MSBuild Projects="..\Menu\Express\Project\MenuExpress.dproj"/>
+		</Target>
+		<Target Name="MenuExpress:Clean">
+			<MSBuild Targets="Clean" Projects="..\Menu\Express\Project\MenuExpress.dproj"/>
+		</Target>
+		<Target Name="MenuExpress:Make">
+			<MSBuild Targets="Make" Projects="..\Menu\Express\Project\MenuExpress.dproj"/>
+		</Target>
+		<Target Name="about">
+			<MSBuild Projects="..\AcercaDe\project\about.dproj"/>
+		</Target>
+		<Target Name="about:Clean">
+			<MSBuild Targets="Clean" Projects="..\AcercaDe\project\about.dproj"/>
+		</Target>
+		<Target Name="about:Make">
+			<MSBuild Targets="Make" Projects="..\AcercaDe\project\about.dproj"/>
+		</Target>
+		<Target Name="AporteCapital">
+			<MSBuild Projects="..\Operacion\AporteCapital\Project\AporteCapital.dproj"/>
+		</Target>
+		<Target Name="AporteCapital:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\AporteCapital\Project\AporteCapital.dproj"/>
+		</Target>
+		<Target Name="AporteCapital:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\AporteCapital\Project\AporteCapital.dproj"/>
+		</Target>
+		<Target Name="AnularVenta">
+			<MSBuild Projects="..\Operacion\AnularVenta\Project\AnularVenta.dproj"/>
+		</Target>
+		<Target Name="AnularVenta:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\AnularVenta\Project\AnularVenta.dproj"/>
+		</Target>
+		<Target Name="AnularVenta:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\AnularVenta\Project\AnularVenta.dproj"/>
+		</Target>
+		<Target Name="Articulos">
+			<MSBuild Projects="..\ABM\Articulo\Project\Articulos.dproj"/>
+		</Target>
+		<Target Name="Articulos:Clean">
+			<MSBuild Targets="Clean" Projects="..\ABM\Articulo\Project\Articulos.dproj"/>
+		</Target>
+		<Target Name="Articulos:Make">
+			<MSBuild Targets="Make" Projects="..\ABM\Articulo\Project\Articulos.dproj"/>
+		</Target>
+		<Target Name="Comprar">
+			<MSBuild Projects="..\Operacion\Comprar\Project\Comprar.dproj"/>
+		</Target>
+		<Target Name="Comprar:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\Comprar\Project\Comprar.dproj"/>
+		</Target>
+		<Target Name="Comprar:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\Comprar\Project\Comprar.dproj"/>
+		</Target>
+		<Target Name="CompraL">
+			<MSBuild Projects="..\Buscar\Compra\Project\CompraL.dproj"/>
+		</Target>
+		<Target Name="CompraL:Clean">
+			<MSBuild Targets="Clean" Projects="..\Buscar\Compra\Project\CompraL.dproj"/>
+		</Target>
+		<Target Name="CompraL:Make">
+			<MSBuild Targets="Make" Projects="..\Buscar\Compra\Project\CompraL.dproj"/>
+		</Target>
+		<Target Name="Categoria">
+			<MSBuild Projects="..\ABM\Categoria\Project\Categoria.dproj"/>
+		</Target>
+		<Target Name="Categoria:Clean">
+			<MSBuild Targets="Clean" Projects="..\ABM\Categoria\Project\Categoria.dproj"/>
+		</Target>
+		<Target Name="Categoria:Make">
+			<MSBuild Targets="Make" Projects="..\ABM\Categoria\Project\Categoria.dproj"/>
+		</Target>
+		<Target Name="Capitulo">
+			<MSBuild Projects="..\ABM\Capitulo\Project\Capitulo.dproj"/>
+		</Target>
+		<Target Name="Capitulo:Clean">
+			<MSBuild Targets="Clean" Projects="..\ABM\Capitulo\Project\Capitulo.dproj"/>
+		</Target>
+		<Target Name="Capitulo:Make">
+			<MSBuild Targets="Make" Projects="..\ABM\Capitulo\Project\Capitulo.dproj"/>
+		</Target>
+		<Target Name="CajaL">
+			<MSBuild Projects="..\Listados\Caja\Project\CajaL.dproj"/>
+		</Target>
+		<Target Name="CajaL:Clean">
+			<MSBuild Targets="Clean" Projects="..\Listados\Caja\Project\CajaL.dproj"/>
+		</Target>
+		<Target Name="CajaL:Make">
+			<MSBuild Targets="Make" Projects="..\Listados\Caja\Project\CajaL.dproj"/>
+		</Target>
+		<Target Name="CrearCredito">
+			<MSBuild Projects="..\Operacion\CrearCredito\Project\CrearCredito.dproj"/>
+		</Target>
+		<Target Name="CrearCredito:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\CrearCredito\Project\CrearCredito.dproj"/>
+		</Target>
+		<Target Name="CrearCredito:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\CrearCredito\Project\CrearCredito.dproj"/>
+		</Target>
+		<Target Name="CrearPedido">
+			<MSBuild Projects="..\Operacion\CrearPedido\Project\CrearPedido.dproj"/>
+		</Target>
+		<Target Name="CrearPedido:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\CrearPedido\Project\CrearPedido.dproj"/>
+		</Target>
+		<Target Name="CrearPedido:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\CrearPedido\Project\CrearPedido.dproj"/>
+		</Target>
+		<Target Name="CobranzaExtraJudicial">
+			<MSBuild Projects="..\Operacion\GestionCobranzaExtraJudicial\Project\CobranzaExtraJudicial.dproj"/>
+		</Target>
+		<Target Name="CobranzaExtraJudicial:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\GestionCobranzaExtraJudicial\Project\CobranzaExtraJudicial.dproj"/>
+		</Target>
+		<Target Name="CobranzaExtraJudicial:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\GestionCobranzaExtraJudicial\Project\CobranzaExtraJudicial.dproj"/>
+		</Target>
+		<Target Name="CobranzaIncobrable">
+			<MSBuild Projects="..\Operacion\GestionCobranzaIncobrable\Project\CobranzaIncobrable.dproj"/>
+		</Target>
+		<Target Name="CobranzaIncobrable:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\GestionCobranzaIncobrable\Project\CobranzaIncobrable.dproj"/>
+		</Target>
+		<Target Name="CobranzaIncobrable:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\GestionCobranzaIncobrable\Project\CobranzaIncobrable.dproj"/>
+		</Target>
+		<Target Name="CobranzaJudicial">
+			<MSBuild Projects="..\Operacion\GestionCobranzaJudicial\Project\CobranzaJudicial.dproj"/>
+		</Target>
+		<Target Name="CobranzaJudicial:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\GestionCobranzaJudicial\Project\CobranzaJudicial.dproj"/>
+		</Target>
+		<Target Name="CobranzaJudicial:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\GestionCobranzaJudicial\Project\CobranzaJudicial.dproj"/>
+		</Target>
+		<Target Name="CartonCobranza">
+			<MSBuild Projects="..\Listados\CartonCobranza\Project\CartonCobranza.dproj"/>
+		</Target>
+		<Target Name="CartonCobranza:Clean">
+			<MSBuild Targets="Clean" Projects="..\Listados\CartonCobranza\Project\CartonCobranza.dproj"/>
+		</Target>
+		<Target Name="CartonCobranza:Make">
+			<MSBuild Targets="Make" Projects="..\Listados\CartonCobranza\Project\CartonCobranza.dproj"/>
+		</Target>
+		<Target Name="Clientes">
+			<MSBuild Projects="..\ABM\Cliente\Project\Clientes.dproj"/>
+		</Target>
+		<Target Name="Clientes:Clean">
+			<MSBuild Targets="Clean" Projects="..\ABM\Cliente\Project\Clientes.dproj"/>
+		</Target>
+		<Target Name="Clientes:Make">
+			<MSBuild Targets="Make" Projects="..\ABM\Cliente\Project\Clientes.dproj"/>
+		</Target>
+		<Target Name="CtaCte">
+			<MSBuild Projects="..\Operacion\CtaCte\Project\CtaCte.dproj"/>
+		</Target>
+		<Target Name="CtaCte:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\CtaCte\Project\CtaCte.dproj"/>
+		</Target>
+		<Target Name="CtaCte:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\CtaCte\Project\CtaCte.dproj"/>
+		</Target>
+		<Target Name="Cobrador">
+			<MSBuild Projects="..\ABM\Cobrador\Project\Cobrador.dproj"/>
+		</Target>
+		<Target Name="Cobrador:Clean">
+			<MSBuild Targets="Clean" Projects="..\ABM\Cobrador\Project\Cobrador.dproj"/>
+		</Target>
+		<Target Name="Cobrador:Make">
+			<MSBuild Targets="Make" Projects="..\ABM\Cobrador\Project\Cobrador.dproj"/>
+		</Target>
+		<Target Name="Configuracion">
+			<MSBuild Projects="..\Configuracion\Sistema\Project\Configuracion.dproj"/>
+		</Target>
+		<Target Name="Configuracion:Clean">
+			<MSBuild Targets="Clean" Projects="..\Configuracion\Sistema\Project\Configuracion.dproj"/>
+		</Target>
+		<Target Name="Configuracion:Make">
+			<MSBuild Targets="Make" Projects="..\Configuracion\Sistema\Project\Configuracion.dproj"/>
+		</Target>
+		<Target Name="CuentaContable">
+			<MSBuild Projects="..\ABM\CuentaContable\Project\CuentaContable.dproj"/>
+		</Target>
+		<Target Name="CuentaContable:Clean">
+			<MSBuild Targets="Clean" Projects="..\ABM\CuentaContable\Project\CuentaContable.dproj"/>
+		</Target>
+		<Target Name="CuentaContable:Make">
+			<MSBuild Targets="Make" Projects="..\ABM\CuentaContable\Project\CuentaContable.dproj"/>
+		</Target>
+		<Target Name="ClientesL">
+			<MSBuild Projects="..\Listados\Clientes\Project\ClientesL.dproj"/>
+		</Target>
+		<Target Name="ClientesL:Clean">
+			<MSBuild Targets="Clean" Projects="..\Listados\Clientes\Project\ClientesL.dproj"/>
+		</Target>
+		<Target Name="ClientesL:Make">
+			<MSBuild Targets="Make" Projects="..\Listados\Clientes\Project\ClientesL.dproj"/>
+		</Target>
+		<Target Name="EstadoCuentaL">
+			<MSBuild Projects="..\Listados\EstadoCuenta\Project\EstadoCuentaL.dproj"/>
+		</Target>
+		<Target Name="EstadoCuentaL:Clean">
+			<MSBuild Targets="Clean" Projects="..\Listados\EstadoCuenta\Project\EstadoCuentaL.dproj"/>
+		</Target>
+		<Target Name="EstadoCuentaL:Make">
+			<MSBuild Targets="Make" Projects="..\Listados\EstadoCuenta\Project\EstadoCuentaL.dproj"/>
+		</Target>
+		<Target Name="Empresa">
+			<MSBuild Projects="..\ABM\Empresa\Project\Empresa.dproj"/>
+		</Target>
+		<Target Name="Empresa:Clean">
+			<MSBuild Targets="Clean" Projects="..\ABM\Empresa\Project\Empresa.dproj"/>
+		</Target>
+		<Target Name="Empresa:Make">
+			<MSBuild Targets="Make" Projects="..\ABM\Empresa\Project\Empresa.dproj"/>
+		</Target>
+		<Target Name="GestionCobranza">
+			<MSBuild Projects="..\Operacion\GestionCobranza\Project\GestionCobranza.dproj"/>
+		</Target>
+		<Target Name="GestionCobranza:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\GestionCobranza\Project\GestionCobranza.dproj"/>
+		</Target>
+		<Target Name="GestionCobranza:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\GestionCobranza\Project\GestionCobranza.dproj"/>
+		</Target>
+		<Target Name="GananciaXvta">
+			<MSBuild Projects="..\Listados\Ganancias\Project\GananciaXvta.dproj"/>
+		</Target>
+		<Target Name="GananciaXvta:Clean">
+			<MSBuild Targets="Clean" Projects="..\Listados\Ganancias\Project\GananciaXvta.dproj"/>
+		</Target>
+		<Target Name="GananciaXvta:Make">
+			<MSBuild Targets="Make" Projects="..\Listados\Ganancias\Project\GananciaXvta.dproj"/>
+		</Target>
+		<Target Name="IncrementarValor">
+			<MSBuild Projects="..\Operacion\IncrementarValorPorc\Project\IncrementarValor.dproj"/>
+		</Target>
+		<Target Name="IncrementarValor:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\IncrementarValorPorc\Project\IncrementarValor.dproj"/>
+		</Target>
+		<Target Name="IncrementarValor:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\IncrementarValorPorc\Project\IncrementarValor.dproj"/>
+		</Target>
+		<Target Name="IngresosBrutos">
+			<MSBuild Projects="..\ABM\IngresosBrutos\Project\IngresosBrutos.dproj"/>
+		</Target>
+		<Target Name="IngresosBrutos:Clean">
+			<MSBuild Targets="Clean" Projects="..\ABM\IngresosBrutos\Project\IngresosBrutos.dproj"/>
+		</Target>
+		<Target Name="IngresosBrutos:Make">
+			<MSBuild Targets="Make" Projects="..\ABM\IngresosBrutos\Project\IngresosBrutos.dproj"/>
+		</Target>
+		<Target Name="LibroDiarioL">
+			<MSBuild Projects="..\Listados\LibroDiario\Project\LibroDiarioL.dproj"/>
+		</Target>
+		<Target Name="LibroDiarioL:Clean">
+			<MSBuild Targets="Clean" Projects="..\Listados\LibroDiario\Project\LibroDiarioL.dproj"/>
+		</Target>
+		<Target Name="LibroDiarioL:Make">
+			<MSBuild Targets="Make" Projects="..\Listados\LibroDiario\Project\LibroDiarioL.dproj"/>
+		</Target>
+		<Target Name="LibroIVACompras">
+			<MSBuild Projects="..\Listados\LibroIVACompras\Project\LibroIVACompras.dproj"/>
+		</Target>
+		<Target Name="LibroIVACompras:Clean">
+			<MSBuild Targets="Clean" Projects="..\Listados\LibroIVACompras\Project\LibroIVACompras.dproj"/>
+		</Target>
+		<Target Name="LibroIVACompras:Make">
+			<MSBuild Targets="Make" Projects="..\Listados\LibroIVACompras\Project\LibroIVACompras.dproj"/>
+		</Target>
+		<Target Name="LibroIVAVentas">
+			<MSBuild Projects="..\Listados\LibroIVAVentas\Project\LibroIVAVentas.dproj"/>
+		</Target>
+		<Target Name="LibroIVAVentas:Clean">
+			<MSBuild Targets="Clean" Projects="..\Listados\LibroIVAVentas\Project\LibroIVAVentas.dproj"/>
+		</Target>
+		<Target Name="LibroIVAVentas:Make">
+			<MSBuild Targets="Make" Projects="..\Listados\LibroIVAVentas\Project\LibroIVAVentas.dproj"/>
+		</Target>
+		<Target Name="Licencia">
+			<MSBuild Projects="..\Licencia\Project\Licencia.dproj"/>
+		</Target>
+		<Target Name="Licencia:Clean">
+			<MSBuild Targets="Clean" Projects="..\Licencia\Project\Licencia.dproj"/>
+		</Target>
+		<Target Name="Licencia:Make">
+			<MSBuild Targets="Make" Projects="..\Licencia\Project\Licencia.dproj"/>
+		</Target>
+		<Target Name="Migrar">
+			<MSBuild Projects="..\Operacion\Migrar\project\Migrar.dproj"/>
+		</Target>
+		<Target Name="Migrar:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\Migrar\project\Migrar.dproj"/>
+		</Target>
+		<Target Name="Migrar:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\Migrar\project\Migrar.dproj"/>
+		</Target>
+		<Target Name="NotaCreditoPlan">
+			<MSBuild Projects="..\Operacion\NotaCreditoPlan\Project\NotaCreditoPlan.dproj"/>
+		</Target>
+		<Target Name="NotaCreditoPlan:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\NotaCreditoPlan\Project\NotaCreditoPlan.dproj"/>
+		</Target>
+		<Target Name="NotaCreditoPlan:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\NotaCreditoPlan\Project\NotaCreditoPlan.dproj"/>
+		</Target>
+		<Target Name="PagoCobrador">
+			<MSBuild Projects="..\Operacion\PagoCobrador\Project\PagoCobrador.dproj"/>
+		</Target>
+		<Target Name="PagoCobrador:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\PagoCobrador\Project\PagoCobrador.dproj"/>
+		</Target>
+		<Target Name="PagoCobrador:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\PagoCobrador\Project\PagoCobrador.dproj"/>
+		</Target>
+		<Target Name="PagoIVA">
+			<MSBuild Projects="..\Operacion\PagoIVA\Project\PagoIVA.dproj"/>
+		</Target>
+		<Target Name="PagoIVA:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\PagoIVA\Project\PagoIVA.dproj"/>
+		</Target>
+		<Target Name="PagoIVA:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\PagoIVA\Project\PagoIVA.dproj"/>
+		</Target>
+		<Target Name="PedidoL">
+			<MSBuild Projects="..\Listados\Pedidos\Project\PedidoL.dproj"/>
+		</Target>
+		<Target Name="PedidoL:Clean">
+			<MSBuild Targets="Clean" Projects="..\Listados\Pedidos\Project\PedidoL.dproj"/>
+		</Target>
+		<Target Name="PedidoL:Make">
+			<MSBuild Targets="Make" Projects="..\Listados\Pedidos\Project\PedidoL.dproj"/>
+		</Target>
+		<Target Name="PagoProveedor">
+			<MSBuild Projects="..\Operacion\PagoProveedor\Project\PagoProveedor.dproj"/>
+		</Target>
+		<Target Name="PagoProveedor:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\PagoProveedor\Project\PagoProveedor.dproj"/>
+		</Target>
+		<Target Name="PagoProveedor:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\PagoProveedor\Project\PagoProveedor.dproj"/>
+		</Target>
+		<Target Name="PreciosL">
+			<MSBuild Projects="..\Listados\Precios\Project\PreciosL.dproj"/>
+		</Target>
+		<Target Name="PreciosL:Clean">
+			<MSBuild Targets="Clean" Projects="..\Listados\Precios\Project\PreciosL.dproj"/>
+		</Target>
+		<Target Name="PreciosL:Make">
+			<MSBuild Targets="Make" Projects="..\Listados\Precios\Project\PreciosL.dproj"/>
+		</Target>
+		<Target Name="Proveedor">
+			<MSBuild Projects="..\ABM\Proveedor\Project\Proveedor.dproj"/>
+		</Target>
+		<Target Name="Proveedor:Clean">
+			<MSBuild Targets="Clean" Projects="..\ABM\Proveedor\Project\Proveedor.dproj"/>
+		</Target>
+		<Target Name="Proveedor:Make">
+			<MSBuild Targets="Make" Projects="..\ABM\Proveedor\Project\Proveedor.dproj"/>
+		</Target>
+		<Target Name="PagoVendedor">
+			<MSBuild Projects="..\Operacion\PagoVendedor\Project\PagoVendedor.dproj"/>
+		</Target>
+		<Target Name="PagoVendedor:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\PagoVendedor\Project\PagoVendedor.dproj"/>
+		</Target>
+		<Target Name="PagoVendedor:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\PagoVendedor\Project\PagoVendedor.dproj"/>
+		</Target>
+		<Target Name="RendicionCarton">
+			<MSBuild Projects="..\Operacion\RendicionCarton\Project\RendicionCarton.dproj"/>
+		</Target>
+		<Target Name="RendicionCarton:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\RendicionCarton\Project\RendicionCarton.dproj"/>
+		</Target>
+		<Target Name="RendicionCarton:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\RendicionCarton\Project\RendicionCarton.dproj"/>
+		</Target>
+		<Target Name="RendicionCliente">
+			<MSBuild Projects="..\Operacion\RendicionCliente\Project\RendicionCliente.dproj"/>
+		</Target>
+		<Target Name="RendicionCliente:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\RendicionCliente\Project\RendicionCliente.dproj"/>
+		</Target>
+		<Target Name="RendicionCliente:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\RendicionCliente\Project\RendicionCliente.dproj"/>
+		</Target>
+		<Target Name="RetiroCaja">
+			<MSBuild Projects="..\Operacion\RetiroCaja\Project\RetiroCaja.dproj"/>
+		</Target>
+		<Target Name="RetiroCaja:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\RetiroCaja\Project\RetiroCaja.dproj"/>
+		</Target>
+		<Target Name="RetiroCaja:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\RetiroCaja\Project\RetiroCaja.dproj"/>
+		</Target>
+		<Target Name="Rubro">
+			<MSBuild Projects="..\ABM\Rubro\Project\Rubro.dproj"/>
+		</Target>
+		<Target Name="Rubro:Clean">
+			<MSBuild Targets="Clean" Projects="..\ABM\Rubro\Project\Rubro.dproj"/>
+		</Target>
+		<Target Name="Rubro:Make">
+			<MSBuild Targets="Make" Projects="..\ABM\Rubro\Project\Rubro.dproj"/>
+		</Target>
+		<Target Name="Plan">
+			<MSBuild Projects="..\ABM\Plan\Project\Plan.dproj"/>
+		</Target>
+		<Target Name="Plan:Clean">
+			<MSBuild Targets="Clean" Projects="..\ABM\Plan\Project\Plan.dproj"/>
+		</Target>
+		<Target Name="Plan:Make">
+			<MSBuild Targets="Make" Projects="..\ABM\Plan\Project\Plan.dproj"/>
+		</Target>
+		<Target Name="RubroContable">
+			<MSBuild Projects="..\ABM\RubroContable\Project\RubroContable.dproj"/>
+		</Target>
+		<Target Name="RubroContable:Clean">
+			<MSBuild Targets="Clean" Projects="..\ABM\RubroContable\Project\RubroContable.dproj"/>
+		</Target>
+		<Target Name="RubroContable:Make">
+			<MSBuild Targets="Make" Projects="..\ABM\RubroContable\Project\RubroContable.dproj"/>
+		</Target>
+		<Target Name="RendicionClienteL">
+			<MSBuild Projects="..\Listados\RendicionCliente\Project\RendicionClienteL.dproj"/>
+		</Target>
+		<Target Name="RendicionClienteL:Clean">
+			<MSBuild Targets="Clean" Projects="..\Listados\RendicionCliente\Project\RendicionClienteL.dproj"/>
+		</Target>
+		<Target Name="RendicionClienteL:Make">
+			<MSBuild Targets="Make" Projects="..\Listados\RendicionCliente\Project\RendicionClienteL.dproj"/>
+		</Target>
+		<Target Name="RendicionCobradorL">
+			<MSBuild Projects="..\Listados\RendicionCobrador\Project\RendicionCobradorL.dproj"/>
+		</Target>
+		<Target Name="RendicionCobradorL:Clean">
+			<MSBuild Targets="Clean" Projects="..\Listados\RendicionCobrador\Project\RendicionCobradorL.dproj"/>
+		</Target>
+		<Target Name="RendicionCobradorL:Make">
+			<MSBuild Targets="Make" Projects="..\Listados\RendicionCobrador\Project\RendicionCobradorL.dproj"/>
+		</Target>
+		<Target Name="Socio">
+			<MSBuild Projects="..\ABM\Socio\Project\Socio.dproj"/>
+		</Target>
+		<Target Name="Socio:Clean">
+			<MSBuild Targets="Clean" Projects="..\ABM\Socio\Project\Socio.dproj"/>
+		</Target>
+		<Target Name="Socio:Make">
+			<MSBuild Targets="Make" Projects="..\ABM\Socio\Project\Socio.dproj"/>
+		</Target>
+		<Target Name="Stock">
+			<MSBuild Projects="..\Buscar\Articulo\Project\Stock.dproj"/>
+		</Target>
+		<Target Name="Stock:Clean">
+			<MSBuild Targets="Clean" Projects="..\Buscar\Articulo\Project\Stock.dproj"/>
+		</Target>
+		<Target Name="Stock:Make">
+			<MSBuild Targets="Make" Projects="..\Buscar\Articulo\Project\Stock.dproj"/>
+		</Target>
+		<Target Name="TipoGasto">
+			<MSBuild Projects="..\ABM\TipoGasto\Project\TipoGasto.dproj"/>
+		</Target>
+		<Target Name="TipoGasto:Clean">
+			<MSBuild Targets="Clean" Projects="..\ABM\TipoGasto\Project\TipoGasto.dproj"/>
+		</Target>
+		<Target Name="TipoGasto:Make">
+			<MSBuild Targets="Make" Projects="..\ABM\TipoGasto\Project\TipoGasto.dproj"/>
+		</Target>
+		<Target Name="Usuarios">
+			<MSBuild Projects="..\ABM\Usuarios\Project\Usuarios.dproj"/>
+		</Target>
+		<Target Name="Usuarios:Clean">
+			<MSBuild Targets="Clean" Projects="..\ABM\Usuarios\Project\Usuarios.dproj"/>
+		</Target>
+		<Target Name="Usuarios:Make">
+			<MSBuild Targets="Make" Projects="..\ABM\Usuarios\Project\Usuarios.dproj"/>
+		</Target>
+		<Target Name="VaciarBase">
+			<MSBuild Projects="..\Operacion\VaciarBase\Project\VaciarBase.dproj"/>
+		</Target>
+		<Target Name="VaciarBase:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\VaciarBase\Project\VaciarBase.dproj"/>
+		</Target>
+		<Target Name="VaciarBase:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\VaciarBase\Project\VaciarBase.dproj"/>
+		</Target>
+		<Target Name="Vendedor">
+			<MSBuild Projects="..\ABM\Vendedor\Project\Vendedor.dproj"/>
+		</Target>
+		<Target Name="Vendedor:Clean">
+			<MSBuild Targets="Clean" Projects="..\ABM\Vendedor\Project\Vendedor.dproj"/>
+		</Target>
+		<Target Name="Vendedor:Make">
+			<MSBuild Targets="Make" Projects="..\ABM\Vendedor\Project\Vendedor.dproj"/>
+		</Target>
+		<Target Name="Vender">
+			<MSBuild Projects="..\Operacion\VenderCodBarra\Project\Vender.dproj"/>
+		</Target>
+		<Target Name="Vender:Clean">
+			<MSBuild Targets="Clean" Projects="..\Operacion\VenderCodBarra\Project\Vender.dproj"/>
+		</Target>
+		<Target Name="Vender:Make">
+			<MSBuild Targets="Make" Projects="..\Operacion\VenderCodBarra\Project\Vender.dproj"/>
+		</Target>
+		<Target Name="Vigilancia">
+			<MSBuild Projects="..\Modulo\Vigilancia\project\Vigilancia.dproj"/>
+		</Target>
+		<Target Name="Vigilancia:Clean">
+			<MSBuild Targets="Clean" Projects="..\Modulo\Vigilancia\project\Vigilancia.dproj"/>
+		</Target>
+		<Target Name="Vigilancia:Make">
+			<MSBuild Targets="Make" Projects="..\Modulo\Vigilancia\project\Vigilancia.dproj"/>
+		</Target>
+		<Target Name="Marca">
+			<MSBuild Projects="..\ABM\Marca\Project\Marca.dproj"/>
+		</Target>
+		<Target Name="Marca:Clean">
+			<MSBuild Targets="Clean" Projects="..\ABM\Marca\Project\Marca.dproj"/>
+		</Target>
+		<Target Name="Marca:Make">
+			<MSBuild Targets="Make" Projects="..\ABM\Marca\Project\Marca.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="GeN;Menu;MenuCobranza;MenuContable;MenuCreditos;MenuPV;MenuStock;MenuExpress;about;AporteCapital;AnularVenta;Articulos;Comprar;CompraL;Categoria;Capitulo;CajaL;CrearCredito;CrearPedido;CobranzaExtraJudicial;CobranzaIncobrable;CobranzaJudicial;CartonCobranza;Clientes;CtaCte;Cobrador;Configuracion;CuentaContable;ClientesL;EstadoCuentaL;Empresa;GestionCobranza;GananciaXvta;IncrementarValor;IngresosBrutos;LibroDiarioL;LibroIVACompras;LibroIVAVentas;Licencia;Migrar;NotaCreditoPlan;PagoCobrador;PagoIVA;PedidoL;PagoProveedor;PreciosL;Proveedor;PagoVendedor;RendicionCarton;RendicionCliente;RetiroCaja;Rubro;Plan;RubroContable;RendicionClienteL;RendicionCobradorL;Socio;Stock;TipoGasto;Usuarios;VaciarBase;Vendedor;Vender;Vigilancia;Marca"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="GeN:Clean;Menu:Clean;MenuCobranza:Clean;MenuContable:Clean;MenuCreditos:Clean;MenuPV:Clean;MenuStock:Clean;MenuExpress:Clean;about:Clean;AporteCapital:Clean;AnularVenta:Clean;Articulos:Clean;Comprar:Clean;CompraL:Clean;Categoria:Clean;Capitulo:Clean;CajaL:Clean;CrearCredito:Clean;CrearPedido:Clean;CobranzaExtraJudicial:Clean;CobranzaIncobrable:Clean;CobranzaJudicial:Clean;CartonCobranza:Clean;Clientes:Clean;CtaCte:Clean;Cobrador:Clean;Configuracion:Clean;CuentaContable:Clean;ClientesL:Clean;EstadoCuentaL:Clean;Empresa:Clean;GestionCobranza:Clean;GananciaXvta:Clean;IncrementarValor:Clean;IngresosBrutos:Clean;LibroDiarioL:Clean;LibroIVACompras:Clean;LibroIVAVentas:Clean;Licencia:Clean;Migrar:Clean;NotaCreditoPlan:Clean;PagoCobrador:Clean;PagoIVA:Clean;PedidoL:Clean;PagoProveedor:Clean;PreciosL:Clean;Proveedor:Clean;PagoVendedor:Clean;RendicionCarton:Clean;RendicionCliente:Clean;RetiroCaja:Clean;Rubro:Clean;Plan:Clean;RubroContable:Clean;RendicionClienteL:Clean;RendicionCobradorL:Clean;Socio:Clean;Stock:Clean;TipoGasto:Clean;Usuarios:Clean;VaciarBase:Clean;Vendedor:Clean;Vender:Clean;Vigilancia:Clean;Marca:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="GeN:Make;Menu:Make;MenuCobranza:Make;MenuContable:Make;MenuCreditos:Make;MenuPV:Make;MenuStock:Make;MenuExpress:Make;about:Make;AporteCapital:Make;AnularVenta:Make;Articulos:Make;Comprar:Make;CompraL:Make;Categoria:Make;Capitulo:Make;CajaL:Make;CrearCredito:Make;CrearPedido:Make;CobranzaExtraJudicial:Make;CobranzaIncobrable:Make;CobranzaJudicial:Make;CartonCobranza:Make;Clientes:Make;CtaCte:Make;Cobrador:Make;Configuracion:Make;CuentaContable:Make;ClientesL:Make;EstadoCuentaL:Make;Empresa:Make;GestionCobranza:Make;GananciaXvta:Make;IncrementarValor:Make;IngresosBrutos:Make;LibroDiarioL:Make;LibroIVACompras:Make;LibroIVAVentas:Make;Licencia:Make;Migrar:Make;NotaCreditoPlan:Make;PagoCobrador:Make;PagoIVA:Make;PedidoL:Make;PagoProveedor:Make;PreciosL:Make;Proveedor:Make;PagoVendedor:Make;RendicionCarton:Make;RendicionCliente:Make;RetiroCaja:Make;Rubro:Make;Plan:Make;RubroContable:Make;RendicionClienteL:Make;RendicionCobradorL:Make;Socio:Make;Stock:Make;TipoGasto:Make;Usuarios:Make;VaciarBase:Make;Vendedor:Make;Vender:Make;Vigilancia:Make;Marca:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

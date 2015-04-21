@@ -1,0 +1,16 @@
+program MenuExpress;
+
+uses
+  Forms,
+  MenuExpressF in '..\Form\MenuExpressF.pas' {MenuExpressForm},
+  DataModule in '..\..\..\DataModule\DataModule.pas' {DM: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.Title := 'GeN';
+  Application.CreateForm(TMenuExpressForm, MenuExpressForm);
+  Application.Run;
+end.

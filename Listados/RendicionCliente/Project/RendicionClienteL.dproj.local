@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/06/24 22:25:20.421.dproj,D:\RAD Studio\Projects\DeGsoft\GeN\Listados\RendicionCliente\Project\RendicionClienteL.dproj=D:\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2010/12/09 10:04:03.468.dfm,F:\Projects\DeGsoft\GeN\Buscar\Plan\Form\BuscarPlan.dfm=</Transaction>
+    <Transaction>2010/12/09 10:04:03.468.pas,F:\Projects\DeGsoft\GeN\Buscar\Plan\Form\BuscarPlan.pas=</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="-1" SortType="1"/>
+</BorlandProject>

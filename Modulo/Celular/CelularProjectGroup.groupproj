@@ -1,0 +1,300 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{AC13EBB0-DE0E-451D-8ECD-4DF72906617A}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="..\..\Menu\Celular\Project\MenuCelular.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ABM\ArticuloCelular\Project\ArticuloCelular.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\AcercaDe\project\about.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Operacion\ActivarCelular\Project\ActivarCelular.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Listados\Activaciones\Project\ActivacionesL.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Operacion\AnularVenta\Project\AnularVenta.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ABM\Caja\Project\Caja.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ABM\Categoria\Project\Categoria.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ABM\Cliente\Project\Clientes.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Operacion\ComprarCelular\Project\ComprarCelular.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Operacion\DevolucionProveedorCelular\Project\DevolucionProveedorCelular.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ABM\Empresa\Project\Empresa.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ABM\ImpuestoServicio\Project\ImpuestoServicio.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Listados\LibroDiario\Project\LibroDiarioL.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Operacion\PagoProveedor\Project\PagoProveedor.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Operacion\PagoServicio\Project\PagoServicio.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ABM\Proveedor\Project\Proveedor.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ABM\Rubro\Project\Rubro.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Buscar\Articulo\Project\Stock.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ABM\SubCategoria\Project\SubCategoria.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ABM\Vendedor\Project\Vendedor.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Operacion\VenderCodBarra\Project\Vender.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Operacion\VaciarBase\Project\VaciarBase.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="MenuCelular">
+			<MSBuild Projects="..\..\Menu\Celular\Project\MenuCelular.dproj"/>
+		</Target>
+		<Target Name="MenuCelular:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Menu\Celular\Project\MenuCelular.dproj"/>
+		</Target>
+		<Target Name="MenuCelular:Make">
+			<MSBuild Targets="Make" Projects="..\..\Menu\Celular\Project\MenuCelular.dproj"/>
+		</Target>
+		<Target Name="ArticuloCelular">
+			<MSBuild Projects="..\..\ABM\ArticuloCelular\Project\ArticuloCelular.dproj"/>
+		</Target>
+		<Target Name="ArticuloCelular:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\ABM\ArticuloCelular\Project\ArticuloCelular.dproj"/>
+		</Target>
+		<Target Name="ArticuloCelular:Make">
+			<MSBuild Targets="Make" Projects="..\..\ABM\ArticuloCelular\Project\ArticuloCelular.dproj"/>
+		</Target>
+		<Target Name="about">
+			<MSBuild Projects="..\..\AcercaDe\project\about.dproj"/>
+		</Target>
+		<Target Name="about:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\AcercaDe\project\about.dproj"/>
+		</Target>
+		<Target Name="about:Make">
+			<MSBuild Targets="Make" Projects="..\..\AcercaDe\project\about.dproj"/>
+		</Target>
+		<Target Name="ActivarCelular">
+			<MSBuild Projects="..\..\Operacion\ActivarCelular\Project\ActivarCelular.dproj"/>
+		</Target>
+		<Target Name="ActivarCelular:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Operacion\ActivarCelular\Project\ActivarCelular.dproj"/>
+		</Target>
+		<Target Name="ActivarCelular:Make">
+			<MSBuild Targets="Make" Projects="..\..\Operacion\ActivarCelular\Project\ActivarCelular.dproj"/>
+		</Target>
+		<Target Name="ActivacionesL">
+			<MSBuild Projects="..\..\Listados\Activaciones\Project\ActivacionesL.dproj"/>
+		</Target>
+		<Target Name="ActivacionesL:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Listados\Activaciones\Project\ActivacionesL.dproj"/>
+		</Target>
+		<Target Name="ActivacionesL:Make">
+			<MSBuild Targets="Make" Projects="..\..\Listados\Activaciones\Project\ActivacionesL.dproj"/>
+		</Target>
+		<Target Name="AnularVenta">
+			<MSBuild Projects="..\..\Operacion\AnularVenta\Project\AnularVenta.dproj"/>
+		</Target>
+		<Target Name="AnularVenta:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Operacion\AnularVenta\Project\AnularVenta.dproj"/>
+		</Target>
+		<Target Name="AnularVenta:Make">
+			<MSBuild Targets="Make" Projects="..\..\Operacion\AnularVenta\Project\AnularVenta.dproj"/>
+		</Target>
+		<Target Name="Caja">
+			<MSBuild Projects="..\..\ABM\Caja\Project\Caja.dproj"/>
+		</Target>
+		<Target Name="Caja:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\ABM\Caja\Project\Caja.dproj"/>
+		</Target>
+		<Target Name="Caja:Make">
+			<MSBuild Targets="Make" Projects="..\..\ABM\Caja\Project\Caja.dproj"/>
+		</Target>
+		<Target Name="Categoria">
+			<MSBuild Projects="..\..\ABM\Categoria\Project\Categoria.dproj"/>
+		</Target>
+		<Target Name="Categoria:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\ABM\Categoria\Project\Categoria.dproj"/>
+		</Target>
+		<Target Name="Categoria:Make">
+			<MSBuild Targets="Make" Projects="..\..\ABM\Categoria\Project\Categoria.dproj"/>
+		</Target>
+		<Target Name="Clientes">
+			<MSBuild Projects="..\..\ABM\Cliente\Project\Clientes.dproj"/>
+		</Target>
+		<Target Name="Clientes:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\ABM\Cliente\Project\Clientes.dproj"/>
+		</Target>
+		<Target Name="Clientes:Make">
+			<MSBuild Targets="Make" Projects="..\..\ABM\Cliente\Project\Clientes.dproj"/>
+		</Target>
+		<Target Name="ComprarCelular">
+			<MSBuild Projects="..\..\Operacion\ComprarCelular\Project\ComprarCelular.dproj"/>
+		</Target>
+		<Target Name="ComprarCelular:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Operacion\ComprarCelular\Project\ComprarCelular.dproj"/>
+		</Target>
+		<Target Name="ComprarCelular:Make">
+			<MSBuild Targets="Make" Projects="..\..\Operacion\ComprarCelular\Project\ComprarCelular.dproj"/>
+		</Target>
+		<Target Name="DevolucionProveedorCelular">
+			<MSBuild Projects="..\..\Operacion\DevolucionProveedorCelular\Project\DevolucionProveedorCelular.dproj"/>
+		</Target>
+		<Target Name="DevolucionProveedorCelular:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Operacion\DevolucionProveedorCelular\Project\DevolucionProveedorCelular.dproj"/>
+		</Target>
+		<Target Name="DevolucionProveedorCelular:Make">
+			<MSBuild Targets="Make" Projects="..\..\Operacion\DevolucionProveedorCelular\Project\DevolucionProveedorCelular.dproj"/>
+		</Target>
+		<Target Name="Empresa">
+			<MSBuild Projects="..\..\ABM\Empresa\Project\Empresa.dproj"/>
+		</Target>
+		<Target Name="Empresa:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\ABM\Empresa\Project\Empresa.dproj"/>
+		</Target>
+		<Target Name="Empresa:Make">
+			<MSBuild Targets="Make" Projects="..\..\ABM\Empresa\Project\Empresa.dproj"/>
+		</Target>
+		<Target Name="ImpuestoServicio">
+			<MSBuild Projects="..\..\ABM\ImpuestoServicio\Project\ImpuestoServicio.dproj"/>
+		</Target>
+		<Target Name="ImpuestoServicio:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\ABM\ImpuestoServicio\Project\ImpuestoServicio.dproj"/>
+		</Target>
+		<Target Name="ImpuestoServicio:Make">
+			<MSBuild Targets="Make" Projects="..\..\ABM\ImpuestoServicio\Project\ImpuestoServicio.dproj"/>
+		</Target>
+		<Target Name="LibroDiarioL">
+			<MSBuild Projects="..\..\Listados\LibroDiario\Project\LibroDiarioL.dproj"/>
+		</Target>
+		<Target Name="LibroDiarioL:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Listados\LibroDiario\Project\LibroDiarioL.dproj"/>
+		</Target>
+		<Target Name="LibroDiarioL:Make">
+			<MSBuild Targets="Make" Projects="..\..\Listados\LibroDiario\Project\LibroDiarioL.dproj"/>
+		</Target>
+		<Target Name="PagoProveedor">
+			<MSBuild Projects="..\..\Operacion\PagoProveedor\Project\PagoProveedor.dproj"/>
+		</Target>
+		<Target Name="PagoProveedor:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Operacion\PagoProveedor\Project\PagoProveedor.dproj"/>
+		</Target>
+		<Target Name="PagoProveedor:Make">
+			<MSBuild Targets="Make" Projects="..\..\Operacion\PagoProveedor\Project\PagoProveedor.dproj"/>
+		</Target>
+		<Target Name="PagoServicio">
+			<MSBuild Projects="..\..\Operacion\PagoServicio\Project\PagoServicio.dproj"/>
+		</Target>
+		<Target Name="PagoServicio:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Operacion\PagoServicio\Project\PagoServicio.dproj"/>
+		</Target>
+		<Target Name="PagoServicio:Make">
+			<MSBuild Targets="Make" Projects="..\..\Operacion\PagoServicio\Project\PagoServicio.dproj"/>
+		</Target>
+		<Target Name="Proveedor">
+			<MSBuild Projects="..\..\ABM\Proveedor\Project\Proveedor.dproj"/>
+		</Target>
+		<Target Name="Proveedor:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\ABM\Proveedor\Project\Proveedor.dproj"/>
+		</Target>
+		<Target Name="Proveedor:Make">
+			<MSBuild Targets="Make" Projects="..\..\ABM\Proveedor\Project\Proveedor.dproj"/>
+		</Target>
+		<Target Name="Rubro">
+			<MSBuild Projects="..\..\ABM\Rubro\Project\Rubro.dproj"/>
+		</Target>
+		<Target Name="Rubro:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\ABM\Rubro\Project\Rubro.dproj"/>
+		</Target>
+		<Target Name="Rubro:Make">
+			<MSBuild Targets="Make" Projects="..\..\ABM\Rubro\Project\Rubro.dproj"/>
+		</Target>
+		<Target Name="Stock">
+			<MSBuild Projects="..\..\Buscar\Articulo\Project\Stock.dproj"/>
+		</Target>
+		<Target Name="Stock:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Buscar\Articulo\Project\Stock.dproj"/>
+		</Target>
+		<Target Name="Stock:Make">
+			<MSBuild Targets="Make" Projects="..\..\Buscar\Articulo\Project\Stock.dproj"/>
+		</Target>
+		<Target Name="SubCategoria">
+			<MSBuild Projects="..\..\ABM\SubCategoria\Project\SubCategoria.dproj"/>
+		</Target>
+		<Target Name="SubCategoria:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\ABM\SubCategoria\Project\SubCategoria.dproj"/>
+		</Target>
+		<Target Name="SubCategoria:Make">
+			<MSBuild Targets="Make" Projects="..\..\ABM\SubCategoria\Project\SubCategoria.dproj"/>
+		</Target>
+		<Target Name="Vendedor">
+			<MSBuild Projects="..\..\ABM\Vendedor\Project\Vendedor.dproj"/>
+		</Target>
+		<Target Name="Vendedor:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\ABM\Vendedor\Project\Vendedor.dproj"/>
+		</Target>
+		<Target Name="Vendedor:Make">
+			<MSBuild Targets="Make" Projects="..\..\ABM\Vendedor\Project\Vendedor.dproj"/>
+		</Target>
+		<Target Name="Vender">
+			<MSBuild Projects="..\..\Operacion\VenderCodBarra\Project\Vender.dproj"/>
+		</Target>
+		<Target Name="Vender:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Operacion\VenderCodBarra\Project\Vender.dproj"/>
+		</Target>
+		<Target Name="Vender:Make">
+			<MSBuild Targets="Make" Projects="..\..\Operacion\VenderCodBarra\Project\Vender.dproj"/>
+		</Target>
+		<Target Name="VaciarBase">
+			<MSBuild Projects="..\..\Operacion\VaciarBase\Project\VaciarBase.dproj"/>
+		</Target>
+		<Target Name="VaciarBase:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Operacion\VaciarBase\Project\VaciarBase.dproj"/>
+		</Target>
+		<Target Name="VaciarBase:Make">
+			<MSBuild Targets="Make" Projects="..\..\Operacion\VaciarBase\Project\VaciarBase.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="MenuCelular;ArticuloCelular;about;ActivarCelular;ActivacionesL;AnularVenta;Caja;Categoria;Clientes;ComprarCelular;DevolucionProveedorCelular;Empresa;ImpuestoServicio;LibroDiarioL;PagoProveedor;PagoServicio;Proveedor;Rubro;Stock;SubCategoria;Vendedor;Vender;VaciarBase"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="MenuCelular:Clean;ArticuloCelular:Clean;about:Clean;ActivarCelular:Clean;ActivacionesL:Clean;AnularVenta:Clean;Caja:Clean;Categoria:Clean;Clientes:Clean;ComprarCelular:Clean;DevolucionProveedorCelular:Clean;Empresa:Clean;ImpuestoServicio:Clean;LibroDiarioL:Clean;PagoProveedor:Clean;PagoServicio:Clean;Proveedor:Clean;Rubro:Clean;Stock:Clean;SubCategoria:Clean;Vendedor:Clean;Vender:Clean;VaciarBase:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="MenuCelular:Make;ArticuloCelular:Make;about:Make;ActivarCelular:Make;ActivacionesL:Make;AnularVenta:Make;Caja:Make;Categoria:Make;Clientes:Make;ComprarCelular:Make;DevolucionProveedorCelular:Make;Empresa:Make;ImpuestoServicio:Make;LibroDiarioL:Make;PagoProveedor:Make;PagoServicio:Make;Proveedor:Make;Rubro:Make;Stock:Make;SubCategoria:Make;Vendedor:Make;Vender:Make;VaciarBase:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

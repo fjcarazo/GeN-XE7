@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/04/24 08:02:21.500.pas,D:\RAD Studio\Projects\CiveLoo\Licencia\Form\MenuF.pas=D:\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2010/04/24 08:02:21.515.dfm,D:\RAD Studio\Projects\CiveLoo\Licencia\Form\MenuF.dfm=D:\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2010/04/24 08:02:30.343.dproj,D:\RAD Studio\Projects\CiveLoo\Licencia\Form\Licencia.dproj=D:\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2010/04/26 11:24:34.843.dproj,D:\RAD Studio\Projects\CiveLoo\Licencia\Project\Licencia.dproj=D:\RAD Studio\Projects\CiveLoo\Licencia\Form\Licencia.dproj</Transaction>
+    <Transaction>2010/11/15 15:42:34.140.pas,F:\Projects\DeGsoft\GeN\Licencia\Form\LicenciaF.pas=F:\Projects\DeGsoft\GeN\Licencia\Form\MenuF.pas</Transaction>
+    <Transaction>2010/11/15 15:42:34.140.dfm,F:\Projects\DeGsoft\GeN\Licencia\Form\LicenciaF.dfm=F:\Projects\DeGsoft\GeN\Licencia\Form\MenuF.dfm</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="-1" SortType="1"/>
+</BorlandProject>

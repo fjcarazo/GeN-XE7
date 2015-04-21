@@ -1,0 +1,18 @@
+program PedidoL;
+
+uses
+  Forms,
+  PedidoLF in '..\Form\PedidoLF.pas' {PedidoLForm},
+  DataModule in '..\..\..\DataModule\DataModule.pas' {DM: TDataModule},
+  BuscarVendedor in '..\..\..\Buscar\Vendedor\Form\BuscarVendedor.pas' {BuscarVendedorForm};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.Title := 'Pedidos';
+  Application.CreateForm(TPedidoLForm, PedidoLForm);
+  Application.CreateForm(TBuscarVendedorForm, BuscarVendedorForm);
+  Application.Run;
+end.

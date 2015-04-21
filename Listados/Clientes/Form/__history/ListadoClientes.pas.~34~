@@ -1,0 +1,76 @@
+unit ListadoClientes;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, ImprimirDM, StdCtrls, Buttons, ExtCtrls, DataModule, jpeg;
+
+type
+  TListadoClientesForm = class(TForm)
+    SiBitBtn: TBitBtn;
+    RadioGroup1: TRadioGroup;
+    RadioGroup2: TRadioGroup;
+    Image1: TImage;
+    procedure SiBitBtnClick(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+   excel:boolean;
+    { Public declarations }
+  end;
+
+var
+  ListadoClientesForm: TListadoClientesForm;
+
+implementation
+
+
+{$R *.dfm}
+
+procedure TListadoClientesForm.SiBitBtnClick(Sender: TObject);
+begin
+ ImprimirDataModule:=TImprimirDataModule.Create(Self);
+ with ImprimirDataModule do
+  begin
+   Query.SQL.Text:='Select * From "Cliente"';
+   If RadioGroup2.ItemIndex = 0 {Número} then Query.SQL.Add(' Order By CODIGO');
+   If RadioGroup2.ItemIndex = 1 {Nombre } then Query.SQL.Add(' Order By NOMBRE');
+   If RadioGroup2.ItemIndex = 2 {Titular} then Query.SQL.Add(' Order By TITULAR');
+   If RadioGroup2.ItemIndex = 3 {IVA} then Query.SQL.Add(' Order By IVA');
+   Query.Open;
+   if RadioGroup1.ItemIndex=0 then
+    frxReport1.LoadFromFile(Path+'Report\Clientes.fr3')
+    else
+     frxReport1.LoadFromFile(Path+'Report\ClientesDetalle.fr3');
+   if excel=false then
+    begin
+    frxReport1.ShowReport(True);
+    end;
+   Query.Close;
+  end;
+end;
+
+procedure TListadoClientesForm.BitBtn2Click(Sender: TObject);
+begin
+ Close;
+end;
+
+procedure TListadoClientesForm.FormCreate(Sender: TObject);
+begin
+ DM:=TDM.Create(Self);
+end;
+
+procedure TListadoClientesForm.Image1Click(Sender: TObject);
+begin
+ excel:=true;
+ SiBitBtn.Click;
+ ImprimirDataModule := TImprimirDataModule.Create(self);
+ ImprimirDataModule.CSV(ImprimirDataModule.Query.SQL.Text,'CLIENTES');
+ ImprimirDataModule.Free;
+end;
+
+end.

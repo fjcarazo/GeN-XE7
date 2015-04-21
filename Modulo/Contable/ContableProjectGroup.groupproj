@@ -1,0 +1,216 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{D0D7919C-A4FB-4447-AFE9-1F2AE21B5623}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="..\..\Menu\Contable\Project\MenuContable.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ABM\CuentaContable\Project\CuentaContable.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Listados\LibroIVAVentas\Project\LibroIVAVentas.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Listados\LibroIVACompras\Project\LibroIVACompras.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Configuracion\Sistema\Project\Configuracion.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ABM\Empresa\Project\Empresa.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\AcercaDe\project\about.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Operacion\VaciarBase\Project\VaciarBase.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ABM\Capitulo\Project\Capitulo.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ABM\RubroContable\Project\RubroContable.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ABM\TipoGasto\Project\TipoGasto.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Operacion\PagoIVA\Project\PagoIVA.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Listados\LibroDiario\Project\LibroDiarioL.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ABM\Socio\Project\Socio.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Operacion\AporteCapital\Project\AporteCapital.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Operacion\RetiroCaja\Project\RetiroCaja.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="MenuContable">
+			<MSBuild Projects="..\..\Menu\Contable\Project\MenuContable.dproj"/>
+		</Target>
+		<Target Name="MenuContable:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Menu\Contable\Project\MenuContable.dproj"/>
+		</Target>
+		<Target Name="MenuContable:Make">
+			<MSBuild Targets="Make" Projects="..\..\Menu\Contable\Project\MenuContable.dproj"/>
+		</Target>
+		<Target Name="CuentaContable">
+			<MSBuild Projects="..\..\ABM\CuentaContable\Project\CuentaContable.dproj"/>
+		</Target>
+		<Target Name="CuentaContable:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\ABM\CuentaContable\Project\CuentaContable.dproj"/>
+		</Target>
+		<Target Name="CuentaContable:Make">
+			<MSBuild Targets="Make" Projects="..\..\ABM\CuentaContable\Project\CuentaContable.dproj"/>
+		</Target>
+		<Target Name="LibroIVAVentas">
+			<MSBuild Projects="..\..\Listados\LibroIVAVentas\Project\LibroIVAVentas.dproj"/>
+		</Target>
+		<Target Name="LibroIVAVentas:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Listados\LibroIVAVentas\Project\LibroIVAVentas.dproj"/>
+		</Target>
+		<Target Name="LibroIVAVentas:Make">
+			<MSBuild Targets="Make" Projects="..\..\Listados\LibroIVAVentas\Project\LibroIVAVentas.dproj"/>
+		</Target>
+		<Target Name="LibroIVACompras">
+			<MSBuild Projects="..\..\Listados\LibroIVACompras\Project\LibroIVACompras.dproj"/>
+		</Target>
+		<Target Name="LibroIVACompras:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Listados\LibroIVACompras\Project\LibroIVACompras.dproj"/>
+		</Target>
+		<Target Name="LibroIVACompras:Make">
+			<MSBuild Targets="Make" Projects="..\..\Listados\LibroIVACompras\Project\LibroIVACompras.dproj"/>
+		</Target>
+		<Target Name="Configuracion">
+			<MSBuild Projects="..\..\Configuracion\Sistema\Project\Configuracion.dproj"/>
+		</Target>
+		<Target Name="Configuracion:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Configuracion\Sistema\Project\Configuracion.dproj"/>
+		</Target>
+		<Target Name="Configuracion:Make">
+			<MSBuild Targets="Make" Projects="..\..\Configuracion\Sistema\Project\Configuracion.dproj"/>
+		</Target>
+		<Target Name="Empresa">
+			<MSBuild Projects="..\..\ABM\Empresa\Project\Empresa.dproj"/>
+		</Target>
+		<Target Name="Empresa:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\ABM\Empresa\Project\Empresa.dproj"/>
+		</Target>
+		<Target Name="Empresa:Make">
+			<MSBuild Targets="Make" Projects="..\..\ABM\Empresa\Project\Empresa.dproj"/>
+		</Target>
+		<Target Name="about">
+			<MSBuild Projects="..\..\AcercaDe\project\about.dproj"/>
+		</Target>
+		<Target Name="about:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\AcercaDe\project\about.dproj"/>
+		</Target>
+		<Target Name="about:Make">
+			<MSBuild Targets="Make" Projects="..\..\AcercaDe\project\about.dproj"/>
+		</Target>
+		<Target Name="VaciarBase">
+			<MSBuild Projects="..\..\Operacion\VaciarBase\Project\VaciarBase.dproj"/>
+		</Target>
+		<Target Name="VaciarBase:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Operacion\VaciarBase\Project\VaciarBase.dproj"/>
+		</Target>
+		<Target Name="VaciarBase:Make">
+			<MSBuild Targets="Make" Projects="..\..\Operacion\VaciarBase\Project\VaciarBase.dproj"/>
+		</Target>
+		<Target Name="Capitulo">
+			<MSBuild Projects="..\..\ABM\Capitulo\Project\Capitulo.dproj"/>
+		</Target>
+		<Target Name="Capitulo:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\ABM\Capitulo\Project\Capitulo.dproj"/>
+		</Target>
+		<Target Name="Capitulo:Make">
+			<MSBuild Targets="Make" Projects="..\..\ABM\Capitulo\Project\Capitulo.dproj"/>
+		</Target>
+		<Target Name="RubroContable">
+			<MSBuild Projects="..\..\ABM\RubroContable\Project\RubroContable.dproj"/>
+		</Target>
+		<Target Name="RubroContable:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\ABM\RubroContable\Project\RubroContable.dproj"/>
+		</Target>
+		<Target Name="RubroContable:Make">
+			<MSBuild Targets="Make" Projects="..\..\ABM\RubroContable\Project\RubroContable.dproj"/>
+		</Target>
+		<Target Name="TipoGasto">
+			<MSBuild Projects="..\..\ABM\TipoGasto\Project\TipoGasto.dproj"/>
+		</Target>
+		<Target Name="TipoGasto:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\ABM\TipoGasto\Project\TipoGasto.dproj"/>
+		</Target>
+		<Target Name="TipoGasto:Make">
+			<MSBuild Targets="Make" Projects="..\..\ABM\TipoGasto\Project\TipoGasto.dproj"/>
+		</Target>
+		<Target Name="PagoIVA">
+			<MSBuild Projects="..\..\Operacion\PagoIVA\Project\PagoIVA.dproj"/>
+		</Target>
+		<Target Name="PagoIVA:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Operacion\PagoIVA\Project\PagoIVA.dproj"/>
+		</Target>
+		<Target Name="PagoIVA:Make">
+			<MSBuild Targets="Make" Projects="..\..\Operacion\PagoIVA\Project\PagoIVA.dproj"/>
+		</Target>
+		<Target Name="LibroDiarioL">
+			<MSBuild Projects="..\..\Listados\LibroDiario\Project\LibroDiarioL.dproj"/>
+		</Target>
+		<Target Name="LibroDiarioL:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Listados\LibroDiario\Project\LibroDiarioL.dproj"/>
+		</Target>
+		<Target Name="LibroDiarioL:Make">
+			<MSBuild Targets="Make" Projects="..\..\Listados\LibroDiario\Project\LibroDiarioL.dproj"/>
+		</Target>
+		<Target Name="Socio">
+			<MSBuild Projects="..\..\ABM\Socio\Project\Socio.dproj"/>
+		</Target>
+		<Target Name="Socio:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\ABM\Socio\Project\Socio.dproj"/>
+		</Target>
+		<Target Name="Socio:Make">
+			<MSBuild Targets="Make" Projects="..\..\ABM\Socio\Project\Socio.dproj"/>
+		</Target>
+		<Target Name="AporteCapital">
+			<MSBuild Projects="..\..\Operacion\AporteCapital\Project\AporteCapital.dproj"/>
+		</Target>
+		<Target Name="AporteCapital:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Operacion\AporteCapital\Project\AporteCapital.dproj"/>
+		</Target>
+		<Target Name="AporteCapital:Make">
+			<MSBuild Targets="Make" Projects="..\..\Operacion\AporteCapital\Project\AporteCapital.dproj"/>
+		</Target>
+		<Target Name="RetiroCaja">
+			<MSBuild Projects="..\..\Operacion\RetiroCaja\Project\RetiroCaja.dproj"/>
+		</Target>
+		<Target Name="RetiroCaja:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\Operacion\RetiroCaja\Project\RetiroCaja.dproj"/>
+		</Target>
+		<Target Name="RetiroCaja:Make">
+			<MSBuild Targets="Make" Projects="..\..\Operacion\RetiroCaja\Project\RetiroCaja.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="MenuContable;CuentaContable;LibroIVAVentas;LibroIVACompras;Configuracion;Empresa;about;VaciarBase;Capitulo;RubroContable;TipoGasto;PagoIVA;LibroDiarioL;Socio;AporteCapital;RetiroCaja"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="MenuContable:Clean;CuentaContable:Clean;LibroIVAVentas:Clean;LibroIVACompras:Clean;Configuracion:Clean;Empresa:Clean;about:Clean;VaciarBase:Clean;Capitulo:Clean;RubroContable:Clean;TipoGasto:Clean;PagoIVA:Clean;LibroDiarioL:Clean;Socio:Clean;AporteCapital:Clean;RetiroCaja:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="MenuContable:Make;CuentaContable:Make;LibroIVAVentas:Make;LibroIVACompras:Make;Configuracion:Make;Empresa:Make;about:Make;VaciarBase:Make;Capitulo:Make;RubroContable:Make;TipoGasto:Make;PagoIVA:Make;LibroDiarioL:Make;Socio:Make;AporteCapital:Make;RetiroCaja:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

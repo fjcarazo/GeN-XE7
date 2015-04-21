@@ -1,0 +1,14 @@
+object ImprimirDataModule: TImprimirDataModule
+  OldCreateOrder = False
+  Height = 278
+  Width = 518
+  object Query: TIBQuery
+    Database = DM.BaseDatos
+    Transaction = DM.Transaccion
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    Left = 42
+    Top = 10
+  end
+end

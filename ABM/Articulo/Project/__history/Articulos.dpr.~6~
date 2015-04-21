@@ -1,0 +1,23 @@
+program Articulos;
+
+uses
+  Forms,
+  UFProductos in '..\Form\UFProductos.pas' {FProductos},
+  DataModule in '..\..\..\DataModule\DataModule.pas' {DM: TDataModule},
+  UFBuscaArticulos in '..\..\..\Buscar\Articulo\Form\UFBuscaArticulos.pas' {FBuscaArticulo},
+  UFCategorias in '..\..\Categoria\Form\UFCategorias.pas' {FCategorias},
+  UFSubCategorias in '..\..\SubCategoria\Form\UFSubCategorias.pas' {FSubCategorias},
+  Color in '..\..\Color\Form\Color.pas' {ColorForm},
+  Marca in '..\..\Marca\Form\Marca.pas' {MarcaForm},
+  RubroF in '..\..\Rubro\Form\RubroF.pas' {RubroForm},
+  ImprimirDM in '..\..\..\DataModule\ImprimirDM.pas' {ImprimirDataModule: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.Title := 'Articulo';
+  Application.CreateForm(TFProductos, FProductos);
+  Application.Run;
+end.

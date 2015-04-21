@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2009/11/24 12:43:42.406.dproj,C:\Documents and Settings\Cti6292\Mis documentos\RAD Studio\Projects\Project1.dproj=C:\Documents and Settings\Cti6292\Mis documentos\downloads\Projects\CiveLoo\Gen\Menu\Project\MainGeN.dproj</Transaction>
+    <Transaction>2009/11/24 12:44:00.359.dproj,C:\Documents and Settings\Cti6292\Mis documentos\downloads\Projects\CiveLoo\Gen\Menu\Project\MainGeN.dproj=C:\Documents and Settings\Cti6292\Mis documentos\downloads\Projects\CiveLoo\Gen\Menu\Project\MenuGeN.dproj</Transaction>
+    <Transaction>2009/11/24 12:44:48.921.pas,C:\Documents and Settings\Cti6292\Mis documentos\downloads\Projects\CiveLoo\Gen\Menu\Form\UMainF.pas=</Transaction>
+    <Transaction>2010/05/11 09:45:24.468.dproj,D:\RAD Studio\Projects\CiveLoo\GeN\Menu\Principal\Project\MenuGeN.dproj=D:\RAD Studio\Projects\CiveLoo\GeN\Menu\Principal\Project\Menu.dproj</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="-1" SortType="1"/>
+</BorlandProject>

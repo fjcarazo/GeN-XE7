@@ -1,0 +1,19 @@
+program Stock;
+
+uses
+  Forms,
+  DataModule in '..\..\..\DataModule\DataModule.pas' {DM: TDataModule},
+  UFBuscaArticulos in '..\Form\UFBuscaArticulos.pas' {FBuscaArticulo},
+  OperacionDM in '..\..\..\DataModule\OperacionDM.pas' {OperacionDataModule: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.Title := 'Stock';
+  Application.CreateForm(TDM, DM);
+  Application.CreateForm(TFBuscaArticulo, FBuscaArticulo);
+  Application.CreateForm(TOperacionDataModule, OperacionDataModule);
+  Application.Run;
+end.

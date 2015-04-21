@@ -1,0 +1,72 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{9C54A8DF-41A8-41E0-AD52-3BFACD63C731}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="..\Completo\Project\Menu.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Contable\Project\MenuContable.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Creditos\Project\MenuCreditos.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\GestionCobranza\Project\MenuGestionCobranza.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="Menu">
+			<MSBuild Projects="..\Completo\Project\Menu.dproj"/>
+		</Target>
+		<Target Name="Menu:Clean">
+			<MSBuild Targets="Clean" Projects="..\Completo\Project\Menu.dproj"/>
+		</Target>
+		<Target Name="Menu:Make">
+			<MSBuild Targets="Make" Projects="..\Completo\Project\Menu.dproj"/>
+		</Target>
+		<Target Name="MenuContable">
+			<MSBuild Projects="..\Contable\Project\MenuContable.dproj"/>
+		</Target>
+		<Target Name="MenuContable:Clean">
+			<MSBuild Targets="Clean" Projects="..\Contable\Project\MenuContable.dproj"/>
+		</Target>
+		<Target Name="MenuContable:Make">
+			<MSBuild Targets="Make" Projects="..\Contable\Project\MenuContable.dproj"/>
+		</Target>
+		<Target Name="MenuCreditos">
+			<MSBuild Projects="..\Creditos\Project\MenuCreditos.dproj"/>
+		</Target>
+		<Target Name="MenuCreditos:Clean">
+			<MSBuild Targets="Clean" Projects="..\Creditos\Project\MenuCreditos.dproj"/>
+		</Target>
+		<Target Name="MenuCreditos:Make">
+			<MSBuild Targets="Make" Projects="..\Creditos\Project\MenuCreditos.dproj"/>
+		</Target>
+		<Target Name="MenuGestionCobranza">
+			<MSBuild Projects="..\GestionCobranza\Project\MenuGestionCobranza.dproj"/>
+		</Target>
+		<Target Name="MenuGestionCobranza:Clean">
+			<MSBuild Targets="Clean" Projects="..\GestionCobranza\Project\MenuGestionCobranza.dproj"/>
+		</Target>
+		<Target Name="MenuGestionCobranza:Make">
+			<MSBuild Targets="Make" Projects="..\GestionCobranza\Project\MenuGestionCobranza.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="Menu;MenuContable;MenuCreditos;MenuGestionCobranza"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="Menu:Clean;MenuContable:Clean;MenuCreditos:Clean;MenuGestionCobranza:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="Menu:Make;MenuContable:Make;MenuCreditos:Make;MenuGestionCobranza:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

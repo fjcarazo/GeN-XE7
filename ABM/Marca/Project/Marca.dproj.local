@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/06/24 18:58:52.500.dproj,D:\RAD Studio\Projects\DeGsoft\GeN\ABM\Categoria\Project\Categoria.dproj=D:\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2010/11/15 17:23:59.421.pas,F:\Projects\DeGsoft\GeN\ABM\Rubro\Form\RubroF.pas=F:\Projects\DeGsoft\GeN\ABM\Categoria\Form\UFCategorias.pas</Transaction>
+    <Transaction>2010/11/15 17:23:59.421.dfm,F:\Projects\DeGsoft\GeN\ABM\Rubro\Form\RubroF.dfm=F:\Projects\DeGsoft\GeN\ABM\Categoria\Form\UFCategorias.dfm</Transaction>
+    <Transaction>2010/11/15 17:26:26.031.pas,F:\Projects\DeGsoft\GeN\ABM\Rubro\Form\RubroF.pas=</Transaction>
+    <Transaction>2010/11/15 17:26:26.031.dfm,F:\Projects\DeGsoft\GeN\ABM\Rubro\Form\RubroF.dfm=</Transaction>
+    <Transaction>2011/02/09 18:17:43.593.dproj,D:\Projects\DeGsoft\GeN\ABM\Marca\Project\Marca.dproj=D:\Projects\DeGsoft\GeN\ABM\Marca\Project\Categoria.dproj</Transaction>
+    <Transaction>2011/02/09 18:18:02.390.pas,D:\Projects\DeGsoft\GeN\ABM\Marca\Form\MarcaF.pas=D:\Projects\DeGsoft\GeN\ABM\Marca\Form\UFCategorias.pas</Transaction>
+    <Transaction>2011/02/09 18:18:02.390.dfm,D:\Projects\DeGsoft\GeN\ABM\Marca\Form\MarcaF.dfm=D:\Projects\DeGsoft\GeN\ABM\Marca\Form\UFCategorias.dfm</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="-1" SortType="1"/>
+</BorlandProject>

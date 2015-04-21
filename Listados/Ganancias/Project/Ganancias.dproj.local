@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/05/04 18:18:55.921.pas,D:\RAD Studio\Projects\CiveLoo\GeN\DataModule\DataModule.pas=</Transaction>
+    <Transaction>2010/05/04 18:18:55.921.dfm,D:\RAD Studio\Projects\CiveLoo\GeN\DataModule\DataModule.dfm=</Transaction>
+    <Transaction>2010/05/04 19:23:37.187.dproj,D:\RAD Studio\Projects\CiveLoo\GeN\Listados\LibroDiario\Project\Caja.dproj=D:\RAD Studio\Projects\CiveLoo\GeN\Listados\LibroDiario\Project\LibroDiario.dproj</Transaction>
+    <Transaction>2010/05/04 19:24:17.296.pas,D:\RAD Studio\Projects\CiveLoo\GeN\Listados\Cuentas\Form\CuentasF.pas=D:\RAD Studio\Projects\CiveLoo\GeN\Listados\Cuentas\Form\LibroDiarioF.pas</Transaction>
+    <Transaction>2010/05/04 19:24:17.296.dfm,D:\RAD Studio\Projects\CiveLoo\GeN\Listados\Cuentas\Form\CuentasF.dfm=D:\RAD Studio\Projects\CiveLoo\GeN\Listados\Cuentas\Form\LibroDiarioF.dfm</Transaction>
+    <Transaction>2010/05/04 19:25:48.140.pas,D:\RAD Studio\Projects\CiveLoo\GeN\Listados\Cuentas\Form\LibroDiarioF.pas=D:\RAD Studio\Projects\CiveLoo\GeN\Listados\LibroDiario\Form\LibroDiarioF.pas</Transaction>
+    <Transaction>2010/05/04 19:25:48.140.dfm,D:\RAD Studio\Projects\CiveLoo\GeN\Listados\Cuentas\Form\LibroDiarioF.dfm=D:\RAD Studio\Projects\CiveLoo\GeN\Listados\LibroDiario\Form\LibroDiarioF.dfm</Transaction>
+    <Transaction>2010/06/16 18:50:12.812.dproj,D:\RAD Studio\Projects\DeGsoft\GeN\Listados\LibroDiario\Project\LibroDiario.dproj=D:\RAD Studio\Projects\DeGsoft\GeN\Listados\LibroDiario\Project\LibroDiarioL.dproj</Transaction>
+    <Transaction>2007/06/18 20:04:29.687.dproj,C:\Documents and Settings\CiveLoo\Mis documentos\RAD Studio\Projects\DeGsoft\GeN\Listados\Ganancias\Project\LibroDiarioL.dproj=C:\Documents and Settings\CiveLoo\Mis documentos\RAD Studio\Projects\DeGsoft\GeN\Listados\Ganancias\Project\Ganancias.dproj</Transaction>
+    <Transaction>2007/06/18 20:05:03.468.pas,C:\Documents and Settings\CiveLoo\Mis documentos\RAD Studio\Projects\DeGsoft\GeN\Listados\Ganancias\Form\LibroDiarioF.pas=C:\Documents and Settings\CiveLoo\Mis documentos\RAD Studio\Projects\DeGsoft\GeN\Listados\Ganancias\Form\GananciasL.pas</Transaction>
+    <Transaction>2007/06/18 20:05:03.468.dfm,C:\Documents and Settings\CiveLoo\Mis documentos\RAD Studio\Projects\DeGsoft\GeN\Listados\Ganancias\Form\LibroDiarioF.dfm=C:\Documents and Settings\CiveLoo\Mis documentos\RAD Studio\Projects\DeGsoft\GeN\Listados\Ganancias\Form\GananciasL.dfm</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="-1" SortType="1"/>
+</BorlandProject>

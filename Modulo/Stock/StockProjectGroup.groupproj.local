@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/06/02 11:24:48.546.groupproj,D:\RAD Studio\Projects\ProjectGroup1.groupproj=D:\RAD Studio\Projects\CiveLoo\GeN\Modulo\Stock\StockProjectGroup.groupproj</Transaction>
+  </Transactions>
+	<Default.Personality>
+		<Projects ActiveProject="MenuStock.exe"/>
+	</Default.Personality>
+</BorlandProject>

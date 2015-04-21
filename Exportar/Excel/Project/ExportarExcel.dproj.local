@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/11/23 09:03:49.062.pas,F:\Projects\DeGsoft\GeN\Exportar\Excel\Menu1_.pas=F:\Projects\DeGsoft\GeN\Exportar\Excel\Form\ExportarExcelF.pas</Transaction>
+    <Transaction>2010/11/23 09:03:49.062.dfm,F:\Projects\DeGsoft\GeN\Exportar\Excel\Menu1_.dfm=F:\Projects\DeGsoft\GeN\Exportar\Excel\Form\ExportarExcelF.dfm</Transaction>
+    <Transaction>2010/11/23 09:04:31.359.dproj,F:\Projects\DeGsoft\GeN\Exportar\Excel\Project1.dproj=F:\Projects\DeGsoft\GeN\Exportar\Excel\Project\ExportarExcel.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

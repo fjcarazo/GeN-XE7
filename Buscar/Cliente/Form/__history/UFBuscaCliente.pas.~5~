@@ -1,0 +1,109 @@
+//******************************************************************************
+//* DeGsoft GeN                                                                *
+//* ===========                                                                *
+//* GeN(tm) : ERP Software (http://www.degsoft.com.ar/sistemas/GeN)            *
+//* Copyright (c) 2002-2011 by the Degsoft                                     *
+//* For more information visit: http://www.degsoft.com.ar                      *
+//* This program is free software. You can redistribute it and/or modify       *
+//* it under the terms of the GNU General Public License as published by       *
+//* the Free Software Foundation; either version 3 of the License.             *
+//******************************************************************************
+
+unit UFBuscaCliente;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DataModule, DBCtrls, StdCtrls, DB, Grids, DBGrids, ExtCtrls,
+  Buttons, IBCustomDataSet, IBQuery, jpeg, ImprimirDM;
+
+type
+  TFBuscaCliente = class(TForm)
+    DataSource: TDataSource;
+    DBGrid1: TDBGrid;
+    Panel1: TPanel;
+    Label1: TLabel;
+    DescripcionEdit: TEdit;
+    Panel2: TPanel;
+    DBText1: TDBText;
+    DBText2: TDBText;
+    DBText3: TDBText;
+    DBText4: TDBText;
+    DBText5: TDBText;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label3: TLabel;
+    SiBitBtn: TBitBtn;
+    Tabla: TIBQuery;
+    Image1: TImage;
+    procedure FormKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure SiBitBtnClick(Sender: TObject);
+    procedure NoBitBtnClick(Sender: TObject);
+    procedure DescripcionEditKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    Procedure Buscar;
+    procedure Image1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FBuscaCliente: TFBuscaCliente;
+
+implementation
+
+{$R *.dfm}
+Procedure TFBuscaCliente.Buscar;
+begin
+Tabla.SQL.Text:=' select * from "Cliente" where   ("Cliente".NOMBRE LIKE '+QuotedStr(DescripcionEdit.Text+'%')+')';
+Tabla.Open;
+end;
+
+procedure TFBuscaCliente.DescripcionEditKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+{if (not DbGrid1.Focused = True) and (Length(DescripcionEdit.Text) > 0) then} buscar;
+end;
+
+procedure TFBuscaCliente.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+   IF Key = VK_DOWN then
+   DbGrid1.SetFocus;
+end;
+
+procedure TFBuscaCliente.SiBitBtnClick(Sender: TObject);
+begin
+Close;
+end;
+
+procedure TFBuscaCliente.DBGrid1DblClick(Sender: TObject);
+begin
+   SiBitBtnClick(DBGrid1);
+end;
+
+procedure TFBuscaCliente.FormShow(Sender: TObject);
+begin
+ if Tabla.Active = True then Tabla.Close;
+ Tabla.Active := True;
+end;
+
+procedure TFBuscaCliente.Image1Click(Sender: TObject);
+begin
+ ImprimirDataModule := TImprimirDataModule.Create(self);
+ ImprimirDataModule.CSV(Tabla.SQL.Text,'CLIENTES');
+ ImprimirDataModule.Free;
+end;
+
+procedure TFBuscaCliente.NoBitBtnClick(Sender: TObject);
+begin
+   Close;
+end;
+
+end.

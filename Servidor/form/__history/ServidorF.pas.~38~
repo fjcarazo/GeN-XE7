@@ -1,0 +1,203 @@
+unit ServidorF;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DataModule, ExtCtrls, Menus, StdCtrls, TLHelp32, UrlMon, jpeg;
+
+type
+  TServidor = class(TForm)
+    TrayIcon1: TTrayIcon;
+    PopupMenu1: TPopupMenu;
+    Cerrar1: TMenuItem;
+    Label1: TLabel;
+    Label2: TLabel;
+    Button6: TButton;
+    Button8: TButton;
+    Button9: TButton;
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
+    Image6: TImage;
+    Image7: TImage;
+    Image8: TImage;
+    Image9: TImage;
+    procedure FormCreate(Sender: TObject);
+    procedure Cerrar1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure cerrarSistema;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Button6Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    function FormHelp(Command: Word; Data: Integer;
+      var CallHelp: Boolean): Boolean;
+    procedure Image2Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure Image4Click(Sender: TObject);
+    procedure Image5Click(Sender: TObject);
+    procedure Image6Click(Sender: TObject);
+    procedure Image7Click(Sender: TObject);
+    procedure Image9Click(Sender: TObject);
+    procedure Image8Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+        WindowList1 : TList;
+        Path:string;
+  end;
+
+var
+  Servidor: TServidor;
+
+implementation
+
+{$R *.dfm}
+
+procedure TServidor.cerrarSistema;
+function KillTask(FileName:String):integer;
+var
+    ContinueLoop:BOOL;
+    FSnapshotHandle:THandle;
+    FProcessEntry32:TProcessEntry32;
+const
+    PROCESS_TERMINATE=$0001;
+begin
+    FSnapshotHandle:=CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0);
+    FProcessEntry32.dwSize:=Sizeof(FProcessEntry32);
+    ContinueLoop:=Process32First(FSnapshotHandle,FProcessEntry32);
+    while integer(ContinueLoop)<>0 do
+    begin
+        if
+((UpperCase(ExtractFileName(FProcessEntry32.szExeFile))=UpperCase(FileName))
+            or (UpperCase(FProcessEntry32.szExeFile)=UpperCase(FileName)))
+then
+
+Result:=Integer(TerminateProcess(OpenProcess(PROCESS_TERMINATE,BOOL(0),
+
+                                    FProcessEntry32.th32ProcessID),0));
+          ContinueLoop:=Process32Next(FSnapshotHandle,FProcessEntry32);
+    end;
+    CloseHandle(FSnapshotHandle);
+end;
+
+begin
+  KillTask('Menu.exe');
+  KillTask('MenuContable.exe');
+  KillTask('MenuCobranza.exe');
+  KillTask('MenuPV.exe');
+  KillTask('MenuCreditos.exe');
+end;
+
+procedure TServidor.Button6Click(Sender: TObject);
+begin
+showmessage('PARA COMPRAR ESTE MODULO CONTACTENOS A consultas@degsoft.com.ar');
+end;
+
+procedure TServidor.Button8Click(Sender: TObject);
+begin
+showmessage('PARA COMPRAR ESTE MODULO CONTACTENOS A consultas@degsoft.com.ar');
+end;
+
+procedure TServidor.Button9Click(Sender: TObject);
+begin
+showmessage('PARA COMPRAR ESTE MODULO CONTACTENOS A consultas@degsoft.com.ar');
+end;
+
+procedure TServidor.Cerrar1Click(Sender: TObject);
+begin
+close;
+end;
+
+procedure TServidor.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+cerrarSistema;
+end;
+
+procedure TServidor.FormCreate(Sender: TObject);
+var
+  Process: Cardinal;
+begin
+//LEVANTAR SERVIDOR DE DATOS
+if Path='' then Path := ExtractFilePath(Application.ExeName);
+Process := dm.ExecuteProcess(Path+'bin\install_super.bat',Path+'bin\');
+if Process <> 0 then
+   WaitForSingleObject(Process, INFINITE);
+Application.Restore;
+end;
+
+procedure TServidor.FormDestroy(Sender: TObject);
+var
+  Process: Cardinal;
+begin
+  Application.Minimize;
+  //BAJAR SERVIDOR DE DATOS
+  Process := dm.ExecuteProcess(Path+'bin\uninstall.bat',Path+'bin\');
+  if Process <> 0 then
+     WaitForSingleObject(Process, INFINITE);
+  Application.Restore;
+end;
+
+function TServidor.FormHelp(Command: Word; Data: Integer;
+  var CallHelp: Boolean): Boolean;
+begin
+WinExec(PAnsiChar(AnsiString(Path+'about.exe')),SW_SHOWNORMAL);
+end;
+
+procedure TServidor.FormShow(Sender: TObject);
+begin
+ShowWindow(Application.Handle, SW_HIDE);
+end;
+
+procedure TServidor.Image1Click(Sender: TObject);
+begin
+WinExec(PAnsiChar(AnsiString(Path+'MenuStock.exe')),SW_SHOWNORMAL);
+end;
+
+procedure TServidor.Image2Click(Sender: TObject);
+begin
+WinExec(PAnsiChar(AnsiString(Path+'MenuPV.exe')),SW_SHOWNORMAL);
+end;
+
+procedure TServidor.Image3Click(Sender: TObject);
+begin
+WinExec(PAnsiChar(AnsiString(Path+'MenuCreditos.exe')),SW_SHOWNORMAL);
+end;
+
+procedure TServidor.Image4Click(Sender: TObject);
+begin
+ WinExec(PAnsiChar(AnsiString(Path+'MenuContable.exe')),SW_SHOWNORMAL);
+end;
+
+procedure TServidor.Image5Click(Sender: TObject);
+begin
+ HlinkNavigateString(Nil, pChar(path+'ayuda\index.htm'));
+end;
+
+procedure TServidor.Image6Click(Sender: TObject);
+begin
+WinExec(PAnsiChar(AnsiString(Path+'MenuCobranza.exe')),SW_SHOWNORMAL);
+end;
+
+procedure TServidor.Image7Click(Sender: TObject);
+begin
+ WinExec(PAnsiChar(AnsiString(Path+'Menu.exe')),SW_SHOWNORMAL);
+end;
+
+procedure TServidor.Image8Click(Sender: TObject);
+begin
+WinExec(PAnsiChar(AnsiString(Path+'Licencia.exe')),SW_SHOWNORMAL);
+end;
+
+procedure TServidor.Image9Click(Sender: TObject);
+begin
+ WinExec(PAnsiChar(AnsiString(Path+'Vigilancia.exe')),SW_SHOWNORMAL);
+end;
+
+end.
