@@ -322,14 +322,13 @@ object PresupuestoForm: TPresupuestoForm
         Width = 80
         Height = 50
         Caption = 'Esc'
-        DoubleBuffered = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -24
         Font.Name = 'MS Sans Serif'
         Font.Style = [fsBold]
         Kind = bkCancel
-        ParentDoubleBuffered = False
+        NumGlyphs = 2
         ParentFont = False
         TabOrder = 0
         OnClick = NoBitBtnClick
@@ -340,7 +339,6 @@ object PresupuestoForm: TPresupuestoForm
         Width = 80
         Height = 50
         Caption = 'F12'
-        DoubleBuffered = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGreen
         Font.Height = -19
@@ -365,7 +363,6 @@ object PresupuestoForm: TPresupuestoForm
           0000}
         ModalResult = 6
         NumGlyphs = 2
-        ParentDoubleBuffered = False
         ParentFont = False
         TabOrder = 1
         OnClick = ProcesarBitBtnClick
@@ -742,13 +739,11 @@ object PresupuestoForm: TPresupuestoForm
       Width = 49
       Height = 24
       Caption = 'F1...'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clTeal
       Font.Height = -19
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 1
       OnClick = ClienteBitBtnClick
@@ -759,13 +754,11 @@ object PresupuestoForm: TPresupuestoForm
       Width = 49
       Height = 24
       Caption = 'F3...'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clTeal
       Font.Height = -19
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 2
       OnClick = VendedorBitBtnClick
@@ -933,13 +926,11 @@ object PresupuestoForm: TPresupuestoForm
         Width = 80
         Height = 50
         Caption = '- F6'
-        DoubleBuffered = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clFuchsia
         Font.Height = -24
         Font.Name = 'MS Sans Serif'
         Font.Style = [fsBold]
-        ParentDoubleBuffered = False
         ParentFont = False
         TabOrder = 0
         OnClick = QuitarBitBtnClick
@@ -950,13 +941,11 @@ object PresupuestoForm: TPresupuestoForm
         Width = 80
         Height = 50
         Caption = '+ F5'
-        DoubleBuffered = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -24
         Font.Name = 'MS Sans Serif'
         Font.Style = [fsBold]
-        ParentDoubleBuffered = False
         ParentFont = False
         TabOrder = 1
         OnClick = AgregarBitBtnClick
@@ -968,13 +957,11 @@ object PresupuestoForm: TPresupuestoForm
       Width = 80
       Height = 50
       Caption = '^ F7'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clMaroon
       Font.Height = -24
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 1
       OnClick = CantidadBitBtnClick
@@ -985,13 +972,11 @@ object PresupuestoForm: TPresupuestoForm
       Width = 75
       Height = 25
       Caption = '^ F7'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clOlive
       Font.Height = -24
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 2
       Visible = False
@@ -1010,13 +995,11 @@ object PresupuestoForm: TPresupuestoForm
       Width = 66
       Height = 30
       Caption = 'Calc.'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -19
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 4
       OnClick = BitBtn10Click
@@ -1025,12 +1008,18 @@ object PresupuestoForm: TPresupuestoForm
   object Tabla: TIBQuery
     Database = DM.BaseDatos
     Transaction = DM.Transaccion
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
     Left = 192
     Top = 232
   end
   object Q: TIBQuery
     Database = DM.BaseDatos
     Transaction = DM.Transaccion
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
     Left = 288
     Top = 232
   end

@@ -359,13 +359,11 @@ object ComprarCelularForm: TComprarCelularForm
       Width = 49
       Height = 25
       Caption = 'F1...'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clTeal
       Font.Height = -19
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 1
       OnClick = BitBtn1Click
@@ -490,13 +488,11 @@ object ComprarCelularForm: TComprarCelularForm
         Width = 80
         Height = 50
         Caption = '- F6'
-        DoubleBuffered = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clFuchsia
         Font.Height = -24
         Font.Name = 'MS Sans Serif'
         Font.Style = [fsBold]
-        ParentDoubleBuffered = False
         ParentFont = False
         TabOrder = 0
         OnClick = BitBtn3Click
@@ -507,13 +503,11 @@ object ComprarCelularForm: TComprarCelularForm
         Width = 80
         Height = 50
         Caption = '+ F4'
-        DoubleBuffered = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -24
         Font.Name = 'MS Sans Serif'
         Font.Style = [fsBold]
-        ParentDoubleBuffered = False
         ParentFont = False
         TabOrder = 1
         OnClick = BitBtn2Click
@@ -538,7 +532,6 @@ object ComprarCelularForm: TComprarCelularForm
         Width = 80
         Height = 50
         Caption = 'F8'
-        DoubleBuffered = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clGreen
         Font.Height = -19
@@ -563,7 +556,6 @@ object ComprarCelularForm: TComprarCelularForm
           0000}
         ModalResult = 6
         NumGlyphs = 2
-        ParentDoubleBuffered = False
         ParentFont = False
         TabOrder = 0
         OnClick = BitBtn4Click
@@ -574,14 +566,13 @@ object ComprarCelularForm: TComprarCelularForm
         Width = 80
         Height = 50
         Caption = 'Esc'
-        DoubleBuffered = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clRed
         Font.Height = -24
         Font.Name = 'MS Sans Serif'
         Font.Style = [fsBold]
         Kind = bkCancel
-        ParentDoubleBuffered = False
+        NumGlyphs = 2
         ParentFont = False
         TabOrder = 1
         OnClick = BitBtn5Click
@@ -666,25 +657,21 @@ object ComprarCelularForm: TComprarCelularForm
       20)
   end
   object QTemp: TADOQuery
-    Connection = DM.AC1
     Parameters = <>
     Left = 112
     Top = 208
   end
   object q: TADOQuery
-    Connection = DM.AC1
     Parameters = <>
     Left = 168
     Top = 208
   end
   object ADOQuery1: TADOQuery
-    Connection = DM.AC1
     Parameters = <>
     Left = 48
     Top = 208
   end
   object EmpresaQuery: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
@@ -693,7 +680,6 @@ object ComprarCelularForm: TComprarCelularForm
     Top = 208
   end
   object ConfigQuery: TADOQuery
-    Connection = DM.ConfigDB
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (

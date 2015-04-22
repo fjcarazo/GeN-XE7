@@ -30,7 +30,7 @@ type
   private
     { Private declarations }
   public
-  desc:string;
+    desc: string;
     { Public declarations }
   end;
 
@@ -43,48 +43,49 @@ implementation
 
 procedure TIngresosBrutosForm.SiBitBtnClick(Sender: TObject);
 begin
-   desc := DBEdit2.Text;
-   If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then
-      Tabla.Post;
-   Close;
+  desc := DBEdit2.Text;
+  If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then
+    Tabla.Post;
+  Close;
 end;
 
 procedure TIngresosBrutosForm.TablaAfterCancel(DataSet: TDataSet);
 begin
- Tabla.Transaction.RollbackRetaining;
+  Tabla.Transaction.RollbackRetaining;
 end;
 
 procedure TIngresosBrutosForm.TablaAfterDelete(DataSet: TDataSet);
 begin
- Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TIngresosBrutosForm.TablaAfterPost(DataSet: TDataSet);
 begin
- Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TIngresosBrutosForm.FormShow(Sender: TObject);
 begin
- dm:=tdm.create(self);
- Tabla.Active:=true;
- Tabla.Insert;
- DBEdit2.SetFocus;
+  dm := tdm.create(self);
+  Tabla.Active := true;
+  Tabla.Insert;
+  DBEdit2.SetFocus;
 end;
 
 procedure TIngresosBrutosForm.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
+  if Key = #13 then { if it's an enter key }
   begin
-   Key := #0;                                 { eat enter key }
-   Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 
 procedure TIngresosBrutosForm.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
- if Key = VK_Escape then Close;
+  if Key = VK_Escape then
+    Close;
 end;
 
 end.

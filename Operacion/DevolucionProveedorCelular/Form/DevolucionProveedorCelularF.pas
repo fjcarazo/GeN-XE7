@@ -52,59 +52,61 @@ implementation
 
 procedure TDevolucionesForm.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(self);
+  DM := TDM.Create(self);
 end;
 
 procedure TDevolucionesForm.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 
 procedure TDevolucionesForm.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-IF Key = VK_F8 then SiBitBtn.Click;
+  IF Key = VK_F8 then
+    SiBitBtn.Click;
 end;
 
 procedure TDevolucionesForm.FormShow(Sender: TObject);
 begin
-ArticulosTabla.Open;
-ProveedorTabla.Open;
-Tabla.Open;
-Tabla.Insert;
-Tabla.Edit;
-ArticulosDBLookupComboBox.KeyValue:=null;
-FechaDBEdit.Text:=DateToStr(Date);
-ProveedorDBLookupComboBox.KeyValue:=null;
-ObservDBMemo.Text:='';
-ArticulosDBLookupComboBox.SetFocus;
+  ArticulosTabla.Open;
+  ProveedorTabla.Open;
+  Tabla.Open;
+  Tabla.Insert;
+  Tabla.Edit;
+  ArticulosDBLookupComboBox.KeyValue := null;
+  FechaDBEdit.Text := DateToStr(Date);
+  ProveedorDBLookupComboBox.KeyValue := null;
+  ObservDBMemo.Text := '';
+  ArticulosDBLookupComboBox.SetFocus;
 end;
 
 procedure TDevolucionesForm.TablaAfterInsert(DataSet: TDataSet);
 begin
-       Query.SQL.Text:='SELECT Max(Codigo) FROM Devolucion';
-       Query.Open;
-       CodigoDBEdit.Text := IntToStr(Query.Fields.Fields[0].AsInteger +1);
-       CantidadDBEdit.Text:='1';
+  Query.SQL.Text := 'SELECT Max(Codigo) FROM Devolucion';
+  Query.Open;
+  CodigoDBEdit.Text := IntToStr(Query.Fields.Fields[0].AsInteger + 1);
+  CantidadDBEdit.Text := '1';
 end;
 
 procedure TDevolucionesForm.SiBitBtnClick(Sender: TObject);
 begin
-Query.SQL.Text := 'Update Articulos Set Disponible = Disponible - '+CantidadDBEdit.Text+' Where '+
-                             'CodParte = '+ArticulosDBLookupComboBox.text;
-Query.ExecSQL;
-Tabla.Post;
-close;
+  Query.SQL.Text := 'Update Articulos Set Disponible = Disponible - ' +
+    CantidadDBEdit.Text + ' Where ' + 'CodParte = ' +
+    ArticulosDBLookupComboBox.Text;
+  Query.ExecSQL;
+  Tabla.Post;
+  close;
 end;
 
 procedure TDevolucionesForm.NoBitBtnClick(Sender: TObject);
 begin
-Tabla.Cancel;
-close;
+  Tabla.Cancel;
+  close;
 end;
 
 end.

@@ -31,8 +31,7 @@ type
     Edit1: TEdit;
     CBFiltro: TComboBox;
     procedure Edit1Change(Sender: TObject);
-    procedure FormKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure BitBtn1Click(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
@@ -55,57 +54,62 @@ implementation
 
 procedure TBuscarImpuestosServiciosForm.Edit1Change(Sender: TObject);
 var
-   Filtro : String;
+  Filtro: String;
 begin
-   If (Edit1.Text <> '') then
-   begin
-      ImpuestosServiciosQuery.Filtered := False;
-      If CBFiltro.Text = 'Código' then Filtro := 'CodImpuestoServicio Like '+Edit1.Text
-         else If CBFiltro.Text = 'Nombre' then Filtro := 'Nombre Like '''+ Edit1.Text + '*'''
-            else If CBFiltro.Text = 'Celular' then Filtro := 'Celular Like '''+ Edit1.Text + '*''';
-      ImpuestosServiciosQuery.Filter := Filtro;
-      ImpuestosServiciosQuery.Filtered := True
-   end
-   else ImpuestosServiciosQuery.Filtered := False;
+  If (Edit1.Text <> '') then
+  begin
+    ImpuestosServiciosQuery.Filtered := False;
+    If CBFiltro.Text = 'Código' then
+      Filtro := 'CodImpuestoServicio Like ' + Edit1.Text
+    else If CBFiltro.Text = 'Nombre' then
+      Filtro := 'Nombre Like ''' + Edit1.Text + '*'''
+    else If CBFiltro.Text = 'Celular' then
+      Filtro := 'Celular Like ''' + Edit1.Text + '*''';
+    ImpuestosServiciosQuery.Filter := Filtro;
+    ImpuestosServiciosQuery.Filtered := True
+  end
+  else
+    ImpuestosServiciosQuery.Filtered := False;
 end;
 
-procedure TBuscarImpuestosServiciosForm.FormKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TBuscarImpuestosServiciosForm.FormKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
 begin
-   IF Key = VK_DOWN then
-   DbGrid1.SetFocus;
+  IF Key = VK_DOWN then
+    DBGrid1.SetFocus;
 end;
 
 procedure TBuscarImpuestosServiciosForm.BitBtn1Click(Sender: TObject);
 begin
-   Cod_ImpuestosServicios := ImpuestosServiciosQuery.FieldByName('CodImpuestoServicio').AsString;
-   Close;
+  Cod_ImpuestosServicios := ImpuestosServiciosQuery.FieldByName
+    ('CodImpuestoServicio').AsString;
+  Close;
 end;
 
 procedure TBuscarImpuestosServiciosForm.DBGrid1DblClick(Sender: TObject);
 begin
-   BitBtn1Click(DBGrid1);
+  BitBtn1Click(DBGrid1);
 end;
 
 procedure TBuscarImpuestosServiciosForm.BitBtn2Click(Sender: TObject);
 begin
-   Cod_ImpuestosServicios := '';
-   Close;
+  Cod_ImpuestosServicios := '';
+  Close;
 end;
 
 procedure TBuscarImpuestosServiciosForm.FormCreate(Sender: TObject);
 begin
-   ImpuestosServiciosQuery.Open;
+  ImpuestosServiciosQuery.Open;
 end;
 
 procedure TBuscarImpuestosServiciosForm.FormDestroy(Sender: TObject);
 begin
-   ImpuestosServiciosQuery.Close;
+  ImpuestosServiciosQuery.Close;
 end;
 
 procedure TBuscarImpuestosServiciosForm.FormShow(Sender: TObject);
 begin
-CBFiltro.ItemIndex:=1;
+  CBFiltro.ItemIndex := 1;
 end;
 
 end.

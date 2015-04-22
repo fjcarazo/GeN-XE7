@@ -47,11 +47,6 @@ object BuscaArticuloCelularForm: TBuscaArticuloCelularForm
       item
         Expanded = False
         FieldName = 'CodParte'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
         Title.Caption = 'Codigo'
         Title.Color = clBlack
         Title.Font.Charset = DEFAULT_CHARSET
@@ -65,11 +60,6 @@ object BuscaArticuloCelularForm: TBuscaArticuloCelularForm
       item
         Expanded = False
         FieldName = 'Descripcion'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
         Title.Color = clBlack
         Title.Font.Charset = DEFAULT_CHARSET
         Title.Font.Color = clBlack
@@ -82,11 +72,6 @@ object BuscaArticuloCelularForm: TBuscaArticuloCelularForm
       item
         Expanded = False
         FieldName = 'Marca'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
         Title.Color = clBlack
         Title.Font.Charset = DEFAULT_CHARSET
         Title.Font.Color = clBlack
@@ -99,11 +84,6 @@ object BuscaArticuloCelularForm: TBuscaArticuloCelularForm
       item
         Expanded = False
         FieldName = 'Articulos.Rubro'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
         Title.Caption = 'Rubro'
         Title.Color = clBlack
         Title.Font.Charset = DEFAULT_CHARSET
@@ -117,11 +97,6 @@ object BuscaArticuloCelularForm: TBuscaArticuloCelularForm
       item
         Expanded = False
         FieldName = 'PrecioCtaCte'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
         Title.Caption = 'Precio'
         Title.Color = clBlack
         Title.Font.Charset = DEFAULT_CHARSET
@@ -135,11 +110,6 @@ object BuscaArticuloCelularForm: TBuscaArticuloCelularForm
       item
         Expanded = False
         FieldName = 'IVA'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
         Title.Color = clBlack
         Title.Font.Charset = DEFAULT_CHARSET
         Title.Font.Color = clBlack
@@ -405,14 +375,13 @@ object BuscaArticuloCelularForm: TBuscaArticuloCelularForm
       Width = 80
       Height = 50
       Caption = 'Si'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -19
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       Kind = bkYes
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 0
       OnClick = SiBitBtnClick
@@ -423,14 +392,13 @@ object BuscaArticuloCelularForm: TBuscaArticuloCelularForm
       Width = 80
       Height = 50
       Caption = 'No'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -19
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       Kind = bkNo
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 1
       OnClick = NoBitBtnClick
@@ -441,13 +409,11 @@ object BuscaArticuloCelularForm: TBuscaArticuloCelularForm
       Width = 80
       Height = 50
       Caption = 'Todos'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clPurple
       Font.Height = -19
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 2
       OnClick = VerTodosBitBtnClick
@@ -459,7 +425,6 @@ object BuscaArticuloCelularForm: TBuscaArticuloCelularForm
     Top = 160
   end
   object ATArticulos: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (

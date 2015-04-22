@@ -27,8 +27,7 @@ type
     Tabla: TIBQuery;
     DataSource: TDataSource;
     Image1: TImage;
-    procedure FormKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure SiBitBtnClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure NoBitBtnClick(Sender: TObject);
@@ -53,48 +52,49 @@ implementation
 
 Procedure TFBuscaProve.Buscar;
 begin
-Tabla.SQL.Text:=' select * from "Proveedor" where ("Proveedor".NOMBRE LIKE '+QuotedStr(DescripcionEdit.Text+'%')+')';
-Tabla.Open;
+  Tabla.SQL.Text := ' select * from "Proveedor" where ("Proveedor".NOMBRE LIKE '
+    + QuotedStr(DescripcionEdit.Text + '%') + ')';
+  Tabla.Open;
 end;
 
 procedure TFBuscaProve.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-   IF Key = VK_DOWN then
-   DbGrid1.SetFocus;
+  IF Key = VK_DOWN then
+    DBGrid1.SetFocus;
 end;
 
 procedure TFBuscaProve.Image1Click(Sender: TObject);
 begin
- ImprimirDataModule := TImprimirDataModule.Create(self);
- ImprimirDataModule.CSV(Tabla.SQL.Text,'ARTICULOS');
- ImprimirDataModule.Free;
+  ImprimirDataModule := TImprimirDataModule.Create(self);
+  ImprimirDataModule.CSV(Tabla.SQL.Text, 'ARTICULOS');
+  ImprimirDataModule.Free;
 end;
 
 procedure TFBuscaProve.SiBitBtnClick(Sender: TObject);
 begin
- Close;
+  Close;
 end;
 
 procedure TFBuscaProve.DBGrid1DblClick(Sender: TObject);
 begin
-   SiBitBtnClick(DBGrid1);
+  SiBitBtnClick(DBGrid1);
 end;
 
 procedure TFBuscaProve.NoBitBtnClick(Sender: TObject);
 begin
-   Close;
+  Close;
 end;
 
 procedure TFBuscaProve.DescripcionEditKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-buscar;
+  Buscar;
 end;
 
 procedure TFBuscaProve.FormCreate(Sender: TObject);
 begin
-   Tabla.Open;
+  Tabla.Open;
 end;
 
 end.

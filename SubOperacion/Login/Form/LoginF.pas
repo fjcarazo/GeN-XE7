@@ -35,7 +35,7 @@ type
 
 var
   FLogin: TFLogin;
-  Cuenta : integer;
+  Cuenta: integer;
 
 implementation
 
@@ -43,79 +43,78 @@ implementation
 
 procedure TFLogin.AceptarBitBtnClick(Sender: TObject);
 begin
-LoginOK :=False;
-   Query.SQL.Text:='select * from "Usuario" where NOMBRE='+QuotedStr(nombreEdit.Text);
-   Query.Open;
-    If Query.RecordCount < 1 then
-    Begin
-       Cuenta := Cuenta + 1;
-       MessageDlg('Usuario no encontrado',mtError, [mbOK], 0);
-       nombreEdit.Text := '';
-       passwordEdit.Text := '';
-       Query.Active := False;
-       If Cuenta = 3 then Close;
-    end
-   else
-       If Query.FieldByName('password').AsString = passwordEdit.Text then
-        Begin
-           LoginOk := True;
-           Usuario := Query.FieldByName('CODIGO').AsString;
-           Permiso := Query.FieldByName('PERMISO').AsInteger;
-           Query.Active := False;
-           Query.SQL.Text:='insert into "Control" (USUARIO, MAQUINA) values ('+Usuario+', '+QuotedStr(Maquina)+')';
-           Query.ExecSQL;
-           Query.Transaction.Commit;
-           Close;
-        end
-     else
-         Begin
-           Cuenta := Cuenta + 1;
-           MessageDlg('Clave Inválida',mtError, [mbOK], 0);
-           passwordEdit.Text := '';
-           Query.Active := False;
-           If Cuenta = 3 then Close;
-         end;
+  LoginOK := False;
+  Query.SQL.Text := 'select * from "Usuario" where NOMBRE=' +
+    QuotedStr(nombreEdit.Text);
+  Query.Open;
+  If Query.RecordCount < 1 then
+  Begin
+    Cuenta := Cuenta + 1;
+    MessageDlg('Usuario no encontrado', mtError, [mbOK], 0);
+    nombreEdit.Text := '';
+    passwordEdit.Text := '';
+    Query.Active := False;
+    If Cuenta = 3 then
+      Close;
+  end
+  else If Query.FieldByName('password').AsString = passwordEdit.Text then
+  Begin
+    LoginOK := True;
+    Usuario := Query.FieldByName('CODIGO').AsString;
+    Permiso := Query.FieldByName('PERMISO').AsInteger;
+    Query.Active := False;
+    Query.SQL.Text := 'insert into "Control" (USUARIO, MAQUINA) values (' +
+      Usuario + ', ' + QuotedStr(Maquina) + ')';
+    Query.ExecSQL;
+    Query.Transaction.Commit;
+    Close;
+  end
+  else
+  Begin
+    Cuenta := Cuenta + 1;
+    MessageDlg('Clave Inválida', mtError, [mbOK], 0);
+    passwordEdit.Text := '';
+    Query.Active := False;
+    If Cuenta = 3 then
+      Close;
+  end;
 end;
 
 procedure TFLogin.CancelarBitBtnClick(Sender: TObject);
 begin
-   LoginOK :=False;
-   Close;
+  LoginOK := False;
+  Close;
 end;
 
 procedure TFLogin.FormCreate(Sender: TObject);
 begin
-Usuario := 'L';
-Cuenta := 0;
+  Usuario := 'L';
+  Cuenta := 0;
 end;
 
 procedure TFLogin.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 
 procedure TFLogin.passwordEditExit(Sender: TObject);
 begin
-AceptarBitBtn.Click;
+  AceptarBitBtn.Click;
 end;
 
 procedure TFLogin.WebBrowser1StatusTextChange(ASender: TObject;
   const Text: WideString);
 begin
-{if (text <> 'Buscando www.degsoft.com.ar') and (text <> '') then
-begin
-ShowMessage(text);
-HlinkNavigateString(Nil, PChar(text) );
-end;  }
+  { if (text <> 'Buscando www.degsoft.com.ar') and (text <> '') then
+    begin
+    ShowMessage(text);
+    HlinkNavigateString(Nil, PChar(text) );
+    end; }
 
 end;
 
 end.
-
-
-
-

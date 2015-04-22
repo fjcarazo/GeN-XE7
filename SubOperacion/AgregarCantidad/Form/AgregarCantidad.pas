@@ -29,13 +29,13 @@ implementation
 
 procedure TAgregarCantidadForm.BitBtn1Click(Sender: TObject);
 begin
-Close;
+  Close;
 end;
 
 procedure TAgregarCantidadForm.BitBtn2Click(Sender: TObject);
 begin
-CantidadEdit.Text:='0';
-Close;
+  CantidadEdit.Text := '0';
+  Close;
 end;
 
 end.

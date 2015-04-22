@@ -97,89 +97,94 @@ var
 
 implementation
 
-
 {$R *.dfm}
 
 procedure TEmpresaForm.SiBitBtnClick(Sender: TObject);
 begin
- //guardar imagen
- Image1.Picture.SaveToFile(path+'img\empresa.bmp');
- //
- If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then tabla.Post;
- Close;
+  // guardar imagen
+  Image1.Picture.SaveToFile(path + 'img\empresa.bmp');
+  //
+  If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then
+    Tabla.Post;
+  Close;
 end;
 
 procedure TEmpresaForm.TablaAfterCancel(DataSet: TDataSet);
 begin
-Tabla.Transaction.RollbackRetaining;
+  Tabla.Transaction.RollbackRetaining;
 end;
 
 procedure TEmpresaForm.TablaAfterDelete(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TEmpresaForm.TablaAfterPost(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TEmpresaForm.NoBitBtnClick(Sender: TObject);
 begin
-   Close;
+  Close;
 end;
 
 procedure TEmpresaForm.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(Self);
-CuentaT.Open;
-Tabla.Open;
-Image1.Picture.LoadFromFile(path+'img\empresa.bmp');
+  DM := TDM.Create(Self);
+  CuentaT.Open;
+  Tabla.Open;
+  Image1.Picture.LoadFromFile(path + 'img\empresa.bmp');
 end;
 
 procedure TEmpresaForm.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 
 procedure TEmpresaForm.FormShow(Sender: TObject);
 begin
-IVADBComboBoxChange(Sender);
-TabSheet1.PageControl.ActivePageIndex:=0;
-Tabla.Edit;
-DBEdit2.SetFocus;
+  IVADBComboBoxChange(Sender);
+  TabSheet1.PageControl.ActivePageIndex := 0;
+  Tabla.Edit;
+  DBEdit2.SetFocus;
 end;
 
 procedure TEmpresaForm.IVADBComboBoxChange(Sender: TObject);
 begin
-if IVADBComboBox.Text = 'CF' then IVALabel.Caption := 'Consumidor Final'
-else if IVADBComboBox.Text = 'MT' then IVALabel.Caption := 'Responsable Monotributo'
-else if IVADBComboBox.Text = 'RI' then IVALabel.Caption := 'Responsable Inscripto'
-else if IVADBComboBox.Text = 'EX' then IVALabel.Caption := 'Exento'
-else IVALabel.Caption := 'No Responsable';
+  if IVADBComboBox.Text = 'CF' then
+    IVALabel.Caption := 'Consumidor Final'
+  else if IVADBComboBox.Text = 'MT' then
+    IVALabel.Caption := 'Responsable Monotributo'
+  else if IVADBComboBox.Text = 'RI' then
+    IVALabel.Caption := 'Responsable Inscripto'
+  else if IVADBComboBox.Text = 'EX' then
+    IVALabel.Caption := 'Exento'
+  else
+    IVALabel.Caption := 'No Responsable';
 end;
 
 procedure TEmpresaForm.Image1Click(Sender: TObject);
 begin
-OpenPictureDialog1.Execute();
-Image1.Picture.LoadFromFile(OpenPictureDialog1.FileName);
+  OpenPictureDialog1.Execute();
+  Image1.Picture.LoadFromFile(OpenPictureDialog1.FileName);
 end;
 
 procedure TEmpresaForm.ImprimirBitBtnClick(Sender: TObject);
 begin
-{   ListadoClientesForm:=TListadoClientesForm.Create(self);
-   try
-ListadoClientesForm.ADOQuery1.SQL.Text:='Select "'+DataModule1.Empresa+'" As Empresa, * From Clientes WHERE CodCliente='+DBEdit24.Text;
-ListadoClientesForm.ADOQuery1.Open;
-//ListadoClientesForm.frxReport2.ShowReport(True);
-//ListadoClientesForm.ADOQuery1.Close;
-   finally
-      ListadoClientesForm.Free;
-      end;  }
+  { ListadoClientesForm:=TListadoClientesForm.Create(self);
+    try
+    ListadoClientesForm.ADOQuery1.SQL.Text:='Select "'+DataModule1.Empresa+'" As Empresa, * From Clientes WHERE CodCliente='+DBEdit24.Text;
+    ListadoClientesForm.ADOQuery1.Open;
+    //ListadoClientesForm.frxReport2.ShowReport(True);
+    //ListadoClientesForm.ADOQuery1.Close;
+    finally
+    ListadoClientesForm.Free;
+    end; }
 end;
 
 end.

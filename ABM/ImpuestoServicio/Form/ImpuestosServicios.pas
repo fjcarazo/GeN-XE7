@@ -95,12 +95,11 @@ type
     procedure BitBtn3Click(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
-    procedure FormKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
-  desc:string;
+    desc: string;
     { Public declarations }
   end;
 
@@ -115,82 +114,85 @@ uses BuscarImpuestosServicios;
 
 procedure TImpuestosServiciosFrom.BitBtn1Click(Sender: TObject);
 begin
-desc:=DBText1.Caption;
-   If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then Tabla.Post;
-   Close;
+  desc := DBText1.Caption;
+  If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then
+    Tabla.Post;
+  Close;
 end;
 
 procedure TImpuestosServiciosFrom.BitBtn2Click(Sender: TObject);
 begin
-   Close;
+  Close;
 end;
 
 procedure TImpuestosServiciosFrom.TablaAfterInsert(DataSet: TDataSet);
 begin
-{   QTemp.SQL.Text := 'Select Max(CodImpuestoServicio) From ImpuestosServicios';
-   QTemp.Active := true;
-   DBText1.Field.AsInteger := QTemp.Fields[0].AsInteger+1;
-   QTemp.Active :=False;
-   DBEdit1.Field.AsInteger := 0;   }
-       Query.SQL.Text := 'Select Max(CodImpuestoServicio) From ImpuestosServicios';
-       Query.Open;
-       DBText1.Field.AsInteger := Query.Fields[0].AsInteger+1;
+  { QTemp.SQL.Text := 'Select Max(CodImpuestoServicio) From ImpuestosServicios';
+    QTemp.Active := true;
+    DBText1.Field.AsInteger := QTemp.Fields[0].AsInteger+1;
+    QTemp.Active :=False;
+    DBEdit1.Field.AsInteger := 0; }
+  Query.SQL.Text := 'Select Max(CodImpuestoServicio) From ImpuestosServicios';
+  Query.Open;
+  DBText1.Field.AsInteger := Query.Fields[0].AsInteger + 1;
 
-       Tabla.FieldByName('CtaNombre').AsString:='81';
-       Tabla.FieldByName('CtaTipo').AsString:='81';
-       Tabla.FieldByName('CtaAnticipo').AsString:='28';
-       Tabla.FieldByName('CtaIIBB').AsString:='66';
+  Tabla.FieldByName('CtaNombre').AsString := '81';
+  Tabla.FieldByName('CtaTipo').AsString := '81';
+  Tabla.FieldByName('CtaAnticipo').AsString := '28';
+  Tabla.FieldByName('CtaIIBB').AsString := '66';
 
 end;
 
 procedure TImpuestosServiciosFrom.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(Self);
-   CuentaQuery.Open;
-   Tabla.Active := True;
-   TUsuarios.Active := True;
+  DM := TDM.Create(Self);
+  CuentaQuery.Open;
+  Tabla.Active := True;
+  TUsuarios.Active := True;
 end;
 
 procedure TImpuestosServiciosFrom.FormDestroy(Sender: TObject);
 begin
-   Tabla.Active := False;
-   TUsuarios.Active := False;
+  Tabla.Active := False;
+  TUsuarios.Active := False;
 end;
 
 procedure TImpuestosServiciosFrom.BitBtn3Click(Sender: TObject);
 begin
-   TabSheet1.PageControl.ActivePageIndex:=0;
-Tabla.Cancel;
-   BuscarImpuestosServiciosForm:=TBuscarImpuestosServiciosForm.Create(self);
-   try
-      BuscarImpuestosServiciosForm.ShowModal;
-   finally
-      If BuscarImpuestosServiciosForm.Cod_ImpuestosServicios <> '' then
-         Tabla.Locate('CodImpuestoServicio',QuotedStr(BuscarImpuestosServiciosForm.Cod_ImpuestosServicios),[]);
-      BuscarImpuestosServiciosForm.Free;
-   end;
+  TabSheet1.PageControl.ActivePageIndex := 0;
+  Tabla.Cancel;
+  BuscarImpuestosServiciosForm := TBuscarImpuestosServiciosForm.Create(Self);
+  try
+    BuscarImpuestosServiciosForm.ShowModal;
+  finally
+    If BuscarImpuestosServiciosForm.Cod_ImpuestosServicios <> '' then
+      Tabla.Locate('CodImpuestoServicio',
+        QuotedStr(BuscarImpuestosServiciosForm.Cod_ImpuestosServicios), []);
+    BuscarImpuestosServiciosForm.Free;
+  end;
 end;
 
 procedure TImpuestosServiciosFrom.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 
 procedure TImpuestosServiciosFrom.FormShow(Sender: TObject);
 begin
-   TabSheet1.PageControl.ActivePageIndex:=0;
-   Tabla.Insert;
-   DBEdit2.SetFocus;
+  TabSheet1.PageControl.ActivePageIndex := 0;
+  Tabla.Insert;
+  DBEdit2.SetFocus;
 end;
 
 procedure TImpuestosServiciosFrom.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-IF Key = VK_F5 then BitBtn3.Click;
+  IF Key = VK_F5 then
+    BitBtn3.Click;
 end;
 
 end.

@@ -43,68 +43,67 @@ implementation
 
 uses BuscarRubroContableF;
 
-
-
 {$R *.dfm}
 
 procedure TRubroContableForm.BitBtn1Click(Sender: TObject);
 begin
-   If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then
-      Tabla.Post;
-   Close;
+  If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then
+    Tabla.Post;
+  Close;
 end;
 
 procedure TRubroContableForm.BitBtn2Click(Sender: TObject);
 begin
-   Close;
+  Close;
 end;
 
 procedure TRubroContableForm.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(Self);
-Tabla.Open;
-Tabla.Insert;
+  DM := TDM.Create(Self);
+  Tabla.Open;
+  Tabla.Insert;
 end;
 
 procedure TRubroContableForm.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 
 procedure TRubroContableForm.FormShow(Sender: TObject);
 begin
-DBEdit2.SetFocus;
+  DBEdit2.SetFocus;
 end;
 
 procedure TRubroContableForm.BitBtn3Click(Sender: TObject);
 begin
-   Tabla.Cancel;
-   BuscarRubroContableForm:=TBuscarRubroContableForm.Create(self);
-   try
-      BuscarRubroContableForm.ShowModal;
-   finally
-      Tabla.Locate('CODIGO',(BuscarRubroContableForm.Tabla.FieldByName('CODIGO').AsString),[]);
-      BuscarRubroContableForm.Free;
-   end;
+  Tabla.Cancel;
+  BuscarRubroContableForm := TBuscarRubroContableForm.Create(Self);
+  try
+    BuscarRubroContableForm.ShowModal;
+  finally
+    Tabla.Locate('CODIGO', (BuscarRubroContableForm.Tabla.FieldByName('CODIGO')
+      .AsString), []);
+    BuscarRubroContableForm.Free;
+  end;
 end;
 
 procedure TRubroContableForm.TablaAfterCancel(DataSet: TDataSet);
 begin
-Tabla.Transaction.RollbackRetaining;
+  Tabla.Transaction.RollbackRetaining;
 end;
 
 procedure TRubroContableForm.TablaAfterDelete(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TRubroContableForm.TablaAfterPost(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 end.

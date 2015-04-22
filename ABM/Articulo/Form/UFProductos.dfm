@@ -31,6 +31,10 @@ object FProductos: TFProductos
     TabStop = False
     object TabSheet1: TTabSheet
       Caption = 'Detalles'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label2: TLabel
         Left = 14
         Top = 82

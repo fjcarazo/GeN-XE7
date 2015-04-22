@@ -33,23 +33,23 @@ procedure TConfigurarForm.BitBtn1Click(Sender: TObject);
 var
   IniFile: TIniFile;
 begin
-if Edit1.Text <> '' then
+  if Edit1.Text <> '' then
   begin
-   IniFile := TIniFile.Create(ExtractFilePath(Application.ExeName)+'DeG');
-  IniFile.WriteString('Actualiza', 'Unidad', Edit1.Text+':');
-  IniFile.Free;
-  close;
+    IniFile := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'DeG');
+    IniFile.WriteString('Actualiza', 'Unidad', Edit1.Text + ':');
+    IniFile.Free;
+    close;
   end
   else
   begin
-  ShowMessage('Por favor introduzca la letra de unidad de su pendrive');
-  Edit1.SetFocus;
+    ShowMessage('Por favor introduzca la letra de unidad de su pendrive');
+    Edit1.SetFocus;
   end;
 end;
 
 procedure TConfigurarForm.BitBtn2Click(Sender: TObject);
 begin
-close;
+  close;
 end;
 
 end.

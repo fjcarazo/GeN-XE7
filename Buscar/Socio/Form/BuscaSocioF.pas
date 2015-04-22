@@ -27,8 +27,7 @@ type
     Tabla: TIBQuery;
     DataSource: TDataSource;
     Image1: TImage;
-    procedure FormKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure SiBitBtnClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure NoBitBtnClick(Sender: TObject);
@@ -54,54 +53,56 @@ implementation
 
 Procedure TBuscaSocioForm.Buscar;
 begin
-Tabla.SQL.Text:=' select * from "Socio" where ("Socio".NOMBRE LIKE '+QuotedStr(DescripcionEdit.Text+'%')+')';
-Tabla.Open;
+  Tabla.SQL.Text := ' select * from "Socio" where ("Socio".NOMBRE LIKE ' +
+    QuotedStr(DescripcionEdit.Text + '%') + ')';
+  Tabla.Open;
 end;
 
 procedure TBuscaSocioForm.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-   IF Key = VK_DOWN then
-   DbGrid1.SetFocus;
+  IF Key = VK_DOWN then
+    DBGrid1.SetFocus;
 end;
 
 procedure TBuscaSocioForm.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
- if Key = VK_Escape then Close;
+  if Key = VK_Escape then
+    Close;
 end;
 
 procedure TBuscaSocioForm.Image1Click(Sender: TObject);
 begin
- ImprimirDataModule := TImprimirDataModule.Create(self);
- ImprimirDataModule.CSV(Tabla.SQL.Text,'ARTICULOS');
- ImprimirDataModule.Free;
+  ImprimirDataModule := TImprimirDataModule.Create(self);
+  ImprimirDataModule.CSV(Tabla.SQL.Text, 'ARTICULOS');
+  ImprimirDataModule.Free;
 end;
 
 procedure TBuscaSocioForm.SiBitBtnClick(Sender: TObject);
 begin
- Close;
+  Close;
 end;
 
 procedure TBuscaSocioForm.DBGrid1DblClick(Sender: TObject);
 begin
-   SiBitBtnClick(DBGrid1);
+  SiBitBtnClick(DBGrid1);
 end;
 
 procedure TBuscaSocioForm.NoBitBtnClick(Sender: TObject);
 begin
-   Close;
+  Close;
 end;
 
 procedure TBuscaSocioForm.DescripcionEditKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-buscar;
+  Buscar;
 end;
 
 procedure TBuscaSocioForm.FormCreate(Sender: TObject);
 begin
-   Tabla.Open;
+  Tabla.Open;
 end;
 
 end.

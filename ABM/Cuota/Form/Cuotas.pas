@@ -50,9 +50,10 @@ type
   private
     { Private declarations }
   public
-  Saldo, Total, Pagado, SubTotal, Impuesto, Interes, Cantidad, Importe : Double;
-  OK : Boolean;
-      procedure Valores (SubT, Imp, Tot: Double);
+    Saldo, Total, Pagado, SubTotal, Impuesto, Interes, Cantidad,
+      Importe: Double;
+    OK: Boolean;
+    procedure Valores(SubT, Imp, Tot: Double);
     { Public declarations }
   end;
 
@@ -64,131 +65,149 @@ implementation
 {$R *.dfm}
 
 procedure TCuotaForm.CalculaSaldo;
-var i:integer;
+var
+  i: integer;
 begin
-   if (CantidadEdit.Text<>'') and (ImporteEdit.Text<>'') and
-   (LbSaldo.Caption<>'') and (InteresEdit.Text<>'') and
-   (TotalEdit.Text<>'') then
-   begin
-   // Calcula el Total
-   SubTotal := 0;
-   Saldo  := 0;
-   Pagado := 0;
+  if (CantidadEdit.Text <> '') and (ImporteEdit.Text <> '') and
+    (LbSaldo.Caption <> '') and (InteresEdit.Text <> '') and
+    (TotalEdit.Text <> '') then
+  begin
+    // Calcula el Total
+    SubTotal := 0;
+    Saldo := 0;
+    Pagado := 0;
 
-   Pagado := StrToFloat(EntregaFloatEdit.Text);
-   Cantidad:= StrToFloat(CantidadEdit.Text);
-   Importe:= StrToFloat(ImporteEdit.Text);
+    Pagado := StrToFloat(EntregaFloatEdit.Text);
+    Cantidad := StrToFloat(CantidadEdit.Text);
+    Importe := StrToFloat(ImporteEdit.Text);
 
-   if Importe > 0 then
+    if Importe > 0 then
     begin
-    Saldo:=round(Importe*Cantidad);
-    if Saldo < Importe*Cantidad then Saldo:=Saldo+1;
+      Saldo := round(Importe * Cantidad);
+      if Saldo < Importe * Cantidad then
+        Saldo := Saldo + 1;
     end;
-   Saldo := Saldo - Pagado;
+    Saldo := Saldo - Pagado;
 
-   LbPagado.Caption := Format('%8.2n',[Pagado]);
-   LbSaldo.Caption  := Format('%8.2n',[Saldo]);
+    LbPagado.Caption := Format('%8.2n', [Pagado]);
+    LbSaldo.Caption := Format('%8.2n', [Saldo]);
 
-
-   end;
+  end;
 end;
 
-procedure TCuotaForm.Valores (SubT, Imp, Tot: Double);
+procedure TCuotaForm.Valores(SubT, Imp, Tot: Double);
 begin
-   SubTotal := SubT;
-   Impuesto := Imp;
-   Total    := Tot;
-   LbSubTotal.Caption := Format('%8.2n',[SubTotal]);
-   LbImpuesto.Caption := Format('%8.2n',[Impuesto]);
-   LbTotal.Caption    := Format('%8.2n',[Total]);
-   CalculaSaldo;
+  SubTotal := SubT;
+  Impuesto := Imp;
+  Total := Tot;
+  LbSubTotal.Caption := Format('%8.2n', [SubTotal]);
+  LbImpuesto.Caption := Format('%8.2n', [Impuesto]);
+  LbTotal.Caption := Format('%8.2n', [Total]);
+  CalculaSaldo;
 end;
 
 procedure TCuotaForm.FormShow(Sender: TObject);
 begin
-ImporteEdit.Text:='0';
-InteresEdit.Text:=FloatToStr(Interes);
-CantidadEdit.Text:='1';
-TotalEdit.Text:= FloatToStr(Total);//LbTotal.Caption;
+  ImporteEdit.Text := '0';
+  InteresEdit.Text := FloatToStr(Interes);
+  CantidadEdit.Text := '1';
+  TotalEdit.Text := FloatToStr(Total); // LbTotal.Caption;
 
-   Pagado := StrToFloat(EntregaFloatEdit.Text);
-   Saldo  := Total - StrToFloat(EntregaFloatEdit.Text);
-   Interes:= 1+(StrToFloat(InteresEdit.Text))/100;
-   Cantidad:= StrToFloat(CantidadEdit.Text);
-   Importe:= StrToFloat(ImporteEdit.Text);
+  Pagado := StrToFloat(EntregaFloatEdit.Text);
+  Saldo := Total - StrToFloat(EntregaFloatEdit.Text);
+  Interes := 1 + (StrToFloat(InteresEdit.Text)) / 100;
+  Cantidad := StrToFloat(CantidadEdit.Text);
+  Importe := StrToFloat(ImporteEdit.Text);
 end;
 
 procedure TCuotaForm.EntregaFloatEditChange(Sender: TObject);
 begin
-   CalculaSaldo;
+  CalculaSaldo;
 end;
 
 procedure TCuotaForm.AceptarClick(Sender: TObject);
 begin
-Close;
+  Close;
 end;
 
 procedure TCuotaForm.CancelarClick(Sender: TObject);
 begin
-Close;
+  Close;
 end;
 
 procedure TCuotaForm.TotalEditExit(Sender: TObject);
 begin
-Total:=StrToFloat(TotalEdit.Text);
-CalculaSaldo;
+  Total := StrToFloat(TotalEdit.Text);
+  CalculaSaldo;
 end;
 
 procedure TCuotaForm.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 
 procedure TCuotaForm.CantidadEditExit(Sender: TObject);
 begin
-   if StrToFloat(CantidadEdit.Text) > 0 then
-   begin
-   ImporteEdit.Text:=FloatToStr(round(((StrToFloat(TotalEdit.Text)-StrToFloat(EntregaFloatEdit.Text))*(1+StrToFloat(InteresEdit.Text)/100))/StrToFloat(CantidadEdit.Text)));
-   if StrToFloat(ImporteEdit.Text) < ((StrToFloat(TotalEdit.Text)-StrToFloat(EntregaFloatEdit.Text))*(1+StrToFloat(InteresEdit.Text)/100))/StrToFloat(CantidadEdit.Text) then ImporteEdit.Text:=FloatToStr(StrToFloat(ImporteEdit.Text)+1);
-   end;
-CalculaSaldo;
+  if StrToFloat(CantidadEdit.Text) > 0 then
+  begin
+    ImporteEdit.Text :=
+      FloatToStr
+      (round(((StrToFloat(TotalEdit.Text) - StrToFloat(EntregaFloatEdit.Text)) *
+      (1 + StrToFloat(InteresEdit.Text) / 100)) /
+      StrToFloat(CantidadEdit.Text)));
+    if StrToFloat(ImporteEdit.Text) <
+      ((StrToFloat(TotalEdit.Text) - StrToFloat(EntregaFloatEdit.Text)) *
+      (1 + StrToFloat(InteresEdit.Text) / 100)) / StrToFloat(CantidadEdit.Text)
+    then
+      ImporteEdit.Text := FloatToStr(StrToFloat(ImporteEdit.Text) + 1);
+  end;
+  CalculaSaldo;
 
-Aceptar.SetFocus;
+  Aceptar.SetFocus;
 end;
 
 procedure TCuotaForm.ImporteEditExit(Sender: TObject);
 begin
-   if StrToFloat(ImporteEdit.Text) > 0 then
-   begin
-   CantidadEdit.Text:=FloatToStr(round(((StrToFloat(TotalEdit.Text)-StrToFloat(EntregaFloatEdit.Text))*(1+StrToFloat(InteresEdit.Text)/100))/StrToFloat(ImporteEdit.Text)));
-   if StrToFloat(CantidadEdit.Text) < (Saldo*(1+StrToFloat(InteresEdit.Text)/100))/StrToFloat(ImporteEdit.Text) then CantidadEdit.Text:=FloatToStr(StrToFloat(CantidadEdit.Text)+1);
-   end;
-CalculaSaldo;
+  if StrToFloat(ImporteEdit.Text) > 0 then
+  begin
+    CantidadEdit.Text :=
+      FloatToStr
+      (round(((StrToFloat(TotalEdit.Text) - StrToFloat(EntregaFloatEdit.Text)) *
+      (1 + StrToFloat(InteresEdit.Text) / 100)) /
+      StrToFloat(ImporteEdit.Text)));
+    if StrToFloat(CantidadEdit.Text) <
+      (Saldo * (1 + StrToFloat(InteresEdit.Text) / 100)) /
+      StrToFloat(ImporteEdit.Text) then
+      CantidadEdit.Text := FloatToStr(StrToFloat(CantidadEdit.Text) + 1);
+  end;
+  CalculaSaldo;
 end;
 
 procedure TCuotaForm.InteresEditExit(Sender: TObject);
 begin
-   if StrToFloat(CantidadEdit.Text) > 0 then
-   begin
-   ImporteEdit.Text:=FloatToStr(round(((StrToFloat(TotalEdit.Text)-StrToFloat(EntregaFloatEdit.Text))*(1+StrToFloat(InteresEdit.Text)/100))/StrToFloat(CantidadEdit.Text)));
-   if StrToFloat(ImporteEdit.Text) < ((StrToFloat(TotalEdit.Text)-StrToFloat(EntregaFloatEdit.Text))*(1+StrToFloat(InteresEdit.Text)/100))/StrToFloat(CantidadEdit.Text) then ImporteEdit.Text:=FloatToStr(StrToFloat(ImporteEdit.Text)+1);
-   end;
-CalculaSaldo;
+  if StrToFloat(CantidadEdit.Text) > 0 then
+  begin
+    ImporteEdit.Text :=
+      FloatToStr
+      (round(((StrToFloat(TotalEdit.Text) - StrToFloat(EntregaFloatEdit.Text)) *
+      (1 + StrToFloat(InteresEdit.Text) / 100)) /
+      StrToFloat(CantidadEdit.Text)));
+    if StrToFloat(ImporteEdit.Text) <
+      ((StrToFloat(TotalEdit.Text) - StrToFloat(EntregaFloatEdit.Text)) *
+      (1 + StrToFloat(InteresEdit.Text) / 100)) / StrToFloat(CantidadEdit.Text)
+    then
+      ImporteEdit.Text := FloatToStr(StrToFloat(ImporteEdit.Text) + 1);
+  end;
+  CalculaSaldo;
 end;
 
 procedure TCuotaForm.EntregaFloatEditExit(Sender: TObject);
 begin
-//Aceptar.SetFocus;
+  // Aceptar.SetFocus;
 end;
 
 end.
-
-
-
-
-
-

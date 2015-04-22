@@ -1,4 +1,4 @@
-object FProductos: TFProductos
+object ArticuloCelularForm: TArticuloCelularForm
   Left = 309
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize, biMaximize, biHelp]
@@ -51,7 +51,6 @@ object FProductos: TFProductos
       Width = 80
       Height = 50
       Caption = 'Si'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -11
@@ -76,7 +75,6 @@ object FProductos: TFProductos
         0000}
       ModalResult = 6
       NumGlyphs = 2
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 0
       OnClick = SiBitBtnClick
@@ -87,14 +85,13 @@ object FProductos: TFProductos
       Width = 80
       Height = 50
       Caption = 'No'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       Kind = bkNo
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 1
       OnClick = NoBitBtnClick
@@ -128,13 +125,11 @@ object FProductos: TFProductos
       Width = 80
       Height = 50
       Caption = 'Buscar F5'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clNavy
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 0
       OnClick = BitBtn4Click
@@ -652,7 +647,6 @@ object FProductos: TFProductos
       Font.Style = []
       ImageIndex = 2
       ParentFont = False
-      ExplicitLeft = 8
       object Label6: TLabel
         Left = 421
         Top = 84
@@ -887,13 +881,11 @@ object FProductos: TFProductos
         Width = 50
         Height = 21
         Caption = '+ F2'
-        DoubleBuffered = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -19
         Font.Name = 'MS Sans Serif'
         Font.Style = [fsBold]
-        ParentDoubleBuffered = False
         ParentFont = False
         TabOrder = 10
         OnClick = BitBtn8Click
@@ -916,13 +908,11 @@ object FProductos: TFProductos
         Width = 49
         Height = 21
         Caption = '+ F3'
-        DoubleBuffered = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -19
         Font.Name = 'MS Sans Serif'
         Font.Style = [fsBold]
-        ParentDoubleBuffered = False
         ParentFont = False
         TabOrder = 11
         OnClick = BitBtn10Click
@@ -945,13 +935,11 @@ object FProductos: TFProductos
         Width = 50
         Height = 21
         Caption = '+'
-        DoubleBuffered = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -24
         Font.Name = 'MS Sans Serif'
         Font.Style = [fsBold]
-        ParentDoubleBuffered = False
         ParentFont = False
         TabOrder = 12
         OnClick = BitBtn11Click
@@ -1282,14 +1270,12 @@ object FProductos: TFProductos
     Top = 377
   end
   object ADOTCat: TADOTable
-    Connection = DM.AC1
     CursorType = ctStatic
     TableName = 'Categorias'
     Left = 128
     Top = 377
   end
   object ADOTSubCat: TADOTable
-    Connection = DM.AC1
     CursorType = ctStatic
     TableName = 'SubCategorias'
     Left = 200
@@ -1306,7 +1292,6 @@ object FProductos: TFProductos
     Top = 377
   end
   object TMateriales: TADOTable
-    Connection = DM.AC1
     TableName = 'Materiales'
     Left = 344
     Top = 377
@@ -1317,13 +1302,11 @@ object FProductos: TFProductos
     Top = 377
   end
   object AQTemp: TADOQuery
-    Connection = DM.AC1
     Parameters = <>
     Left = 416
     Top = 377
   end
   object TRubro: TADOTable
-    Connection = DM.AC1
     CursorType = ctStatic
     TableName = 'Rubro'
     Left = 272
@@ -1335,7 +1318,6 @@ object FProductos: TFProductos
     Top = 377
   end
   object QProve: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
@@ -1349,7 +1331,6 @@ object FProductos: TFProductos
     Top = 88
   end
   object CategoriaADOTable: TADOTable
-    Connection = DM.AC1
     CursorType = ctStatic
     TableName = 'Categorias'
     Left = 72
@@ -1361,7 +1342,6 @@ object FProductos: TFProductos
     Top = 88
   end
   object MarcaADOTable: TADOTable
-    Connection = DM.AC1
     CursorType = ctStatic
     TableName = 'Marca'
     Left = 136
@@ -1373,7 +1353,6 @@ object FProductos: TFProductos
     Top = 88
   end
   object Tabla: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     AfterInsert = TablaAfterInsert
     Parameters = <>
@@ -1385,7 +1364,6 @@ object FProductos: TFProductos
     Top = 377
   end
   object CuentaQuery: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
@@ -1399,7 +1377,6 @@ object FProductos: TFProductos
     Top = 88
   end
   object ConfigQuery: TADOQuery
-    Connection = DM.ConfigDB
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (

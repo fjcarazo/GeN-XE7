@@ -1,9 +1,9 @@
 object Form1: TForm1
   Left = 299
   Top = 131
-  Width = 370
-  Height = 485
   Caption = ' Crear una hoja de c'#225'lculo XLS'
+  ClientHeight = 446
+  ClientWidth = 354
   Color = clSkyBlue
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

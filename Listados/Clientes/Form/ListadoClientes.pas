@@ -17,7 +17,7 @@ type
   private
     { Private declarations }
   public
-   excel:boolean;
+    excel: boolean;
     { Public declarations }
   end;
 
@@ -26,36 +26,38 @@ var
 
 implementation
 
-
 {$R *.dfm}
 
 procedure TListadoClientesForm.SiBitBtnClick(Sender: TObject);
 var
- sql,r:string;
+  sql, r: string;
 begin
- sql:='Select * From "Cliente"';
- If RadioGroup2.ItemIndex = 0 {Número} then sql:=sql+(' Order By CODIGO')
+  sql := 'Select * From "Cliente"';
+  If RadioGroup2.ItemIndex = 0 { Número } then
+    sql := sql + (' Order By CODIGO')
+  else If RadioGroup2.ItemIndex = 1 { Nombre } then
+    sql := sql + (' Order By NOMBRE')
+  else If RadioGroup2.ItemIndex = 2 { Titular } then
+    sql := sql + (' Order By TITULAR')
+  else If RadioGroup2.ItemIndex = 3 { IVA } then
+    sql := sql + (' Order By IVA');
+  If RadioGroup1.ItemIndex = 0 then
+    r := 'Clientes'
   else
-   If RadioGroup2.ItemIndex = 1 {Nombre } then sql:=sql+(' Order By NOMBRE')
-    else
-     If RadioGroup2.ItemIndex = 2 {Titular} then sql:=sql+(' Order By TITULAR')
-      else
-       If RadioGroup2.ItemIndex = 3 {IVA} then sql:=sql+(' Order By IVA');
- If RadioGroup1.ItemIndex=0 then r:='Clientes'
-  else r:='ClientesDetalle';
- ImprimirDataModule:=TImprimirDataModule.Create(self);
- ImprimirDataModule.SImpr(sql,r);
- ImprimirDataModule.Free;
+    r := 'ClientesDetalle';
+  ImprimirDataModule := TImprimirDataModule.Create(self);
+  ImprimirDataModule.SImpr(sql, r);
+  ImprimirDataModule.Free;
 end;
 
 procedure TListadoClientesForm.BitBtn2Click(Sender: TObject);
 begin
- Close;
+  Close;
 end;
 
 procedure TListadoClientesForm.FormCreate(Sender: TObject);
 begin
- DM:=TDM.Create(Self);
+  DM := TDM.Create(self);
 end;
 
 end.

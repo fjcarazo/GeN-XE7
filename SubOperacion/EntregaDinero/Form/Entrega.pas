@@ -18,7 +18,7 @@ type
   private
     { Private declarations }
   public
-  entrega:double;
+    Entrega: double;
     { Public declarations }
   end;
 
@@ -31,20 +31,20 @@ implementation
 
 procedure TEntregaForm.BitBtn1Click(Sender: TObject);
 begin
-Entrega:=StrToFloat(EntregoMaskEdit.Text);
-Close;
+  Entrega := StrToFloat(EntregoMaskEdit.Text);
+  Close;
 end;
 
 procedure TEntregaForm.BitBtn2Click(Sender: TObject);
 begin
-Entrega:=0;
-Close;
+  Entrega := 0;
+  Close;
 end;
 
 procedure TEntregaForm.FormShow(Sender: TObject);
 begin
-EntregoMaskEdit.Text:='';
-EntregoMaskEdit.SetFocus;
+  EntregoMaskEdit.Text := '';
+  EntregoMaskEdit.SetFocus;
 end;
 
 end.

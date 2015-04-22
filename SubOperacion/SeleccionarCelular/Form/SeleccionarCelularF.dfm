@@ -106,13 +106,11 @@ object SeleccionarCelularForm: TSeleccionarCelularForm
       Width = 25
       Height = 25
       Caption = '+'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -24
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 4
       OnClick = BitBtn3Click
@@ -189,14 +187,13 @@ object SeleccionarCelularForm: TSeleccionarCelularForm
       Width = 80
       Height = 50
       Caption = 'Si'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       Kind = bkYes
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 0
       OnClick = SiBitBtnClick
@@ -207,21 +204,19 @@ object SeleccionarCelularForm: TSeleccionarCelularForm
       Width = 80
       Height = 50
       Caption = 'No'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       Kind = bkNo
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 1
       OnClick = NoBitBtnClick
     end
   end
   object Query: TADOQuery
-    Connection = DM.AC1
     Parameters = <>
     Left = 216
     Top = 56

@@ -32,6 +32,10 @@ object ImpuestosServiciosFrom: TImpuestosServiciosFrom
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Informaci'#243'n General'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label4: TLabel
         Left = 90
         Top = 237
@@ -582,6 +586,10 @@ object ImpuestosServiciosFrom: TImpuestosServiciosFrom
     object TabSheet2: TTabSheet
       Caption = 'Notas'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object DBMemo1: TDBMemo
         Left = 0
         Top = 0
@@ -596,6 +604,10 @@ object ImpuestosServiciosFrom: TImpuestosServiciosFrom
     object TabSheet3: TTabSheet
       Caption = 'Contabilidad'
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label50: TLabel
         Left = 201
         Top = 83
@@ -724,13 +736,11 @@ object ImpuestosServiciosFrom: TImpuestosServiciosFrom
       Width = 80
       Height = 50
       Caption = 'Buscar F5'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clNavy
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 1
       OnClick = BitBtn3Click
@@ -794,7 +804,6 @@ object ImpuestosServiciosFrom: TImpuestosServiciosFrom
       Width = 80
       Height = 50
       Caption = 'Si'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -819,7 +828,6 @@ object ImpuestosServiciosFrom: TImpuestosServiciosFrom
         0000}
       ModalResult = 6
       NumGlyphs = 2
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 0
     end
@@ -829,14 +837,13 @@ object ImpuestosServiciosFrom: TImpuestosServiciosFrom
       Width = 80
       Height = 50
       Caption = 'No'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       Kind = bkNo
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 1
       OnClick = BitBtn2Click
@@ -847,19 +854,16 @@ object ImpuestosServiciosFrom: TImpuestosServiciosFrom
       Width = 80
       Height = 50
       Caption = 'Imprimir'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clPurple
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 2
     end
   end
   object Tabla: TADOTable
-    Connection = DM.AC1
     CursorType = ctStatic
     AfterInsert = TablaAfterInsert
     IndexName = 'PrimaryKey'
@@ -873,7 +877,6 @@ object ImpuestosServiciosFrom: TImpuestosServiciosFrom
     Top = 453
   end
   object TUsuarios: TADOTable
-    Connection = DM.AC1
     CursorType = ctStatic
     TableName = 'Usuarios'
     Left = 246
@@ -885,13 +888,11 @@ object ImpuestosServiciosFrom: TImpuestosServiciosFrom
     Top = 453
   end
   object Query: TADOQuery
-    Connection = DM.AC1
     Parameters = <>
     Left = 358
     Top = 453
   end
   object CuentaQuery: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (

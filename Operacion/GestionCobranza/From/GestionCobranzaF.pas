@@ -65,7 +65,7 @@ type
   private
     { Private declarations }
   public
-  procedure nuevo;
+    procedure nuevo;
     { Public declarations }
   end;
 
@@ -80,145 +80,144 @@ uses VerCobranza;
 
 procedure TGestionCobranzaForm.QueryAfterDelete(DataSet: TDataSet);
 begin
-GestionCobranzaT.Close;
-GestionCobranzaT.Open;
+  GestionCobranzaT.Close;
+  GestionCobranzaT.Open;
 end;
 
-procedure TGestionCobranzaForm.QueryAfterInsert(
-  DataSet: TDataSet);
+procedure TGestionCobranzaForm.QueryAfterInsert(DataSet: TDataSet);
 begin
-nuevo;
+  nuevo;
 end;
 
 procedure TGestionCobranzaForm.QueryAfterPost(DataSet: TDataSet);
 begin
-GestionCobranzaT.Close;
-GestionCobranzaT.Open;
+  GestionCobranzaT.Close;
+  GestionCobranzaT.Open;
 end;
 
 procedure TGestionCobranzaForm.nuevo;
 begin
-FechaDBEdit.Text:=DateToStr(now);
-HoraDBEdit.Text:=TimeToStr(Now);
+  FechaDBEdit.Text := DateToStr(now);
+  HoraDBEdit.Text := TimeToStr(now);
 
 end;
 
 procedure TGestionCobranzaForm.VerCobranzaBitBtnClick(Sender: TObject);
 begin
-VerCobranzaForm:=TVerCobranzaForm.Create(self);
-with VerCobranzaForm do
- begin
- DiasEdit.Text:='1';
-Fecha := FormatDateTime('mm/dd/yyyy', (now-StrToInt(DiasEdit.Text)));
-GrillaQ.SQL.Text:='SELECT'+
-'  "CtaCteItem".VENCE,'+
-'  "Cliente".NOMBRE,'+
-'  "CtaCteItem".CUOTA,'+
-'  "CtaCteItem".PAGADO,'+
-'  "CtaCteItem".IMPORTE,'+
-'  "CtaCteItem".DESCRIPCION,'+
-'  "CtaCte".CLIENTE,'+
-'  "CtaCte".COBRANZA,'+
-'  "CtaCte".OPERACION'+
-' FROM'+
-'  "CtaCte"'+
-'  INNER JOIN "Cliente" ON ("CtaCte".CLIENTE = "Cliente".CODIGO)'+
-'  INNER JOIN "CtaCteItem" ON ("CtaCte".OPERACION = "CtaCteItem".OPERACION)'+
-' WHERE'+
-'  ("CtaCteItem".PAGADO < "CtaCteItem".IMPORTE) AND'+
-'  ("CtaCteItem".VENCE < '+QuotedStr(fecha)+') AND'+
-'  (("CtaCte".COBRANZA is null) OR ("CtaCte".COBRANZA=1))'+
-' ORDER BY'+
-'  "CtaCteItem".VENCE'+
-'';
-GrillaQ.Open;
- end;
-try
- VerCobranzaForm.ShowModal;
-finally
-with VerCobranzaForm do
- begin
- if GrillaQ.FieldByName('CLIENTE').AsString <> ''  then
- begin
- Tabla.Insert;
-   Tabla.FieldByName('OPERACION').AsInteger:= GrillaQ.FieldByName('OPERACION').AsInteger;
-   Tabla.FieldByName('CLIENTE').AsInteger:= GrillaQ.FieldByName('CLIENTE').AsInteger;
-   if GrillaQ.FieldByName('COBRANZA').AsInteger = 0 then
-    begin
-    q.SQL.Text := 'Update "CtaCte" Set Cobranza = 1 Where '+
-                  '(CLIENTE = '+GrillaQ.FieldByName('CLIENTE').AsString+') and (OPERACION = '+GrillaQ.FieldByName('OPERACION').AsString+')';
-    q.ExecSQL;
-    Tabla.FieldByName('COBRANZA').AsInteger:=1;
-    end else Tabla.FieldByName('COBRANZA').AsInteger:= GrillaQ.FieldByName('COBRANZA').AsInteger;
-  FechaDBEdit.Text:=datetostr(now);
-  HoraDBEdit.Text:=TimeToStr(now);
-
- GestionCobranzaT.SQL.Text:='Select * From "GestionCobranza"'+
- ' WHERE CLIENTE='+(GrillaQ.FieldByName('CLIENTE').AsString)+
- '';
- GestionCobranzaT.Open;
- end;
+  VerCobranzaForm := TVerCobranzaForm.Create(self);
+  with VerCobranzaForm do
+  begin
+    DiasEdit.Text := '1';
+    Fecha := FormatDateTime('mm/dd/yyyy', (now - StrToInt(DiasEdit.Text)));
+    GrillaQ.SQL.Text := 'SELECT' + '  "CtaCteItem".VENCE,' +
+      '  "Cliente".NOMBRE,' + '  "CtaCteItem".CUOTA,' + '  "CtaCteItem".PAGADO,'
+      + '  "CtaCteItem".IMPORTE,' + '  "CtaCteItem".DESCRIPCION,' +
+      '  "CtaCte".CLIENTE,' + '  "CtaCte".COBRANZA,' + '  "CtaCte".OPERACION' +
+      ' FROM' + '  "CtaCte"' +
+      '  INNER JOIN "Cliente" ON ("CtaCte".CLIENTE = "Cliente".CODIGO)' +
+      '  INNER JOIN "CtaCteItem" ON ("CtaCte".OPERACION = "CtaCteItem".OPERACION)'
+      + ' WHERE' + '  ("CtaCteItem".PAGADO < "CtaCteItem".IMPORTE) AND' +
+      '  ("CtaCteItem".VENCE < ' + QuotedStr(Fecha) + ') AND' +
+      '  (("CtaCte".COBRANZA is null) OR ("CtaCte".COBRANZA=1))' + ' ORDER BY' +
+      '  "CtaCteItem".VENCE' + '';
+    GrillaQ.Open;
   end;
-      VerCobranzaForm.Free;
-   end;
+  try
+    VerCobranzaForm.ShowModal;
+  finally
+    with VerCobranzaForm do
+    begin
+      if GrillaQ.FieldByName('CLIENTE').AsString <> '' then
+      begin
+        Tabla.Insert;
+        Tabla.FieldByName('OPERACION').AsInteger :=
+          GrillaQ.FieldByName('OPERACION').AsInteger;
+        Tabla.FieldByName('CLIENTE').AsInteger := GrillaQ.FieldByName('CLIENTE')
+          .AsInteger;
+        if GrillaQ.FieldByName('COBRANZA').AsInteger = 0 then
+        begin
+          Q.SQL.Text := 'Update "CtaCte" Set Cobranza = 1 Where ' +
+            '(CLIENTE = ' + GrillaQ.FieldByName('CLIENTE').AsString +
+            ') and (OPERACION = ' + GrillaQ.FieldByName('OPERACION')
+            .AsString + ')';
+          Q.ExecSQL;
+          Tabla.FieldByName('COBRANZA').AsInteger := 1;
+        end
+        else
+          Tabla.FieldByName('COBRANZA').AsInteger :=
+            GrillaQ.FieldByName('COBRANZA').AsInteger;
+        FechaDBEdit.Text := DateToStr(now);
+        HoraDBEdit.Text := TimeToStr(now);
+
+        GestionCobranzaT.SQL.Text := 'Select * From "GestionCobranza"' +
+          ' WHERE CLIENTE=' + (GrillaQ.FieldByName('CLIENTE').AsString) + '';
+        GestionCobranzaT.Open;
+      end;
+    end;
+    VerCobranzaForm.Free;
+  end;
 end;
 
 procedure TGestionCobranzaForm.DBGrid4KeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 
 procedure TGestionCobranzaForm.ExtraJudicialBitBtnClick(Sender: TObject);
 begin
-Q.SQL.Text := 'Update "CtaCte" Set COBRANZA = 2 Where '+
-              '("CtaCte".CLIENTE = '+Tabla.FieldByName('CLIENTE').AsString+') and ("CtaCte".OPERACION = '+Tabla.FieldByName('OPERACION').AsString+')';
-Q.ExecSQL;
-Q.Transaction.CommitRetaining;
-close;
+  Q.SQL.Text := 'Update "CtaCte" Set COBRANZA = 2 Where ' +
+    '("CtaCte".CLIENTE = ' + Tabla.FieldByName('CLIENTE').AsString +
+    ') and ("CtaCte".OPERACION = ' + Tabla.FieldByName('OPERACION')
+    .AsString + ')';
+  Q.ExecSQL;
+  Q.Transaction.CommitRetaining;
+  Close;
 end;
 
 procedure TGestionCobranzaForm.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(Self);
-Tabla.Open;
-ClienteT.Open;
-CobranzaT.Open;
-TratadoT.Open;
+  DM := TDM.Create(self);
+  Tabla.Open;
+  ClienteT.Open;
+  CobranzaT.Open;
+  TratadoT.Open;
 end;
 
 procedure TGestionCobranzaForm.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 
 procedure TGestionCobranzaForm.FormShow(Sender: TObject);
 begin
-VerCobranzaBitBtn.Click;
+  VerCobranzaBitBtn.Click;
 end;
 
 procedure TGestionCobranzaForm.GrabarBitBtnClick(Sender: TObject);
 begin
-Tabla.Post;
-GestionCobranzaT.Close;
-GestionCobranzaT.Open;
-VerCobranzaBitBtn.Click;
+  Tabla.Post;
+  GestionCobranzaT.Close;
+  GestionCobranzaT.Open;
+  VerCobranzaBitBtn.Click;
 end;
 
 procedure TGestionCobranzaForm.JudicialBitBtnClick(Sender: TObject);
 begin
-Q.SQL.Text := 'Update "CtaCte" Set COBRANZA = 3 Where '+
-              '("CtaCte".CLIENTE = '+Tabla.FieldByName('CLIENTE').AsString+') and ("CtaCte".OPERACION = '+Tabla.FieldByName('OPERACION').AsString+')';
-Q.ExecSQL;
-Q.Transaction.CommitRetaining;
-close;
+  Q.SQL.Text := 'Update "CtaCte" Set COBRANZA = 3 Where ' +
+    '("CtaCte".CLIENTE = ' + Tabla.FieldByName('CLIENTE').AsString +
+    ') and ("CtaCte".OPERACION = ' + Tabla.FieldByName('OPERACION')
+    .AsString + ')';
+  Q.ExecSQL;
+  Q.Transaction.CommitRetaining;
+  Close;
 end;
 
 end.

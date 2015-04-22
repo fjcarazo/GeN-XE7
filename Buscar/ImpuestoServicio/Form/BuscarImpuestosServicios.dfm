@@ -142,14 +142,13 @@ object BuscarImpuestosServiciosForm: TBuscarImpuestosServiciosForm
       Width = 80
       Height = 50
       Caption = 'Si'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       Kind = bkYes
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 0
       OnClick = BitBtn1Click
@@ -160,14 +159,13 @@ object BuscarImpuestosServiciosForm: TBuscarImpuestosServiciosForm
       Width = 80
       Height = 50
       Caption = 'No'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       Kind = bkNo
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 1
       OnClick = BitBtn2Click
@@ -292,7 +290,6 @@ object BuscarImpuestosServiciosForm: TBuscarImpuestosServiciosForm
     Top = 32
   end
   object ImpuestosServiciosQuery: TADOQuery
-    Connection = DM.AC1
     Parameters = <>
     SQL.Strings = (
       'Select * from ImpuestosServicios')

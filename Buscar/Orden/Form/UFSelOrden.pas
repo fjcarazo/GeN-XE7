@@ -23,14 +23,13 @@ type
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
-    procedure FormKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
-    Cancela : boolean;
+    Cancela: boolean;
   end;
 
 var
@@ -42,37 +41,38 @@ implementation
 
 procedure TFSelOrden.BitBtn1Click(Sender: TObject);
 begin
-   Cancela := False;
-   Close;
+  Cancela := False;
+  Close;
 end;
 
 procedure TFSelOrden.BitBtn2Click(Sender: TObject);
 begin
-   Cancela := True;
-   Close;
+  Cancela := True;
+  Close;
 end;
 
 procedure TFSelOrden.Edit1Change(Sender: TObject);
 begin
-   If (Edit1.Text <> '') then
-   begin
-      AQOrdenes.Filtered := False;
-      AQOrdenes.Filter := 'NombreCliente Like '''+ Edit1.Text + '*''';
-      AQOrdenes.Filtered := True;
-   end
-   else AQOrdenes.Filtered := False;
+  If (Edit1.Text <> '') then
+  begin
+    AQOrdenes.Filtered := False;
+    AQOrdenes.Filter := 'NombreCliente Like ''' + Edit1.Text + '*''';
+    AQOrdenes.Filtered := True;
+  end
+  else
+    AQOrdenes.Filtered := False;
 end;
 
 procedure TFSelOrden.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-   IF Key = VK_DOWN then
-   DbGrid1.SetFocus;
+  IF Key = VK_DOWN then
+    DBGrid1.SetFocus;
 end;
 
 procedure TFSelOrden.FormShow(Sender: TObject);
 begin
-   AQOrdenes.Open;
+  AQOrdenes.Open;
 end;
 
 end.

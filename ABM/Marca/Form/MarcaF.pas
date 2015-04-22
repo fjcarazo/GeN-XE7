@@ -27,7 +27,7 @@ type
   private
     { Private declarations }
   public
-  desc:string;
+    desc: string;
     { Public declarations }
   end;
 
@@ -40,43 +40,44 @@ implementation
 
 procedure TMarcaForm.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(Self);
-   Tabla.Active:=true;
+  DM := TDM.Create(Self);
+  Tabla.Active := true;
 end;
 
 procedure TMarcaForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-   Tabla.Active:=false;
+  Tabla.Active := false;
 end;
 
 procedure TMarcaForm.BitBtn1Click(Sender: TObject);
 begin
-   desc := DBEdit1.Text;
-   If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then If DBEdit1.Text <> '' then
-   begin
-   Tabla.Post;
-   end;
-   Close;
+  desc := DBEdit1.Text;
+  If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then
+    If DBEdit1.Text <> '' then
+    begin
+      Tabla.Post;
+    end;
+  Close;
 end;
 
 procedure TMarcaForm.FormShow(Sender: TObject);
 begin
-Tabla.Insert;
+  Tabla.Insert;
 end;
 
 procedure TMarcaForm.TablaAfterCancel(DataSet: TDataSet);
 begin
-Tabla.Transaction.RollbackRetaining;
+  Tabla.Transaction.RollbackRetaining;
 end;
 
 procedure TMarcaForm.TablaAfterDelete(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TMarcaForm.TablaAfterPost(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 end.

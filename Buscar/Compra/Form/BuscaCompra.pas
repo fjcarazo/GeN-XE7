@@ -23,8 +23,7 @@ type
     imprimir_exportarImage: TImage;
     Label3: TLabel;
     ComprobanteEdit: TEdit;
-    procedure FormKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure DBGrid1KeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -38,8 +37,8 @@ type
     { Private declarations }
   public
     { Public declarations }
-    Codigo,CodProve,Tipo,SqL: String;
-    Cancela :boolean;
+    Codigo, CodProve, Tipo, SqL: String;
+    Cancela: boolean;
   end;
 
 var
@@ -52,99 +51,101 @@ implementation
 procedure TBuscaCompraForm.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-if not DbGrid1.Focused = True then
- begin
- Tabla.SQL.Text:='SELECT ' + QuotedStr
-        (dm.ConfigQuery.FieldByName('NOMBRE').AsString) + ' As Empresa,' +
-        '  "Proveedor".NOMBRE,' + '  "Proveedor".TITULAR,' +
-        '  "Proveedor".DIRECCION,' + '  "Proveedor".DIRECCIONCOMERCIAL,' +
-        '  "Articulo".DESCRIPCION,' + '  "CompraItem".OPERACION,' +
-        '  "CompraItem".ARTICULO,' + '  "CompraItem".CANTIDAD,' +
-        '  "CompraItem".PRECIO,' +
-        '  ("CompraItem".PRECIO * "CompraItem".CANTIDAD ) as PREXCANT,' +
-        '  "CompraItem".SERVICIO,' + '  "CompraItem".DESCRIPCION AS DESCR,' +
-        '  "Compra".CODIGO,' + '  "Compra".LETRA,' + '  "Compra".FECHA,' +
-        '  "Compra".COMPROBANTE,' + '  "Compra".IVA3,' + '  "Compra".TOTAL,' +
-        '  "Compra".CONTADO,' + '  "Compra".Proveedor,' + '  "Compra".SUBTOTAL,' +
-        '  "Compra".DESCUENTO,' + '  "Compra".IMPUESTO,' + '  "Compra".IVA2,' +
-        '  "Compra".IVA1,' + '  "Compra".EXCENTO,' + '  "Compra".SALDO,' +
-        '  "Compra".PAGADO' + ' FROM' + '  "Compra"' +
-        '  INNER JOIN "CompraItem" ON ("Compra".CODIGO = "CompraItem".OPERACION)' +
-        '  INNER JOIN "Articulo" ON ("CompraItem".ARTICULO = "Articulo".CODIGO)'+
-        '  INNER JOIN "Proveedor" ON ("Compra".Proveedor = "Proveedor".CODIGO)' +
-        '  WHERE  ("Compra".COMPROBANTE like '+QuotedStr(ComprobanteEdit.Text+'%')+
-        '  ) AND ("Compra".CODIGO like '+QuotedStr(codigoEdit.Text+'%')+
-        '  ) AND ("Compra".LETRA like '+QuotedStr(LetraEdit.Text+'%')+
-        '  )';
- Tabla.Open;
- end;
-  if Key = VK_Escape then Close;
+  if not DBGrid1.Focused = True then
+  begin
+    Tabla.SqL.Text := 'SELECT ' + QuotedStr(dm.ConfigQuery.FieldByName('NOMBRE')
+      .AsString) + ' As Empresa,' + '  "Proveedor".NOMBRE,' +
+      '  "Proveedor".TITULAR,' + '  "Proveedor".DIRECCION,' +
+      '  "Proveedor".DIRECCIONCOMERCIAL,' + '  "Articulo".DESCRIPCION,' +
+      '  "CompraItem".OPERACION,' + '  "CompraItem".ARTICULO,' +
+      '  "CompraItem".CANTIDAD,' + '  "CompraItem".PRECIO,' +
+      '  ("CompraItem".PRECIO * "CompraItem".CANTIDAD ) as PREXCANT,' +
+      '  "CompraItem".SERVICIO,' + '  "CompraItem".DESCRIPCION AS DESCR,' +
+      '  "Compra".CODIGO,' + '  "Compra".LETRA,' + '  "Compra".FECHA,' +
+      '  "Compra".COMPROBANTE,' + '  "Compra".IVA3,' + '  "Compra".TOTAL,' +
+      '  "Compra".CONTADO,' + '  "Compra".Proveedor,' + '  "Compra".SUBTOTAL,' +
+      '  "Compra".DESCUENTO,' + '  "Compra".IMPUESTO,' + '  "Compra".IVA2,' +
+      '  "Compra".IVA1,' + '  "Compra".EXCENTO,' + '  "Compra".SALDO,' +
+      '  "Compra".PAGADO' + ' FROM' + '  "Compra"' +
+      '  INNER JOIN "CompraItem" ON ("Compra".CODIGO = "CompraItem".OPERACION)'
+      + '  INNER JOIN "Articulo" ON ("CompraItem".ARTICULO = "Articulo".CODIGO)'
+      + '  INNER JOIN "Proveedor" ON ("Compra".Proveedor = "Proveedor".CODIGO)'
+      + '  WHERE  ("Compra".COMPROBANTE like ' +
+      QuotedStr(ComprobanteEdit.Text + '%') + '  ) AND ("Compra".CODIGO like ' +
+      QuotedStr(codigoEdit.Text + '%') + '  ) AND ("Compra".LETRA like ' +
+      QuotedStr(LetraEdit.Text + '%') + '  )';
+    Tabla.Open;
+  end;
+  if Key = VK_Escape then
+    Close;
 end;
 
 procedure TBuscaCompraForm.FormShow(Sender: TObject);
 begin
-dm:=tdm.Create(self);
- SqL:='SELECT '+QuotedStr(dm.ConfigQuery.FieldByName('NOMBRE').AsString) + ' As Empresa,' +
-        '  "Proveedor".NOMBRE,' + '  "Proveedor".TITULAR,' +
-        '  "Proveedor".DIRECCION,' + '  "Proveedor".DIRECCIONCOMERCIAL,' +
-        '  "Articulo".DESCRIPCION,' + '  "CompraItem".OPERACION,' +
-        '  "CompraItem".ARTICULO,' + '  "CompraItem".CANTIDAD,' +
-        '  "CompraItem".PRECIO,' +
-        '  ("CompraItem".PRECIO * "CompraItem".CANTIDAD ) as PREXCANT,' +
-        '  "CompraItem".SERVICIO,' + '  "CompraItem".DESCRIPCION AS DESCR,' +
-        '  "Compra".CODIGO,' + '  "Compra".LETRA,' + '  "Compra".FECHA,' +
-        '  "Compra".COMPROBANTE,' + '  "Compra".IVA3,' + '  "Compra".TOTAL,' +
-        '  "Compra".CONTADO,' + '  "Compra".Proveedor,' + '  "Compra".SUBTOTAL,' +
-        '  "Compra".DESCUENTO,' + '  "Compra".IMPUESTO,' + '  "Compra".IVA2,' +
-        '  "Compra".IVA1,' + '  "Compra".EXCENTO,' + '  "Compra".SALDO,' +
-        '  "Compra".PAGADO' + ' FROM' + '  "Compra"' +
-        '  INNER JOIN "CompraItem" ON ("Compra".CODIGO = "CompraItem".OPERACION)' +
-        '  INNER JOIN "Articulo" ON ("CompraItem".ARTICULO = "Articulo".CODIGO)'+
-        '  INNER JOIN "Proveedor" ON ("Compra".Proveedor = "Proveedor".CODIGO)' +
-        '';
-imprimir_exportarImage.Picture.LoadFromFile(Path+'\img\boton_imprimir_exportar.gif');
+  dm := tdm.Create(self);
+  SqL := 'SELECT ' + QuotedStr(dm.ConfigQuery.FieldByName('NOMBRE').AsString) +
+    ' As Empresa,' + '  "Proveedor".NOMBRE,' + '  "Proveedor".TITULAR,' +
+    '  "Proveedor".DIRECCION,' + '  "Proveedor".DIRECCIONCOMERCIAL,' +
+    '  "Articulo".DESCRIPCION,' + '  "CompraItem".OPERACION,' +
+    '  "CompraItem".ARTICULO,' + '  "CompraItem".CANTIDAD,' +
+    '  "CompraItem".PRECIO,' +
+    '  ("CompraItem".PRECIO * "CompraItem".CANTIDAD ) as PREXCANT,' +
+    '  "CompraItem".SERVICIO,' + '  "CompraItem".DESCRIPCION AS DESCR,' +
+    '  "Compra".CODIGO,' + '  "Compra".LETRA,' + '  "Compra".FECHA,' +
+    '  "Compra".COMPROBANTE,' + '  "Compra".IVA3,' + '  "Compra".TOTAL,' +
+    '  "Compra".CONTADO,' + '  "Compra".Proveedor,' + '  "Compra".SUBTOTAL,' +
+    '  "Compra".DESCUENTO,' + '  "Compra".IMPUESTO,' + '  "Compra".IVA2,' +
+    '  "Compra".IVA1,' + '  "Compra".EXCENTO,' + '  "Compra".SALDO,' +
+    '  "Compra".PAGADO' + ' FROM' + '  "Compra"' +
+    '  INNER JOIN "CompraItem" ON ("Compra".CODIGO = "CompraItem".OPERACION)' +
+    '  INNER JOIN "Articulo" ON ("CompraItem".ARTICULO = "Articulo".CODIGO)' +
+    '  INNER JOIN "Proveedor" ON ("Compra".Proveedor = "Proveedor".CODIGO)' +
+    '';
+  imprimir_exportarImage.Picture.LoadFromFile
+    (Path + '\img\boton_imprimir_exportar.gif');
 end;
 
 procedure TBuscaCompraForm.imprimir_exportarImageClick(Sender: TObject);
 begin
- ImprimirDataModule:=TImprimirDataModule.Create(self);
- ImprimirDataModule.SImpr(BuscaCompraForm.SqL+' WHERE OPERACION='+Tabla.FieldByName('OPERACION').AsString,'Compra');
- ImprimirDataModule.Free;
+  ImprimirDataModule := TImprimirDataModule.Create(self);
+  ImprimirDataModule.SImpr(BuscaCompraForm.SqL + ' WHERE OPERACION=' +
+    Tabla.FieldByName('OPERACION').AsString, 'Compra');
+  ImprimirDataModule.Free;
 end;
 
 procedure TBuscaCompraForm.NoBitBtnClick(Sender: TObject);
 begin
-   Cancela:=True;
-   Codigo := '';
-   Close;
+  Cancela := True;
+  Codigo := '';
+  Close;
 end;
 
 procedure TBuscaCompraForm.SiBitBtnClick(Sender: TObject);
 begin
- Close;
+  Close;
 end;
 
 procedure TBuscaCompraForm.todoBitBtnClick(Sender: TObject);
 begin
- Tabla.SQL.Text:=SqL;
- Tabla.Open;
+  Tabla.SqL.Text := SqL;
+  Tabla.Open;
 end;
 
 procedure TBuscaCompraForm.DBGrid1DblClick(Sender: TObject);
 begin
-   SiBitBtnClick(DBGrid1);
+  SiBitBtnClick(DBGrid1);
 end;
 
 procedure TBuscaCompraForm.DBGrid1KeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-   IF Key = VK_DOWN then
-   DbGrid1.SetFocus;
+  IF Key = VK_DOWN then
+    DBGrid1.SetFocus;
 end;
 
 procedure TBuscaCompraForm.FormDestroy(Sender: TObject);
 begin
-   Tabla.Close;
+  Tabla.Close;
 end;
 
 end.

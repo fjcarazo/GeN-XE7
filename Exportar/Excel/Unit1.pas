@@ -19,16 +19,16 @@ type
     Edit3: TEdit;
     Button2: TButton;
     RadioGroup1: TRadioGroup;
-{
-    procedure XlsBeginStream(XlsStream: TStream; const BuildNumber: Word);
-    procedure XlsEndStream(XlsStream: TStream);
-    procedure XlsWriteCellLabel(XlsStream: TStream; const ACol, ARow: Word;
+    {
+      procedure XlsBeginStream(XlsStream: TStream; const BuildNumber: Word);
+      procedure XlsEndStream(XlsStream: TStream);
+      procedure XlsWriteCellLabel(XlsStream: TStream; const ACol, ARow: Word;
       const AValue: string);
-    procedure XlsWriteCellNumber(XlsStream: TStream; const ACol,
+      procedure XlsWriteCellNumber(XlsStream: TStream; const ACol,
       ARow: Word; const AValue: Double);
-    procedure XlsWriteCellRk(XlsStream: TStream; const ACol, ARow: Word;
+      procedure XlsWriteCellRk(XlsStream: TStream; const ACol, ARow: Word;
       const AValue: Integer);
-}
+    }
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
   private
@@ -40,12 +40,40 @@ type
 var
   Form1: TForm1;
 
-  CXlsBof   : array[0..5] of Word = ($809, 8, 00, $10, 0, 0);
-  CXlsEof   : array[0..1] of Word = ($0A, 00);
-  CXlsLabel : array[0..5] of Word = ($204, 0, 0, 0, 0, 0);
-  CXlsNumber: array[0..4] of Word = ($203, 14, 0, 0, 0);
-  CXlsRk    : array[0..4] of Word = ($27E, 10, 0, 0, 0);
-
+  CXlsBof: array [0 .. 5] of Word = (
+    $809,
+    8,
+    00,
+    $10,
+    0,
+    0
+  );
+  CXlsEof: array [0 .. 1] of Word = (
+    $0A,
+    00
+  );
+  CXlsLabel: array [0 .. 5] of Word = (
+    $204,
+    0,
+    0,
+    0,
+    0,
+    0
+  );
+  CXlsNumber: array [0 .. 4] of Word = (
+    $203,
+    14,
+    0,
+    0,
+    0
+  );
+  CXlsRk: array [0 .. 4] of Word = (
+    $27E,
+    10,
+    0,
+    0,
+    0
+  );
 
 implementation
 
@@ -53,7 +81,7 @@ implementation
 
 procedure XlsBeginStream(XlsStream: TStream; const BuildNumber: Word);
 begin
-//  CXlsBof[4] := BuildNumber;
+  // CXlsBof[4] := BuildNumber;
   XlsStream.WriteBuffer(CXlsBof, SizeOf(CXlsBof));
 end;
 
@@ -62,10 +90,8 @@ begin
   XlsStream.WriteBuffer(CXlsEof, SizeOf(CXlsEof));
 end;
 
-
-procedure XlsWriteCellRk(XlsStream: TStream;
-                           const ACol, ARow: Word;
-                           const AValue: Integer);
+procedure XlsWriteCellRk(XlsStream: TStream; const ACol, ARow: Word;
+  const AValue: Integer);
 var
   V: Integer;
 begin
@@ -76,9 +102,8 @@ begin
   XlsStream.WriteBuffer(V, 4);
 end;
 
-procedure XlsWriteCellNumber(XlsStream: TStream;
-                             const ACol, ARow: Word;
-                             const AValue: Double);
+procedure XlsWriteCellNumber(XlsStream: TStream; const ACol, ARow: Word;
+  const AValue: Double);
 begin
   CXlsNumber[2] := ARow;
   CXlsNumber[3] := ACol;
@@ -86,12 +111,10 @@ begin
   XlsStream.WriteBuffer(AValue, 8);
 end;
 
-
-procedure XlsWriteCellLabel(XlsStream: TStream;
-                            const ACol, ARow: Word;
-                            const AValue: string);
+procedure XlsWriteCellLabel(XlsStream: TStream; const ACol, ARow: Word;
+  const AValue: string);
 var
-  L: Word;    
+  L: Word;
 begin
 
   L := Length(AValue);
@@ -104,31 +127,34 @@ begin
 
 end;
 
-
 procedure TForm1.Button1Click(Sender: TObject);
 var
-  aa : string ;
+  aa: string;
   FStream: TFileStream;
   I, J: Integer;
 begin
 
-  aa := ExtractFilePath( Application.ExeName ) + trim ( Edit3.Text ) + '.xls' ;
+  aa := ExtractFilePath(Application.ExeName) + trim(Edit3.Text) + '.xls';
 
-  FStream := TFileStream.Create( aa, fmCreate);
-//  FStream := TFileStream.Create('J:\e.xls', fmCreate);
+  FStream := TFileStream.Create(aa, fmCreate);
+  // FStream := TFileStream.Create('J:\e.xls', fmCreate);
   try
 
     XlsBeginStream(FStream, 0);
 
-    for I := 1 to strtoint ( Edit2.Text ) do       // Columnas
-      for J := 1 to strtoint ( Edit1.Text ) do     // Filas
+    for I := 1 to strtoint(Edit2.Text) do // Columnas
+      for J := 1 to strtoint(Edit1.Text) do // Filas
       begin
 
         case RadioGroup1.ItemIndex of
-          0: XlsWriteCellNumber(FStream, I, J, 34.34);
-          1: XlsWriteCellRk(FStream, I, J, 3434);
-          2: XlsWriteCellLabel(FStream, I, J, Format('Cell: %d,%d', [I, J]));
-        else ;
+          0:
+            XlsWriteCellNumber(FStream, I, J, 34.34);
+          1:
+            XlsWriteCellRk(FStream, I, J, 3434);
+          2:
+            XlsWriteCellLabel(FStream, I, J, Format('Cell: %d,%d', [I, J]));
+        else
+          ;
         end;
 
       end;
@@ -139,16 +165,14 @@ begin
     FStream.Free;
   end;
 
-
-  ShellExecute(Handle,nil, PChar( aa ), '', '',SW_SHOWNORMAL) ;
-
+  ShellExecute(Handle, nil, PChar(aa), '', '', SW_SHOWNORMAL);
 
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
 begin
 
-  close ;
+  close;
 
 end;
 

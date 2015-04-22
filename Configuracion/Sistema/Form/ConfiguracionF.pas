@@ -122,7 +122,7 @@ type
     procedure TablaAfterDelete(DataSet: TDataSet);
     procedure TablaAfterPost(DataSet: TDataSet);
   private
-  path:string;
+    path: string;
     { Private declarations }
   public
     { Public declarations }
@@ -137,59 +137,59 @@ implementation
 
 procedure TConfiguracionForm.BitBtn1Click(Sender: TObject);
 begin
-Tabla.Post;
-Close;
+  Tabla.Post;
+  Close;
 end;
 
 procedure TConfiguracionForm.BitBtn2Click(Sender: TObject);
 begin
-Tabla.Cancel;
-Close;
+  Tabla.Cancel;
+  Close;
 end;
 
 procedure TConfiguracionForm.CuentasBitBtnClick(Sender: TObject);
 begin
-WinExec(PAnsiChar(AnsiString(Path+'CuentaContableGeN.exe')),SW_SHOWNORMAL);
+  WinExec(PAnsiChar(AnsiString(path + 'CuentaContableGeN.exe')), SW_SHOWNORMAL);
 end;
 
 procedure TConfiguracionForm.TablaAfterCancel(DataSet: TDataSet);
 begin
-Tabla.Transaction.RollbackRetaining;
+  Tabla.Transaction.RollbackRetaining;
 end;
 
 procedure TConfiguracionForm.TablaAfterDelete(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TConfiguracionForm.TablaAfterPost(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TConfiguracionForm.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-     Tabla.Close;
+  Tabla.Close;
 end;
 
 procedure TConfiguracionForm.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(Self);
-Tabla.Open;
-CuentaQuery.Open;
-CuentaQuery.Last;
-ImprimirQuery.Open;
-ImprimirQuery.Last;
-Tabla.Edit;
+  DM := TDM.Create(Self);
+  Tabla.Open;
+  CuentaQuery.Open;
+  CuentaQuery.Last;
+  ImprimirQuery.Open;
+  ImprimirQuery.Last;
+  Tabla.Edit;
 end;
 
 procedure TConfiguracionForm.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 

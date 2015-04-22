@@ -43,68 +43,67 @@ implementation
 
 uses BuscarCapituloF;
 
-
-
 {$R *.dfm}
 
 procedure TCapituloForm.BitBtn1Click(Sender: TObject);
 begin
-   If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then
-      Tabla.Post;
-   Close;
+  If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then
+    Tabla.Post;
+  Close;
 end;
 
 procedure TCapituloForm.BitBtn2Click(Sender: TObject);
 begin
-   Close;
+  Close;
 end;
 
 procedure TCapituloForm.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(Self);
-Tabla.Open;
-Tabla.Insert;
+  DM := TDM.Create(Self);
+  Tabla.Open;
+  Tabla.Insert;
 end;
 
 procedure TCapituloForm.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 
 procedure TCapituloForm.FormShow(Sender: TObject);
 begin
-DBEdit2.SetFocus;
+  DBEdit2.SetFocus;
 end;
 
 procedure TCapituloForm.BitBtn3Click(Sender: TObject);
 begin
- Tabla.Cancel;
-   BuscarCapituloForm:=TBuscarCapituloForm.Create(self);
-   try
-      BuscarCapituloForm.ShowModal;
-   finally
-         Tabla.Locate('CODIGO',(BuscarCapituloForm.Tabla.FieldByName('CODIGO').AsString),[]);
-      BuscarCapituloForm.Free;
-   end;
+  Tabla.Cancel;
+  BuscarCapituloForm := TBuscarCapituloForm.Create(Self);
+  try
+    BuscarCapituloForm.ShowModal;
+  finally
+    Tabla.Locate('CODIGO', (BuscarCapituloForm.Tabla.FieldByName('CODIGO')
+      .AsString), []);
+    BuscarCapituloForm.Free;
+  end;
 end;
 
 procedure TCapituloForm.TablaAfterCancel(DataSet: TDataSet);
 begin
-Tabla.Transaction.RollbackRetaining;
+  Tabla.Transaction.RollbackRetaining;
 end;
 
 procedure TCapituloForm.TablaAfterDelete(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TCapituloForm.TablaAfterPost(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 end.

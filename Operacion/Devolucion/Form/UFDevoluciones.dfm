@@ -41,8 +41,6 @@ object FDevoluciones: TFDevoluciones
     Width = 21
     Height = 21
     Caption = '...'
-    DoubleBuffered = True
-    ParentDoubleBuffered = False
     TabOrder = 0
     OnClick = BitBtn2Click
   end
@@ -69,9 +67,8 @@ object FDevoluciones: TFDevoluciones
     Width = 75
     Height = 25
     Caption = 'Procesar'
-    DoubleBuffered = True
     Kind = bkOK
-    ParentDoubleBuffered = False
+    NumGlyphs = 2
     TabOrder = 3
   end
   object BitBtn4: TBitBtn
@@ -80,9 +77,8 @@ object FDevoluciones: TFDevoluciones
     Width = 75
     Height = 25
     Caption = 'Cancelar'
-    DoubleBuffered = True
     Kind = bkCancel
-    ParentDoubleBuffered = False
+    NumGlyphs = 2
     TabOrder = 4
   end
   object IntEdit1: TEdit

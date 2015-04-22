@@ -256,8 +256,6 @@ object CuotaForm: TCuotaForm
     Width = 75
     Height = 25
     Caption = 'Aceptar'
-    DoubleBuffered = True
-    ParentDoubleBuffered = False
     TabOrder = 1
     OnClick = AceptarClick
   end
@@ -268,13 +266,10 @@ object CuotaForm: TCuotaForm
     Height = 25
     Cancel = True
     Caption = 'Cancelar'
-    DoubleBuffered = True
-    ParentDoubleBuffered = False
     TabOrder = 4
     OnClick = CancelarClick
   end
   object Query: TADOQuery
-    Connection = DataModule1.AC1
     Parameters = <>
     Left = 14
     Top = 348

@@ -82,7 +82,6 @@ object FSelOrden: TFSelOrden
     Width = 80
     Height = 50
     Caption = 'Si'
-    DoubleBuffered = True
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -107,7 +106,6 @@ object FSelOrden: TFSelOrden
       0000}
     ModalResult = 6
     NumGlyphs = 2
-    ParentDoubleBuffered = False
     ParentFont = False
     TabOrder = 2
     OnClick = BitBtn1Click
@@ -118,14 +116,13 @@ object FSelOrden: TFSelOrden
     Width = 80
     Height = 50
     Caption = 'No'
-    DoubleBuffered = True
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
     Kind = bkNo
-    ParentDoubleBuffered = False
+    NumGlyphs = 2
     ParentFont = False
     TabOrder = 3
     OnClick = BitBtn2Click
@@ -139,7 +136,6 @@ object FSelOrden: TFSelOrden
     OnChange = Edit1Change
   end
   object AQOrdenes: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (

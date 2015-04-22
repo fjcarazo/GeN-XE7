@@ -128,13 +128,11 @@ object PagosForm: TPagosForm
       Width = 49
       Height = 25
       Caption = 'F1...'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clTeal
       Font.Height = -19
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 1
       OnClick = ServicioBitBtnClick
@@ -219,7 +217,6 @@ object PagosForm: TPagosForm
       Height = 50
       Cancel = True
       Caption = '&Salir'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clNavy
       Font.Height = -11
@@ -243,7 +240,6 @@ object PagosForm: TPagosForm
         333333333333888888F3333F00003333330000003333333333338FFFF8F3333F
         0000}
       NumGlyphs = 2
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 0
       OnClick = CancelarBitBtnClick
@@ -252,7 +248,7 @@ object PagosForm: TPagosForm
       Left = 377
       Top = 19
       Width = 201
-      Height = 32
+      Height = 33
       Color = clWhite
       DataSource = PagosDataSource
       Font.Charset = DEFAULT_CHARSET
@@ -269,7 +265,6 @@ object PagosForm: TPagosForm
       Top = 27
       Width = 25
       Height = 17
-      DoubleBuffered = True
       Glyph.Data = {
         36030000424D3603000000000000360000002800000010000000100000000100
         1800000000000003000000000000000000000000000000000000FF00FFFF00FF
@@ -297,13 +292,11 @@ object PagosForm: TPagosForm
         FF00FFFF00FFFF00FF0000000000000000000000000000000000000000000000
         00000000FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
         00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
-      ParentDoubleBuffered = False
       TabOrder = 2
       OnClick = ImprimirBitBtnClick
     end
   end
   object PagosADOQuery: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
@@ -461,7 +454,6 @@ object PagosForm: TPagosForm
     Top = 240
   end
   object QTemp: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
@@ -473,7 +465,6 @@ object PagosForm: TPagosForm
     Top = 240
   end
   object q: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
@@ -485,7 +476,6 @@ object PagosForm: TPagosForm
     Top = 240
   end
   object EmpresaQuery: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
@@ -494,7 +484,6 @@ object PagosForm: TPagosForm
     Top = 184
   end
   object ConfigQuery: TADOQuery
-    Connection = DM.ConfigDB
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (

@@ -43,67 +43,67 @@ implementation
 
 uses BuscarTipoGastoF;
 
-
-
 {$R *.dfm}
 
 procedure TTipoGastoForm.BitBtn1Click(Sender: TObject);
 begin
-   If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then Tabla.Post;
-   Close;
+  If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then
+    Tabla.Post;
+  Close;
 end;
 
 procedure TTipoGastoForm.BitBtn2Click(Sender: TObject);
 begin
-   Close;
+  Close;
 end;
 
 procedure TTipoGastoForm.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(Self);
-Tabla.Open;
-Tabla.Insert;
+  DM := TDM.Create(Self);
+  Tabla.Open;
+  Tabla.Insert;
 end;
 
 procedure TTipoGastoForm.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 
 procedure TTipoGastoForm.FormShow(Sender: TObject);
 begin
-   DBEdit2.SetFocus;
+  DBEdit2.SetFocus;
 end;
 
 procedure TTipoGastoForm.TablaAfterCancel(DataSet: TDataSet);
 begin
-Tabla.Transaction.RollbackRetaining;
+  Tabla.Transaction.RollbackRetaining;
 end;
 
 procedure TTipoGastoForm.TablaAfterDelete(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TTipoGastoForm.TablaAfterPost(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TTipoGastoForm.BitBtn3Click(Sender: TObject);
 begin
- Tabla.Cancel;
-   BuscarTipoGastoForm:=TBuscarTipoGastoForm.Create(self);
-   try
-      BuscarTipoGastoForm.ShowModal;
-   finally
-         Tabla.Locate('CODIGO',(BuscarTipoGastoForm.Tabla.FieldByName('CODIGO').AsString),[]);
-      BuscarTipoGastoForm.Free;
-   end;
+  Tabla.Cancel;
+  BuscarTipoGastoForm := TBuscarTipoGastoForm.Create(Self);
+  try
+    BuscarTipoGastoForm.ShowModal;
+  finally
+    Tabla.Locate('CODIGO', (BuscarTipoGastoForm.Tabla.FieldByName('CODIGO')
+      .AsString), []);
+    BuscarTipoGastoForm.Free;
+  end;
 end;
 
 end.

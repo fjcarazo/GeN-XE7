@@ -169,7 +169,6 @@ object DevolucionesForm: TDevolucionesForm
     Width = 80
     Height = 50
     Caption = 'Si'
-    DoubleBuffered = True
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
     Font.Height = -11
@@ -194,7 +193,6 @@ object DevolucionesForm: TDevolucionesForm
       0000}
     ModalResult = 6
     NumGlyphs = 2
-    ParentDoubleBuffered = False
     ParentFont = False
     TabOrder = 3
     OnClick = SiBitBtnClick
@@ -205,14 +203,13 @@ object DevolucionesForm: TDevolucionesForm
     Width = 80
     Height = 50
     Caption = 'No'
-    DoubleBuffered = True
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
     Kind = bkNo
-    ParentDoubleBuffered = False
+    NumGlyphs = 2
     ParentFont = False
     TabOrder = 4
     OnClick = NoBitBtnClick
@@ -250,7 +247,6 @@ object DevolucionesForm: TDevolucionesForm
     TabOrder = 7
   end
   object Tabla: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     AfterInsert = TablaAfterInsert
     Parameters = <>
@@ -260,7 +256,6 @@ object DevolucionesForm: TDevolucionesForm
     Top = 8
   end
   object ArticulosTabla: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
@@ -269,7 +264,6 @@ object DevolucionesForm: TDevolucionesForm
     Top = 112
   end
   object ProveedorTabla: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
@@ -293,7 +287,6 @@ object DevolucionesForm: TDevolucionesForm
     Top = 56
   end
   object Query: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (

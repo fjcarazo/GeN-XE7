@@ -1,0 +1,187 @@
+program GeN;
+
+uses
+  Forms,
+  UMainF in '..\Form\UMainF.pas' {FMainForm},
+  LoginF in '..\..\..\SubOperacion\Login\Form\LoginF.pas' {FLogin},
+  VenderF in '..\..\..\Operacion\VenderCodBarra\Form\VenderF.pas' {VenderForm},
+  VigilanciaF in '..\..\..\Modulo\Vigilancia\form\VigilanciaF.pas' {VigilanciaForm},
+  UFFormaPago in '..\..\..\SubOperacion\FormaPago\Form\UFFormaPago.pas' {FFormaPago},
+  UFDevoluciones in '..\..\..\Operacion\Devolucion\Form\UFDevoluciones.pas' {FDevoluciones},
+  UFClientes in '..\..\..\ABM\Cliente\Form\UFClientes.pas' {FClientes},
+  UFCategorias in '..\..\..\ABM\Categoria\Form\UFCategorias.pas' {FCategorias},
+  UFBuscaProve in '..\..\..\Buscar\Proveedor\Form\UFBuscaProve.pas' {FBuscaProve},
+  UFBuscaCliente in '..\..\..\Buscar\Cliente\Form\UFBuscaCliente.pas' {FBuscaCliente},
+  AporteCapitalF in '..\..\..\Operacion\AporteCapital\Form\AporteCapitalF.pas' {AporteCapitalForm},
+  AgregarCantidad in '..\..\..\SubOperacion\AgregarCantidad\Form\AgregarCantidad.pas' {AgregarCantidadForm},
+  ActivarCelularF in '..\..\..\Operacion\ActivarCelular\Form\ActivarCelularF.pas' {VendedorActivaForm},
+  ActivacionesLF in '..\..\..\Listados\Activaciones\Form\ActivacionesLF.pas' {ActivacionesLForm},
+  ListarPedidoF in '..\..\..\Listados\Pedidos\Form\ListarPedidoF.pas' {ListarPedidoForm},
+  ListadoClientes in '..\..\..\Listados\Clientes\Form\ListadoClientes.pas' {ListadoClientesForm},
+  LicenciaF in '..\..\..\Licencia\Form\LicenciaF.pas' {LicenciaForm},
+  LibroIVAVentasF in '..\..\..\Listados\LibroIVAVentas\Form\LibroIVAVentasF.pas' {CuentasForm},
+  LibroIVAComprasF in '..\..\..\Listados\LibroIVACompras\Form\LibroIVAComprasF.pas' {LibroIVAComprasForm},
+  LibroDiarioF in '..\..\..\Listados\LibroDiario\Form\LibroDiarioF.pas' {LibroDiarioLForm},
+  IngresosBrutosF in '..\..\..\ABM\IngresosBrutos\Form\IngresosBrutosF.pas' {IngresosBrutosForm},
+  IngresoDineroF in '..\..\..\SubOperacion\IngresoDinero\Form\IngresoDineroF.pas' {IngresoDineroForm},
+  incremento in '..\..\..\Operacion\IncrementarValorPorc\Form\incremento.pas' {IncrementoForm},
+  ImpuestosServicios in '..\..\..\ABM\ImpuestoServicio\Form\ImpuestosServicios.pas' {ImpuestosServiciosFrom},
+  ImprimirDM in '..\..\..\DataModule\ImprimirDM.pas' {ImprimirDataModule: TDataModule},
+  Hoja_Calculo in '..\..\..\Exportar\Excel\Hoja_Calculo.pas',
+  GestionCobranzaF in '..\..\..\Operacion\GestionCobranza\From\GestionCobranzaF.pas' {GestionCobranzaForm},
+  GananciasL in '..\..\..\Listados\Ganancias\Form\GananciasL.pas' {GanaciaxVtaLForm},
+  ExportarExcelF in '..\..\..\Exportar\Excel\Form\ExportarExcelF.pas' {Menu1},
+  EstadoCuentaLF in '..\..\..\Listados\EstadoCuenta\Form\EstadoCuentaLF.pas' {EstadoCuentaLForm},
+  Entrega in '..\..\..\SubOperacion\EntregaDinero\Form\Entrega.pas' {EntregaForm},
+  EmpresaF in '..\..\..\ABM\Empresa\Form\EmpresaF.pas' {EmpresaForm},
+  DevolucionProveedorCelularF in '..\..\..\Operacion\DevolucionProveedorCelular\Form\DevolucionProveedorCelularF.pas' {DevolucionesForm},
+  Demo in '..\..\..\Demo\Demo.pas' {DemoDM: TDataModule},
+  DataModule in '..\..\..\DataModule\DataModule.pas' {DM: TDataModule},
+  CalculoCuotas in '..\..\..\SubOperacion\CalculoCuotas\Form\CalculoCuotas.pas' {CalculoCuotasForm},
+  ListadoCuentasF in '..\..\..\Listados\Cuentas\Form\ListadoCuentasF.pas' {ListadoCuentasForm},
+  CuentaContableF in '..\..\..\ABM\CuentaContable\Form\CuentaContableF.pas' {CuentasContablesForm},
+  CtaCteProveedores in '..\..\..\Operacion\PagoProveedor\Form\CtaCteProveedores.pas' {CtaCteProveedoresForm},
+  CtaCteF in '..\..\..\Operacion\CtaCte\Form\CtaCteF.pas' {CtaCteForm},
+  CrearPedidoF in '..\..\..\Operacion\CrearPedido\Form\CrearPedidoF.pas' {CrearPedidoForm},
+  CrearCreditoF in '..\..\..\Operacion\CrearCredito\Form\CrearCreditoF.pas' {CrearCreditoForm},
+  ConfigurarF in '..\..\..\SubOperacion\BackUp\Form\ConfigurarF.pas' {ConfigurarForm},
+  ConfiguracionF in '..\..\..\Configuracion\Sistema\Form\ConfiguracionF.pas' {ConfiguracionForm},
+  ComprarF in '..\..\..\Operacion\Comprar\Form\ComprarF.pas' {ComprarForm},
+  ComprarCelularF in '..\..\..\Operacion\ComprarCelular\Form\ComprarCelularF.pas' {ComprarCelularForm},
+  Color in '..\..\..\ABM\Color\Form\Color.pas' {ColorForm},
+  CobranzaJudicialF in '..\..\..\Operacion\GestionCobranzaJudicial\Form\CobranzaJudicialF.pas' {CobranzaJudicialForm},
+  CobranzaIncobrableF in '..\..\..\Operacion\GestionCobranzaIncobrable\Form\CobranzaIncobrableF.pas' {CobranzaIncobrableForm},
+  CobranzaExtraJudicialF in '..\..\..\Operacion\GestionCobranzaExtraJudicial\Form\CobranzaExtraJudicialF.pas' {CobranzaExtraJudicialForm},
+  CobradorF in '..\..\..\ABM\Cobrador\Form\CobradorF.pas' {CobradorForm},
+  CartonCobranzaF in '..\..\..\Listados\CartonCobranza\Form\CartonCobranzaF.pas' {CartonCobranzaForm},
+  CapituloF in '..\..\..\ABM\Capitulo\Form\CapituloF.pas' {CapituloForm},
+  CajaLF in '..\..\..\Listados\Caja\Form\CajaLF.pas' {CajaLForm},
+  CajaF in '..\..\..\ABM\Caja\Form\CajaF.pas' {ABMCajaForm},
+  BuscaSocioF in '..\..\..\Buscar\Socio\Form\BuscaSocioF.pas' {BuscaSocioForm},
+  BuscarVendedor in '..\..\..\Buscar\Vendedor\Form\BuscarVendedor.pas' {BuscarVendedorForm},
+  BuscarTipoGastoF in '..\..\..\Buscar\TipoGasto\Form\BuscarTipoGastoF.pas' {BuscarTipoGastoForm},
+  BuscarRubroContableF in '..\..\..\Buscar\RubroContable\Form\BuscarRubroContableF.pas' {BuscarRubroContableForm},
+  BuscarPlanFacturado in '..\..\..\Buscar\PlanProcesado\Form\BuscarPlanFacturado.pas' {BuscarPlanFacturadoForm},
+  BuscarPlan in '..\..\..\Buscar\Plan\Form\BuscarPlan.pas' {BuscarPlanForm},
+  BuscarImpuestosServicios in '..\..\..\Buscar\ImpuestoServicio\Form\BuscarImpuestosServicios.pas' {BuscarImpuestosServiciosForm},
+  BuscarCuentaF in '..\..\..\Buscar\CuentaContable\Form\BuscarCuentaF.pas' {BuscarCuentaForm},
+  BuscarCobrador in '..\..\..\Buscar\Cobrador\Form\BuscarCobrador.pas' {BuscarCobradorForm},
+  BuscarCheques in '..\..\..\Buscar\Cheque\Form\BuscarCheques.pas' {BuscarChequesForm},
+  BuscarCapituloF in '..\..\..\Buscar\Capitulo\Form\BuscarCapituloF.pas' {BuscarCapituloForm},
+  BuscarArticulosCelularF in '..\..\..\Buscar\ArticuloCelular\Form\BuscarArticulosCelularF.pas' {BuscaArticuloCelularForm},
+  BuscaFactura in '..\..\..\Buscar\Compra\Form\BuscaFactura.pas' {BuscaFacturaForm},
+  UFBuscaArticulos in '..\..\..\Buscar\Articulo\Form\UFBuscaArticulos.pas' {FBuscaArticulo},
+  Cuotas in '..\..\..\ABM\Cuota\Form\Cuotas.pas' {CuotaForm},
+  AnularVtaF in '..\..\..\Operacion\AnularVenta\Form\AnularVtaF.pas' {FAnulaReimp},
+  TipoGastoF in '..\..\..\ABM\TipoGasto\Form\TipoGastoF.pas' {TipoGastoForm},
+  StockF in '..\..\Stock\Form\StockF.pas' {StockForm},
+  SocioF in '..\..\..\ABM\Socio\Form\SocioF.pas' {SocioForm},
+  servicio in '..\..\..\SubOperacion\ManoObra\Form\servicio.pas' {ServForm},
+  SeleccionarCelularF in '..\..\..\SubOperacion\SeleccionarCelular\Form\SeleccionarCelularF.pas' {SeleccionarCelularForm},
+  SeleccionarCartonF in '..\..\..\SubOperacion\SeleccionarCarton\Form\SeleccionarCartonF.pas' {SeleccionarCartonForm},
+  RubroF in '..\..\..\ABM\Rubro\Form\RubroF.pas' {RubroForm},
+  RubroContableFormF in '..\..\..\ABM\RubroContable\Form\RubroContableFormF.pas' {RubroContableForm},
+  RetiroCajaF in '..\..\..\Operacion\RetiroCaja\Form\RetiroCajaF.pas' {RetiroCajaForm},
+  RendicionCobradorLF in '..\..\..\Listados\RendicionCobrador\Form\RendicionCobradorLF.pas' {RendicionCobradorLForm},
+  RendicionClienteLF in '..\..\..\Listados\RendicionCliente\Form\RendicionClienteLF.pas' {RendicionClienteLForm},
+  RendicionCarton in '..\..\..\Operacion\RendicionCarton\Form\RendicionCarton.pas' {RendicionCartonForm};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.Title := 'GeN';
+  Application.CreateForm(TFMainForm, FMainForm);
+  Application.CreateForm(TVenderForm, VenderForm);
+  Application.CreateForm(TFBuscaCliente, FBuscaCliente);
+  Application.CreateForm(TBuscarChequesForm, BuscarChequesForm);
+  Application.CreateForm(TFBuscaArticulo, FBuscaArticulo);
+  Application.CreateForm(TAgregarCantidadForm, AgregarCantidadForm);
+  Application.CreateForm(TBuscarVendedorForm, BuscarVendedorForm);
+  Application.CreateForm(TImpuestosServiciosFrom, ImpuestosServiciosFrom);
+  Application.CreateForm(TVigilanciaForm, VigilanciaForm);
+  Application.CreateForm(TFFormaPago, FFormaPago);
+  Application.CreateForm(TFDevoluciones, FDevoluciones);
+  Application.CreateForm(TFClientes, FClientes);
+  Application.CreateForm(TFCategorias, FCategorias);
+  Application.CreateForm(TFBuscaProve, FBuscaProve);
+  Application.CreateForm(TFBuscaCliente, FBuscaCliente);
+  Application.CreateForm(TAporteCapitalForm, AporteCapitalForm);
+  Application.CreateForm(TFAnulaReimp, FAnulaReimp);
+  Application.CreateForm(TAgregarCantidadForm, AgregarCantidadForm);
+  Application.CreateForm(TAgregarCantidadForm, AgregarCantidadForm);
+  Application.CreateForm(TVendedorActivaForm, VendedorActivaForm);
+  Application.CreateForm(TActivacionesLForm, ActivacionesLForm);
+  Application.CreateForm(TListarPedidoForm, ListarPedidoForm);
+  Application.CreateForm(TListadoClientesForm, ListadoClientesForm);
+  Application.CreateForm(TLicenciaForm, LicenciaForm);
+  Application.CreateForm(TCuentasForm, CuentasForm);
+  Application.CreateForm(TLibroIVAComprasForm, LibroIVAComprasForm);
+  Application.CreateForm(TLibroDiarioLForm, LibroDiarioLForm);
+  Application.CreateForm(TIngresosBrutosForm, IngresosBrutosForm);
+  Application.CreateForm(TIngresoDineroForm, IngresoDineroForm);
+  Application.CreateForm(TIncrementoForm, IncrementoForm);
+  Application.CreateForm(TIncrementoForm, IncrementoForm);
+  Application.CreateForm(TImpuestosServiciosFrom, ImpuestosServiciosFrom);
+  Application.CreateForm(TImprimirDataModule, ImprimirDataModule);
+  Application.CreateForm(TGestionCobranzaForm, GestionCobranzaForm);
+  Application.CreateForm(TGanaciaxVtaLForm, GanaciaxVtaLForm);
+  Application.CreateForm(TMenu1, Menu1);
+  Application.CreateForm(TEstadoCuentaLForm, EstadoCuentaLForm);
+  Application.CreateForm(TEntregaForm, EntregaForm);
+  Application.CreateForm(TEmpresaForm, EmpresaForm);
+  Application.CreateForm(TDevolucionesForm, DevolucionesForm);
+  Application.CreateForm(TDemoDM, DemoDM);
+  Application.CreateForm(TDM, DM);
+  Application.CreateForm(TCuotaForm, CuotaForm);
+  Application.CreateForm(TCalculoCuotasForm, CalculoCuotasForm);
+  Application.CreateForm(TListadoCuentasForm, ListadoCuentasForm);
+  Application.CreateForm(TCuentasContablesForm, CuentasContablesForm);
+  Application.CreateForm(TCtaCteProveedoresForm, CtaCteProveedoresForm);
+  Application.CreateForm(TCtaCteForm, CtaCteForm);
+  Application.CreateForm(TCrearPedidoForm, CrearPedidoForm);
+  Application.CreateForm(TCrearCreditoForm, CrearCreditoForm);
+  Application.CreateForm(TConfigurarForm, ConfigurarForm);
+  Application.CreateForm(TConfiguracionForm, ConfiguracionForm);
+  Application.CreateForm(TComprarForm, ComprarForm);
+  Application.CreateForm(TComprarCelularForm, ComprarCelularForm);
+  Application.CreateForm(TColorForm, ColorForm);
+  Application.CreateForm(TCobranzaJudicialForm, CobranzaJudicialForm);
+  Application.CreateForm(TCobranzaIncobrableForm, CobranzaIncobrableForm);
+  Application.CreateForm(TCobranzaExtraJudicialForm, CobranzaExtraJudicialForm);
+  Application.CreateForm(TCobradorForm, CobradorForm);
+  Application.CreateForm(TCartonCobranzaForm, CartonCobranzaForm);
+  Application.CreateForm(TCapituloForm, CapituloForm);
+  Application.CreateForm(TCajaLForm, CajaLForm);
+  Application.CreateForm(TABMCajaForm, ABMCajaForm);
+  Application.CreateForm(TBuscaSocioForm, BuscaSocioForm);
+  Application.CreateForm(TBuscarVendedorForm, BuscarVendedorForm);
+  Application.CreateForm(TBuscarTipoGastoForm, BuscarTipoGastoForm);
+  Application.CreateForm(TBuscarRubroContableForm, BuscarRubroContableForm);
+  Application.CreateForm(TBuscarPlanFacturadoForm, BuscarPlanFacturadoForm);
+  Application.CreateForm(TBuscarPlanForm, BuscarPlanForm);
+  Application.CreateForm(TBuscarImpuestosServiciosForm, BuscarImpuestosServiciosForm);
+  Application.CreateForm(TBuscarCuentaForm, BuscarCuentaForm);
+  Application.CreateForm(TBuscarCobradorForm, BuscarCobradorForm);
+  Application.CreateForm(TBuscarChequesForm, BuscarChequesForm);
+  Application.CreateForm(TBuscarCapituloForm, BuscarCapituloForm);
+  Application.CreateForm(TBuscaArticuloCelularForm, BuscaArticuloCelularForm);
+  Application.CreateForm(TBuscaFacturaForm, BuscaFacturaForm);
+  Application.CreateForm(TFBuscaArticulo, FBuscaArticulo);
+  Application.CreateForm(TCuotaForm, CuotaForm);
+  Application.CreateForm(TFAnulaReimp, FAnulaReimp);
+  Application.CreateForm(TTipoGastoForm, TipoGastoForm);
+  Application.CreateForm(TStockForm, StockForm);
+  Application.CreateForm(TSocioForm, SocioForm);
+  Application.CreateForm(TServForm, ServForm);
+  Application.CreateForm(TSeleccionarCelularForm, SeleccionarCelularForm);
+  Application.CreateForm(TSeleccionarCartonForm, SeleccionarCartonForm);
+  Application.CreateForm(TRubroForm, RubroForm);
+  Application.CreateForm(TRubroContableForm, RubroContableForm);
+  Application.CreateForm(TRetiroCajaForm, RetiroCajaForm);
+  Application.CreateForm(TRendicionCobradorLForm, RendicionCobradorLForm);
+  Application.CreateForm(TRendicionClienteLForm, RendicionClienteLForm);
+  Application.CreateForm(TRendicionCartonForm, RendicionCartonForm);
+  Application.Run;
+end.

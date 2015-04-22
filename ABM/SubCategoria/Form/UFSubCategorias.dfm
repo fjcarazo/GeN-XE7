@@ -82,9 +82,8 @@ object FSubCategorias: TFSubCategorias
     Width = 80
     Height = 50
     Caption = 'Cerrar'
-    DoubleBuffered = True
     Kind = bkOK
-    ParentDoubleBuffered = False
+    NumGlyphs = 2
     TabOrder = 3
     OnClick = BitBtn1Click
   end

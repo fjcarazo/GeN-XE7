@@ -24,7 +24,7 @@ type
   private
     { Private declarations }
   public
-  desc:string;
+    desc: string;
     { Public declarations }
   end;
 
@@ -37,27 +37,28 @@ implementation
 
 procedure TColorForm.FormCreate(Sender: TObject);
 begin
-   ColorADOTable.Active:=true;
+  ColorADOTable.Active := true;
 end;
 
 procedure TColorForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-   ColorADOTable.Active:=false;
+  ColorADOTable.Active := false;
 end;
 
 procedure TColorForm.BitBtn1Click(Sender: TObject);
 begin
-   desc := DBEdit1.Text;
-   If (ColorADOTable.State = dsEdit) or (ColorADOTable.State = dsInsert) then If DBEdit1.Text <> '' then
-   begin
-   ColorADOTable.Post;
-   end;
-   Close;
+  desc := DBEdit1.Text;
+  If (ColorADOTable.State = dsEdit) or (ColorADOTable.State = dsInsert) then
+    If DBEdit1.Text <> '' then
+    begin
+      ColorADOTable.Post;
+    end;
+  Close;
 end;
 
 procedure TColorForm.FormShow(Sender: TObject);
 begin
-ColorADOTable.Insert;
+  ColorADOTable.Insert;
 end;
 
 end.

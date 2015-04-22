@@ -153,7 +153,7 @@ begin
     BuscarVendedorForm.ShowModal;
   finally
     Tabla.Locate('CODIGO', (BuscarVendedorForm.Tabla.FieldByName('CODIGO')
-          .AsString), []);
+      .AsString), []);
     BuscarVendedorForm.Free;
   end;
   DBEdit2.SetFocus;
@@ -208,8 +208,8 @@ end;
 procedure TVendedorForm.BitBtn4Click(Sender: TObject);
 begin
   ImprimirDataModule := TImprimirDataModule.Create(self);
-  ImprimirDataModule.SImpr
-    ('SELECT * FROM "Vendedor" WHERE CODIGO=' + CodigoDBEdit.text,'VendedoresDetalle');
+  ImprimirDataModule.SImpr('SELECT * FROM "Vendedor" WHERE CODIGO=' +
+    CodigoDBEdit.text, 'VendedoresDetalle');
   ImprimirDataModule.Free;
 end;
 

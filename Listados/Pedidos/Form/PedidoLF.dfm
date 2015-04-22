@@ -69,8 +69,8 @@ object PedidoLForm: TPedidoLForm
       Top = 18
       Width = 98
       Height = 21
-      Date = 40179.806226666670000000
-      Time = 40179.806226666670000000
+      Date = 42005.806226666670000000
+      Time = 42005.806226666670000000
       TabOrder = 0
     end
     object DateTimePicker2: TDateTimePicker
@@ -78,8 +78,8 @@ object PedidoLForm: TPedidoLForm
       Top = 18
       Width = 98
       Height = 21
-      Date = 40220.806226666670000000
-      Time = 40220.806226666670000000
+      Date = 42046.806226666670000000
+      Time = 42046.806226666670000000
       TabOrder = 1
     end
     object BitBtn8: TBitBtn

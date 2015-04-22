@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, DataModule, ExtCtrls, StdCtrls, Mask, DBCtrls, ComCtrls, DB, ImprimirDM,
+  Dialogs, DataModule, ExtCtrls, StdCtrls, Mask, DBCtrls, ComCtrls, DB,
+  ImprimirDM,
   Buttons, IBQuery,
   IBCustomDataSet, IBTable, OleCtrls, SHDocVw;
 
@@ -112,8 +113,7 @@ type
     procedure BitBtn3Click(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
-    procedure FormKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure BitBtn4Click(Sender: TObject);
     procedure TablaAfterInsert(DataSet: TDataSet);
     procedure IVADBComboBoxChange(Sender: TObject);
@@ -125,7 +125,7 @@ type
   private
     { Private declarations }
   public
-  desc:string;
+    desc: string;
     { Public declarations }
   end;
 
@@ -140,103 +140,113 @@ uses BuscarCobrador;
 
 procedure TCobradorForm.AceptarBitBtnClick(Sender: TObject);
 begin
- desc:=CodigoDBEdit.text;
-   If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then Tabla.Post;
-   Close;
+  desc := CodigoDBEdit.text;
+  If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then
+    Tabla.Post;
+  Close;
 end;
 
 procedure TCobradorForm.BitBtn2Click(Sender: TObject);
 begin
-   Close;
+  Close;
 end;
 
 procedure TCobradorForm.BitBtn3Click(Sender: TObject);
 begin
- TabSheet1.PageControl.ActivePageIndex:=0;
-Tabla.Cancel;
- BuscarCobradorForm:=TBuscarCobradorForm.Create(self);
-   try
-      BuscarCobradorForm.ShowModal;
-   finally
-         Tabla.Locate('CODIGO',(BuscarCobradorForm.Tabla.FieldByName('CODIGO').AsString),[]);
-      BuscarCobradorForm.Free;
-   end;
-   DBEdit2.SetFocus;
+  TabSheet1.PageControl.ActivePageIndex := 0;
+  Tabla.Cancel;
+  BuscarCobradorForm := TBuscarCobradorForm.Create(self);
+  try
+    BuscarCobradorForm.ShowModal;
+  finally
+    Tabla.Locate('CODIGO', (BuscarCobradorForm.Tabla.FieldByName('CODIGO')
+      .AsString), []);
+    BuscarCobradorForm.Free;
+  end;
+  DBEdit2.SetFocus;
 end;
 
 procedure TCobradorForm.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(Self);
-EmpresaQuery.Open;
-UsuarioT.Open;
-CuentaT.open;
-Tabla.Open;
-Tabla.Insert;
+  DM := TDM.Create(self);
+  EmpresaQuery.Open;
+  UsuarioT.Open;
+  CuentaT.Open;
+  Tabla.Open;
+  Tabla.Insert;
 end;
 
 procedure TCobradorForm.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 
 procedure TCobradorForm.FormShow(Sender: TObject);
 begin
- TabSheet1.PageControl.ActivePageIndex:=0;
- DBEdit2.SetFocus;
+  TabSheet1.PageControl.ActivePageIndex := 0;
+  DBEdit2.SetFocus;
 end;
 
 procedure TCobradorForm.IVADBComboBoxChange(Sender: TObject);
 begin
-if IVADBComboBox.ItemIndex = 0 then IVALabel.Caption := 'Consumidor Final'
-else if IVADBComboBox.ItemIndex = 1 then IVALabel.Caption := 'Responsable Monotributo'
-else if IVADBComboBox.ItemIndex = 2 then IVALabel.Caption := 'Responsable Inscripto'
-else if IVADBComboBox.ItemIndex = 3 then IVALabel.Caption := 'Exento'
-else IVALabel.Caption := 'No Responsable';
+  if IVADBComboBox.ItemIndex = 0 then
+    IVALabel.Caption := 'Consumidor Final'
+  else if IVADBComboBox.ItemIndex = 1 then
+    IVALabel.Caption := 'Responsable Monotributo'
+  else if IVADBComboBox.ItemIndex = 2 then
+    IVALabel.Caption := 'Responsable Inscripto'
+  else if IVADBComboBox.ItemIndex = 3 then
+    IVALabel.Caption := 'Exento'
+  else
+    IVALabel.Caption := 'No Responsable';
 end;
 
 procedure TCobradorForm.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-IF Key = VK_F3 then VendedorBitBtn.Click;
-IF Key = VK_F5 then BitBtn3.Click;
+  IF Key = VK_F3 then
+    VendedorBitBtn.Click;
+  IF Key = VK_F5 then
+    BitBtn3.Click;
 end;
 
 procedure TCobradorForm.BitBtn4Click(Sender: TObject);
 begin
- ImprimirDataModule:=TImprimirDataModule.Create(self);
- ImprimirDataModule.SImpr('Select * From "Cobrador" WHERE Codigo='+CodigoDBEdit.Text, 'Cobrador');
- ImprimirDataModule.Free;
+  ImprimirDataModule := TImprimirDataModule.Create(self);
+  ImprimirDataModule.SImpr('Select * From "Cobrador" WHERE Codigo=' +
+    CodigoDBEdit.text, 'Cobrador');
+  ImprimirDataModule.Free;
 end;
 
 procedure TCobradorForm.DBEdit24Exit(Sender: TObject);
 begin
-AceptarBitBtn.SetFocus;
+  AceptarBitBtn.SetFocus;
 end;
 
 procedure TCobradorForm.TablaAfterCancel(DataSet: TDataSet);
 begin
-Tabla.Transaction.RollbackRetaining;
+  Tabla.Transaction.RollbackRetaining;
 end;
 
 procedure TCobradorForm.TablaAfterDelete(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TCobradorForm.TablaAfterInsert(DataSet: TDataSet);
 begin
-       Tabla.FieldByName('CtaNombre').AsString:='51';
-       Tabla.FieldByName('CtaTipo').AsString:='51';
-       Tabla.FieldByName('CtaAnticipo').AsString:='26';
+  Tabla.FieldByName('CtaNombre').AsString := '51';
+  Tabla.FieldByName('CtaTipo').AsString := '51';
+  Tabla.FieldByName('CtaAnticipo').AsString := '26';
 end;
 
 procedure TCobradorForm.TablaAfterPost(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 end.

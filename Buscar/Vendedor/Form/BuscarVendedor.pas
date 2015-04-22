@@ -27,8 +27,7 @@ type
     Label1: TLabel;
     DescripcionEdit: TEdit;
     Image1: TImage;
-    procedure FormKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure BitBtn1Click(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
@@ -53,49 +52,51 @@ implementation
 
 procedure TBuscarVendedorForm.Buscar;
 begin
-Tabla.SQL.Text:=' select * from "Vendedor" where   ("Vendedor".NOMBRE LIKE '+QuotedStr(DescripcionEdit.Text+'%')+')';
-Tabla.Open;
+  Tabla.SQL.Text := ' select * from "Vendedor" where   ("Vendedor".NOMBRE LIKE '
+    + QuotedStr(DescripcionEdit.Text + '%') + ')';
+  Tabla.Open;
 end;
 
 procedure TBuscarVendedorForm.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-   IF Key = VK_DOWN then
-   DbGrid1.SetFocus;
+  IF Key = VK_DOWN then
+    DBGrid1.SetFocus;
 end;
 
 procedure TBuscarVendedorForm.BitBtn1Click(Sender: TObject);
 begin
-   Close;
+  Close;
 end;
 
 procedure TBuscarVendedorForm.DBGrid1DblClick(Sender: TObject);
 begin
-   BitBtn1Click(DBGrid1);
+  BitBtn1Click(DBGrid1);
 end;
 
 procedure TBuscarVendedorForm.DescripcionEditKeyUp(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 begin
-buscar;
+  Buscar;
 end;
 
 procedure TBuscarVendedorForm.BitBtn2Click(Sender: TObject);
 begin
-   Close;
+  Close;
 end;
 
 procedure TBuscarVendedorForm.FormShow(Sender: TObject);
 begin
- if Tabla.Active = True then Tabla.Close;
- Tabla.Active := True;
- end;
+  if Tabla.Active = True then
+    Tabla.Close;
+  Tabla.Active := True;
+end;
 
 procedure TBuscarVendedorForm.Image1Click(Sender: TObject);
 begin
- ImprimirDataModule := TImprimirDataModule.Create(self);
- ImprimirDataModule.CSV(Tabla.SQL.Text,'VENDEDORES');
- ImprimirDataModule.Free;
+  ImprimirDataModule := TImprimirDataModule.Create(self);
+  ImprimirDataModule.CSV(Tabla.SQL.Text, 'VENDEDORES');
+  ImprimirDataModule.Free;
 end;
 
 end.

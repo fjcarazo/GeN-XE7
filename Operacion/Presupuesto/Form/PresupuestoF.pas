@@ -5,9 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, ExtCtrls, DB, ADODB, DataModule, Grids,
-  DBGrids, ValEdit, DateUtils, ComCtrls, RpCon, RpConDS, RpRave, RpDefine,
-  RpBase, RpSystem, RpRender, RpRenderCanvas, RpRenderPrinter, Printers,
-  RPDevice, ImprimirDM,IBCustomDataSet, IBQuery, OperacionDM;
+  DBGrids, ValEdit, DateUtils, ComCtrls, Printers,
+  ImprimirDM, IBCustomDataSet, IBQuery, OperacionDM;
 
 type
   TPresupuestoForm = class(TForm)
@@ -174,7 +173,7 @@ begin
   SGTotal.Cells[1, 4] := '0.00';
   SGTotal.Cells[1, 5] := '0.00';
   Cuenta := 1;
-  ShortDateFormat := 'dd/mm/yyyy';
+  FormatSettings.ShortDateFormat := 'dd/mm/yyyy';
   FechaDateTimePicker.DateTime := Date;
   subtotal := 0;
   Impuesto := 0;
@@ -202,20 +201,20 @@ begin
   if TipoRadioGroup.ItemIndex = 0 then
     AgregarBitBtn.Click
   else
-  // si es Presupuesto
+    // si es Presupuesto
     if TipoRadioGroup.ItemIndex = 1 then
-  begin
-    ClienteBitBtn.Click;
-    AgregarBitBtn.Click;
-  end
-  else
-  // si es Financiación
-    if TipoRadioGroup.ItemIndex = 2 then
-  begin
-    ClienteBitBtn.Click;
-    VendedorBitBtn.Click;
-    AgregarBitBtn.Click;
-  end;
+    begin
+      ClienteBitBtn.Click;
+      AgregarBitBtn.Click;
+    end
+    else
+      // si es Financiación
+      if TipoRadioGroup.ItemIndex = 2 then
+      begin
+        ClienteBitBtn.Click;
+        VendedorBitBtn.Click;
+        AgregarBitBtn.Click;
+      end;
   if Proveedor = True then
   begin
     Label13.Visible := True;
@@ -274,22 +273,22 @@ begin
     If (SGFact.Cells[6, i] = '21') then
     begin
       NG21 := NG21 + StrToFloat(SGFact.Cells[5, i]); // NETO GRABADO 21%
-      IVA21 := (IVA21 + Abs((StrToFloat(SGFact.Cells[5, i]) * 1.21) - StrToFloat
-            (SGFact.Cells[5, i])));
+      IVA21 := (IVA21 + Abs((StrToFloat(SGFact.Cells[5, i]) * 1.21) -
+        StrToFloat(SGFact.Cells[5, i])));
     end; // IVA 21% 100 * 1.21 - 100 = 21
     IF (SGFact.Cells[6, i] = '10.5') then
     begin
       NG105 := NG105 + StrToFloat(SGFact.Cells[5, i]); // NETO GRABADO 10.5%
-      IVA105 := (IVA105 + Abs((StrToFloat(SGFact.Cells[5, i]) * 1.105)
-            - StrToFloat(SGFact.Cells[5, i])));
+      IVA105 := (IVA105 + Abs((StrToFloat(SGFact.Cells[5, i]) * 1.105) -
+        StrToFloat(SGFact.Cells[5, i])));
     end; // IVA 10.5% 100 * 1.105 - 100 = 10.5
     IF (SGFact.Cells[6, i] <> '21') and (SGFact.Cells[6, i] <> '10.5') and
       (SGFact.Cells[6, i] <> '0') and (SGFact.Cells[6, i] <> '') then
     begin
       NGO := NGO + StrToFloat(SGFact.Cells[5, i]); // NETO GRABADO
-      IVAO := (IVAO + Abs((StrToFloat(SGFact.Cells[5,
-              i]) / (StrToFloat(SGFact.Cells[6, i]) * 100 + 1)) - StrToFloat
-            (SGFact.Cells[5, i])));
+      IVAO := (IVAO + Abs((StrToFloat(SGFact.Cells[5, i]) /
+        (StrToFloat(SGFact.Cells[6, i]) * 100 + 1)) -
+        StrToFloat(SGFact.Cells[5, i])));
     end; // IVA
   end;
 
@@ -313,8 +312,8 @@ begin
     FETarjeta.Text := '0';
   if FEOtro.Text = '' then
     FEOtro.Text := '0';
-  Pagado := StrToFloat(FEContado.Text) + StrToFloat(FECheque.Text) + StrToFloat
-    (FETarjeta.Text) + StrToFloat(FEOtro.Text);
+  Pagado := StrToFloat(FEContado.Text) + StrToFloat(FECheque.Text) +
+    StrToFloat(FETarjeta.Text) + StrToFloat(FEOtro.Text);
   Saldo := Total - Pagado;
   LbSaldo.Caption := FloatToStr(Saldo);
 end;
@@ -374,8 +373,8 @@ procedure TPresupuestoForm.TraeNombreCliente;
 begin
   If ClienteEdit.Text <> '' then
   begin
-    Tabla.SQL.Text :=
-      'Select * from "Cliente" where CODIGO = ' + ClienteEdit.Text;
+    Tabla.SQL.Text := 'Select * from "Cliente" where CODIGO = ' +
+      ClienteEdit.Text;
     Tabla.Active := True;
     If Tabla.RecordCount < 1 then
     begin
@@ -405,8 +404,8 @@ begin
       if PrecioLabel.Caption = '' then
         PrecioLabel.Caption := '0';
       Label19.Caption := Tabla.FieldByName('TERMINOS').AsString;
-      Label23.Caption := DateToStr(IncDay(now,
-          Tabla.FieldByName('DIASCREDITO').AsInteger));
+      Label23.Caption :=
+        DateToStr(IncDay(now, Tabla.FieldByName('DIASCREDITO').AsInteger));
       VendedorEdit.Text := Tabla.FieldByName('VENDEDOR').AsString;
       CUITLabel.Caption := Tabla.FieldByName('CUIT').AsString;
       DocumentoLabel.Caption := Tabla.FieldByName('DOCUMENTO').AsString;
@@ -432,8 +431,8 @@ begin
     if TipoRadioGroup.ItemIndex = 0 then
     begin
       Tabla.Close;
-      Tabla.SQL.Text :=
-        'SELECT * FROM "CtaCte" WHERE CLIENTE=' + ClienteEdit.Text;
+      Tabla.SQL.Text := 'SELECT * FROM "CtaCte" WHERE CLIENTE=' +
+        ClienteEdit.Text;
       Tabla.Open;
       if Abs(Tabla.FieldByName('SALDO').AsFloat) > 0.4 then
       begin
@@ -448,9 +447,9 @@ begin
         SGFact.Cells[2, Cuenta] := '0'; // serie
         SGFact.Cells[3, Cuenta] := '1'; // cantidad
         SGFact.Cells[4, Cuenta] := Format('%8.2f', [Deuda]); // precio
-        SGFact.Cells[5, Cuenta] := Format('%8.2f',
-          [StrToFloat(SGFact.Cells[4, Cuenta]) * StrToFloat(SGFact.Cells[3,
-            Cuenta])]); // total
+        SGFact.Cells[5, Cuenta] :=
+          Format('%8.2f', [StrToFloat(SGFact.Cells[4, Cuenta]) *
+          StrToFloat(SGFact.Cells[3, Cuenta])]); // total
         SGFact.Cells[6, Cuenta] := '0'; // IVA
         SGFact.Cells[9, Cuenta] := '0'; // ACTIVIDAD DE MONOTRIBUTO
         SGFact.Cells[10, Cuenta] := '0'; // PORCENTAJE DE INGRESOS BRUTOS
@@ -493,33 +492,32 @@ begin
       Tabla.Open;
       if PrecioLabel.Caption = '0' then
         PrecioLabel.Caption := '';
-      SGFact.Cells[0, Cuenta] := FBuscaArticulo.Tabla.FieldByName('CODIGO')
-        .AsString;
+      SGFact.Cells[0, Cuenta] := FBuscaArticulo.Tabla.FieldByName
+        ('CODIGO').AsString;
       SGFact.Cells[1, Cuenta] := Tabla.FieldByName('DESCRIPCION').AsString;
       // nombre
       SGFact.Cells[2, Cuenta] := '0';
       SGFact.Cells[3, Cuenta] := '1'; // cantidad
-      SGFact.Cells[4, Cuenta] := Tabla.FieldByName
-        ('PRECIO' + PrecioLabel.Caption).AsString; // Format('%8.2f',[StrToFloat(Tabla.FieldByName('Precio'+PrecioLabel.Caption).AsString)]);//precio
-      SGFact.Cells[5, Cuenta] := FloatToStr
-        (StrToFloat(SGFact.Cells[4, Cuenta]) * StrToFloat(SGFact.Cells[3,
-          Cuenta])); // total
+      SGFact.Cells[4, Cuenta] :=
+        Tabla.FieldByName('PRECIO' + PrecioLabel.Caption).AsString;
+      // Format('%8.2f',[StrToFloat(Tabla.FieldByName('Precio'+PrecioLabel.Caption).AsString)]);//precio
+      SGFact.Cells[5, Cuenta] := FloatToStr(StrToFloat(SGFact.Cells[4, Cuenta])
+        * StrToFloat(SGFact.Cells[3, Cuenta])); // total
       SGFact.Cells[6, Cuenta] := FloatToStr(Tabla.FieldByName('TASA').AsFloat);
       // IVA
-      SGFact.Cells[8, Cuenta] := FloatToStr
-        (Tabla.FieldByName('COSTO').AsFloat * StrToFloat(SGFact.Cells[3,
-          SGFact.Row])); // PRECIO DE COSTO
+      SGFact.Cells[8, Cuenta] := FloatToStr(Tabla.FieldByName('COSTO').AsFloat *
+        StrToFloat(SGFact.Cells[3, SGFact.Row])); // PRECIO DE COSTO
       SGFact.Cells[9, Cuenta] := Tabla.FieldByName('IIBB').AsString;
       // INGRESOS BRUTOS
-      Q.SQL.Text := 'SELECT * FROM "IIBB" WHERE CODIGO=' + QuotedStr
-        (SGFact.Cells[9, Cuenta]);
+      Q.SQL.Text := 'SELECT * FROM "IIBB" WHERE CODIGO=' +
+        QuotedStr(SGFact.Cells[9, Cuenta]);
       Q.Open;
-      SGFact.Cells[10, Cuenta] := Format('%8.2f',
-        [Q.FieldByName('PORCENTAJE').AsFloat]);
+      SGFact.Cells[10, Cuenta] :=
+        Format('%8.2f', [Q.FieldByName('PORCENTAJE').AsFloat]);
       // PORCENTAJE DE INGRESOS BRUTOS
-      SGFact.Cells[11, Cuenta] := FloatToStr
-        (Tabla.FieldByName('ULTCOSTO').AsFloat * StrToFloat(SGFact.Cells[3,
-          SGFact.Row])); // PRECIO DE COSTO
+      SGFact.Cells[11, Cuenta] :=
+        FloatToStr(Tabla.FieldByName('ULTCOSTO').AsFloat *
+        StrToFloat(SGFact.Cells[3, SGFact.Row])); // PRECIO DE COSTO
     end;
     FBuscaArticulo.Free;
     Cuenta := Cuenta + 1;
@@ -545,24 +543,30 @@ begin
 end;
 
 procedure TPresupuestoForm.ProcesarBitBtnClick(Sender: TObject);
-var r,c :integer;
+var
+  r, c: Integer;
 begin
-c:= 0;//columna i
-r:= 0;//row j
-OperacionDataModule := TOperacionDataModule.Create(self);
-with OperacionDataModule do
- begin
-  SetLength(mat, SgFact.ColCount, SgFact.RowCount);
+  c := 0; // columna i
+  r := 0; // row j
+  OperacionDataModule := TOperacionDataModule.Create(self);
+  with OperacionDataModule do
+  begin
+    SetLength(mat, SGFact.ColCount, SGFact.RowCount);
 
- for r:= 0 to SgFact.RowCount-1 do
-  for c:= 0 to SgFact.ColCount-1 do
-   begin
-    mat[c,r]:= SgFact.Cells[c,r];
-   end;
- ProcVTA(cbTipo.Text, ClienteEdit.Text, FormatDateTime('mm/dd/yyyy hh:mm:ss',FechaDateTimePicker.DateTime),VendedorEdit.Text,DocumentoLabel.Caption,CtaNombre,Presupuesto.Checked,PagareCheckBox.Checked, costo, Comision,Impuesto,StrToFloat(FECheque.Text),0,StrToFloat(FEContado.Text),Total,subtotal,desc,StrToFloat(FETarjeta.Text),StrToFloat(FEOtro.Text),Saldo,Pagado,Interes,NG105,NG21,IVA105,IVA21,Deuda,UltCosto);
-end;
-Nuevo;
-{   f:= 0;
+    for r := 0 to SGFact.RowCount - 1 do
+      for c := 0 to SGFact.ColCount - 1 do
+      begin
+        mat[c, r] := SGFact.Cells[c, r];
+      end;
+    ProcVTA(cbTipo.Text, ClienteEdit.Text, FormatDateTime('mm/dd/yyyy hh:mm:ss',
+      FechaDateTimePicker.DateTime), VendedorEdit.Text, DocumentoLabel.Caption,
+      CtaNombre, Presupuesto.Checked, PagareCheckBox.Checked, costo, Comision,
+      Impuesto, StrToFloat(FECheque.Text), 0, StrToFloat(FEContado.Text), Total,
+      subtotal, desc, StrToFloat(FETarjeta.Text), StrToFloat(FEOtro.Text),
+      Saldo, Pagado, Interes, NG105, NG21, IVA105, IVA21, Deuda, UltCosto);
+  end;
+  Nuevo;
+  { f:= 0;
     c:= 0;
     for c:= 1 to 4 do
     for f:= 1 to 4 do
@@ -885,7 +889,7 @@ Nuevo;
     end;
     end;
 
-    }
+  }
   // Imprime la factura si el usuario quiere
 end;
 
@@ -973,12 +977,12 @@ begin
     begin
       SGFact.Cells[3, SGFact.Row] := AgregarCantidadForm.CantidadEdit.Text;
       // cantidad
-      SGFact.Cells[5, SGFact.Row] := Format('%8.2f',
-        [StrToFloat(SGFact.Cells[4, SGFact.Row]) * StrToFloat(SGFact.Cells[3,
-          SGFact.Row])]); // total
-      SGFact.Cells[8, SGFact.Row] := FloatToStr
-        (StrToFloat(SGFact.Cells[8, SGFact.Row]) * StrToFloat(SGFact.Cells[3,
-          SGFact.Row])); // PRECIO DE COSTO
+      SGFact.Cells[5, SGFact.Row] :=
+        Format('%8.2f', [StrToFloat(SGFact.Cells[4, SGFact.Row]) *
+        StrToFloat(SGFact.Cells[3, SGFact.Row])]); // total
+      SGFact.Cells[8, SGFact.Row] :=
+        FloatToStr(StrToFloat(SGFact.Cells[8, SGFact.Row]) *
+        StrToFloat(SGFact.Cells[3, SGFact.Row])); // PRECIO DE COSTO
       CalculaTotales;
       FEContado.Text := FloatToStr(Total);
     end;
@@ -994,8 +998,8 @@ begin
   finally
     VendedorEdit.Text := BuscarVendedorForm.Tabla.FieldByName('CODIGO')
       .AsString;
-    VendedorLabel.Caption := BuscarVendedorForm.Tabla.FieldByName('NOMBRE')
-      .AsString;
+    VendedorLabel.Caption := BuscarVendedorForm.Tabla.FieldByName
+      ('NOMBRE').AsString;
     Comision := BuscarVendedorForm.Tabla.FieldByName('COMISION').AsFloat;
     BuscarVendedorForm.Free;
   end;

@@ -110,8 +110,7 @@ type
     CuentaT: TIBTable;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
-    procedure FormKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure TablaAfterInsert(DataSet: TDataSet);
     procedure VendedorBitBtnClick(Sender: TObject);
     procedure IVADBComboBoxChange(Sender: TObject);
@@ -127,7 +126,7 @@ type
   private
     { Private declarations }
   public
-  desc:string;
+    desc: string;
     { Public declarations }
   end;
 
@@ -142,124 +141,136 @@ uses UFBuscaCliente, BuscarVendedor;
 
 procedure TFClientes.SiBitBtnClick(Sender: TObject);
 begin
- desc:=CodigoDBEdit.text;
-   If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then Tabla.Post;
-Close;
+  desc := CodigoDBEdit.text;
+  If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then
+    Tabla.Post;
+  Close;
 end;
 
 procedure TFClientes.BuscarBitBtnClick(Sender: TObject);
 begin
- TabSheet1.PageControl.ActivePageIndex:=0;
-Tabla.Cancel;
-  FBuscaCliente:=TFBuscaCliente.Create(self);
-   try
-      FBuscaCliente.ShowModal;
-   finally
-         Tabla.Locate('CODIGO',(FBuscaCliente.Tabla.FieldByName('CODIGO').AsString),[]);
-      FBuscaCliente.Free;
-   end;
-Tabla.Edit;
-DBEdit2.SetFocus;
+  TabSheet1.PageControl.ActivePageIndex := 0;
+  Tabla.Cancel;
+  FBuscaCliente := TFBuscaCliente.Create(self);
+  try
+    FBuscaCliente.ShowModal;
+  finally
+    Tabla.Locate('CODIGO', (FBuscaCliente.Tabla.FieldByName('CODIGO')
+      .AsString), []);
+    FBuscaCliente.Free;
+  end;
+  Tabla.Edit;
+  DBEdit2.SetFocus;
 end;
 
 procedure TFClientes.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(Self);
-UsuarioT.Open;
-CuentaT.open;
-Tabla.open;
-Tabla.Insert;
+  DM := TDM.Create(self);
+  UsuarioT.Open;
+  CuentaT.Open;
+  Tabla.Open;
+  Tabla.Insert;
 end;
 
 procedure TFClientes.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 
 procedure TFClientes.FormShow(Sender: TObject);
 begin
- TabSheet1.PageControl.ActivePageIndex:=0;
- DBEdit2.SetFocus;
+  TabSheet1.PageControl.ActivePageIndex := 0;
+  DBEdit2.SetFocus;
 end;
 
 procedure TFClientes.ImprimirBitBtnClick(Sender: TObject);
 begin
- ImprimirDataModule:=TImprimirDataModule.Create(self);
- ImprimirDataModule.SImpr('Select * From "Cliente" WHERE CODIGO='+CodigoDBEdit.Text, 'Clientes');
- ImprimirDataModule.Free;
+  ImprimirDataModule := TImprimirDataModule.Create(self);
+  ImprimirDataModule.SImpr('Select * From "Cliente" WHERE CODIGO=' +
+    CodigoDBEdit.text, 'Clientes');
+  ImprimirDataModule.Free;
 end;
 
 procedure TFClientes.IVADBComboBoxChange(Sender: TObject);
 begin
-if IVADBComboBox.ItemIndex = 0 then IVALabel.Caption := 'Consumidor Final'
-else if IVADBComboBox.ItemIndex = 1 then IVALabel.Caption := 'Responsable Monotributo'
-else if IVADBComboBox.ItemIndex = 2 then IVALabel.Caption := 'Responsable Inscripto'
-else if IVADBComboBox.ItemIndex = 3 then IVALabel.Caption := 'Exento'
-else IVALabel.Caption := 'No Responsable';
+  if IVADBComboBox.ItemIndex = 0 then
+    IVALabel.Caption := 'Consumidor Final'
+  else if IVADBComboBox.ItemIndex = 1 then
+    IVALabel.Caption := 'Responsable Monotributo'
+  else if IVADBComboBox.ItemIndex = 2 then
+    IVALabel.Caption := 'Responsable Inscripto'
+  else if IVADBComboBox.ItemIndex = 3 then
+    IVALabel.Caption := 'Exento'
+  else
+    IVALabel.Caption := 'No Responsable';
 end;
 
 procedure TFClientes.NoBitBtnClick(Sender: TObject);
 begin
-   Close;
+  Close;
 end;
 
 procedure TFClientes.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-IF Key = VK_F3 then VendedorBitBtn.Click;
-IF Key = VK_F5 then BuscarBitBtn.Click;
+  IF Key = VK_F3 then
+    VendedorBitBtn.Click;
+  IF Key = VK_F5 then
+    BuscarBitBtn.Click;
 end;
 
 procedure TFClientes.BuscarGaranteBitBtnClick(Sender: TObject);
 begin
-  FBuscaCliente:=TFBuscaCliente.Create(self);
-   try
-      FBuscaCliente.ShowModal;
-   finally
-      GaranteDBEdit.Text:= FBuscaCliente.Tabla.FieldByName('CODIGO').AsString;
-      GaranteLabel.Caption:= FBuscaCliente.Tabla.FieldByName('NOMBRE').AsString;
-      FBuscaCliente.Free;
-   end;
-   SiBitBtn.SetFocus;
+  FBuscaCliente := TFBuscaCliente.Create(self);
+  try
+    FBuscaCliente.ShowModal;
+  finally
+    GaranteDBEdit.text := FBuscaCliente.Tabla.FieldByName('CODIGO').AsString;
+    GaranteLabel.Caption := FBuscaCliente.Tabla.FieldByName('NOMBRE').AsString;
+    FBuscaCliente.Free;
+  end;
+  SiBitBtn.SetFocus;
 end;
 
 procedure TFClientes.TablaAfterCancel(DataSet: TDataSet);
 begin
-Tabla.Transaction.RollbackRetaining;
+  Tabla.Transaction.RollbackRetaining;
 end;
 
 procedure TFClientes.TablaAfterDelete(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TFClientes.TablaAfterInsert(DataSet: TDataSet);
 begin
-       Tabla.FieldByName('CtaNombre').AsString:='9';
-       Tabla.FieldByName('CtaTipo').AsString:='9';
-       Tabla.FieldByName('CtaAnticipo').AsString:='9';
-       VendedorDBEdit.Text :='0';
+  Tabla.FieldByName('CtaNombre').AsString := '9';
+  Tabla.FieldByName('CtaTipo').AsString := '9';
+  Tabla.FieldByName('CtaAnticipo').AsString := '9';
+  VendedorDBEdit.text := '0';
 end;
 
 procedure TFClientes.TablaAfterPost(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TFClientes.VendedorBitBtnClick(Sender: TObject);
 begin
- BuscarVendedorForm:=TBuscarVendedorForm.Create(self);
-   try
-      BuscarVendedorForm.ShowModal;
-   finally
-      VendedorDBEdit.Text:= BuscarVendedorForm.Tabla.FieldByName('Codigo').AsString;
-      VendedorLabel.Caption:= BuscarVendedorForm.Tabla.FieldByName('Nombre').AsString;
-      BuscarVendedorForm.Free;
-   end;
+  BuscarVendedorForm := TBuscarVendedorForm.Create(self);
+  try
+    BuscarVendedorForm.ShowModal;
+  finally
+    VendedorDBEdit.text := BuscarVendedorForm.Tabla.FieldByName
+      ('Codigo').AsString;
+    VendedorLabel.Caption := BuscarVendedorForm.Tabla.FieldByName
+      ('Nombre').AsString;
+    BuscarVendedorForm.Free;
+  end;
 end;
 
 end.

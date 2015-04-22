@@ -1,4 +1,3 @@
-
 unit UFSubCategorias;
 
 interface
@@ -25,7 +24,7 @@ type
   private
     { Private declarations }
   public
-  desc:string;
+    desc: string;
     { Public declarations }
   end;
 
@@ -38,27 +37,28 @@ implementation
 
 procedure TFSubCategorias.FormCreate(Sender: TObject);
 begin
-   TSubCategorias.Active:=true;
+  TSubCategorias.Active := true;
 end;
 
 procedure TFSubCategorias.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-   TSubCategorias.Active:=false;
+  TSubCategorias.Active := false;
 end;
 
 procedure TFSubCategorias.BitBtn1Click(Sender: TObject);
 begin
-   desc := DBEdit1.Text;
-   If (TSubCategorias.State = dsEdit) or (TSubCategorias.State = dsInsert) then If DBEdit1.Text <> '' then
-   begin
-   TSubCategorias.Post;
-   end;
-   Close;
+  desc := DBEdit1.Text;
+  If (TSubCategorias.State = dsEdit) or (TSubCategorias.State = dsInsert) then
+    If DBEdit1.Text <> '' then
+    begin
+      TSubCategorias.Post;
+    end;
+  Close;
 end;
 
 procedure TFSubCategorias.FormShow(Sender: TObject);
 begin
-TSubCategorias.Insert;
+  TSubCategorias.Insert;
 end;
 
 end.

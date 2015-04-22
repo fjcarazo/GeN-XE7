@@ -27,13 +27,13 @@ type
     SiBitBtn: TBitBtn;
     Tabla: TIBQuery;
     Image1: TImage;
-    procedure FormKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure SiBitBtnClick(Sender: TObject);
     procedure NoBitBtnClick(Sender: TObject);
-    procedure DescripcionEditKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure DescripcionEditKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     Procedure Buscar;
     procedure Image1Click(Sender: TObject);
   private
@@ -48,51 +48,55 @@ var
 implementation
 
 {$R *.dfm}
+
 Procedure TFBuscaCliente.Buscar;
 begin
-Tabla.SQL.Text:=' select * from "Cliente" where   ("Cliente".NOMBRE LIKE '+QuotedStr(DescripcionEdit.Text+'%')+')';
-Tabla.Open;
+  Tabla.SQL.Text := ' select * from "Cliente" where   ("Cliente".NOMBRE LIKE ' +
+    QuotedStr(DescripcionEdit.Text + '%') + ')';
+  Tabla.Open;
 end;
 
 procedure TFBuscaCliente.DescripcionEditKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-{if (not DbGrid1.Focused = True) and (Length(DescripcionEdit.Text) > 0) then} buscar;
+  { if (not DbGrid1.Focused = True) and (Length(DescripcionEdit.Text) > 0) then }
+  Buscar;
 end;
 
 procedure TFBuscaCliente.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-   IF Key = VK_DOWN then
-   DbGrid1.SetFocus;
+  IF Key = VK_DOWN then
+    DBGrid1.SetFocus;
 end;
 
 procedure TFBuscaCliente.SiBitBtnClick(Sender: TObject);
 begin
-Close;
+  Close;
 end;
 
 procedure TFBuscaCliente.DBGrid1DblClick(Sender: TObject);
 begin
-   SiBitBtnClick(DBGrid1);
+  SiBitBtnClick(DBGrid1);
 end;
 
 procedure TFBuscaCliente.FormShow(Sender: TObject);
 begin
- if Tabla.Active = True then Tabla.Close;
- Tabla.Active := True;
+  if Tabla.Active = True then
+    Tabla.Close;
+  Tabla.Active := True;
 end;
 
 procedure TFBuscaCliente.Image1Click(Sender: TObject);
 begin
- ImprimirDataModule := TImprimirDataModule.Create(self);
- ImprimirDataModule.CSV(Tabla.SQL.Text,'CLIENTES');
- ImprimirDataModule.Free;
+  ImprimirDataModule := TImprimirDataModule.Create(self);
+  ImprimirDataModule.CSV(Tabla.SQL.Text, 'CLIENTES');
+  ImprimirDataModule.Free;
 end;
 
 procedure TFBuscaCliente.NoBitBtnClick(Sender: TObject);
 begin
-   Close;
+  Close;
 end;
 
 end.

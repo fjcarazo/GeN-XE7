@@ -1,4 +1,4 @@
-object CuentasForm: TCuentasForm
+object LibroIVAComprasForm: TLibroIVAComprasForm
   Left = 636
   Top = 160
   Caption = 'Libro IVA Compras'

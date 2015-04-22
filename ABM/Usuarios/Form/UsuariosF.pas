@@ -37,7 +37,7 @@ type
   private
     { Private declarations }
   public
-   i:integer;
+    i: integer;
     { Public declarations }
   end;
 
@@ -50,45 +50,45 @@ implementation
 
 procedure TUsuariosForm.BitBtn1Click(Sender: TObject);
 begin
-Tabla.Post;
-Close;
+  Tabla.Post;
+  Close;
 end;
 
 procedure TUsuariosForm.BitBtn2Click(Sender: TObject);
 begin
-Close;
+  Close;
 end;
 
 procedure TUsuariosForm.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(self);
-PermisoT.Open;
-Tabla.Open;
-Tabla.Last;
+  DM := TDM.Create(self);
+  PermisoT.Open;
+  Tabla.Open;
+  Tabla.Last;
 end;
 
 procedure TUsuariosForm.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 
 procedure TUsuariosForm.TablaAfterCancel(DataSet: TDataSet);
 begin
-Tabla.Transaction.RollbackRetaining;
+  Tabla.Transaction.RollbackRetaining;
 end;
 
 procedure TUsuariosForm.TablaAfterDelete(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TUsuariosForm.TablaAfterPost(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 end.

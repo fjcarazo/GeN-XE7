@@ -70,9 +70,8 @@ begin
       Exit;
     end;
   end;
-  Result := False;//?
+  Result := False; // ?
 end;
-
 
 function TDM.ExecuteProcess;
 var
@@ -85,7 +84,7 @@ begin
   FillChar(StartInfo, SizeOf(StartInfo), 0);
   StartInfo.cb := SizeOf(StartInfo);
 
-  if CreateProcess(PChar(ProcessName), nil, nil, nil, false, 0, nil,
+  if CreateProcess(PChar(ProcessName), nil, nil, nil, False, 0, nil,
     PChar(Path), StartInfo, ProcInfo) then
     Result := ProcInfo.hProcess;
 end;
@@ -109,8 +108,8 @@ begin
   if Transaccion.Params.Text <> 'read' then
   begin
     TraerUsuario;
-    ConfigQuery.SQL.Text := 'update "Control" set MAQUINA=' + QuotedStr
-      (Maquina) + ' where CODIGO=' + Control;
+    ConfigQuery.SQL.Text := 'update "Control" set MAQUINA=' + QuotedStr(Maquina)
+      + ' where CODIGO=' + Control;
     ConfigQuery.ExecSQL;
     ConfigQuery.Transaction.Commit;
   end;
@@ -118,8 +117,8 @@ end;
 
 procedure TDM.TraerUsuario;
 begin
-  ConfigQuery.SQL.Text :=
-    'select max(CODIGO) from "Control" where Maquina=' + QuotedStr(Maquina);
+  ConfigQuery.SQL.Text := 'select max(CODIGO) from "Control" where Maquina=' +
+    QuotedStr(Maquina);
   ConfigQuery.Open;
   Control := ConfigQuery.Fields[0].AsString;
   if Control <> '' then
@@ -127,10 +126,10 @@ begin
     ConfigQuery.SQL.Text := 'select * from "Control" where CODIGO=' + Control;
     ConfigQuery.Open;
     Usuario := ConfigQuery.FieldByName('USUARIO').AsString;
-    ConfigQuery.SQL.Text :=
-      'select PERMISO from "Usuario" where Codigo=' + Usuario;
+    ConfigQuery.SQL.Text := 'select PERMISO from "Usuario" where Codigo='
+      + Usuario;
     ConfigQuery.Open;
-    Permiso := ConfigQuery.FieldByName('PERMISO').AsInteger; ;
+    Permiso := ConfigQuery.FieldByName('PERMISO').AsInteger;;
   end;
 end;
 
@@ -196,14 +195,14 @@ end;
 procedure TDM.connection;
 Var
   IniFile: TIniFile;
-//?  dia: Integer;
-//?  fech: tdate;
+  // ?  dia: Integer;
+  // ?  fech: tdate;
 begin
   with FormatSettings do
   begin
-  DecimalSeparator := '.';
-  ThousandSeparator := '.';
-  ShortDateFormat := 'mm/dd/yyyy';
+    DecimalSeparator := '.';
+    ThousandSeparator := '.';
+    ShortDateFormat := 'mm/dd/yyyy';
   end;
   if BaseDatos.Connected = True then
     BaseDatos.Close;
@@ -242,13 +241,13 @@ begin
     end;
     end;
     end;
-    }
+  }
   BaseDatos.Open;
   // if Transaccion.Active=False then Transaccion.Active:=True;
   IniFile.Destroy;
   // Obtiene la ruta y el nombre de la base de datos
-  IniFile := TIniFile.Create(ExtractFilePath(Application.ExeName)
-      + 'Datos.ini');
+  IniFile := TIniFile.Create(ExtractFilePath(Application.ExeName) +
+    'Datos.ini');
   Unidad := IniFile.ReadString('ACTUALIZA', 'Unidad', '');
 end;
 

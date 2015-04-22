@@ -95,14 +95,13 @@ object ActivacionesLForm: TActivacionesLForm
       Width = 80
       Height = 50
       Caption = 'Imprimir'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       Kind = bkAll
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 1
       OnClick = ImprimirBitBtnClick
@@ -136,14 +135,13 @@ object ActivacionesLForm: TActivacionesLForm
       Width = 80
       Height = 50
       Caption = 'Si'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       Kind = bkYes
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 0
       OnClick = SiBitBtnClick
@@ -154,14 +152,13 @@ object ActivacionesLForm: TActivacionesLForm
       Width = 80
       Height = 50
       Caption = 'No'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       Kind = bkNo
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 1
       OnClick = NoBitBtnClick
@@ -290,7 +287,6 @@ object ActivacionesLForm: TActivacionesLForm
       end>
   end
   object Tabla: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
@@ -317,7 +313,6 @@ object ActivacionesLForm: TActivacionesLForm
     Top = 320
   end
   object EmpresaTabla: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (

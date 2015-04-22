@@ -212,7 +212,6 @@ object ABMCajaForm: TABMCajaForm
       Height = 50
       Cancel = True
       Caption = 'Salir'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -11
@@ -236,7 +235,6 @@ object ABMCajaForm: TABMCajaForm
         333333333333888888F3333F00003333330000003333333333338FFFF8F3333F
         0000}
       NumGlyphs = 2
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 0
       OnClick = CancelarBitBtnClick
@@ -247,13 +245,11 @@ object ABMCajaForm: TABMCajaForm
       Width = 80
       Height = 50
       Caption = 'Detalle'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlue
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 1
       OnClick = DetalleBitBtnClick
@@ -264,13 +260,11 @@ object ABMCajaForm: TABMCajaForm
       Width = 80
       Height = 50
       Caption = 'Fecha'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clRed
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 2
       OnClick = FechaBitBtnClick
@@ -294,6 +288,9 @@ object ABMCajaForm: TABMCajaForm
   object EmpresaQuery: TIBQuery
     Database = DM.BaseDatos
     Transaction = DM.Transaccion
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
     SQL.Strings = (
       'select * from "Empresa"')
     Left = 248
@@ -302,6 +299,9 @@ object ABMCajaForm: TABMCajaForm
   object Query: TIBQuery
     Database = DM.BaseDatos
     Transaction = DM.Transaccion
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
     SQL.Strings = (
       'SELECT * FROM "Caja" Order by Fecha DESC')
     Left = 384
@@ -310,6 +310,9 @@ object ABMCajaForm: TABMCajaForm
   object QTemp: TIBQuery
     Database = DM.BaseDatos
     Transaction = DM.Transaccion
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
     SQL.Strings = (
       'SELECT * FROM "Caja" Order by Fecha DESC')
     Left = 504

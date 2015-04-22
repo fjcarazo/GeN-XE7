@@ -21,10 +21,10 @@ type
     procedure NoBitBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
-      { Private declarations }
+    { Private declarations }
   public
-    art:array of integer;
-      { Public declarations }
+    art: array of integer;
+    { Public declarations }
   end;
 
 var
@@ -38,52 +38,49 @@ uses UFBuscaArticulos;
 
 procedure TIncrementoForm.NoBitBtnClick(Sender: TObject);
 begin
-Close;
+  Close;
 end;
 
 procedure TIncrementoForm.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(Self);
+  DM := TDM.Create(Self);
 end;
 
 procedure TIncrementoForm.FormShow(Sender: TObject);
-var i :integer;
+var
+  i: integer;
 begin
- FBuscaArticulo:=TFBuscaArticulo.Create(self);
+  FBuscaArticulo := TFBuscaArticulo.Create(Self);
   try
-   FBuscaArticulo.ShowModal;
+    FBuscaArticulo.ShowModal;
   finally
-  SetLength(art, FBuscaArticulo.Tabla.RecordCount);
-   For i := 1 to FBuscaArticulo.Tabla.RecordCount do
+    SetLength(art, FBuscaArticulo.Tabla.RecordCount);
+    For i := 1 to FBuscaArticulo.Tabla.RecordCount do
     begin
-     art[i]:=(FBuscaArticulo.Tabla.FieldByName('CODIGO').AsInteger);
-     FBuscaArticulo.Tabla.Next;
+      art[i] := (FBuscaArticulo.Tabla.FieldByName('CODIGO').AsInteger);
+      FBuscaArticulo.Tabla.Next;
     end;
-   FBuscaArticulo.Free;
+    FBuscaArticulo.Free;
   end;
 end;
 
 procedure TIncrementoForm.SiBitBtnClick(Sender: TObject);
 var
- porc:string;
- i:integer;
+  porc: string;
+  i: integer;
 begin
- porc:=FloatToStr((StrToFloat(Edit1.Text)/100)+1);
- for i:=1 to High(art)+1 do
+  porc := FloatToStr((StrToFloat(Edit1.Text) / 100) + 1);
+  for i := 1 to High(art) + 1 do
   begin
-   Q.SQL.Text:= 'UPDATE "Articulo" SET ULTPRECIO = PRECIO'+
-                ', PRECIO1 = PRECIO1 * '+porc+
-                ', PRECIO2 = PRECIO2 * '+porc+
-                ', PRECIO3 = PRECIO3 * '+porc+
-                ', PRECIO4 = PRECIO4 * '+porc+
-                ', PRECIO5 = PRECIO5 * '+porc+
-                ', PRECIO6 = PRECIO6 * '+porc+
-                ', PRECIO = PRECIO * '+porc+
-                ' WHERE CODIGO ='+IntToStr(art[i]);
-   Q.ExecSQL;
+    Q.SQL.Text := 'UPDATE "Articulo" SET ULTPRECIO = PRECIO' +
+      ', PRECIO1 = PRECIO1 * ' + porc + ', PRECIO2 = PRECIO2 * ' + porc +
+      ', PRECIO3 = PRECIO3 * ' + porc + ', PRECIO4 = PRECIO4 * ' + porc +
+      ', PRECIO5 = PRECIO5 * ' + porc + ', PRECIO6 = PRECIO6 * ' + porc +
+      ', PRECIO = PRECIO * ' + porc + ' WHERE CODIGO =' + IntToStr(art[i]);
+    Q.ExecSQL;
   end;
- Q.Transaction.CommitRetaining;
- Close;
+  Q.Transaction.CommitRetaining;
+  Close;
 end;
 
 end.

@@ -31,12 +31,12 @@ implementation
 
 procedure TSeleccionarCartonForm.NoBitBtnClick(Sender: TObject);
 begin
-Close;
+  Close;
 end;
 
 procedure TSeleccionarCartonForm.SiBitBtnClick(Sender: TObject);
 begin
-Close;
+  Close;
 end;
 
 end.

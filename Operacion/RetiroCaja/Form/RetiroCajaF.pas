@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, DBCtrls, ExtCtrls, DB, IBCustomDataSet, IBQuery, DataModule,
+  Dialogs, StdCtrls, Buttons, DBCtrls, ExtCtrls, DB, IBCustomDataSet, IBQuery,
+  DataModule,
   ComCtrls, OleCtrls, SHDocVw;
 
 type
@@ -33,7 +34,7 @@ type
   private
     { Private declarations }
   public
-  CtaSocio, CtaAporte, CtaBien, Bien :string;
+    CtaSocio, CtaAporte, CtaBien, Bien: string;
     { Public declarations }
   end;
 
@@ -48,70 +49,72 @@ uses OperacionDM;
 
 procedure TRetiroCajaForm.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(Self);
-SocioT.Open;
-SocioT.Last;
+  DM := TDM.Create(Self);
+  SocioT.Open;
+  SocioT.Last;
 end;
 
 procedure TRetiroCajaForm.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 
 procedure TRetiroCajaForm.FormShow(Sender: TObject);
 begin
-//FechaDateTimePicker.DateTime:=now;
+  // FechaDateTimePicker.DateTime:=now;
 end;
 
 procedure TRetiroCajaForm.ImporteEditExit(Sender: TObject);
 begin
-SiBitBtn.SetFocus;
+  SiBitBtn.SetFocus;
 end;
 
 procedure TRetiroCajaForm.NoBitBtnClick(Sender: TObject);
 begin
-Close;
+  Close;
 end;
 
 procedure TRetiroCajaForm.SiBitBtnClick(Sender: TObject);
 begin
- OperacionDataModule := TOperacionDataModule.Create(self);
- OperacionDataModule.MovCaja('RETIRO',VarToStr(SocioDBLookupComboBox.KeyValue),ImporteEdit.Text,DescripcionEdit.Text);
- Close;
- {     Fecha := FormatDateTime('mm/dd/yyyy hh:mm:ss', now);
+  OperacionDataModule := TOperacionDataModule.Create(Self);
+  OperacionDataModule.MovCaja('RETIRO',
+    VarToStr(SocioDBLookupComboBox.KeyValue), ImporteEdit.Text,
+    DescripcionEdit.Text);
+  Close;
+  { Fecha := FormatDateTime('mm/dd/yyyy hh:mm:ss', now);
 
-     //Insertar en la tabla LibroDiario
-        //obtener el numero de asiento
-        q.SQL.Text := 'Select Max(ASIENTO) From "LibroDiario"';
-        q.Open;
-        i := q.Fields[0].AsInteger+1;
-        q.Close;
+    //Insertar en la tabla LibroDiario
+    //obtener el numero de asiento
+    q.SQL.Text := 'Select Max(ASIENTO) From "LibroDiario"';
+    q.Open;
+    i := q.Fields[0].AsInteger+1;
+    q.Close;
 
-//RETIRO DE CAJA
+    //RETIRO DE CAJA
 
-        // renglon  - SOCIO XX
-        q.SQL.Text:='select * from "Cuenta" where "Cuenta".CODIGO='+SocioT.FieldByName('CTAANTICIPO').AsString;
-        q.Open;
-        Tabla.SQL.Text := 'Insert Into "LibroDiario" (ASIENTO, FECHA, LEYENDA, JERARQUIA, CUENTA, DEBE, HABER, OCULTO)'+
-        ' Values '+
-        '( '+IntToStr(i)+', '+QuotedStr(Fecha)+','+QuotedStr('COMPROMISO DE APORTE CAPITAL SOCIAL')+', '+QuotedStr(q.FieldByName('Jerarquia').AsString)+', '+QuotedStr(q.FieldByName('DESCRIPCION').AsString)+', '+ImporteEdit.Text+', 0, '+QuotedStr(Oculto)+
-        ' )';
-        Tabla.ExecSQL;
+    // renglon  - SOCIO XX
+    q.SQL.Text:='select * from "Cuenta" where "Cuenta".CODIGO='+SocioT.FieldByName('CTAANTICIPO').AsString;
+    q.Open;
+    Tabla.SQL.Text := 'Insert Into "LibroDiario" (ASIENTO, FECHA, LEYENDA, JERARQUIA, CUENTA, DEBE, HABER, OCULTO)'+
+    ' Values '+
+    '( '+IntToStr(i)+', '+QuotedStr(Fecha)+','+QuotedStr('COMPROMISO DE APORTE CAPITAL SOCIAL')+', '+QuotedStr(q.FieldByName('Jerarquia').AsString)+', '+QuotedStr(q.FieldByName('DESCRIPCION').AsString)+', '+ImporteEdit.Text+', 0, '+QuotedStr(Oculto)+
+    ' )';
+    Tabla.ExecSQL;
 
-        if StrToFloat(ImporteEdit.Text) > 0 then // renglon  - CAJA
-        begin
-        q.SQL.Text:='select * from "Cuenta" where "Cuenta".CODIGO='+DM.ConfigQuery.FieldByName('CTACAJA').AsString;
-        q.Open;
-        Tabla.SQL.Text := 'Insert Into "LibroDiario" (ASIENTO, FECHA, LEYENDA, JERARQUIA, CUENTA, DEBE, HABER, OCULTO)'+
-        ' Values '+
-        '( '+IntToStr(i)+', '+QuotedStr(Fecha)+', '+QuotedStr('APORTE CAPITAL SOCIAL')+', '+QuotedStr(q.FieldByName('Jerarquia').AsString)+', '+QuotedStr(q.FieldByName('DESCRIPCION').AsString)+', 0, '+ImporteEdit.Text+', '+QuotedStr(Oculto)+
-        ' )';
-        Tabla.ExecSQL;
-        end;   }
+    if StrToFloat(ImporteEdit.Text) > 0 then // renglon  - CAJA
+    begin
+    q.SQL.Text:='select * from "Cuenta" where "Cuenta".CODIGO='+DM.ConfigQuery.FieldByName('CTACAJA').AsString;
+    q.Open;
+    Tabla.SQL.Text := 'Insert Into "LibroDiario" (ASIENTO, FECHA, LEYENDA, JERARQUIA, CUENTA, DEBE, HABER, OCULTO)'+
+    ' Values '+
+    '( '+IntToStr(i)+', '+QuotedStr(Fecha)+', '+QuotedStr('APORTE CAPITAL SOCIAL')+', '+QuotedStr(q.FieldByName('Jerarquia').AsString)+', '+QuotedStr(q.FieldByName('DESCRIPCION').AsString)+', 0, '+ImporteEdit.Text+', '+QuotedStr(Oculto)+
+    ' )';
+    Tabla.ExecSQL;
+    end; }
 
 end;
 

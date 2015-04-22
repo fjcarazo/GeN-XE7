@@ -21,7 +21,7 @@ type
   private
     { Private declarations }
   public
-  cod:string;
+    cod: string;
     { Public declarations }
   end;
 
@@ -34,24 +34,25 @@ implementation
 
 procedure TServForm.BitBtn2Click(Sender: TObject);
 begin
-DescripcionEdit.Text:='';
-close;
+  DescripcionEdit.Text := '';
+  close;
 end;
 
 procedure TServForm.BitBtn1Click(Sender: TObject);
 begin
- OperacionDataModule := TOperacionDataModule.Create(self);
- cod:=OperacionDataModule.ArtNuevo(ServForm.PrecioEdit.Text,ServForm.DescripcionEdit.Text);
- OperacionDataModule.Free;
- Close;
+  OperacionDataModule := TOperacionDataModule.Create(self);
+  cod := OperacionDataModule.ArtNuevo(ServForm.PrecioEdit.Text,
+    ServForm.DescripcionEdit.Text);
+  OperacionDataModule.Free;
+  close;
 end;
 
 procedure TServForm.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 

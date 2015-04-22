@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, Grids, DBGrids, DB, ImprimirDM, Mask, DBCtrls, StdCtrls, Buttons,
+  Dialogs, ExtCtrls, Grids, DBGrids, DB, ImprimirDM, Mask, DBCtrls, StdCtrls,
+  Buttons,
   ComCtrls, DataModule, IBCustomDataSet, IBQuery, OleCtrls,
   SHDocVw;
 
@@ -39,8 +40,8 @@ type
   private
     { Private declarations }
   public
-  fecha:string;
-  procedure Consulta;
+    fecha: string;
+    procedure Consulta;
     { Public declarations }
   end;
 
@@ -53,97 +54,91 @@ implementation
 
 procedure TCobranzaJudicialForm.CancelarBitBtnClick(Sender: TObject);
 begin
-close;
+  close;
 end;
 
 procedure TCobranzaJudicialForm.DBGrid1DblClick(Sender: TObject);
 begin
-   SeleccionarBitBtnClick(DBGrid1);
+  SeleccionarBitBtnClick(DBGrid1);
 end;
 
 procedure TCobranzaJudicialForm.DBGrid1Enter(Sender: TObject);
 begin
-   SeleccionarBitBtnClick(DBGrid1);
+  SeleccionarBitBtnClick(DBGrid1);
 end;
 
 procedure TCobranzaJudicialForm.DiasEditKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-if DiasEdit.Text <> '' then Consulta;
+  if DiasEdit.Text <> '' then
+    Consulta;
 end;
 
 procedure TCobranzaJudicialForm.ExtraJudicialBitBtnClick(Sender: TObject);
 begin
-Tabla.SQL.Text := 'Update "CtaCte" Set Cobranza = 2 Where '+
-                  '("CtaCte".CLIENTE = '+GrillaQ.FieldByName('CLIENTE').AsString+') and ("CtaCte".OPERACION = '+GrillaQ.FieldByName('OPERACION').AsString+')';
-Tabla.ExecSQL;
-Tabla.Transaction.CommitRetaining;
-consulta;
+  Tabla.SQL.Text := 'Update "CtaCte" Set Cobranza = 2 Where ' +
+    '("CtaCte".CLIENTE = ' + GrillaQ.FieldByName('CLIENTE').AsString +
+    ') and ("CtaCte".OPERACION = ' + GrillaQ.FieldByName('OPERACION')
+    .AsString + ')';
+  Tabla.ExecSQL;
+  Tabla.Transaction.CommitRetaining;
+  Consulta;
 end;
 
 procedure TCobranzaJudicialForm.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(Self);
+  DM := TDM.Create(Self);
 end;
 
 procedure TCobranzaJudicialForm.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-   IF Key = VK_DOWN then
-   DbGrid1.SetFocus;
+  IF Key = VK_DOWN then
+    DBGrid1.SetFocus;
 end;
 
 procedure TCobranzaJudicialForm.FormShow(Sender: TObject);
 begin
-DiasEdit.Text:=dm.ConfigQuery.FieldByName('GesCobExtraJudicial').AsString;
-Consulta;
+  DiasEdit.Text := DM.ConfigQuery.FieldByName('GesCobExtraJudicial').AsString;
+  Consulta;
 end;
 
 procedure TCobranzaJudicialForm.ImprimirBitBtnClick(Sender: TObject);
 begin
- ImprimirDataModule:=TImprimirDataModule.Create(self);
- ImprimirDataModule.SImpr(GrillaQ.SQL.Text, 'DeudoresPorCredito');
- ImprimirDataModule.Free;
+  ImprimirDataModule := TImprimirDataModule.Create(Self);
+  ImprimirDataModule.SImpr(GrillaQ.SQL.Text, 'DeudoresPorCredito');
+  ImprimirDataModule.Free;
 end;
 
 procedure TCobranzaJudicialForm.JudicialBitBtnClick(Sender: TObject);
 begin
-Tabla.SQL.Text := 'Update "CtaCte" Set Cobranza = 4 Where '+
-                  '("CtaCte".CLIENTE = '+GrillaQ.FieldByName('CLIENTE').AsString+') and ("CtaCte".OPERACION = '+GrillaQ.FieldByName('OPERACION').AsString+')';
-Tabla.ExecSQL;
-Tabla.Transaction.CommitRetaining;
-consulta;
+  Tabla.SQL.Text := 'Update "CtaCte" Set Cobranza = 4 Where ' +
+    '("CtaCte".CLIENTE = ' + GrillaQ.FieldByName('CLIENTE').AsString +
+    ') and ("CtaCte".OPERACION = ' + GrillaQ.FieldByName('OPERACION')
+    .AsString + ')';
+  Tabla.ExecSQL;
+  Tabla.Transaction.CommitRetaining;
+  Consulta;
 end;
 
 procedure TCobranzaJudicialForm.SeleccionarBitBtnClick(Sender: TObject);
 begin
-close;
+  close;
 end;
 
 procedure TCobranzaJudicialForm.Consulta;
- begin
-Fecha := FormatDateTime('mm/dd/yyyy', (now-StrToInt(DiasEdit.Text)));
-GrillaQ.SQL.Text:='SELECT'+
-'  "CtaCteItem".VENCE,'+
-'  "Cliente".NOMBRE,'+
-'  "CtaCteItem".CUOTA,'+
-'  "CtaCteItem".PAGADO,'+
-'  "CtaCteItem".IMPORTE,'+
-'  "CtaCteItem".DESCRIPCION,'+
-'  "CtaCte".CLIENTE,'+
-'  "CtaCte".OPERACION'+
-' FROM'+
-'  "CtaCte"'+
-'  INNER JOIN "Cliente" ON ("CtaCte".CLIENTE = "Cliente".CODIGO)'+
-'  INNER JOIN "CtaCteItem" ON ("CtaCte".OPERACION = "CtaCteItem".OPERACION)'+
-' WHERE'+
-'  ("CtaCteItem".PAGADO < "CtaCteItem".IMPORTE) AND'+
-'  ("CtaCteItem".VENCE < '+QuotedStr(fecha)+') AND'+
-'  ("CtaCte".COBRANZA = 3)'+
-' ORDER BY'+
-'  "CtaCteItem".VENCE'+
-'';
-GrillaQ.Open;
- end;
+begin
+  fecha := FormatDateTime('mm/dd/yyyy', (now - StrToInt(DiasEdit.Text)));
+  GrillaQ.SQL.Text := 'SELECT' + '  "CtaCteItem".VENCE,' + '  "Cliente".NOMBRE,'
+    + '  "CtaCteItem".CUOTA,' + '  "CtaCteItem".PAGADO,' +
+    '  "CtaCteItem".IMPORTE,' + '  "CtaCteItem".DESCRIPCION,' +
+    '  "CtaCte".CLIENTE,' + '  "CtaCte".OPERACION' + ' FROM' + '  "CtaCte"' +
+    '  INNER JOIN "Cliente" ON ("CtaCte".CLIENTE = "Cliente".CODIGO)' +
+    '  INNER JOIN "CtaCteItem" ON ("CtaCte".OPERACION = "CtaCteItem".OPERACION)'
+    + ' WHERE' + '  ("CtaCteItem".PAGADO < "CtaCteItem".IMPORTE) AND' +
+    '  ("CtaCteItem".VENCE < ' + QuotedStr(fecha) + ') AND' +
+    '  ("CtaCte".COBRANZA = 3)' + ' ORDER BY' + '  "CtaCteItem".VENCE' + '';
+  GrillaQ.Open;
+end;
 
 end.

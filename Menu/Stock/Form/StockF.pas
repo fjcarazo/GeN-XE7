@@ -40,8 +40,7 @@ type
     DBNavigator1: TDBNavigator;
     DBGrid1: TDBGrid;
     Tabla: TIBQuery;
-    procedure FormKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure QuitarBitBtnClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DescripcionEditKeyUp(Sender: TObject; var Key: Word;
@@ -49,8 +48,7 @@ type
     procedure CodigoEditKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure CodigoEditExit(Sender: TObject);
-    procedure FormKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure VerTodosBitBtnClick(Sender: TObject);
     procedure ActualizarBitBtnClick(Sender: TObject);
     procedure Agregar1Click(Sender: TObject);
@@ -71,8 +69,8 @@ type
     { Private declarations }
   public
     { Public declarations }
-    cb : String;
-    Precio, Proveedor :string;
+    cb: String;
+    Precio, Proveedor: string;
     procedure buscar;
   end;
 
@@ -87,177 +85,186 @@ uses AgregarCantidad;
 
 procedure TStockForm.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(self);
+  DM := TDM.Create(self);
 end;
 
 procedure TStockForm.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-   IF Key = VK_DOWN then
-   DbGrid1.SetFocus;
+  IF Key = VK_DOWN then
+    DBGrid1.SetFocus;
 end;
 
 procedure TStockForm.ActualizarBitBtnClick(Sender: TObject);
 begin
-VerTodosBitBtn.Click;
+  VerTodosBitBtn.Click;
 end;
 
 procedure TStockForm.Agregar1Click(Sender: TObject);
 begin
-ArticuloBitBtn.Click;
+  ArticuloBitBtn.Click;
 end;
 
 procedure TStockForm.AgregarBitBtnClick(Sender: TObject);
 begin
- AgregarCantidadForm:= TAgregarCantidadForm.Create(self);
+  AgregarCantidadForm := TAgregarCantidadForm.Create(self);
   try
-   AgregarCantidadForm.ShowModal;
+    AgregarCantidadForm.ShowModal;
   finally
-   If AgregarCantidadForm.CAntidadEdit.Text <> '0' then
+    If AgregarCantidadForm.CAntidadEdit.Text <> '0' then
     begin
-     Tabla.sql.Text:='UPDATE "Articulo" set DISPONIBLE = DISPONIBLE +'+AgregarCantidadForm.CAntidadEdit.Text+' WHERE CODIGO='+Tabla.FieldByName('CODIGO').AsString;
-     Tabla.ExecSQL;
-     Tabla.Transaction.Commit;
+      Tabla.sql.Text := 'UPDATE "Articulo" set DISPONIBLE = DISPONIBLE +' +
+        AgregarCantidadForm.CAntidadEdit.Text + ' WHERE CODIGO=' +
+        Tabla.FieldByName('CODIGO').AsString;
+      Tabla.ExecSQL;
+      Tabla.Transaction.Commit;
     end;
-   AgregarCantidadForm.Free;
+    AgregarCantidadForm.Free;
   end;
- ActualizarBitBtn.Click;
+  ActualizarBitBtn.Click;
 end;
 
 procedure TStockForm.ArticuloBitBtnClick(Sender: TObject);
 begin
-WinExec(PAnsiChar(AnsiString(Path+'Articulos.exe')),SW_SHOWNORMAL);
+  WinExec(PAnsiChar(AnsiString(Path + 'Articulos.exe')), SW_SHOWNORMAL);
 end;
 
 procedure TStockForm.Quitar1Click(Sender: TObject);
 begin
-ArticuloBitBtn.Click;
+  ArticuloBitBtn.Click;
 end;
 
 procedure TStockForm.QuitarBitBtnClick(Sender: TObject);
 begin
- AgregarCantidadForm:= TAgregarCantidadForm.Create(self);
+  AgregarCantidadForm := TAgregarCantidadForm.Create(self);
   try
-   AgregarCantidadForm.ShowModal;
+    AgregarCantidadForm.ShowModal;
   finally
-   If AgregarCantidadForm.CAntidadEdit.Text <> '0' then
+    If AgregarCantidadForm.CAntidadEdit.Text <> '0' then
     begin
-     Tabla.sql.Text:='UPDATE "Articulo" set DISPONIBLE = DISPONIBLE -'+AgregarCantidadForm.CAntidadEdit.Text+' WHERE CODIGO='+Tabla.FieldByName('CODIGO').AsString;
-     Tabla.ExecSQL;
-     Tabla.Transaction.Commit;
+      Tabla.sql.Text := 'UPDATE "Articulo" set DISPONIBLE = DISPONIBLE -' +
+        AgregarCantidadForm.CAntidadEdit.Text + ' WHERE CODIGO=' +
+        Tabla.FieldByName('CODIGO').AsString;
+      Tabla.ExecSQL;
+      Tabla.Transaction.Commit;
     end;
     AgregarCantidadForm.Free;
-   end;
- ActualizarBitBtn.Click;
+  end;
+  ActualizarBitBtn.Click;
 end;
 
 procedure TStockForm.Salir1Click(Sender: TObject);
 begin
-close;
+  close;
 end;
 
 procedure TStockForm.TablaAfterCancel(DataSet: TDataSet);
 begin
-Tabla.Transaction.Rollback;
+  Tabla.Transaction.Rollback;
 end;
 
 procedure TStockForm.TablaAfterDelete(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TStockForm.TablaBeforePost(DataSet: TDataSet);
 begin
-Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TStockForm.DEMOS1Click(Sender: TObject);
 begin
-WinExec(PAnsiChar(AnsiString(Path+'InstalarGeN.exe')),SW_SHOWNORMAL);
+  WinExec(PAnsiChar(AnsiString(Path + 'InstalarGeN.exe')), SW_SHOWNORMAL);
 end;
 
 procedure TStockForm.FormShow(Sender: TObject);
 begin
-StockForm.caption:='GeN - [Modulo de Stock] - '+Licencia;
-VerTodosBitBtn.Click;
-if cb = 'si' then CodigoEdit.SetFocus else DescripcionEdit.SetFocus;
+  StockForm.caption := 'GeN - [Modulo de Stock] - ' + Licencia;
+  VerTodosBitBtn.Click;
+  if cb = 'si' then
+    CodigoEdit.SetFocus
+  else
+    DescripcionEdit.SetFocus;
 end;
 
 procedure TStockForm.Licencia1Click(Sender: TObject);
 begin
-WinExec(PAnsiChar(AnsiString(Path+'Licencia.exe')),SW_SHOWNORMAL);
+  WinExec(PAnsiChar(AnsiString(Path + 'Licencia.exe')), SW_SHOWNORMAL);
 end;
 
 procedure TStockForm.DescripcionEditKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-if (not DbGrid1.Focused = True) and (Length(DescripcionEdit.Text) > 0) then buscar;
+  if (not DBGrid1.Focused = True) and (Length(DescripcionEdit.Text) > 0) then
+    buscar;
 end;
 
 procedure TStockForm.buscar;
 begin
- Tabla.SQL.Text:='SELECT *'+
-' FROM'+
-' "Articulo"'+
-' INNER JOIN "Proveedor" ON ("Articulo".PROVEEDOR = "Proveedor".CODIGO)'+
-' WHERE '+
-'("Articulo".CODIGO like '+QuotedStr(CodigoEdit.Text+'%')+')'+
- 'AND ("Articulo".DESCRIPCION like '+QuotedStr(DescripcionEdit.Text+'%')+')'+
- 'ORDER BY "Articulo".DESCRIPCION';
- Tabla.Open;
+  Tabla.sql.Text := 'SELECT *' + ' FROM' + ' "Articulo"' +
+    ' INNER JOIN "Proveedor" ON ("Articulo".PROVEEDOR = "Proveedor".CODIGO)' +
+    ' WHERE ' + '("Articulo".CODIGO like ' + QuotedStr(CodigoEdit.Text + '%') +
+    ')' + 'AND ("Articulo".DESCRIPCION like ' +
+    QuotedStr(DescripcionEdit.Text + '%') + ')' +
+    'ORDER BY "Articulo".DESCRIPCION';
+  Tabla.Open;
 end;
 
 procedure TStockForm.Modificaciones1Click(Sender: TObject);
 begin
-ArticuloBitBtn.Click;
+  ArticuloBitBtn.Click;
 end;
 
 procedure TStockForm.N1Click(Sender: TObject);
 begin
-WinExec(PAnsiChar(AnsiString(Path+'about.exe')),SW_SHOWNORMAL);
+  WinExec(PAnsiChar(AnsiString(Path + 'about.exe')), SW_SHOWNORMAL);
 end;
 
 procedure TStockForm.VaciarBase1Click(Sender: TObject);
 begin
-WinExec(PAnsiChar(AnsiString(Path+'VaciarBase.exe')),SW_SHOWNORMAL);
-Close;
+  WinExec(PAnsiChar(AnsiString(Path + 'VaciarBase.exe')), SW_SHOWNORMAL);
+  close;
 end;
 
 procedure TStockForm.VerTodosBitBtnClick(Sender: TObject);
 begin
-DescripcionEdit.Text:='';
-CodigoEdit.Text:='';
- Tabla.SQL.Text:='SELECT *'+
-' FROM'+
-' "Articulo"'+
-' INNER JOIN "Proveedor" ON ("Articulo".PROVEEDOR = "Proveedor".CODIGO)'+
-' ORDER BY'+
-' "Articulo".DESCRIPCION';
- Tabla.Open;
- DescripcionEdit.SetFocus;
+  DescripcionEdit.Text := '';
+  CodigoEdit.Text := '';
+  Tabla.sql.Text := 'SELECT *' + ' FROM' + ' "Articulo"' +
+    ' INNER JOIN "Proveedor" ON ("Articulo".PROVEEDOR = "Proveedor".CODIGO)' +
+    ' ORDER BY' + ' "Articulo".DESCRIPCION';
+  Tabla.Open;
+  DescripcionEdit.SetFocus;
 end;
 
 procedure TStockForm.CodigoEditKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-if (not DbGrid1.Focused = True) and (Length(CodigoEdit.Text) > 0) then buscar;
+  if (not DBGrid1.Focused = True) and (Length(CodigoEdit.Text) > 0) then
+    buscar;
 end;
 
 procedure TStockForm.CodigoEditExit(Sender: TObject);
 begin
-DescripcionEdit.SetFocus;
+  DescripcionEdit.SetFocus;
 end;
 
 procedure TStockForm.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-//++LICENCIA
-IF Key = VK_F1 then WinExec(PAnsiChar(AnsiString(Path+'Licencia.exe')),SW_SHOWNORMAL);
-//--LICENCIA
-IF Key = VK_F4 then ArticuloBitBtn.Click;
-IF Key = VK_F5 then ActualizarBitBtn.Click;
-IF Key = VK_F8 then AgregarBitBtn.Click;
-IF Key = VK_F9 then QuitarBitBtn.Click;
+  // ++LICENCIA
+  IF Key = VK_F1 then
+    WinExec(PAnsiChar(AnsiString(Path + 'Licencia.exe')), SW_SHOWNORMAL);
+  // --LICENCIA
+  IF Key = VK_F4 then
+    ArticuloBitBtn.Click;
+  IF Key = VK_F5 then
+    ActualizarBitBtn.Click;
+  IF Key = VK_F8 then
+    AgregarBitBtn.Click;
+  IF Key = VK_F9 then
+    QuitarBitBtn.Click;
 
 end;
 

@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, DB, ComCtrls, StdCtrls, Buttons, ExtCtrls, DataModule, Grids, DBGrids, IBCustomDataSet, IBQuery,
+  Dialogs, DB, ComCtrls, StdCtrls, Buttons, ExtCtrls, DataModule, Grids,
+  DBGrids, IBCustomDataSet, IBQuery,
   OleCtrls, SHDocVw, jpeg;
 
 type
@@ -64,22 +65,23 @@ type
     Procedure EnvioRamTerminado;
     { Private declarations }
   public
-  Cancela :Boolean;
-  Reporte, Cuenta, SqL, Ordenar, Selec :String;
+    Cancela: Boolean;
+    Reporte, Cuenta, SqL, Ordenar, Selec: String;
     { Public declarations }
   end;
 
 type
- TCompartido = record
-   Numero: Integer;
-   Cadena: String[20];
- end;
- PCompartido   =^TCompartido;
+  TCompartido = record
+    Numero: Integer;
+    Cadena: String[20];
+  end;
+
+  PCompartido = ^TCompartido;
 
 var
   EstadoCuentaLForm: TEstadoCuentaLForm;
-  Compartido  : PCompartido;
-  FicheroM    : THandle;  
+  Compartido: PCompartido;
+  FicheroM: THandle;
 
 implementation
 
@@ -95,163 +97,159 @@ end;
 
 procedure TEstadoCuentaLForm.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(Self);
-   DTP2.DateTime := Now;
+  DM := TDM.Create(Self);
+  DTP2.DateTime := Now;
 end;
 
 procedure TEstadoCuentaLForm.DTP1CloseUp(Sender: TObject);
 begin
-   If DTP1.Date > DTP2.Date then
-   begin
-      MessageDlg('Fecha de inicio no puede ser mayor que fecha de fin.',mtError,[mbOK],0);
-      DTP1.DateTime := DTP2.DateTime;
-   end;
+  If DTP1.Date > DTP2.Date then
+  begin
+    MessageDlg('Fecha de inicio no puede ser mayor que fecha de fin.', mtError,
+      [mbOK], 0);
+    DTP1.DateTime := DTP2.DateTime;
+  end;
 end;
 
 procedure TEstadoCuentaLForm.DTP2CloseUp(Sender: TObject);
 begin
-   If DTP2.Date < DTP1.Date then
-   begin
-      MessageDlg('Fecha de fin no puede ser menor que fecha de inicio.',mtError,[mbOK],0);
-      DTP2.DateTime := DTP1.DateTime;
-   end;
+  If DTP2.Date < DTP1.Date then
+  begin
+    MessageDlg('Fecha de fin no puede ser menor que fecha de inicio.', mtError,
+      [mbOK], 0);
+    DTP2.DateTime := DTP1.DateTime;
+  end;
 end;
 
 procedure TEstadoCuentaLForm.SalirBitBtnClick(Sender: TObject);
 begin
-   Cancela := true;
-   Close;
+  Cancela := true;
+  Close;
 end;
 
 procedure TEstadoCuentaLForm.ConsultarBitBtnClick(Sender: TObject);
 begin
-SqL:='SELECT'+
-'  "CtaCteItem".CODIGO,'+
-'  "CtaCteItem".CUOTA,'+
-'  "CtaCteItem".VENCE,'+
-'  "CtaCteItem".IMPORTE,'+
-'  "CtaCteItem".PAGADO,'+
-'  ("CtaCteItem".IMPORTE - "CtaCteItem".PAGADO) AS APAGAR,'+
-'  "Cliente".NOMBRE AS CLIENTE,'+
-'  "CtaCte".OPERACION,'+
-'  "Cobrador".NOMBRE AS COBRADOR,'+
-'  "CtaCte".CUOTAS,'+
-'  "CtaCte".SALDO,'+
-'  "CtaCte".RENDIDAS,'+
-'  "Venta".TOTAL'+
-' FROM'+
-'  "CtaCte"'+
-'  INNER JOIN "CtaCteItem" ON ("CtaCte".OPERACION = "CtaCteItem".OPERACION)'+
-'  INNER JOIN "Cliente" ON ("CtaCte".CLIENTE = "Cliente".CODIGO)'+
-'  INNER JOIN "Cobrador" ON ("CtaCte".COBRADOR = "Cobrador".CODIGO)'+
-'  INNER JOIN "Venta" ON ("CtaCte".OPERACION = "Venta".CODIGO)'+
-' WHERE'+
-'  ("CtaCteItem".CUOTA IS NOT NULL) AND '+
-'  ("CtaCte".OPERACION = '+PlanEdit.Text+'  ) AND '+
-'  ("CtaCte".CLIENTE = '+ClienteEdit.Text+') '+
-'';
+  SqL := 'SELECT' + '  "CtaCteItem".CODIGO,' + '  "CtaCteItem".CUOTA,' +
+    '  "CtaCteItem".VENCE,' + '  "CtaCteItem".IMPORTE,' +
+    '  "CtaCteItem".PAGADO,' +
+    '  ("CtaCteItem".IMPORTE - "CtaCteItem".PAGADO) AS APAGAR,' +
+    '  "Cliente".NOMBRE AS CLIENTE,' + '  "CtaCte".OPERACION,' +
+    '  "Cobrador".NOMBRE AS COBRADOR,' + '  "CtaCte".CUOTAS,' +
+    '  "CtaCte".SALDO,' + '  "CtaCte".RENDIDAS,' + '  "Venta".TOTAL' + ' FROM' +
+    '  "CtaCte"' +
+    '  INNER JOIN "CtaCteItem" ON ("CtaCte".OPERACION = "CtaCteItem".OPERACION)'
+    + '  INNER JOIN "Cliente" ON ("CtaCte".CLIENTE = "Cliente".CODIGO)' +
+    '  INNER JOIN "Cobrador" ON ("CtaCte".COBRADOR = "Cobrador".CODIGO)' +
+    '  INNER JOIN "Venta" ON ("CtaCte".OPERACION = "Venta".CODIGO)' + ' WHERE' +
+    '  ("CtaCteItem".CUOTA IS NOT NULL) AND ' + '  ("CtaCte".OPERACION = ' +
+    PlanEdit.Text + '  ) AND ' + '  ("CtaCte".CLIENTE = ' + ClienteEdit.Text +
+    ') ' + '';
 
-Tabla.SQL.Text:=SqL+Selec+Ordenar;
-Tabla.Open;
-RendidasLabel.Caption:=Tabla.FieldByName('RENDIDAS').AsString;
-CuotasLabel.Caption:=Tabla.FieldByName('CUOTAS').AsString;
-TotalLabel.Caption:=Tabla.FieldByName('TOTAL').AsString;
+  Tabla.SqL.Text := SqL + Selec + Ordenar;
+  Tabla.Open;
+  RendidasLabel.Caption := Tabla.FieldByName('RENDIDAS').AsString;
+  CuotasLabel.Caption := Tabla.FieldByName('CUOTAS').AsString;
+  TotalLabel.Caption := Tabla.FieldByName('TOTAL').AsString;
 end;
 
 procedure TEstadoCuentaLForm.FormDestroy(Sender: TObject);
 begin
-EnvioRamTerminado;
+  EnvioRamTerminado;
 end;
 
 procedure TEstadoCuentaLForm.FormShow(Sender: TObject);
 begin
-Ordenar:=' ORDER BY "CtaCteItem".CUOTA';
-BuscarBitBtn.Click;
-PlanBitBtn.Click;
+  Ordenar := ' ORDER BY "CtaCteItem".CUOTA';
+  BuscarBitBtn.Click;
+  PlanBitBtn.Click;
 end;
 
 procedure TEstadoCuentaLForm.Image1Click(Sender: TObject);
 begin
- ImprimirDataModule := TImprimirDataModule.Create(self);
- ImprimirDataModule.CSV(Tabla.SQL.Text,'ESTADO DE CUENTA');
- ImprimirDataModule.Free;
+  ImprimirDataModule := TImprimirDataModule.Create(Self);
+  ImprimirDataModule.CSV(Tabla.SqL.Text, 'ESTADO DE CUENTA');
+  ImprimirDataModule.Free;
 end;
 
 procedure TEstadoCuentaLForm.ImprimirBitBtnClick(Sender: TObject);
 begin
- ImprimirDataModule:=TImprimirDataModule.Create(self);
- ImprimirDataModule.SImpr(Tabla.SQL.Text, 'EstadoCuenta');
- ImprimirDataModule.Free;
+  ImprimirDataModule := TImprimirDataModule.Create(Self);
+  ImprimirDataModule.SImpr(Tabla.SqL.Text, 'EstadoCuenta');
+  ImprimirDataModule.Free;
 end;
 
 procedure TEstadoCuentaLForm.PlanBitBtnClick(Sender: TObject);
 begin
-   BuscarPlanFacturadoForm:=TBuscarPlanFacturadoForm.Create(self);
-   BuscarPlanFacturadoForm.Edit4.Text:=ClienteEdit.Text;
-   try
-      BuscarPlanFacturadoForm.ShowModal;
-   finally
-      PlanEdit.Text:= BuscarPlanFacturadoForm.Tabla.FieldByName('OPERACION').AsString;
-      PlanLabel.Caption:= BuscarPlanFacturadoForm.Tabla.FieldByName('DESCRIPCION').AsString;
-      BuscarPlanFacturadoForm.Free;
-   end;
+  BuscarPlanFacturadoForm := TBuscarPlanFacturadoForm.Create(Self);
+  BuscarPlanFacturadoForm.Edit4.Text := ClienteEdit.Text;
+  try
+    BuscarPlanFacturadoForm.ShowModal;
+  finally
+    PlanEdit.Text := BuscarPlanFacturadoForm.Tabla.FieldByName
+      ('OPERACION').AsString;
+    PlanLabel.Caption := BuscarPlanFacturadoForm.Tabla.FieldByName
+      ('DESCRIPCION').AsString;
+    BuscarPlanFacturadoForm.Free;
+  end;
 end;
 
 procedure TEstadoCuentaLForm.BitBtn1Click(Sender: TObject);
 begin
-Ordenar:=' ORDER BY "CtaCteItem".CUOTA';
-ConsultarBitBtn.Click;
+  Ordenar := ' ORDER BY "CtaCteItem".CUOTA';
+  ConsultarBitBtn.Click;
 end;
 
 procedure TEstadoCuentaLForm.BitBtn2Click(Sender: TObject);
 begin
-Ordenar:=' ORDER BY "CtaCteItem".CUOTA DESC';
-ConsultarBitBtn.Click;
+  Ordenar := ' ORDER BY "CtaCteItem".CUOTA DESC';
+  ConsultarBitBtn.Click;
 end;
 
 procedure TEstadoCuentaLForm.BitBtn3Click(Sender: TObject);
 begin
-Selec:='AND ("CtaCteItem".IMPORTE > "CtaCteItem".PAGADO) ';
-Ordenar:=' ORDER BY "CtaCteItem".CUOTA';
-ConsultarBitBtn.Click;
+  Selec := 'AND ("CtaCteItem".IMPORTE > "CtaCteItem".PAGADO) ';
+  Ordenar := ' ORDER BY "CtaCteItem".CUOTA';
+  ConsultarBitBtn.Click;
 end;
 
 procedure TEstadoCuentaLForm.BitBtn4Click(Sender: TObject);
 begin
-Selec:='';
-Ordenar:=' ORDER BY "CtaCteItem".CUOTA';
-ConsultarBitBtn.Click;
+  Selec := '';
+  Ordenar := ' ORDER BY "CtaCteItem".CUOTA';
+  ConsultarBitBtn.Click;
 end;
 
 procedure TEstadoCuentaLForm.BitBtn5Click(Sender: TObject);
 begin
-Selec:='AND ("CtaCteItem".IMPORTE <= "CtaCteItem".PAGADO) ';
-Ordenar:=' ORDER BY "CtaCteItem".CUOTA';
-ConsultarBitBtn.Click;
+  Selec := 'AND ("CtaCteItem".IMPORTE <= "CtaCteItem".PAGADO) ';
+  Ordenar := ' ORDER BY "CtaCteItem".CUOTA';
+  ConsultarBitBtn.Click;
 end;
 
 procedure TEstadoCuentaLForm.BitBtn6Click(Sender: TObject);
 begin
-Selec:=' AND ("CtaCteItem".VENCE >= '+QuotedStr(DateToStr(DTP1.Date))+') AND '+
-'  ("CtaCteItem".VENCE <= '+QuotedStr(DateToStr(DTP2.Date))+')';
-Ordenar:=' ORDER BY "CtaCteItem".CUOTA';
-ConsultarBitBtn.Click;
+  Selec := ' AND ("CtaCteItem".VENCE >= ' + QuotedStr(DateToStr(DTP1.Date)) +
+    ') AND ' + '  ("CtaCteItem".VENCE <= ' +
+    QuotedStr(DateToStr(DTP2.Date)) + ')';
+  Ordenar := ' ORDER BY "CtaCteItem".CUOTA';
+  ConsultarBitBtn.Click;
 end;
 
 procedure TEstadoCuentaLForm.BuscarBitBtnClick(Sender: TObject);
 begin
-   FBuscaCliente:=TFBuscaCliente.Create(self);
-   try
-      FBuscaCliente.ShowModal;
-   finally
-      with FBuscaCliente do
-     begin
-      ClienteEdit.Text:= FBuscaCliente.Tabla.FieldByName('CODIGO').AsString;
-      ClienteLabel.Caption:= FBuscaCliente.Tabla.FieldByName('NOMBRE').AsString;
-      end;
-      FBuscaCliente.Free;
-   end;
-   ConsultarBitBtn.Click;
+  FBuscaCliente := TFBuscaCliente.Create(Self);
+  try
+    FBuscaCliente.ShowModal;
+  finally
+    with FBuscaCliente do
+    begin
+      ClienteEdit.Text := FBuscaCliente.Tabla.FieldByName('CODIGO').AsString;
+      ClienteLabel.Caption := FBuscaCliente.Tabla.FieldByName('NOMBRE')
+        .AsString;
+    end;
+    FBuscaCliente.Free;
+  end;
+  ConsultarBitBtn.Click;
 end;
 
 end.

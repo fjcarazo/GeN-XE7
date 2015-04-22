@@ -143,8 +143,6 @@ object Menu1: TMenu1
     Width = 75
     Height = 25
     Caption = 'BitBtn1'
-    DoubleBuffered = True
-    ParentDoubleBuffered = False
     TabOrder = 7
     OnClick = BitBtn1Click
   end
@@ -155,6 +153,9 @@ object Menu1: TMenu1
   object T: TIBQuery
     Database = DM.BaseDatos
     Transaction = DM.Transaccion
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
     SQL.Strings = (
       'select * from "Articulo"')
     Left = 304

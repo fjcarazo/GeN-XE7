@@ -89,13 +89,11 @@ object ListarPedidoForm: TListarPedidoForm
       Width = 49
       Height = 24
       Caption = 'F3...'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clTeal
       Font.Height = -19
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 2
       OnClick = BitBtn8Click
@@ -124,14 +122,13 @@ object ListarPedidoForm: TListarPedidoForm
       Width = 80
       Height = 50
       Caption = 'Mostrar'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       Kind = bkOK
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 0
       OnClick = BitBtn1Click
@@ -142,14 +139,13 @@ object ListarPedidoForm: TListarPedidoForm
       Width = 80
       Height = 50
       Caption = 'Completar'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       Kind = bkIgnore
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 1
       OnClick = BitBtn2Click
@@ -160,14 +156,13 @@ object ListarPedidoForm: TListarPedidoForm
       Width = 80
       Height = 50
       Caption = '&Salir'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       Kind = bkClose
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 2
     end
@@ -190,6 +185,9 @@ object ListarPedidoForm: TListarPedidoForm
   object Tabla: TIBQuery
     Database = DM.BaseDatos
     Transaction = DM.Transaccion
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
     SQL.Strings = (
       'SELECT '
       '  ("LibroDiario".DEBE - "LibroDiario".HABER) AS "SubTotal",'
@@ -213,6 +211,9 @@ object ListarPedidoForm: TListarPedidoForm
   object Q: TIBQuery
     Database = DM.BaseDatos
     Transaction = DM.Transaccion
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
     SQL.Strings = (
       'SELECT *'
       'FROM'

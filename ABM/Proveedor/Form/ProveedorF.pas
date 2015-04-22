@@ -90,8 +90,7 @@ type
     procedure BuscarBitBtnClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
-    procedure FormKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure ImprimirBitBtnClick(Sender: TObject);
     procedure TablaAfterInsert(DataSet: TDataSet);
     procedure IVADBComboBoxChange(Sender: TObject);
@@ -103,7 +102,7 @@ type
   private
     { Private declarations }
   public
-  desc:string;
+    desc: string;
     { Public declarations }
   end;
 
@@ -118,149 +117,130 @@ uses UFBuscaProve;
 
 procedure TProveedorForm.SiBitBtnClick(Sender: TObject);
 begin
- desc:=CodigoDBEdit.text;
+  desc := CodigoDBEdit.text;
 
-   If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then
-      Tabla.Post;
-   Close;
+  If (Tabla.State = dsEdit) or (Tabla.State = dsInsert) then
+    Tabla.Post;
+  Close;
 end;
 
 procedure TProveedorForm.NoBitBtnClick(Sender: TObject);
 begin
-   Close;
+  Close;
 end;
 
 procedure TProveedorForm.BuscarBitBtnClick(Sender: TObject);
 begin
- TabSheet1.PageControl.ActivePageIndex:=0;
-Tabla.Cancel;
-  FBuscaProve:=TFBuscaProve.Create(self);
-   try
-      FBuscaProve.ShowModal;
-   finally
-         Tabla.Locate('CODIGO',(FBuscaProve.Tabla.FieldByName('CODIGO').AsString),[]);
-      FBuscaProve.Free;
-   end;
-   DBEdit2.SetFocus;
+  TabSheet1.PageControl.ActivePageIndex := 0;
+  Tabla.Cancel;
+  FBuscaProve := TFBuscaProve.Create(self);
+  try
+    FBuscaProve.ShowModal;
+  finally
+    Tabla.Locate('CODIGO', (FBuscaProve.Tabla.FieldByName('CODIGO')
+      .AsString), []);
+    FBuscaProve.Free;
+  end;
+  DBEdit2.SetFocus;
 end;
 
 procedure TProveedorForm.FormCreate(Sender: TObject);
 begin
-DM:=TDM.Create(Self);
- If (Tabla.Active = True) then Tabla.Close;
-UsuarioT.Open;
-CuentaT.open;
-Tabla.Open;
-Tabla.Insert;
+  DM := TDM.Create(self);
+  If (Tabla.Active = True) then
+    Tabla.Close;
+  UsuarioT.Open;
+  CuentaT.Open;
+  Tabla.Open;
+  Tabla.Insert;
 end;
 
 procedure TProveedorForm.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 
 procedure TProveedorForm.FormShow(Sender: TObject);
 begin
- DBEdit2.SetFocus;
+  DBEdit2.SetFocus;
 end;
 
 procedure TProveedorForm.IVADBComboBoxChange(Sender: TObject);
 begin
-if IVADBComboBox.ItemIndex = 0 then IVALabel.Caption := 'Consumidor Final'
-else if IVADBComboBox.ItemIndex = 1 then IVALabel.Caption := 'Responsable Monotributo'
-else if IVADBComboBox.ItemIndex = 2 then IVALabel.Caption := 'Responsable Inscripto'
-else if IVADBComboBox.ItemIndex = 3 then IVALabel.Caption := 'Exento'
-else IVALabel.Caption := 'No Responsable';
+  if IVADBComboBox.ItemIndex = 0 then
+    IVALabel.Caption := 'Consumidor Final'
+  else if IVADBComboBox.ItemIndex = 1 then
+    IVALabel.Caption := 'Responsable Monotributo'
+  else if IVADBComboBox.ItemIndex = 2 then
+    IVALabel.Caption := 'Responsable Inscripto'
+  else if IVADBComboBox.ItemIndex = 3 then
+    IVALabel.Caption := 'Exento'
+  else
+    IVALabel.Caption := 'No Responsable';
 end;
 
 procedure TProveedorForm.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-IF Key = VK_F5 then BuscarBitBtn.Click;
+  IF Key = VK_F5 then
+    BuscarBitBtn.Click;
 end;
 
 procedure TProveedorForm.ImprimirBitBtnClick(Sender: TObject);
 begin
- ImprimirDataModule:=TImprimirDataModule.Create(self);
- ImprimirDataModule.SImpr('SELECT '+
-  ' "Proveedor".CODIGO,'+
-  ' "Proveedor".NOMBRE,'+
-  ' "Proveedor".TITULAR,'+
-  ' "Proveedor".DIRECCION,'+
-  ' "Proveedor".DIRECCIONCOMERCIAL,'+
-  ' "Proveedor".PAIS,'+
-  ' "Proveedor".PROVINCIA,'+
-  ' "Proveedor".DEPARTAMENTO,'+
-  ' "Proveedor".CIUDAD,'+
-  ' "Proveedor".CP,'+
-  ' "Proveedor".CODIGOAREA,'+
-  ' "Proveedor".CELULAR,'+
-  ' "Proveedor".TELEFONO,'+
-  ' "Proveedor".EXTENCION,'+
-  ' "Proveedor".FAX,'+
-  ' "Proveedor".EMAIL,'+
-  ' "Proveedor".TERMINOS,'+
-  ' "Proveedor".VENDEDOR,'+
-  ' "Proveedor".PRECIO,'+
-  ' "Proveedor".SUSPENDIDO,'+
-  ' "Proveedor".EXCENTO,'+
-  ' "Proveedor".FECHAINGRESO,'+
-  ' "Proveedor".LIMITECREDITO,'+
-  ' "Proveedor".NOTAS,'+
-  ' "Proveedor".DIASCREDITO,'+
-  ' "Proveedor".DOCUMENTO,'+
-  ' "Proveedor".CUIT,'+
-  ' "Proveedor".IIBB,'+
-  ' "Proveedor".RUBRO,'+
-  ' "Proveedor".IVA,'+
-  ' "Proveedor".MSN,'+
-  ' "Proveedor".CONTACTO,'+
-  ' "Proveedor".GERENTE,'+
-  ' "Proveedor".BANCO,'+
-  ' "Proveedor".CTACTE,'+
-  ' "Proveedor".FORMADEPAGO,'+
-  ' "Proveedor".VENCIMIENTO,'+
-  ' "Proveedor".ZONA,'+
-  ' "Proveedor".CTA,'+
-  ' "Proveedor".CTANOMBRE,'+
-  ' "Proveedor".CTATIPO,'+
-  ' "Proveedor".CTAANTICIPO,'+
-  ' "Proveedor".PAGARE'+
-  ' FROM'+
-  ' "Proveedor"'+
-  ' WHERE CODIGO='+CodigoDBEdit.Text, 'ProveedoresDetalle');
- ImprimirDataModule.Free;
+  ImprimirDataModule := TImprimirDataModule.Create(self);
+  ImprimirDataModule.SImpr('SELECT ' + ' "Proveedor".CODIGO,' +
+    ' "Proveedor".NOMBRE,' + ' "Proveedor".TITULAR,' + ' "Proveedor".DIRECCION,'
+    + ' "Proveedor".DIRECCIONCOMERCIAL,' + ' "Proveedor".PAIS,' +
+    ' "Proveedor".PROVINCIA,' + ' "Proveedor".DEPARTAMENTO,' +
+    ' "Proveedor".CIUDAD,' + ' "Proveedor".CP,' + ' "Proveedor".CODIGOAREA,' +
+    ' "Proveedor".CELULAR,' + ' "Proveedor".TELEFONO,' +
+    ' "Proveedor".EXTENCION,' + ' "Proveedor".FAX,' + ' "Proveedor".EMAIL,' +
+    ' "Proveedor".TERMINOS,' + ' "Proveedor".VENDEDOR,' + ' "Proveedor".PRECIO,'
+    + ' "Proveedor".SUSPENDIDO,' + ' "Proveedor".EXCENTO,' +
+    ' "Proveedor".FECHAINGRESO,' + ' "Proveedor".LIMITECREDITO,' +
+    ' "Proveedor".NOTAS,' + ' "Proveedor".DIASCREDITO,' +
+    ' "Proveedor".DOCUMENTO,' + ' "Proveedor".CUIT,' + ' "Proveedor".IIBB,' +
+    ' "Proveedor".RUBRO,' + ' "Proveedor".IVA,' + ' "Proveedor".MSN,' +
+    ' "Proveedor".CONTACTO,' + ' "Proveedor".GERENTE,' + ' "Proveedor".BANCO,' +
+    ' "Proveedor".CTACTE,' + ' "Proveedor".FORMADEPAGO,' +
+    ' "Proveedor".VENCIMIENTO,' + ' "Proveedor".ZONA,' + ' "Proveedor".CTA,' +
+    ' "Proveedor".CTANOMBRE,' + ' "Proveedor".CTATIPO,' +
+    ' "Proveedor".CTAANTICIPO,' + ' "Proveedor".PAGARE' + ' FROM' +
+    ' "Proveedor"' + ' WHERE CODIGO=' + CodigoDBEdit.text,
+    'ProveedoresDetalle');
+  ImprimirDataModule.Free;
 end;
 
 procedure TProveedorForm.DBEdit24Exit(Sender: TObject);
 begin
-SiBitBtn.SetFocus;
+  SiBitBtn.SetFocus;
 end;
 
 procedure TProveedorForm.TablaAfterCancel(DataSet: TDataSet);
 begin
-    Tabla.Transaction.RollbackRetaining;
+  Tabla.Transaction.RollbackRetaining;
 end;
 
 procedure TProveedorForm.TablaAfterDelete(DataSet: TDataSet);
 begin
-    Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 procedure TProveedorForm.TablaAfterInsert(DataSet: TDataSet);
 begin
-       Tabla.FieldByName('CtaNombre').AsString:='76';
-       Tabla.FieldByName('CtaTipo').AsString:='13';
-       Tabla.FieldByName('CtaAnticipo').AsString:='36';
+  Tabla.FieldByName('CtaNombre').AsString := '76';
+  Tabla.FieldByName('CtaTipo').AsString := '13';
+  Tabla.FieldByName('CtaAnticipo').AsString := '36';
 end;
 
 procedure TProveedorForm.TablaAfterPost(DataSet: TDataSet);
 begin
-    Tabla.Transaction.CommitRetaining;
+  Tabla.Transaction.CommitRetaining;
 end;
 
 end.

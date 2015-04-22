@@ -36,34 +36,28 @@ implementation
 
 procedure TmainForm.FormShow(Sender: TObject);
 begin
-//FondoImage.Picture.LoadFromFile(Path+'\img\logo.gif');
+  // FondoImage.Picture.LoadFromFile(Path+'\img\logo.gif');
 end;
 
 procedure TmainForm.OKButtonClick(Sender: TObject);
 begin
-Close;
+  Close;
 end;
 
 procedure TmainForm.Label4Click(Sender: TObject);
 begin
-close;
+  Close;
 end;
 
 procedure TmainForm.emailLabelClick(Sender: TObject);
 begin
- ShellExecute(GetDesktopWindow(),
-                nil,
-                pChar('mailto:'+
-                TLabel(Sender).Caption),
-                nil,
-                nil,
-                SW_SHOWNORMAL);
+  ShellExecute(GetDesktopWindow(), nil,
+    pChar('mailto:' + TLabel(Sender).Caption), nil, nil, SW_SHOWNORMAL);
 end;
 
 procedure TmainForm.Label3Click(Sender: TObject);
 begin
-HlinkNavigateString(Nil, pChar(TLabel(Sender).Caption));
+  HlinkNavigateString(Nil, pChar(TLabel(Sender).Caption));
 end;
 
 end.
- 

@@ -20,6 +20,8 @@ object MenuCelularForm: TMenuCelularForm
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   OnShow = FormShow
+  ExplicitWidth = 320
+  ExplicitHeight = 240
   PixelsPerInch = 96
   TextHeight = 13
   object DBGrid1: TDBGrid
@@ -194,7 +196,6 @@ object MenuCelularForm: TMenuCelularForm
       Width = 80
       Height = 50
       Caption = 'Articulos'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -227,7 +228,6 @@ object MenuCelularForm: TMenuCelularForm
         FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
         FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
         00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 0
       OnClick = ABMBitBtnClick
@@ -238,14 +238,13 @@ object MenuCelularForm: TMenuCelularForm
       Width = 80
       Height = 50
       Caption = '&Salir'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       Kind = bkClose
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 1
       OnClick = BitBtnSalirClick
@@ -256,7 +255,6 @@ object MenuCelularForm: TMenuCelularForm
       Width = 80
       Height = 50
       Caption = 'Actualiza'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -289,7 +287,6 @@ object MenuCelularForm: TMenuCelularForm
         FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00FF0000FF
         00FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
         00FFFF00FFFF00FFFF00FF00FF00FF00FFFF00FFFF00FFFF00FF}
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 2
       OnClick = ActualizarBitBtnClick
@@ -300,7 +297,6 @@ object MenuCelularForm: TMenuCelularForm
       Width = 80
       Height = 50
       Caption = '&Imprimir'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -333,7 +329,6 @@ object MenuCelularForm: TMenuCelularForm
         FF00FFFF00FFFF00FF0000000000000000000000000000000000000000000000
         00000000FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
         00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 3
       Visible = False
@@ -345,14 +340,13 @@ object MenuCelularForm: TMenuCelularForm
       Width = 80
       Height = 50
       Caption = 'Activar'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clNavy
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       Kind = bkAll
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 4
       OnClick = ActivarBitBtnClick
@@ -363,13 +357,11 @@ object MenuCelularForm: TMenuCelularForm
       Width = 80
       Height = 50
       Caption = 'Vender'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clRed
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 5
       OnClick = VenderBitBtnClick
@@ -380,13 +372,11 @@ object MenuCelularForm: TMenuCelularForm
       Width = 80
       Height = 50
       Caption = 'Comprar'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlue
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 6
       OnClick = ComprarBitBtnClick
@@ -397,13 +387,11 @@ object MenuCelularForm: TMenuCelularForm
       Width = 80
       Height = 50
       Caption = 'Caja'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clFuchsia
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 7
       OnClick = CajaBitBtnClick
@@ -544,19 +532,16 @@ object MenuCelularForm: TMenuCelularForm
     end
   end
   object Query: TADOQuery
-    Connection = DM.AC1
     Parameters = <>
     Left = 360
     Top = 152
   end
   object QueryU: TADOQuery
-    Connection = DM.AC1
     Parameters = <>
     Left = 296
     Top = 152
   end
   object Querydbg: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (

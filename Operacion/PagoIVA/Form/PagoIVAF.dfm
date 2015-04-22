@@ -85,8 +85,8 @@ object PagoIVAForm: TPagoIVAForm
       Top = 24
       Width = 81
       Height = 21
-      Date = 40324.914764351850000000
-      Time = 40324.914764351850000000
+      Date = 42005.914764351850000000
+      Time = 42005.914764351850000000
       TabOrder = 1
     end
     object HastaDateTimePicker: TDateTimePicker
@@ -94,8 +94,8 @@ object PagoIVAForm: TPagoIVAForm
       Top = 24
       Width = 82
       Height = 21
-      Date = 40324.914837233790000000
-      Time = 40324.914837233790000000
+      Date = 42156.914837233790000000
+      Time = 42156.914837233790000000
       TabOrder = 2
     end
   end

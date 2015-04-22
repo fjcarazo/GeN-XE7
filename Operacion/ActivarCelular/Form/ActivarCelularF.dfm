@@ -17,6 +17,8 @@ object VendedorActivaForm: TVendedorActivaForm
   OnCreate = FormCreate
   OnKeyPress = FormKeyPress
   OnShow = FormShow
+  ExplicitWidth = 320
+  ExplicitHeight = 240
   PixelsPerInch = 96
   TextHeight = 13
   object Label2: TLabel
@@ -113,9 +115,8 @@ object VendedorActivaForm: TVendedorActivaForm
     Width = 80
     Height = 50
     Caption = 'Si'
-    DoubleBuffered = True
     Kind = bkYes
-    ParentDoubleBuffered = False
+    NumGlyphs = 2
     TabOrder = 3
     OnClick = SiBitBtnClick
   end
@@ -125,14 +126,12 @@ object VendedorActivaForm: TVendedorActivaForm
     Width = 80
     Height = 50
     Caption = 'No'
-    DoubleBuffered = True
     Kind = bkNo
-    ParentDoubleBuffered = False
+    NumGlyphs = 2
     TabOrder = 4
     OnClick = NoBitBtnClick
   end
   object ArticulosTabla: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
@@ -140,7 +139,6 @@ object VendedorActivaForm: TVendedorActivaForm
     Left = 80
   end
   object VendedorTabla: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
@@ -156,7 +154,6 @@ object VendedorActivaForm: TVendedorActivaForm
     Left = 192
   end
   object Query: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
@@ -165,7 +162,6 @@ object VendedorActivaForm: TVendedorActivaForm
     Left = 240
   end
   object Tabla: TADOQuery
-    Connection = DM.AC1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (

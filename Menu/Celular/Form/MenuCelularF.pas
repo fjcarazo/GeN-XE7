@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Menus, StdCtrls, Buttons, Grids, DBGrids, ExtCtrls, DB, ADODB, DataModule, demo;
+  Dialogs, Menus, StdCtrls, Buttons, Grids, DBGrids, ExtCtrls, DB, ADODB,
+  DataModule, demo;
 
 type
   TMenuCelularForm = class(TForm)
@@ -73,8 +74,7 @@ type
     procedure Activaciones2Click(Sender: TObject);
     procedure ImprimirBitBtnClick(Sender: TObject);
     procedure Activar1Click(Sender: TObject);
-    procedure FormKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure nuevo;
     procedure FormCreate(Sender: TObject);
     procedure ActivacionesL1Click(Sender: TObject);
@@ -120,289 +120,346 @@ implementation
 
 Procedure TMenuCelularForm.nuevo;
 begin
-Querydbg.SQL.Text:='Select *  From Articulos Where (Vencimiento > 0) and  ((Estado is null ) or  (Estado <> ''Activado''))  Order By Vencimiento';
-Querydbg.Open;
-Timer1.Enabled:=True;
+  Querydbg.SQL.Text :=
+    'Select *  From Articulos Where (Vencimiento > 0) and  ((Estado is null ) or  (Estado <> ''Activado''))  Order By Vencimiento';
+  Querydbg.Open;
+  Timer1.Enabled := True;
 end;
 
 procedure TMenuCelularForm.Precios1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'PreciosL.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'PreciosL.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.Proveedores1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'Proveedor.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'Proveedor.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.Proveedores2Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'PagoProveedor.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'PagoProveedor.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.Restaurar1Click(Sender: TObject);
 begin
-Timer1.Enabled:=False;
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'VaciarBase.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  Timer1.Enabled := False;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'VaciarBase.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.Rubro1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'Rubro.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'Rubro.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.Salir1Click(Sender: TObject);
 begin
-Close;
+  Close;
 end;
 
 procedure TMenuCelularForm.Sistema1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'Configuracion.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'Configuracion.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.ABMBitBtnClick(Sender: TObject);
 begin
-Articulos1.Click;
+  Articulos1.Click;
 end;
 
 procedure TMenuCelularForm.BackUp1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'Backup.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'Backup.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.ComprarBitBtnClick(Sender: TObject);
 begin
-Comprar1.Click;
+  Comprar1.Click;
 end;
 
 procedure TMenuCelularForm.BitBtnSalirClick(Sender: TObject);
 begin
-Close;
+  Close;
 end;
 
 procedure TMenuCelularForm.FormShow(Sender: TObject);
-var empresa:string;
+var
+  empresa: string;
 begin
-Query.SQL.Text:='Select Nombre From Empresa';
-Query.Open;
-empresa:=Query.FieldByName('nombre').AsString;
-MenuCelularForm.caption:='GeN -  MODULO AGENTE OFICIAL DE CELULARES ['+empresa+'] -  '+Licencia+' - [USUARIO: Administrador]';//'+Query.FieldByName('nombre').AsString+']';
-MenuCelularForm.Height:=110;
-nuevo;
+  Query.SQL.Text := 'Select Nombre From Empresa';
+  Query.Open;
+  empresa := Query.FieldByName('nombre').AsString;
+  MenuCelularForm.caption := 'GeN -  MODULO AGENTE OFICIAL DE CELULARES [' +
+    empresa + '] -  ' + Licencia + ' - [USUARIO: Administrador]';
+  // '+Query.FieldByName('nombre').AsString+']';
+  MenuCelularForm.Height := 110;
+  nuevo;
 end;
 
 procedure TMenuCelularForm.ActualizarBitBtnClick(Sender: TObject);
 var
-dias:String;
-fecha:tdate;
-imei:string;
-function DifFech(Fecha:string):integer;
+  dias: String;
+  fecha: tdate;
+  imei: string;
+  function DifFech(fecha: string): integer;
   var
-    dTemp:TDate;
+    dTemp: tdate;
   begin
-    dTemp := StrToDate(Fecha);
-    Result:= trunc(dTemp-
-                   StrToDate(FormatDateTime(DateToStr(Date),dTemp))
-                   );
+    dTemp := StrToDate(fecha);
+    Result := trunc(dTemp - StrToDate(FormatDateTime(DateToStr(Date), dTemp)));
   end;
 
 begin
- Query.SQL.Text:='Select * From Articulos Where (Vencimiento > 0) and (Estado <> ''Activado'') Order By CodigoBarra';
- Query.ExecSQL;
- Query.Open;
- While not Query.Eof do
- begin
- imei:=Query.FieldByName('CodigoBarra').AsString;
- fecha:=Query.FieldByName('Vence').AsDateTime;
- dias:=IntToStr( DifFech(DateToStr(fecha)) );
- QueryU.SQL.Text := 'Update Articulos Set Vencimiento = '+QuotedStr(dias)+'Where CodigoBarra = '+QuotedStr(imei);
- QueryU.ExecSQL;
- Query.Next;
- end;
- imei:=Query.FieldByName('CodigoBarra').AsString;
- fecha:=Query.FieldByName('Vence').AsDateTime;
- dias:=IntToStr( DifFech(DateToStr(fecha)) );
- QueryU.SQL.Text := 'Update Articulos Set Vencimiento = '+QuotedStr(dias)+'Where CodigoBarra = '+QuotedStr(imei);
- QueryU.ExecSQL;
- if Querydbg.Active = True then  Querydbg.Active:= False;
- Querydbg.Active:= True;
+  Query.SQL.Text :=
+    'Select * From Articulos Where (Vencimiento > 0) and (Estado <> ''Activado'') Order By CodigoBarra';
+  Query.ExecSQL;
+  Query.Open;
+  While not Query.Eof do
+  begin
+    imei := Query.FieldByName('CodigoBarra').AsString;
+    fecha := Query.FieldByName('Vence').AsDateTime;
+    dias := IntToStr(DifFech(DateToStr(fecha)));
+    QueryU.SQL.Text := 'Update Articulos Set Vencimiento = ' + QuotedStr(dias) +
+      'Where CodigoBarra = ' + QuotedStr(imei);
+    QueryU.ExecSQL;
+    Query.Next;
+  end;
+  imei := Query.FieldByName('CodigoBarra').AsString;
+  fecha := Query.FieldByName('Vence').AsDateTime;
+  dias := IntToStr(DifFech(DateToStr(fecha)));
+  QueryU.SQL.Text := 'Update Articulos Set Vencimiento = ' + QuotedStr(dias) +
+    'Where CodigoBarra = ' + QuotedStr(imei);
+  QueryU.ExecSQL;
+  if Querydbg.Active = True then
+    Querydbg.Active := False;
+  Querydbg.Active := True;
 
- if Timer1.Enabled <> True then Timer1.Enabled:=True;
+  if Timer1.Enabled <> True then
+    Timer1.Enabled := True;
 end;
 
 procedure TMenuCelularForm.Articulos1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'ArticuloCelular.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'ArticuloCelular.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.N1Click(Sender: TObject);
 begin
-//AboutBox.ShowModal;
+  // AboutBox.ShowModal;
 end;
 
 procedure TMenuCelularForm.Importar1Click(Sender: TObject);
 begin
-//FormImportar.ShowModal;
+  // FormImportar.ShowModal;
 end;
 
 procedure TMenuCelularForm.Devoluciones1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'DevolucionProveedorCelular.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'DevolucionProveedorCelular.exe')),
+    SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.Empresa1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'Empresa.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'Empresa.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.ABM2Click(Sender: TObject);
 begin
-//ProveedoresForm.ShowModal;
+  // ProveedoresForm.ShowModal;
 end;
 
 procedure TMenuCelularForm.ABM3Click(Sender: TObject);
 begin
-//PuntoVentaForm.ShowModal;
+  // PuntoVentaForm.ShowModal;
 end;
 
 procedure TMenuCelularForm.ABM4Click(Sender: TObject);
 begin
-//VendedoresForm.ShowModal;
+  // VendedoresForm.ShowModal;
 end;
 
 procedure TMenuCelularForm.Caja1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'Caja.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'Caja.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.CajaBitBtnClick(Sender: TObject);
 begin
-Caja1.Click;
+  Caja1.Click;
 end;
 
 procedure TMenuCelularForm.Categorias1Click(Sender: TObject);
 begin
-//CategoriasForm.ShowModal;
+  // CategoriasForm.ShowModal;
 end;
 
 procedure TMenuCelularForm.Categorias2Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'Categoría.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'Categoría.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.Clientes1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'ClientesL.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'ClientesL.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.Clientes2Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'Clientes.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'Clientes.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.Comprar1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'ComprarCelular.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'ComprarCelular.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.SubCategoras1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'SubCategoria.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'SubCategoria.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.SubCategorias1Click(Sender: TObject);
 begin
-//SubCategoriasForm.ShowModal;
+  // SubCategoriasForm.ShowModal;
 end;
 
 procedure TMenuCelularForm.Timer1Timer(Sender: TObject);
 begin
-ActualizarBitBtn.Click;
+  ActualizarBitBtn.Click;
 end;
 
 procedure TMenuCelularForm.Vendedores1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'Vendedor.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'Vendedor.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.Vendedores2Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'PagoVendedor.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'PagoVendedor.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.Vender1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'Vender.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'Vender.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.VenderBitBtnClick(Sender: TObject);
 begin
-Vender1.Click;
+  Vender1.Click;
 end;
 
 procedure TMenuCelularForm.ActivacionesL1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'ActivacionesL.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'ActivacionesL.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.Activaciones2Click(Sender: TObject);
 begin
-//VendedorActivaForm.ShowModal;
+  // VendedorActivaForm.ShowModal;
 end;
 
 procedure TMenuCelularForm.ImprimirBitBtnClick(Sender: TObject);
 begin
-{with dm do begin
-VencimientoADOQuery.SQL.Text:='SELECT * FROM Articulos ORDER BY Vencimiento';
-VencimientoADOQuery.Open;
-VencimientofrxReport.ShowReport(True);
-VencimientoADOQuery.Close;
-end;}
+  { with dm do begin
+    VencimientoADOQuery.SQL.Text:='SELECT * FROM Articulos ORDER BY Vencimiento';
+    VencimientoADOQuery.Open;
+    VencimientofrxReport.ShowReport(True);
+    VencimientoADOQuery.Close;
+    end; }
 end;
 
 procedure TMenuCelularForm.Impuestos1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'PagoServicio.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'PagoServicio.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.LibroDiarioL1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'LibroDiarioL.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'LibroDiarioL.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.Locales1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'Empresa.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'Empresa.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.Activar1Click(Sender: TObject);
 begin
-DemoDM.EnviarRam(L, M); WinExec(PAnsiChar(AnsiString(Path+'ActivarCelular.exe')),SW_SHOWNORMAL); DemoDM.EnvioRamTerminado;
+  DemoDM.EnviarRam(L, M);
+  WinExec(PAnsiChar(AnsiString(Path + 'ActivarCelular.exe')), SW_SHOWNORMAL);
+  DemoDM.EnvioRamTerminado;
 end;
 
 procedure TMenuCelularForm.ActivarBitBtnClick(Sender: TObject);
 begin
-Activar1.Click;
+  Activar1.Click;
 end;
 
 procedure TMenuCelularForm.FormCreate(Sender: TObject);
 begin
-DemoDM:=TDemoDM.Create(self);
-DemoDM.verify;
-// Muestra la pantalla de Login
+  DemoDM := TDemoDM.Create(self);
+  DemoDM.verify;
+  // Muestra la pantalla de Login
   { FLogin:=TFLogin.Create(self);
-   try
-     FLogin.ShowModal;
-   finally
-     FLogin.Free;
-   end;   }
+    try
+    FLogin.ShowModal;
+    finally
+    FLogin.Free;
+    end; }
 end;
 
 procedure TMenuCelularForm.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-   IF Key = VK_F5 then ActivarBitBtn.Click;
+  IF Key = VK_F5 then
+    ActivarBitBtn.Click;
 end;
 
 end.

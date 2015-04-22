@@ -47,93 +47,90 @@ implementation
 
 function GetVolumeID(DriveChar: string): String;
 var
-   MaxFileNameLength, VolFlags, SerNum: DWord;
+  MaxFileNameLength, VolFlags, SerNum: DWord;
 begin
-   if GetVolumeInformation(PChar(DriveChar + '\'), nil, 0,
-      @SerNum, MaxFileNameLength, VolFlags, nil, 0)
-   then
-   begin
-     Result := IntToHex(SerNum,8);
-     Insert('-', Result, 5);
-   end
-   else
-       Result := '';
+  if GetVolumeInformation(PChar(DriveChar + '\'), nil, 0, @SerNum,
+    MaxFileNameLength, VolFlags, nil, 0) then
+  begin
+    Result := IntToHex(SerNum, 8);
+    Insert('-', Result, 5);
+  end
+  else
+    Result := '';
 end;
-
-
 
 procedure TLicenciaForm.CopiarBitBtnClick(Sender: TObject);
 begin
-if (ApellidosEdit.Text <> '') and (NombresEdit.Text <> '') and (DNIEdit.Text <> '') then
-begin
-GenerarBitBtn.Click;
-LicenciaMemo.SelectAll;
-LicenciaMemo.CopyToClipboard;
-end  else
- begin
- ShowMessage('Por Favor Complete todos los Campos');
- ApellidosEdit.SetFocus
- end;
+  if (ApellidosEdit.Text <> '') and (NombresEdit.Text <> '') and
+    (DNIEdit.Text <> '') then
+  begin
+    GenerarBitBtn.Click;
+    LicenciaMemo.SelectAll;
+    LicenciaMemo.CopyToClipboard;
+  end
+  else
+  begin
+    ShowMessage('Por Favor Complete todos los Campos');
+    ApellidosEdit.SetFocus
+  end;
 end;
 
 procedure TLicenciaForm.EnviarPorEmailBitBtnClick(Sender: TObject);
 var
-  wideChars : array[0..999] of WideChar;
-  myString  : String;
+  wideChars: array [0 .. 999] of WideChar;
+  myString: String;
 begin
-if (ApellidosEdit.Text <> '') and (NombresEdit.Text <> '') and (DNIEdit.Text <> '') then
-begin
-GenerarBitBtn.Click;
-LicenciaMemo.SelectAll;
-LicenciaMemo.CopyToClipboard;
-myString:=    'mailto:consultas@degsoft.com.ar'+
-              '?Subject=Registro de Licencia de '+ApellidosEdit.Text+' '+NombresEdit.Text+' DNI: '+DNIEdit.Text+
-              '&Body=' + LicenciaMemo.Text;
-StringToWideChar(myString, wideChars, 256);
-ShellExecute(Self.Handle, nil,
-             wideChars,
-             nil, nil, SW_NORMAL);
-end  else
- begin
- ShowMessage('Por Favor Complete todos los Campos');
- ApellidosEdit.SetFocus
- end;
+  if (ApellidosEdit.Text <> '') and (NombresEdit.Text <> '') and
+    (DNIEdit.Text <> '') then
+  begin
+    GenerarBitBtn.Click;
+    LicenciaMemo.SelectAll;
+    LicenciaMemo.CopyToClipboard;
+    myString := 'mailto:consultas@degsoft.com.ar' +
+      '?Subject=Registro de Licencia de ' + ApellidosEdit.Text + ' ' +
+      NombresEdit.Text + ' DNI: ' + DNIEdit.Text + '&Body=' + LicenciaMemo.Text;
+    StringToWideChar(myString, wideChars, 256);
+    ShellExecute(Self.Handle, nil, wideChars, nil, nil, SW_NORMAL);
+  end
+  else
+  begin
+    ShowMessage('Por Favor Complete todos los Campos');
+    ApellidosEdit.SetFocus
+  end;
 end;
 
 procedure TLicenciaForm.FormKeyPress(Sender: TObject; var Key: Char);
 begin
- if Key = #13 then                          { if it's an enter key }
- begin
-      Key := #0;                                 { eat enter key }
-      Perform(WM_NEXTDLGCTL, 0, 0);              { move to next control }
+  if Key = #13 then { if it's an enter key }
+  begin
+    Key := #0; { eat enter key }
+    Perform(WM_NEXTDLGCTL, 0, 0); { move to next control }
   end;
 end;
 
 procedure TLicenciaForm.GenerarBitBtnClick(Sender: TObject);
 begin
-if (ApellidosEdit.Text <> '') and (NombresEdit.Text <> '') and (DNIEdit.Text <> '') then
- LicenciaMemo.Text := ApellidosEdit.Text+NombresEdit.Text+DNIEdit.Text+'=Q2T-94-RTWMKPQ9VDFV}4GQG]'+GetVolumeId(ExtractFileDrive(Application.ExeName))+'57WPDRDCT9-HJFF2ER'
- else
- begin
- ShowMessage('Por Favor Complete todos los Campos');
- ApellidosEdit.SetFocus
- end;
+  if (ApellidosEdit.Text <> '') and (NombresEdit.Text <> '') and
+    (DNIEdit.Text <> '') then
+    LicenciaMemo.Text := ApellidosEdit.Text + NombresEdit.Text + DNIEdit.Text +
+      '=Q2T-94-RTWMKPQ9VDFV}4GQG]' +
+      GetVolumeID(ExtractFileDrive(Application.ExeName)) + '57WPDRDCT9-HJFF2ER'
+  else
+  begin
+    ShowMessage('Por Favor Complete todos los Campos');
+    ApellidosEdit.SetFocus
+  end;
 end;
 
 procedure TLicenciaForm.Label10Click(Sender: TObject);
 begin
- ShellExecute(GetDesktopWindow(),
-                nil,
-                pChar('mailto:'+
-                TLabel(Sender).Caption),
-                nil,
-                nil,
-                SW_SHOWNORMAL);
+  ShellExecute(GetDesktopWindow(), nil,
+    PChar('mailto:' + TLabel(Sender).Caption), nil, nil, SW_SHOWNORMAL);
 end;
 
 procedure TLicenciaForm.Label4Click(Sender: TObject);
 begin
-HlinkNavigateString(Nil, pChar(TLabel(Sender).Caption));
+  HlinkNavigateString(Nil, PChar(TLabel(Sender).Caption));
 end;
 
 end.
