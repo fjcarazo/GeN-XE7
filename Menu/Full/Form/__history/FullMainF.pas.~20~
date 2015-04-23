@@ -192,9 +192,7 @@ var
 implementation
 
 uses LoginF, VenderF, CrearCreditoF, ComprarF, CtaCteF, BuscaFactura,
-AnularVtaF, incremento, CrearPedidoF, RendicionCartonF, PagoComisionCobrador,
-RendicionClienteLF, RendicionClienteF, NotaCreditoPlanF, CartonCobranzaF,
-PagoIVAF, AporteCapitalF, CuentaContableF, CapituloF, RubroContableFormF;
+AnularVtaF, incremento, CrearPedidoF, RendicionCartonF, PagoComisionCobrador;
 
 {$R *.dfm}
 
@@ -249,13 +247,7 @@ end;
 
 procedure TFullMainForm.Cuentas1Click(Sender: TObject);
 begin
-//  WinExec(PAnsiChar(AnsiString(path + 'CuentaContable.exe')), SW_SHOWNORMAL);
-CuentasContablesForm:=TCuentasContablesForm.Create(self);
- try
-  CuentasContablesForm.ShowModal;
- finally
-  CuentasContablesForm.Free;
- end;
+  WinExec(PAnsiChar(AnsiString(path + 'CuentaContable.exe')), SW_SHOWNORMAL);
 end;
 
 procedure TFullMainForm.DIARIO1Click(Sender: TObject);
@@ -282,13 +274,7 @@ end;
 
 procedure TFullMainForm.NOTADECREDITO1Click(Sender: TObject);
 begin
-//  WinExec(PAnsiChar(AnsiString(path + 'NotaCreditoPlan.exe')), SW_SHOWNORMAL);
-NotaCreditoPlanForm:=TNotaCreditoPlanForm.Create(self);
- try
-  NotaCreditoPlanForm.ShowModal;
- finally
-  NotaCreditoPlanForm.Free;
- end;
+  WinExec(PAnsiChar(AnsiString(path + 'NotaCreditoPlan.exe')), SW_SHOWNORMAL);
 end;
 
 procedure TFullMainForm.BACKUPCopiadeSeguridad1Click(Sender: TObject);
@@ -318,13 +304,7 @@ end;
 
 procedure TFullMainForm.RUBROS1Click(Sender: TObject);
 begin
-//  WinExec(PAnsiChar(AnsiString(path + 'RubroContable.exe')), SW_SHOWNORMAL);
-RubroContableForm:=TRubroContableForm.Create(self);
- try
-  RubroContableForm.ShowModal;
- finally
-  RubroContableForm.Free;
- end;
+  WinExec(PAnsiChar(AnsiString(path + 'RubroContable.exe')), SW_SHOWNORMAL);
 end;
 
 procedure TFullMainForm.CargarFactura1Click(Sender: TObject);
@@ -349,13 +329,7 @@ end;
 
 procedure TFullMainForm.APORTEDECAPITAL1Click(Sender: TObject);
 begin
-//  WinExec(PAnsiChar(AnsiString(path + 'AporteCapital.exe')), SW_SHOWNORMAL);
-AporteCapitalForm:=TAporteCapitalForm.Create(self);
- try
-  AporteCapitalForm.ShowModal;
- finally
-  AporteCapitalForm.Free;
- end;
+  WinExec(PAnsiChar(AnsiString(path + 'AporteCapital.exe')), SW_SHOWNORMAL);
 end;
 
 procedure TFullMainForm.Aumentarporporcentaje1Click(Sender: TObject);
@@ -448,13 +422,7 @@ end;
 
 procedure TFullMainForm.IMPRIMIRCARTON1Click(Sender: TObject);
 begin
-//  WinExec(PAnsiChar(AnsiString(path + 'CartonCobranza.exe')), SW_SHOWNORMAL);
-CartonCobranzaForm:=TCartonCobranzaForm.Create(self);
- try
-  CartonCobranzaForm.ShowModal;
- finally
-  CartonCobranzaForm.Free;
- end;
+  WinExec(PAnsiChar(AnsiString(path + 'CartonCobranza.exe')), SW_SHOWNORMAL);
 end;
 
 procedure TFullMainForm.ImpuestosyServicios1Click(Sender: TObject);
@@ -475,8 +443,7 @@ end;
 
 procedure TFullMainForm.IPODEGASTO1Click(Sender: TObject);
 begin
-//  WinExec(PAnsiChar(AnsiString(path + 'TipoGasto.exe')), SW_SHOWNORMAL);
-
+  WinExec(PAnsiChar(AnsiString(path + 'TipoGasto.exe')), SW_SHOWNORMAL);
 end;
 
 procedure TFullMainForm.IVACOMPRAS1Click(Sender: TObject);
@@ -511,13 +478,7 @@ end;
 
 procedure TFullMainForm.CAPITULOS1Click(Sender: TObject);
 begin
-//  WinExec(PAnsiChar(AnsiString(path + 'Capitulo.exe')), SW_SHOWNORMAL);
-CapituloForm:=TCapituloForm.Create(self);
- try
-  CapituloForm.ShowModal;
- finally
-  CapituloForm.Free;
- end;
+  WinExec(PAnsiChar(AnsiString(path + 'Capitulo.exe')), SW_SHOWNORMAL);
 end;
 
 procedure TFullMainForm.Entregados1Click(Sender: TObject);
@@ -564,13 +525,7 @@ end;
 
 procedure TFullMainForm.RENDICIONDECUOTAS1Click(Sender: TObject);
 begin
-//  WinExec(PAnsiChar(AnsiString(path + 'RendicionCliente.exe')), SW_SHOWNORMAL);
-RendicionClienteForm:=TRendicionClienteForm.Create(self);
- try
-  RendicionClienteForm.ShowModal;
- finally
-  RendicionClienteForm.Free;
- end;
+  WinExec(PAnsiChar(AnsiString(path + 'RendicionCliente.exe')), SW_SHOWNORMAL);
 end;
 
 procedure TFullMainForm.PagoaVendedores1Click(Sender: TObject);
@@ -580,13 +535,7 @@ end;
 
 procedure TFullMainForm.PAGODEIVA1Click(Sender: TObject);
 begin
-//  WinExec(PAnsiChar(AnsiString(path + 'PagoIVA.exe')), SW_SHOWNORMAL);
-PagoIVAForm:=TPagoIVAForm.Create(self);
- try
-  PagoIVAForm.ShowModal;
- finally
-  PagoIVAForm.Free;
- end;
+  WinExec(PAnsiChar(AnsiString(path + 'PagoIVA.exe')), SW_SHOWNORMAL);
 end;
 
 procedure TFullMainForm.RendicindeClientes1Click(Sender: TObject);
@@ -596,13 +545,7 @@ end;
 
 procedure TFullMainForm.RENDICIONDECLIENTES1Click(Sender: TObject);
 begin
-//  WinExec(PAnsiChar(AnsiString(path + 'RendicionClienteL.exe')), SW_SHOWNORMAL);
- RendicionClienteLForm:=TRendicionClienteLForm.Create(self);
- try
-  RendicionClienteLForm.ShowModal;
- finally
-  RendicionClienteLForm.Free;
- end;
+  WinExec(PAnsiChar(AnsiString(path + 'RendicionClienteL.exe')), SW_SHOWNORMAL);
 end;
 
 procedure TFullMainForm.LibroDiario1Click(Sender: TObject);

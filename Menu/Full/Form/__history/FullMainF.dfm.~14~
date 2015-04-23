@@ -96,7 +96,6 @@ object FullMainForm: TFullMainForm
         end
         object RENDICIONDECUOTAS1: TMenuItem
           Caption = 'CUOTA'
-          OnClick = RENDICIONDECUOTAS1Click
         end
       end
       object NOTADECREDITO1: TMenuItem

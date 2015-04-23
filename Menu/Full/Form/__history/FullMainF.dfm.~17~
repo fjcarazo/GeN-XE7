@@ -5,7 +5,7 @@ object FullMainForm: TFullMainForm
   BiDiMode = bdLeftToRight
   BorderIcons = [biSystemMenu, biMinimize, biMaximize, biHelp]
   Caption = 'DeGsoft GeN - ERP - Menu Principal'
-  ClientHeight = 47
+  ClientHeight = 70
   ClientWidth = 748
   Color = clBtnFace
   ParentFont = True
@@ -14,6 +14,7 @@ object FullMainForm: TFullMainForm
   OldCreateOrder = False
   ParentBiDiMode = False
   Position = poScreenCenter
+  WindowState = wsMaximized
   OnClose = FormClose
   OnKeyUp = FormKeyUp
   OnShow = FormShow
@@ -23,7 +24,7 @@ object FullMainForm: TFullMainForm
     Left = 0
     Top = 0
     Width = 748
-    Height = 47
+    Height = 70
     Align = alClient
     TabOrder = 0
     ExplicitLeft = 376
@@ -31,7 +32,7 @@ object FullMainForm: TFullMainForm
     ExplicitWidth = 300
     ExplicitHeight = 150
     ControlData = {
-      4C0000004F4D0000DC0400000000000000000000000000000000000000000000
+      4C0000004F4D00003C0700000000000000000000000000000000000000000000
       000000004C000000000000000000000001000000E0D057007335CF11AE690800
       2B2E126208000000000000004C0000000114020000000000C000000000000046
       8000000000000000000000000000000000000000000000000000000000000000
@@ -60,14 +61,7 @@ object FullMainForm: TFullMainForm
       object CargarFactura1: TMenuItem
         Caption = 'TRAER VENTA'
         Visible = False
-      end
-      object AnularVenta1: TMenuItem
-        Caption = 'ANULAR VENTA'
-        OnClick = AnularVenta1Click
-      end
-      object AsignarCobrador1: TMenuItem
-        Caption = 'ASIGNAR COBRADOR'
-        Visible = False
+        OnClick = CargarFactura1Click
       end
       object Aumentarporporcentaje1: TMenuItem
         Caption = 'AUMENTAR POR PORCENTAJE'
@@ -78,23 +72,13 @@ object FullMainForm: TFullMainForm
         Visible = False
         OnClick = ReimprimirVenta1Click
       end
-      object DevolverMercadera1: TMenuItem
-        Caption = 'DEVOLUCION'
-        Visible = False
-      end
-      object Retenciones1: TMenuItem
-        Caption = 'RETENCION'
-        Visible = False
-      end
     end
     object CREDITOS1: TMenuItem
       Caption = 'CREDITOS'
+      OnClick = CREDITOS1Click
       object CREARCREDITO1: TMenuItem
         Caption = 'CREAR CREDITO'
         OnClick = CrearCredito1Click
-      end
-      object COMPRAR2: TMenuItem
-        Caption = 'COMPRAR'
       end
       object RENDICION2: TMenuItem
         Caption = 'RENDICION'
@@ -104,12 +88,15 @@ object FullMainForm: TFullMainForm
         end
         object RENDICIONDECOBRADORES1: TMenuItem
           Caption = 'COBRADOR'
+          OnClick = RENDICIONDECOBRADORES1Click
         end
         object RENDICIONDECLIENTES1: TMenuItem
           Caption = 'CLIENTE'
+          OnClick = RENDICIONDECLIENTES1Click
         end
         object RENDICIONDECUOTAS1: TMenuItem
           Caption = 'CUOTA'
+          OnClick = RENDICIONDECUOTAS1Click
         end
       end
       object NOTADECREDITO1: TMenuItem

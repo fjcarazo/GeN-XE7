@@ -63,6 +63,14 @@ object FullMainForm: TFullMainForm
         Visible = False
         OnClick = CargarFactura1Click
       end
+      object AnularVenta1: TMenuItem
+        Caption = 'ANULAR VENTA'
+        OnClick = AnularVenta1Click
+      end
+      object AsignarCobrador1: TMenuItem
+        Caption = 'ASIGNAR COBRADOR'
+        Visible = False
+      end
       object Aumentarporporcentaje1: TMenuItem
         Caption = 'AUMENTAR POR PORCENTAJE'
         OnClick = Aumentarporporcentaje1Click
@@ -72,13 +80,23 @@ object FullMainForm: TFullMainForm
         Visible = False
         OnClick = ReimprimirVenta1Click
       end
+      object DevolverMercadera1: TMenuItem
+        Caption = 'DEVOLUCION'
+        Visible = False
+      end
+      object Retenciones1: TMenuItem
+        Caption = 'RETENCION'
+        Visible = False
+      end
     end
     object CREDITOS1: TMenuItem
       Caption = 'CREDITOS'
-      OnClick = CREDITOS1Click
       object CREARCREDITO1: TMenuItem
         Caption = 'CREAR CREDITO'
         OnClick = CrearCredito1Click
+      end
+      object COMPRAR2: TMenuItem
+        Caption = 'COMPRAR'
       end
       object RENDICION2: TMenuItem
         Caption = 'RENDICION'
@@ -88,15 +106,12 @@ object FullMainForm: TFullMainForm
         end
         object RENDICIONDECOBRADORES1: TMenuItem
           Caption = 'COBRADOR'
-          OnClick = RENDICIONDECOBRADORES1Click
         end
         object RENDICIONDECLIENTES1: TMenuItem
           Caption = 'CLIENTE'
-          OnClick = RENDICIONDECLIENTES1Click
         end
         object RENDICIONDECUOTAS1: TMenuItem
           Caption = 'CUOTA'
-          OnClick = RENDICIONDECUOTAS1Click
         end
       end
       object NOTADECREDITO1: TMenuItem

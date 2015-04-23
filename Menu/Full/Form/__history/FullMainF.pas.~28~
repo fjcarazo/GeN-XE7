@@ -194,7 +194,7 @@ implementation
 uses LoginF, VenderF, CrearCreditoF, ComprarF, CtaCteF, BuscaFactura,
 AnularVtaF, incremento, CrearPedidoF, RendicionCartonF, PagoComisionCobrador,
 RendicionClienteLF, RendicionClienteF, NotaCreditoPlanF, CartonCobranzaF,
-PagoIVAF, AporteCapitalF, CuentaContableF, CapituloF, RubroContableFormF;
+PagoIVAF, AporteCapitalF, CuentaContableF, CapituloF;
 
 {$R *.dfm}
 
@@ -318,13 +318,7 @@ end;
 
 procedure TFullMainForm.RUBROS1Click(Sender: TObject);
 begin
-//  WinExec(PAnsiChar(AnsiString(path + 'RubroContable.exe')), SW_SHOWNORMAL);
-RubroContableForm:=TRubroContableForm.Create(self);
- try
-  RubroContableForm.ShowModal;
- finally
-  RubroContableForm.Free;
- end;
+  WinExec(PAnsiChar(AnsiString(path + 'RubroContable.exe')), SW_SHOWNORMAL);
 end;
 
 procedure TFullMainForm.CargarFactura1Click(Sender: TObject);
@@ -475,8 +469,7 @@ end;
 
 procedure TFullMainForm.IPODEGASTO1Click(Sender: TObject);
 begin
-//  WinExec(PAnsiChar(AnsiString(path + 'TipoGasto.exe')), SW_SHOWNORMAL);
-
+  WinExec(PAnsiChar(AnsiString(path + 'TipoGasto.exe')), SW_SHOWNORMAL);
 end;
 
 procedure TFullMainForm.IVACOMPRAS1Click(Sender: TObject);

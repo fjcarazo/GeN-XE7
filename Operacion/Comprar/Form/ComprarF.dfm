@@ -348,8 +348,8 @@ object ComprarForm: TComprarForm
       Top = 2
       Width = 103
       Height = 21
-      Date = 40179.475039594910000000
-      Time = 40179.475039594910000000
+      Date = 42005.475039594910000000
+      Time = 42005.475039594910000000
       TabOrder = 1
     end
     object FLEPorcDesc: TEdit

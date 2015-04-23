@@ -32,11 +32,11 @@ object ComprarForm: TComprarForm
     ParentBackground = False
     TabOrder = 0
     object Label17: TLabel
-      Left = 33
+      Left = 40
       Top = 22
-      Width = 103
+      Width = 62
       Height = 13
-      Caption = 'Orden de Compra:'
+      Caption = 'FACTURA:'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
       Font.Height = -11
@@ -67,7 +67,7 @@ object ComprarForm: TComprarForm
       FixedRows = 0
       ParentBiDiMode = False
       ScrollBars = ssNone
-      TabOrder = 0
+      TabOrder = 1
       ColWidths = (
         64
         100)
@@ -78,12 +78,13 @@ object ComprarForm: TComprarForm
         21
         24)
     end
-    object Edit4: TEdit
+    object CUITEdit: TEdit
       Left = 39
       Top = 41
       Width = 89
       Height = 21
-      TabOrder = 1
+      TabOrder = 0
+      OnExit = CUITEditExit
     end
     object cbTipo: TComboBox
       Left = 56
@@ -119,6 +120,7 @@ object ComprarForm: TComprarForm
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 3
+      Visible = False
     end
   end
   object SGFact: TStringGrid
@@ -164,7 +166,6 @@ object ComprarForm: TComprarForm
       Height = 50
       Hint = 'F12 - PROCESAR VENTA'
       Caption = 'GRABAR'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -16
@@ -172,7 +173,6 @@ object ComprarForm: TComprarForm
       Font.Style = [fsBold]
       ModalResult = 6
       NumGlyphs = 2
-      ParentDoubleBuffered = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -186,13 +186,11 @@ object ComprarForm: TComprarForm
       Height = 50
       Hint = 'F1 SELECCIONAR CLIENTE'
       Caption = 'proveedor'
-      DoubleBuffered = True
       Font.Charset = ANSI_CHARSET
       Font.Color = clPurple
       Font.Height = -16
       Font.Name = 'Arial'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -206,13 +204,11 @@ object ComprarForm: TComprarForm
       Height = 50
       Hint = 'F5 - AGREGAR ARTICULO'
       Caption = '+ articulo'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlue
       Font.Height = -16
       Font.Name = 'Arial'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -226,13 +222,11 @@ object ComprarForm: TComprarForm
       Height = 50
       Hint = 'F4 - CREAR ARTICULO'
       Caption = '* nuevo'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clAqua
       Font.Height = -16
       Font.Name = 'Arial'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -246,13 +240,11 @@ object ComprarForm: TComprarForm
       Height = 50
       Hint = 'F6 - QUITAR ARTICULO'
       Caption = '- quitar'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clRed
       Font.Height = -16
       Font.Name = 'Arial'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -310,8 +302,8 @@ object ComprarForm: TComprarForm
       ParentFont = False
     end
     object Label25: TLabel
-      Left = 483
-      Top = 6
+      Left = 472
+      Top = 5
       Width = 62
       Height = 13
       Caption = 'Descuento'
@@ -361,7 +353,7 @@ object ComprarForm: TComprarForm
       TabOrder = 1
     end
     object FLEPorcDesc: TEdit
-      Left = 550
+      Left = 539
       Top = 2
       Width = 56
       Height = 21
@@ -376,18 +368,16 @@ object ComprarForm: TComprarForm
       TabOrder = 3
     end
     object DescuentoBitBtn: TBitBtn
-      Left = 605
+      Left = 594
       Top = 1
       Width = 31
       Height = 23
       Caption = '%'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 4
       OnClick = DescuentoBitBtnClick
@@ -396,12 +386,18 @@ object ComprarForm: TComprarForm
   object QTemp: TIBQuery
     Database = DM.BaseDatos
     Transaction = DM.Transaccion
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
     Left = 200
     Top = 240
   end
   object Q: TIBQuery
     Database = DM.BaseDatos
     Transaction = DM.Transaccion
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
     Left = 296
     Top = 240
   end
