@@ -75,12 +75,10 @@ object FullMainForm: TFullMainForm
     end
     object CREDITOS1: TMenuItem
       Caption = 'CREDITOS'
+      OnClick = CREDITOS1Click
       object CREARCREDITO1: TMenuItem
         Caption = 'CREAR CREDITO'
         OnClick = CrearCredito1Click
-      end
-      object COMPRAR2: TMenuItem
-        Caption = 'COMPRAR'
       end
       object RENDICION2: TMenuItem
         Caption = 'RENDICION'
@@ -90,12 +88,15 @@ object FullMainForm: TFullMainForm
         end
         object RENDICIONDECOBRADORES1: TMenuItem
           Caption = 'COBRADOR'
+          OnClick = RENDICIONDECOBRADORES1Click
         end
         object RENDICIONDECLIENTES1: TMenuItem
           Caption = 'CLIENTE'
+          OnClick = RENDICIONDECLIENTES1Click
         end
         object RENDICIONDECUOTAS1: TMenuItem
           Caption = 'CUOTA'
+          OnClick = RENDICIONDECUOTAS1Click
         end
       end
       object NOTADECREDITO1: TMenuItem

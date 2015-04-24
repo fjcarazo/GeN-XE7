@@ -3,8 +3,8 @@ object CajaLForm: TCajaLForm
   Top = 160
   BorderIcons = [biSystemMenu, biMinimize, biMaximize, biHelp]
   Caption = 'Resumen de Caja'
-  ClientHeight = 566
-  ClientWidth = 1016
+  ClientHeight = 466
+  ClientWidth = 792
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clBlack
@@ -20,7 +20,7 @@ object CajaLForm: TCajaLForm
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1016
+    Width = 792
     Height = 70
     Align = alTop
     Color = clBlack
@@ -81,29 +81,28 @@ object CajaLForm: TCajaLForm
       end
     end
     object BitBtn3: TBitBtn
-      Left = 925
+      Left = 701
       Top = 8
       Width = 80
       Height = 50
       Caption = 'Imprimir'
-      DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       Kind = bkAll
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 1
       OnClick = BitBtn3Click
     end
   end
   object Panel2: TPanel
-    Left = 911
+    Left = 687
     Top = 70
     Width = 105
-    Height = 496
+    Height = 396
     Align = alRight
     Color = clBlack
     Font.Charset = DEFAULT_CHARSET
@@ -174,61 +173,29 @@ object CajaLForm: TCajaLForm
       Height = 13
       Caption = '0'
     end
-    object Label6: TLabel
-      Left = 29
-      Top = 299
-      Width = 50
-      Height = 13
-      Caption = 'Mostrar?'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWhite
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
     object SiBitBtn: TBitBtn
       Left = 14
-      Top = 240
+      Top = 325
       Width = 80
       Height = 50
-      Caption = 'Si'
-      DoubleBuffered = True
+      Caption = 'mostrar'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       Kind = bkYes
-      ParentDoubleBuffered = False
+      NumGlyphs = 2
       ParentFont = False
       TabOrder = 0
       OnClick = SiBitBtnClick
-    end
-    object BitBtn2: TBitBtn
-      Left = 14
-      Top = 324
-      Width = 80
-      Height = 50
-      Caption = 'No'
-      DoubleBuffered = True
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = [fsBold]
-      Kind = bkNo
-      ParentDoubleBuffered = False
-      ParentFont = False
-      TabOrder = 1
-      OnClick = BitBtn2Click
     end
   end
   object DBGrid2: TDBGrid
     Left = 0
     Top = 70
-    Width = 911
-    Height = 496
+    Width = 687
+    Height = 396
     Align = alClient
     Color = clWhite
     DataSource = DataSource
@@ -341,6 +308,9 @@ object CajaLForm: TCajaLForm
   object Tabla: TIBQuery
     Database = DM.BaseDatos
     Transaction = DM.Transaccion
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
     SQL.Strings = (
       'SELECT '
       '  ("LibroDiario".DEBE - "LibroDiario".HABER) AS "SubTotal",'
@@ -364,6 +334,9 @@ object CajaLForm: TCajaLForm
   object CuentaT: TIBQuery
     Database = DM.BaseDatos
     Transaction = DM.Transaccion
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
     SQL.Strings = (
       'SELECT *'
       'FROM'

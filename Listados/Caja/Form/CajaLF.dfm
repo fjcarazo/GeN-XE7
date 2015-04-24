@@ -64,8 +64,8 @@ object CajaLForm: TCajaLForm
         Top = 16
         Width = 121
         Height = 21
-        Date = 40179.873243958300000000
-        Time = 40179.873243958300000000
+        Date = 42005.873243958300000000
+        Time = 42005.873243958300000000
         TabOrder = 0
         OnCloseUp = DTP1CloseUp
       end
@@ -74,8 +74,8 @@ object CajaLForm: TCajaLForm
         Top = 16
         Width = 121
         Height = 21
-        Date = 37668.873295891200000000
-        Time = 37668.873295891200000000
+        Date = 42051.873295891200000000
+        Time = 42051.873295891200000000
         TabOrder = 1
         OnCloseUp = DTP2CloseUp
       end
