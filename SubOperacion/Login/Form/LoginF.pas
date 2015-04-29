@@ -4,8 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, DataModule, DB, Buttons, IBCustomDataSet, IBQuery,
-  OleCtrls, SHDocVw, ExtCtrls, UrLMon;
+  Dialogs, StdCtrls, DataModule, DB, Buttons,
+  OleCtrls, SHDocVw, ExtCtrls, UrLMon, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TFLogin = class(TForm)

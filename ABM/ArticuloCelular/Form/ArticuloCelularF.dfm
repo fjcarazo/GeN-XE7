@@ -194,6 +194,10 @@ object ArticuloCelularForm: TArticuloCelularForm
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label2: TLabel
         Left = 10
         Top = 73
@@ -620,6 +624,10 @@ object ArticuloCelularForm: TArticuloCelularForm
     object TabSheet3: TTabSheet
       Caption = 'Notas'
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object DBMemo1: TDBMemo
         Left = 0
         Top = 0
@@ -647,6 +655,10 @@ object ArticuloCelularForm: TArticuloCelularForm
       Font.Style = []
       ImageIndex = 2
       ParentFont = False
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label6: TLabel
         Left = 421
         Top = 84
@@ -957,6 +969,10 @@ object ArticuloCelularForm: TArticuloCelularForm
     object TabSheet4: TTabSheet
       Caption = 'Precios'
       ImageIndex = 3
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label11: TLabel
         Left = 42
         Top = 178
@@ -1149,6 +1165,10 @@ object ArticuloCelularForm: TArticuloCelularForm
     object TabSheet5: TTabSheet
       Caption = 'Contabilidad'
       ImageIndex = 4
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label50: TLabel
         Left = 185
         Top = 51

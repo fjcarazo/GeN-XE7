@@ -3,7 +3,7 @@
         <ProjectGuid>{4A16909D-68E7-419C-B466-D5927D0A6983}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>GeN.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>
@@ -47,7 +47,7 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <Icon_MainIcon>Menu_Icon.ico</Icon_MainIcon>
+        <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>3082</VerInfo_Locale>
@@ -55,12 +55,13 @@
         <SanitizedProjectName>GeN</SanitizedProjectName>
         <DCC_OutputDRCFile>true</DCC_OutputDRCFile>
         <DCC_DependencyCheckOutputName>F:\DeGsoft\GeN\Menu.exe</DCC_DependencyCheckOutputName>
-        <DCC_ExeOutput>\DeGsoft\GeN\</DCC_ExeOutput>
+        <DCC_ExeOutput>C:\DeGsoft\GeN\</DCC_ExeOutput>
         <DCC_ImageBase>00400000</DCC_ImageBase>
         <UsePackages>true</UsePackages>
         <DCC_Platform>x86</DCC_Platform>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <DCC_ExeOutput>C:\DeGsoft\GeN\</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <DCC_Namespace>System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <VerInfo_Locale>1033</VerInfo_Locale>
@@ -70,13 +71,14 @@
         <Icon_MainIcon>Menu_Icon.ico</Icon_MainIcon>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_ExeOutput>C:\DeGsoft\GeN\</DCC_ExeOutput>
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
         <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
         <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
         <DCC_DebugInformation>0</DCC_DebugInformation>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-        <Icon_MainIcon>..\..\..\IMG\GeN_Icon.ico</Icon_MainIcon>
+        <DCC_ExeOutput>C:\DeGsoft\GeN\</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
@@ -91,10 +93,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\..\..\Modulo\Vigilancia\form\VigilanciaF.pas">
-            <Form>VigilanciaForm</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\..\..\SubOperacion\FormaPago\Form\UFFormaPago.pas">
             <Form>FFormaPago</Form>
             <FormType>dfm</FormType>
@@ -192,11 +190,6 @@
         <DCCReference Include="..\..\..\Operacion\DevolucionProveedorCelular\Form\DevolucionProveedorCelularF.pas">
             <Form>DevolucionesForm</Form>
             <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\..\..\Demo\Demo.pas">
-            <Form>DemoDM</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\..\..\DataModule\DataModule.pas">
             <Form>DM</Form>
@@ -488,14 +481,6 @@
             <Form>VenderForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\..\..\Licencia\Form\LicenciaF.pas">
-            <Form>LicenciaForm</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\..\Celular\Form\MenuCelularF.pas">
-            <Form>MenuCelularForm</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\..\..\Exportar\Excel\Form\ExportarExcelF.pas">
             <Form>Menu1</Form>
             <FormType>dfm</FormType>
@@ -534,6 +519,10 @@
         </DCCReference>
         <DCCReference Include="..\..\..\abm\ingresosbrutos\form\IngresosBrutosF.pas">
             <Form>IngresosBrutosForm</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\..\..\Operacion\RestaurarBase\Form\RestaurarBaseF.pas">
+            <Form>RestaurarBaseForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Debug">

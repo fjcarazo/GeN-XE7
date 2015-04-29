@@ -3,7 +3,7 @@
         <ProjectGuid>{1B672A02-B1E1-4273-AC56-DEA2D492D639}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>Marca.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

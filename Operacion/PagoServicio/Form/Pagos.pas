@@ -120,12 +120,12 @@ begin
     MntCheque := Format('%8.2f', [StrToFloat(FFormaPago.FECheque.Text)]);
     MntCheque3ro := Format('%8.2f',
       [StrToFloat(FFormaPago.ChequeTerceroEdit.Text)]);
-    {NroCheque := FFormaPago.Edit1.Text;
-    DetCheque := FFormaPago.Edit3.Text;
-    DiaCheque := FFormaPago.Edit5.Text;
-    MntTarjeta := FFormaPago.FETarjeta.Text;
-    NroTarjeta := FFormaPago.Edit2.Text;
-    DetTarjeta := FFormaPago.Edit4.Text;}
+    { NroCheque := FFormaPago.Edit1.Text;
+      DetCheque := FFormaPago.Edit3.Text;
+      DiaCheque := FFormaPago.Edit5.Text;
+      MntTarjeta := FFormaPago.FETarjeta.Text;
+      NroTarjeta := FFormaPago.Edit2.Text;
+      DetTarjeta := FFormaPago.Edit4.Text; }
     MntOtros := Format('%8.2f', [StrToFloat(FFormaPago.FEOtro.Text)]);
     Saldo := Format('%8.2f', [FFormaPago.Saldo]);
     Pagado := Format('%8.2f', [FFormaPago.Pagado]);
@@ -146,7 +146,7 @@ begin
     QTemp.Close;
 
     // Iniciar la Transaccion
-    {DM.AC1.BeginTrans;}
+    { DM.AC1.BeginTrans; }
     try
 
       // Insertar en la tabla de Pagos
@@ -301,7 +301,7 @@ begin
       q.Close;
 
       // Completa la Transaccion
-      {DM.AC1.CommitTrans;}
+      { DM.AC1.CommitTrans; }
 
       // Imprime la factura si el usuario quiere
       { FImprimirFactura:=TFImprimirFactura.Create(self);
@@ -316,7 +316,7 @@ begin
     except
       on E: Exception do
       begin
-       {DM.AC1.RollbackTrans;}
+        { DM.AC1.RollbackTrans; }
         MessageDlg
           ('No fue posible completar la transacción, por favor contacte al administrador',
           mtError, [mbOK], 0);
@@ -362,7 +362,7 @@ end;
 
 procedure TPagosForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
   EmpresaQuery.Open;
   ConfigQuery.Open;
 end;

@@ -5,9 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, Grids, DBGrids, DB, ImprimirDM, Mask, DBCtrls, StdCtrls,
-  Buttons,
-  ComCtrls, DataModule, IBCustomDataSet, IBQuery, OleCtrls,
-  SHDocVw;
+  Buttons, ComCtrls, DataModule, OleCtrls, SHDocVw, IBX.IBCustomDataSet,
+  IBX.IBQuery;
 
 type
   TCobranzaExtraJudicialForm = class(TForm)
@@ -87,7 +86,7 @@ end;
 
 procedure TCobranzaExtraJudicialForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(Self);
+  //DM := TDM.Create(Self);
 end;
 
 procedure TCobranzaExtraJudicialForm.FormKeyDown(Sender: TObject; var Key: Word;

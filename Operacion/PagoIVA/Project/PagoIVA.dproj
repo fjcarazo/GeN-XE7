@@ -3,7 +3,7 @@
         <ProjectGuid>{7844CA25-169E-4578-A7EB-36C49E4B734B}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>PagoIVA.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

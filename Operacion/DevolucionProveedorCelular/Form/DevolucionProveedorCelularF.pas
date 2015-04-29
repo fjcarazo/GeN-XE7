@@ -52,7 +52,7 @@ implementation
 
 procedure TDevolucionesForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
 end;
 
 procedure TDevolucionesForm.FormKeyPress(Sender: TObject; var Key: Char);

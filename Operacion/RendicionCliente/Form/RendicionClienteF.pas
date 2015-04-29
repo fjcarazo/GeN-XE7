@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Grids, DBGrids, StdCtrls, ComCtrls, DB, Buttons, ADODB, DataModule,
-  ExtCtrls, IBCustomDataSet, IBQuery, OleCtrls, SHDocVw;
+  ExtCtrls, OleCtrls, SHDocVw, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TRendicionClienteForm = class(TForm)
@@ -438,7 +438,7 @@ end;
 
 procedure TRendicionClienteForm.FormCreate(Sender: TObject);
 begin
-  dm := TDM.create(self);
+  //dm := TDM.create(self);
 end;
 
 procedure TRendicionClienteForm.FormKeyPress(Sender: TObject; var Key: Char);

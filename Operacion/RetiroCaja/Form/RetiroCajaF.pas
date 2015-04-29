@@ -4,9 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, DBCtrls, ExtCtrls, DB, IBCustomDataSet, IBQuery,
-  DataModule,
-  ComCtrls, OleCtrls, SHDocVw;
+  Dialogs, StdCtrls, Buttons, DBCtrls, ExtCtrls, DB, DataModule,
+  ComCtrls, OleCtrls, SHDocVw, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TRetiroCajaForm = class(TForm)
@@ -49,7 +48,7 @@ uses OperacionDM;
 
 procedure TRetiroCajaForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(Self);
+  //DM := TDM.Create(Self);
   SocioT.Open;
   SocioT.Last;
 end;

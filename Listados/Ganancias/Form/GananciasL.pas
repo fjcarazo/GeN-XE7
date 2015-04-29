@@ -5,8 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, ADODB, ComCtrls, StdCtrls, Buttons, ExtCtrls, DataModule, Grids,
-  DBGrids, ImprimirDM, DBCtrls,
-  IBCustomDataSet, IBQuery, jpeg;
+  DBGrids, ImprimirDM, DBCtrls, jpeg, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TGanaciaxVtaLForm = class(TForm)
@@ -72,7 +71,7 @@ end;
 
 procedure TGanaciaxVtaLForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
   CuentaTabla.Open;
   DTP2.DateTime := Now + 1;
 end;

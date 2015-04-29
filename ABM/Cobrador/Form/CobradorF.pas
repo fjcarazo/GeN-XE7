@@ -5,9 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DataModule, ExtCtrls, StdCtrls, Mask, DBCtrls, ComCtrls, DB,
-  ImprimirDM,
-  Buttons, IBQuery,
-  IBCustomDataSet, IBTable, OleCtrls, SHDocVw;
+  ImprimirDM, Buttons, OleCtrls, SHDocVw, IBX.IBQuery, IBX.IBCustomDataSet,
+  IBX.IBTable;
 
 type
   TCobradorForm = class(TForm)
@@ -168,7 +167,7 @@ end;
 
 procedure TCobradorForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
   EmpresaQuery.Open;
   UsuarioT.Open;
   CuentaT.Open;

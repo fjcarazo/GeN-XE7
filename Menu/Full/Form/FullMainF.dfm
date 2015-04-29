@@ -5,7 +5,7 @@ object FullMainForm: TFullMainForm
   BiDiMode = bdLeftToRight
   BorderIcons = [biSystemMenu, biMinimize, biMaximize, biHelp]
   Caption = 'DeGsoft GeN - ERP - Menu Principal'
-  ClientHeight = 70
+  ClientHeight = 291
   ClientWidth = 748
   Color = clBtnFace
   ParentFont = True
@@ -16,6 +16,7 @@ object FullMainForm: TFullMainForm
   Position = poScreenCenter
   WindowState = wsMaximized
   OnClose = FormClose
+  OnCreate = FormCreate
   OnKeyUp = FormKeyUp
   OnShow = FormShow
   PixelsPerInch = 96
@@ -24,7 +25,7 @@ object FullMainForm: TFullMainForm
     Left = 0
     Top = 0
     Width = 748
-    Height = 70
+    Height = 291
     Align = alClient
     TabOrder = 0
     ExplicitLeft = 376
@@ -32,7 +33,7 @@ object FullMainForm: TFullMainForm
     ExplicitWidth = 300
     ExplicitHeight = 150
     ControlData = {
-      4C0000004F4D00003C0700000000000000000000000000000000000000000000
+      4C0000004F4D0000131E00000000000000000000000000000000000000000000
       000000004C000000000000000000000001000000E0D057007335CF11AE690800
       2B2E126208000000000000004C0000000114020000000000C000000000000046
       8000000000000000000000000000000000000000000000000000000000000000
@@ -340,10 +341,6 @@ object FullMainForm: TFullMainForm
         Caption = 'MIGRAR'
         Hint = 'MIGRAR DESDE VERSIONES ANTERIORES'
         OnClick = MIGRAR1Click
-      end
-      object LICENCIA1: TMenuItem
-        Caption = 'LICENCIA'
-        OnClick = LICENCIA1Click
       end
     end
     object N1: TMenuItem

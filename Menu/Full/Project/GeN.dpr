@@ -2,7 +2,6 @@ program GeN;
 
 uses
   Forms,
-  VigilanciaF in '..\..\..\Modulo\Vigilancia\form\VigilanciaF.pas' {VigilanciaForm},
   UFFormaPago in '..\..\..\SubOperacion\FormaPago\Form\UFFormaPago.pas' {FFormaPago},
   UFClientes in '..\..\..\ABM\Cliente\Form\UFClientes.pas' {FClientes},
   UFCategorias in '..\..\..\ABM\Categoria\Form\UFCategorias.pas' {FCategorias},
@@ -28,7 +27,6 @@ uses
   Entrega in '..\..\..\SubOperacion\EntregaDinero\Form\Entrega.pas' {EntregaForm},
   EmpresaF in '..\..\..\ABM\Empresa\Form\EmpresaF.pas' {EmpresaForm},
   DevolucionProveedorCelularF in '..\..\..\Operacion\DevolucionProveedorCelular\Form\DevolucionProveedorCelularF.pas' {DevolucionesForm},
-  Demo in '..\..\..\Demo\Demo.pas' {DemoDM: TDataModule},
   DataModule in '..\..\..\DataModule\DataModule.pas' {DM: TDataModule},
   CalculoCuotas in '..\..\..\SubOperacion\CalculoCuotas\Form\CalculoCuotas.pas' {CalculoCuotasForm},
   ListadoCuentasF in '..\..\..\Listados\Cuentas\Form\ListadoCuentasF.pas' {ListadoCuentasForm},
@@ -101,8 +99,6 @@ uses
   UFProductos in '..\..\..\ABM\Articulo\Form\UFProductos.pas' {FProductos},
   VerCobranza in '..\..\..\Buscar\Cobranza\Form\VerCobranza.pas' {VerCobranzaForm},
   VenderF in '..\..\..\Operacion\VenderCodBarra\Form\VenderF.pas' {VenderForm},
-  LicenciaF in '..\..\..\Licencia\Form\LicenciaF.pas' {LicenciaForm},
-  MenuCelularF in '..\..\Celular\Form\MenuCelularF.pas' {MenuCelularForm},
   ExportarExcelF in '..\..\..\Exportar\Excel\Form\ExportarExcelF.pas' {Menu1},
   main in '..\..\..\AcercaDe\form\main.pas' {mainForm},
   LoginF in '..\..\..\SubOperacion\Login\Form\LoginF.pas' {FLogin},
@@ -112,7 +108,8 @@ uses
   UFDevoluciones in '..\..\..\operacion\devolucion\form\UFDevoluciones.pas' {FDevoluciones},
   BuscarArticulosCelularF in '..\..\..\buscar\articulocelular\form\BuscarArticulosCelularF.pas' {BuscaArticuloCelularForm},
   MarcaF in '..\..\..\ABM\Marca\Form\MarcaF.pas' {MarcaForm},
-  IngresosBrutosF in '..\..\..\abm\ingresosbrutos\form\IngresosBrutosF.pas' {IngresosBrutosForm};
+  IngresosBrutosF in '..\..\..\abm\ingresosbrutos\form\IngresosBrutosF.pas' {IngresosBrutosForm},
+  RestaurarBaseF in '..\..\..\Operacion\RestaurarBase\Form\RestaurarBaseF.pas' {RestaurarBaseForm};
 
 {$R *.res}
 
@@ -128,6 +125,7 @@ begin
   Application.CreateForm(TBuscaArticuloCelularForm, BuscaArticuloCelularForm);
   Application.CreateForm(TMarcaForm, MarcaForm);
   Application.CreateForm(TIngresosBrutosForm, IngresosBrutosForm);
+  Application.CreateForm(TRestaurarBaseForm, RestaurarBaseForm);
   Application.Run;
 
 end.

@@ -3,7 +3,7 @@
         <ProjectGuid>{F4C44150-362D-434D-B95E-F0411259B717}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>Socio.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

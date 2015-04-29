@@ -5,8 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DataModule, ExtCtrls, StdCtrls, Mask, DBCtrls, ComCtrls, ImprimirDM,
-  Buttons, IBQuery,
-  IBCustomDataSet, IBTable, DB, OleCtrls, SHDocVw;
+  Buttons, DB, OleCtrls, SHDocVw, IBX.IBQuery, IBX.IBCustomDataSet, IBX.IBTable;
 
 type
   TSocioForm = class(TForm)
@@ -146,7 +145,7 @@ end;
 
 procedure TSocioForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
   UsuarioT.Open;
   CuentaT.Open;
   Tabla.Open;

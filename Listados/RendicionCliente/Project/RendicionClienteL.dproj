@@ -3,7 +3,7 @@
         <ProjectGuid>{1D8AC3BE-721B-42DC-887B-5F3D5C377C24}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>RendicionClienteL.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

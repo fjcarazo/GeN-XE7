@@ -3,7 +3,7 @@
         <ProjectGuid>{B9AE1B51-F4A0-41AB-8A08-9928A5F17F51}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>LibroIVACompras.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

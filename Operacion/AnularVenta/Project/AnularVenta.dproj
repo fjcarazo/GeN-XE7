@@ -2,7 +2,7 @@
     <PropertyGroup>
         <ProjectGuid>{52ADDEBA-A7DB-4F3B-9BD9-D971E5D8C04F}</ProjectGuid>
         <MainSource>AnularVenta.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <ProjectVersion>16.0</ProjectVersion>
         <Base>True</Base>

@@ -3,7 +3,7 @@
         <ProjectGuid>{BCD0E6EE-0693-4182-8A78-BB1A3C44A7FC}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>CrearCredito.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

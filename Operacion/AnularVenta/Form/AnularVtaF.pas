@@ -4,8 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, DB, ExtCtrls, DataModule, IBCustomDataSet,
-  IBQuery, OperacionDM;
+  Dialogs, StdCtrls, Buttons, DB, ExtCtrls, DataModule, OperacionDM,
+  IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TFAnulaReimp = class(TForm)

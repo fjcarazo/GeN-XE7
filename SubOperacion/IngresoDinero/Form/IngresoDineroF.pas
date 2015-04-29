@@ -297,8 +297,8 @@ begin
             + '(' + PagoStringGrid.Cells[6, i] + ',' + PagoStringGrid.Cells
             [0, i] + ',' + QuotedStr(PagoStringGrid.Cells[1, i]) + ',' +
             PagoStringGrid.Cells[4, i] + ',' + PagoStringGrid.Cells[2, i] + ','
-            + QuotedStr(PagoStringGrid.Cells[5, i]) + ',' +
-            PagoStringGrid.Cells[3, i] + ')';
+            + QuotedStr(PagoStringGrid.Cells[5, i]) + ',' + PagoStringGrid.Cells
+            [3, i] + ')';
           Query.ExecSQL;
         end;
         // ELIMINAR CHEQUE DE CARTERA

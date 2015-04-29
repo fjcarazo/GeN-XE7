@@ -5,8 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, ComCtrls, StdCtrls, Buttons, ExtCtrls, DataModule, Grids,
-  DBGrids, IBQuery,
-  IBCustomDataSet, OleCtrls, SHDocVw, jpeg;
+  DBGrids, OleCtrls, SHDocVw, jpeg, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TRendicionCobradorLForm = class(TForm)
@@ -71,7 +70,7 @@ end;
 
 procedure TRendicionCobradorLForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(Self);
+  //DM := TDM.Create(Self);
   DTP2.DateTime := Now;
 end;
 

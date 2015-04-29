@@ -3,7 +3,7 @@
         <ProjectGuid>{4C83799D-F82A-4964-89E2-40E33D2AC266}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>IncrementarValor.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

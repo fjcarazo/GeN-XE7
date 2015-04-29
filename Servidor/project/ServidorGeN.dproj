@@ -3,7 +3,7 @@
         <ProjectGuid>{78500250-A7DF-4D14-8681-CC36E52EE0F9}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>ServidorGeN.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

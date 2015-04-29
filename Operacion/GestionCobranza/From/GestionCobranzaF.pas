@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, DataModule, DB, ADODB, Mask, DBCtrls, Grids, DBGrids,
-  ExtCtrls, Buttons, IBCustomDataSet, IBTable, IBQuery, OleCtrls, SHDocVw;
+  ExtCtrls, Buttons, OleCtrls, SHDocVw, IBX.IBQuery, IBX.IBCustomDataSet,
+  IBX.IBTable;
 
 type
   TGestionCobranzaForm = class(TForm)
@@ -180,7 +181,7 @@ end;
 
 procedure TGestionCobranzaForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
   Tabla.Open;
   ClienteT.Open;
   CobranzaT.Open;

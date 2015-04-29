@@ -3,7 +3,7 @@
         <ProjectGuid>{4C45CC59-C21E-4061-B8EC-8FEEE9C5828C}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>RendicionCarton.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

@@ -3,7 +3,7 @@
         <ProjectGuid>{BFD85BAD-CD64-4737-9FBB-F0F8C9AE1FB3}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>LibroDiarioL.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

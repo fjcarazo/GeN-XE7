@@ -3,7 +3,7 @@
         <ProjectGuid>{E6FE8698-E194-48A6-8D2B-C8273B590C48}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>GananciaXvta.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

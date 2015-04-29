@@ -3,7 +3,7 @@
         <ProjectGuid>{8A3C1483-9F25-434C-AA10-BD49F29485D5}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>PedidoL.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

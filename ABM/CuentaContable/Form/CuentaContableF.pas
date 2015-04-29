@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, Grids, DBGrids, ExtCtrls, DBCtrls, Mask, DB,
-  DataModule, IBCustomDataSet, IBTable, IBQuery, OleCtrls, SHDocVw;
+  DataModule, OleCtrls, SHDocVw, IBX.IBQuery, IBX.IBCustomDataSet, IBX.IBTable;
 
 type
   TCuentasContablesForm = class(TForm)
@@ -104,7 +104,7 @@ end;
 
 procedure TCuentasContablesForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(Self);
+  //DM := TDM.Create(Self);
   GrillaQ.Open;
   RubroT.Open;
   CapituloT.Open;

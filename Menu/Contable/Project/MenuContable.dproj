@@ -3,7 +3,7 @@
         <ProjectGuid>{6CE4963E-B484-472D-869C-01D83104A73B}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>MenuContable.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

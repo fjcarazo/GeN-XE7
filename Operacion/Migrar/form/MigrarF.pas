@@ -4,9 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, DB, ADODB, StdCtrls, DataModule, IBCustomDataSet, IBQuery,
-  OperacionDM,
-  ComCtrls, Buttons;
+  Dialogs, DB, ADODB, StdCtrls, DataModule, OperacionDM,
+  ComCtrls, Buttons, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TMigrarForm = class(TForm)
@@ -43,7 +42,7 @@ end;
 
 procedure TMigrarForm.FormShow(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
   OperacionDataModule := TOperacionDataModule.Create(self);
 end;
 

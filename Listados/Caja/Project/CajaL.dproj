@@ -3,7 +3,7 @@
         <ProjectGuid>{592F97ED-877D-4A28-B73B-D365CEABA26F}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>CajaL.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

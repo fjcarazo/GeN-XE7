@@ -3,7 +3,7 @@
         <ProjectGuid>{DD1CC49B-B98B-42B2-A633-2904035F3FE0}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>CtaCte.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

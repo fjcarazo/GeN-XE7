@@ -3,7 +3,7 @@
         <ProjectGuid>{5459B834-70A4-4F03-9212-86E25419A7EF}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>RetiroCaja.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

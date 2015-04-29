@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, ExtCtrls, DB, Grids, OperacionDM,
   DBGrids, ValEdit, DateUtils, ComCtrls, Printers, DataModule, ImprimirDM,
-  IBCustomDataSet, IBQuery, OleCtrls, SHDocVw;
+  OleCtrls, SHDocVw, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TCrearCreditoForm = class(TForm)
@@ -906,7 +906,7 @@ end;
 
 procedure TCrearCreditoForm.FormCreate(Sender: TObject);
 begin
-  dm := TDM.Create(self);
+  //dm := TDM.Create(self);
 end;
 
 procedure TCrearCreditoForm.FormKeyPress(Sender: TObject; var Key: Char);

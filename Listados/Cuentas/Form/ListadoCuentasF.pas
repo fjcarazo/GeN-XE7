@@ -118,32 +118,33 @@ procedure TListadoCuentasForm.BitBtn1Click(Sender: TObject);
 VAR
   i: Integer;
 begin
-with FormatSettings do begin
-  Debe.Caption := '0';
-  Haber.Caption := '0';
-  Saldo.Caption := '0';
-
-  ADOQuery1.SQL.Text := 'SELECT Debe - Haber As SubTotal,"' + Empresa +
-    '" As Empresa,"' + DateToStr(DTP1.Date) + '" As Desde,"' +
-    DateToStr(DTP2.Date) + '" As Hasta,* FROM ' + Cuenta;
-  ShortDateFormat := '#yyyy/mm/dd#';
-  ADOQuery1.SQL.Add(' WHERE Fecha >= ' + DateToStr(DTP1.Date) + ' AND Fecha <= '
-    + DateToStr(DTP2.Date));
-  ADOQuery1.SQL.Add(' ORDER BY Fecha');
-  ADOQuery1.Open;
-  ShortDateFormat := 'dd/mm/yyyy';
-
-  for i := 1 to ADOQuery1.RecordCount do
+  with FormatSettings do
   begin
-    Debe.Caption := FloatToStr(StrToFloat(Debe.Caption) +
-      ADOQuery1.FieldByName('Debe').AsFloat);
-    Haber.Caption := FloatToStr(StrToFloat(Haber.Caption) +
-      ADOQuery1.FieldByName('Haber').AsFloat);
-    Saldo.Caption := FloatToStr(StrToFloat(Debe.Caption) -
-      StrToFloat(Haber.Caption));
-    ADOQuery1.Next;
+    Debe.Caption := '0';
+    Haber.Caption := '0';
+    Saldo.Caption := '0';
+
+    ADOQuery1.SQL.Text := 'SELECT Debe - Haber As SubTotal,"' + Empresa +
+      '" As Empresa,"' + DateToStr(DTP1.Date) + '" As Desde,"' +
+      DateToStr(DTP2.Date) + '" As Hasta,* FROM ' + Cuenta;
+    ShortDateFormat := '#yyyy/mm/dd#';
+    ADOQuery1.SQL.Add(' WHERE Fecha >= ' + DateToStr(DTP1.Date) +
+      ' AND Fecha <= ' + DateToStr(DTP2.Date));
+    ADOQuery1.SQL.Add(' ORDER BY Fecha');
+    ADOQuery1.Open;
+    ShortDateFormat := 'dd/mm/yyyy';
+
+    for i := 1 to ADOQuery1.RecordCount do
+    begin
+      Debe.Caption := FloatToStr(StrToFloat(Debe.Caption) +
+        ADOQuery1.FieldByName('Debe').AsFloat);
+      Haber.Caption := FloatToStr(StrToFloat(Haber.Caption) +
+        ADOQuery1.FieldByName('Haber').AsFloat);
+      Saldo.Caption := FloatToStr(StrToFloat(Debe.Caption) -
+        StrToFloat(Haber.Caption));
+      ADOQuery1.Next;
+    end;
   end;
-end;
 
 end;
 
@@ -154,9 +155,9 @@ end;
 
 procedure TListadoCuentasForm.BitBtn3Click(Sender: TObject);
 begin
-  {RvProject1.ProjectFile := Path + 'Report\Cuentas.rav';
-  RvProject1.Execute;
-  RvProject1.Close; }
+  { RvProject1.ProjectFile := Path + 'Report\Cuentas.rav';
+    RvProject1.Execute;
+    RvProject1.Close; }
   ADOQuery1.Close;
 end;
 

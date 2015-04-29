@@ -5,8 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, ADODB, ComCtrls, StdCtrls, Buttons, ExtCtrls, DataModule, Grids,
-  DBGrids, IBCustomDataSet, IBQuery, ImprimirDM,
-  OleCtrls, SHDocVw, jpeg;
+  DBGrids, ImprimirDM, OleCtrls, SHDocVw, jpeg, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TCartonCobranzaForm = class(TForm)
@@ -76,7 +75,7 @@ end;
 
 procedure TCartonCobranzaForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(Self);
+  //DM := TDM.Create(Self);
   ImprimirDataModule := TImprimirDataModule.Create(Self);
   DTP2.DateTime := Now;
 end;

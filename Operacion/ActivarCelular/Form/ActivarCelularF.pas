@@ -67,7 +67,7 @@ end;
 
 procedure TVendedorActivaForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
 end;
 
 procedure TVendedorActivaForm.FormKeyPress(Sender: TObject; var Key: Char);

@@ -5,8 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, Grids, DBGrids, DB, ImprimirDM, Mask, DBCtrls, StdCtrls,
-  Buttons,
-  ComCtrls, DataModule, IBCustomDataSet, IBQuery, jpeg;
+  Buttons, ComCtrls, DataModule, jpeg, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TVerCobranzaForm = class(TForm)

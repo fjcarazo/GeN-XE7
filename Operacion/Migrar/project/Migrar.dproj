@@ -3,7 +3,7 @@
         <ProjectGuid>{774276FD-E2BA-450D-9EB5-7DE59C1F5ADA}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>Migrar.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

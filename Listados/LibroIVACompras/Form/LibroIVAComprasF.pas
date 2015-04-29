@@ -5,8 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, ImprimirDM, ComCtrls, StdCtrls, Buttons, ExtCtrls, DataModule,
-  Grids, DBGrids, IBCustomDataSet, IBQuery,
-  OleCtrls, SHDocVw, jpeg;
+  Grids, DBGrids, OleCtrls, SHDocVw, jpeg, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TLibroIVAComprasForm = class(TForm)
@@ -80,7 +79,7 @@ end;
 
 procedure TLibroIVAComprasForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(Self);
+  //DM := TDM.Create(Self);
   DTP2.DateTime := Now;
 end;
 

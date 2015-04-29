@@ -3,7 +3,7 @@
         <ProjectGuid>{97E969B5-4209-4347-BDD3-AD1F33013FCC}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>RubroContable.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

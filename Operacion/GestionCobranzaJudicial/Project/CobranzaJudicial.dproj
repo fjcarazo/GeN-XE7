@@ -3,7 +3,7 @@
         <ProjectGuid>{6535EDE3-0250-48C8-BD67-DDA0FD460F92}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>CobranzaJudicial.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

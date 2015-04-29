@@ -3,7 +3,7 @@
         <ProjectGuid>{196B90D7-6EDE-43A4-AE24-9D84D8D9D41D}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>CrearPedido.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

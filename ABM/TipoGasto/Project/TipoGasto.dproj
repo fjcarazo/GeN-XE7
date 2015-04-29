@@ -3,7 +3,7 @@
         <ProjectGuid>{A4F1EB4F-C3F0-4766-BC8C-EECB5743E387}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>TipoGasto.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

@@ -3,7 +3,7 @@
         <ProjectGuid>{DC9CFD0B-CCE4-43E8-81AA-CF126473EC0C}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>PreciosL.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

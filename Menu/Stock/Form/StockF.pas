@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, StdCtrls, Buttons, DBCtrls, Grids, DBGrids, ExtCtrls,
-  DataModule, Demo, Menus, IBCustomDataSet, IBTable, IBQuery;
+  DataModule, Menus, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TStockForm = class(TForm)
@@ -85,7 +85,7 @@ uses AgregarCantidad;
 
 procedure TStockForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
 end;
 
 procedure TStockForm.FormKeyDown(Sender: TObject; var Key: Word;

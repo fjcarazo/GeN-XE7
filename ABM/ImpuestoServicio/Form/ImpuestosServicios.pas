@@ -145,7 +145,7 @@ end;
 
 procedure TImpuestosServiciosFrom.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(Self);
+  //DM := TDM.Create(Self);
   CuentaQuery.Open;
   Tabla.Active := True;
   TUsuarios.Active := True;

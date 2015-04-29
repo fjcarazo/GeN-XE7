@@ -5,8 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, ImprimirDM, ComCtrls, StdCtrls, Buttons, ExtCtrls, DataModule,
-  Grids, DBGrids, IBCustomDataSet, IBQuery,
-  OleCtrls, SHDocVw, jpeg;
+  Grids, DBGrids, OleCtrls, SHDocVw, jpeg, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TCuentasForm = class(TForm)
@@ -82,7 +81,7 @@ end;
 
 procedure TCuentasForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(Self);
+  //DM := TDM.Create(Self);
   DTP2.DateTime := Now;
 end;
 

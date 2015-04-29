@@ -5,9 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Grids, DBGrids, StdCtrls, ComCtrls, DB, Buttons, ImprimirDM,
-  DataModule,
-  ExtCtrls, IBCustomDataSet,
-  IBQuery, OleCtrls, SHDocVw;
+  DataModule, ExtCtrls, OleCtrls, SHDocVw, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TNotaCreditoPlanForm = class(TForm)
@@ -455,7 +453,7 @@ end;
 
 procedure TNotaCreditoPlanForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
 end;
 
 procedure TNotaCreditoPlanForm.FormKeyPress(Sender: TObject; var Key: Char);

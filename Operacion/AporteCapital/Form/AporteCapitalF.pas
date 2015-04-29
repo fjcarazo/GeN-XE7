@@ -4,9 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, DBCtrls, ExtCtrls, DB, IBCustomDataSet, IBQuery,
-  DataModule,
-  ComCtrls, OleCtrls, SHDocVw;
+  Dialogs, StdCtrls, Buttons, DBCtrls, ExtCtrls, DB, DataModule,
+  ComCtrls, OleCtrls, SHDocVw, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TAporteCapitalForm = class(TForm)
@@ -79,7 +78,7 @@ end;
 
 procedure TAporteCapitalForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
 end;
 
 procedure TAporteCapitalForm.FormKeyPress(Sender: TObject; var Key: Char);

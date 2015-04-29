@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, Mask, DBCtrls, DB, ADODB, ComCtrls, DataModule,
-  IBCustomDataSet, IBQuery, IBTable, ExtCtrls, OleCtrls, SHDocVw;
+  ExtCtrls, OleCtrls, SHDocVw, IBX.IBTable, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TConfiguracionForm = class(TForm)
@@ -175,7 +175,7 @@ end;
 
 procedure TConfiguracionForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(Self);
+  //DM := TDM.Create(Self);
   Tabla.Open;
   CuentaQuery.Open;
   CuentaQuery.Last;

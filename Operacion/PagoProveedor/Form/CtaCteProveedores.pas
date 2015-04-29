@@ -5,8 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, Grids, DBGrids, StdCtrls, Buttons, Mask, DBCtrls, ExtCtrls,
-  DataModule,
-  IBCustomDataSet, IBQuery, OleCtrls, SHDocVw, OperacionDM, jpeg, ImprimirDM;
+  DataModule, OleCtrls, SHDocVw, OperacionDM, jpeg, ImprimirDM,
+  IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TCtaCteProveedoresForm = class(TForm)
@@ -251,7 +251,7 @@ end;
 
 procedure TCtaCteProveedoresForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
 end;
 
 procedure TCtaCteProveedoresForm.FormKeyUp(Sender: TObject; var Key: Word;

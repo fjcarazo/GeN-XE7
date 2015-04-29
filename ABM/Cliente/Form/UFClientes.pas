@@ -5,8 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DataModule, ExtCtrls, StdCtrls, Mask, DBCtrls, ComCtrls, DB, ADODB,
-  Buttons, IBCustomDataSet,
-  IBQuery, IBStoredProc, IBTable, ImprimirDM, OleCtrls, SHDocVw;
+  Buttons, ImprimirDM, OleCtrls, SHDocVw, IBX.IBCustomDataSet, IBX.IBTable;
 
 type
   TFClientes = class(TForm)
@@ -165,7 +164,7 @@ end;
 
 procedure TFClientes.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+//  DM := TDM.Create(self);
   UsuarioT.Open;
   CuentaT.Open;
   Tabla.Open;

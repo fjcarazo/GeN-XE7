@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2015/04/24 21:08:47.000.136,=C:\Users\diego_000\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/04/24 21:11:51.000.276,C:\Users\diego_000\Documents\GitHub\GeN-XE7\GeN.pas=C:\Users\diego_000\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/04/24 21:11:51.000.276,C:\Users\diego_000\Documents\GitHub\GeN-XE7\GeN.dfm=C:\Users\diego_000\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2015/04/24 21:12:41.000.031,C:\Users\diego_000\Documents\GitHub\GeN-XE7\GeNF.pas=C:\Users\diego_000\Documents\GitHub\GeN-XE7\GeN.pas</Transaction>
+    <Transaction>2015/04/24 21:12:41.000.031,C:\Users\diego_000\Documents\GitHub\GeN-XE7\GeNF.dfm=C:\Users\diego_000\Documents\GitHub\GeN-XE7\GeN.dfm</Transaction>
+    <Transaction>2015/04/24 21:12:55.000.874,C:\Users\diego_000\Documents\GitHub\GeN-XE7\GeN.dproj=C:\Users\diego_000\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2015/04/24 21:17:35.000.916,=C:\Users\diego_000\Documents\GitHub\GeN-XE7\DataModule\DataModule.pas</Transaction>
+  </Transactions>
+</BorlandProject>

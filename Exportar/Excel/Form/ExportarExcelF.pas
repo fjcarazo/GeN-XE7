@@ -5,8 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   shellapi,
-  Dialogs, StdCtrls, ExtCtrls, DataModule, DB, IBCustomDataSet, IBQuery,
-  Buttons;
+  Dialogs, StdCtrls, ExtCtrls, DataModule, DB, Buttons, IBX.IBCustomDataSet,
+  IBX.IBQuery;
 
 type
   TMenu1 = class(TForm)
@@ -254,7 +254,7 @@ end;
 procedure TMenu1.FormCreate(Sender: TObject);
 begin
   SaveDialog1.InitialDir := ExtractFilePath(Application.ExeName);
-  dm := tdm.Create(self);
+  //dm := tdm.Create(self);
 end;
 
 end.

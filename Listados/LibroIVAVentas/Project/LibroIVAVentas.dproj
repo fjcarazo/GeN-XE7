@@ -3,7 +3,7 @@
         <ProjectGuid>{864314F8-0A6F-4768-80F3-0F019EF66752}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>LibroIVAVentas.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, DB, ADODB, ComCtrls, StdCtrls, Buttons, ExtCtrls, DataModule, Grids, DBGrids, ImprimirDM;
+  Dialogs, DB, ADODB, ComCtrls, StdCtrls, Buttons, ExtCtrls, DataModule, Grids,
+  DBGrids, ImprimirDM;
 
 type
   TActivacionesLForm = class(TForm)
@@ -64,7 +65,7 @@ end;
 
 procedure TActivacionesLForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
   EmpresaTabla.Open;
   DTP2.DateTime := Now;
 end;
@@ -99,24 +100,25 @@ procedure TActivacionesLForm.SiBitBtnClick(Sender: TObject);
 VAR
   i: Integer;
 begin
-with FormatSettings do
-begin
-  Tabla.SQL.Text :=
-    'SELECT ActivarCelular.IMEI, ActivarCelular.NSE, Vendedor.Nombre AS VENDEDOR, Articulos_1.Descripcion AS CHIP, Articulos.Descripcion AS CELULAR, Clientes.NombreCliente AS CLIENTE, Factura.CodFactura AS COMPROBANTE, ActivarCelular.Fecha,'
-    + ' "' + EmpresaTabla.FieldByName('Nombre').AsString + '" As Empresa,"' +
-    DateToStr(DTP1.Date) + '" As Desde,"' + DateToStr(DTP2.Date) + '" As Hasta'
-    + ' FROM ((ActivarCelular INNER JOIN (((Factura INNER JOIN Clientes ON Factura.CodCliente = Clientes.CodCliente)'
-    + ' INNER JOIN FacturaItem ON Factura.CodFactura = FacturaItem.CodFactura)'
-    + ' INNER JOIN Articulos ON FacturaItem.CodParte = Articulos.CodParte) ON ActivarCelular.IMEI = Articulos.CodigoBarra)'
-    + ' INNER JOIN Articulos AS Articulos_1 ON ActivarCelular.NSE = Articulos_1.CodigoBarra) INNER JOIN Vendedor ON ActivarCelular.Vendedor = Vendedor.Codigo'
-    + '';
-  ShortDateFormat := '#yyyy/mm/dd#';
-  Tabla.SQL.Add(' WHERE ActivarCelular.Fecha >= ' + DateToStr(DTP1.Date) +
-    ' AND ActivarCelular.Fecha <= ' + DateToStr(DTP2.Date));
-  Tabla.SQL.Add(' ORDER BY ActivarCelular.Fecha');
-  Tabla.Open;
-  ShortDateFormat := 'dd/mm/yyyy';
-end;
+  with FormatSettings do
+  begin
+    Tabla.SQL.Text :=
+      'SELECT ActivarCelular.IMEI, ActivarCelular.NSE, Vendedor.Nombre AS VENDEDOR, Articulos_1.Descripcion AS CHIP, Articulos.Descripcion AS CELULAR, Clientes.NombreCliente AS CLIENTE, Factura.CodFactura AS COMPROBANTE, ActivarCelular.Fecha,'
+      + ' "' + EmpresaTabla.FieldByName('Nombre').AsString + '" As Empresa,"' +
+      DateToStr(DTP1.Date) + '" As Desde,"' + DateToStr(DTP2.Date) +
+      '" As Hasta' +
+      ' FROM ((ActivarCelular INNER JOIN (((Factura INNER JOIN Clientes ON Factura.CodCliente = Clientes.CodCliente)'
+      + ' INNER JOIN FacturaItem ON Factura.CodFactura = FacturaItem.CodFactura)'
+      + ' INNER JOIN Articulos ON FacturaItem.CodParte = Articulos.CodParte) ON ActivarCelular.IMEI = Articulos.CodigoBarra)'
+      + ' INNER JOIN Articulos AS Articulos_1 ON ActivarCelular.NSE = Articulos_1.CodigoBarra) INNER JOIN Vendedor ON ActivarCelular.Vendedor = Vendedor.Codigo'
+      + '';
+    ShortDateFormat := '#yyyy/mm/dd#';
+    Tabla.SQL.Add(' WHERE ActivarCelular.Fecha >= ' + DateToStr(DTP1.Date) +
+      ' AND ActivarCelular.Fecha <= ' + DateToStr(DTP2.Date));
+    Tabla.SQL.Add(' ORDER BY ActivarCelular.Fecha');
+    Tabla.Open;
+    ShortDateFormat := 'dd/mm/yyyy';
+  end;
 end;
 
 procedure TActivacionesLForm.FormDestroy(Sender: TObject);
@@ -134,9 +136,9 @@ begin
     begin
       Query.SQL.Text := Tabla.SQL.Text;
       Query.Open;
-      {RvProject.ProjectFile := Path + 'Report\ActivacionesL.rav';
-      RvProject.Execute;
-      RvProject.Close;  }
+      { RvProject.ProjectFile := Path + 'Report\ActivacionesL.rav';
+        RvProject.Execute;
+        RvProject.Close; }
       ImprimirDataModule.Free;
     end;
   end;

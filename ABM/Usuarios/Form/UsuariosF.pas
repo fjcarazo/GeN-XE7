@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DataModule, StdCtrls, Buttons, ExtCtrls, DBCtrls, DB, Mask,
-  IBCustomDataSet, IBTable, IBQuery, OleCtrls, SHDocVw;
+  OleCtrls, SHDocVw, IBX.IBQuery, IBX.IBCustomDataSet, IBX.IBTable;
 
 type
   TUsuariosForm = class(TForm)
@@ -61,7 +61,7 @@ end;
 
 procedure TUsuariosForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
   PermisoT.Open;
   Tabla.Open;
   Tabla.Last;

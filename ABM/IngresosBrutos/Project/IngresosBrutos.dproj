@@ -3,7 +3,7 @@
         <ProjectGuid>{980AEE2D-A9E1-4F87-AC7B-7A2B49F8110F}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>IngresosBrutos.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

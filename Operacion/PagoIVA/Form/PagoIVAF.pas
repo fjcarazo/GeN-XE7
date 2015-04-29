@@ -4,8 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls, Buttons, DataModule, DB, ComCtrls,
-  IBCustomDataSet, IBQuery, OleCtrls, SHDocVw;
+  Dialogs, ExtCtrls, StdCtrls, Buttons, DataModule, DB, ComCtrls, OleCtrls, SHDocVw,
+  IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TPagoIVAForm = class(TForm)
@@ -193,7 +193,7 @@ end;
 
 procedure TPagoIVAForm.FormCreate(Sender: TObject);
 begin
-  dm := TDM.Create(Self);
+  //dm := TDM.Create(Self);
 end;
 
 end.

@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, ExtCtrls, DB, ADODB, DataModule, Grids,
   DBGrids, ValEdit, DateUtils, ComCtrls, Printers,
-  ImprimirDM, IBCustomDataSet, IBQuery, OperacionDM;
+  ImprimirDM, OperacionDM, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TPresupuestoForm = class(TForm)
@@ -1015,7 +1015,7 @@ end;
 
 procedure TPresupuestoForm.FormCreate(Sender: TObject);
 begin
-  dm := TDM.Create(self);
+  //dm := TDM.Create(self);
 end;
 
 procedure TPresupuestoForm.BitBtn10Click(Sender: TObject);

@@ -4,8 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, Grids, DBGrids, DB, DataModule,
-  IBCustomDataSet, IBQuery, ExtCtrls;
+  Dialogs, StdCtrls, Buttons, Grids, DBGrids, DB, DataModule, ExtCtrls,
+  IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TIncrementoForm = class(TForm)
@@ -43,7 +43,7 @@ end;
 
 procedure TIncrementoForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(Self);
+  //DM := TDM.Create(Self);
 end;
 
 procedure TIncrementoForm.FormShow(Sender: TObject);

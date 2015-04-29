@@ -267,14 +267,15 @@ begin
   if UnidadRadioGroup.ItemIndex = 0 then
     copiatodo(BaseDeDatos, unidad)
   else
-    copiatodo(Path, BaseDeDatos);//copiatodo(unidad + '\' + DBase, BaseDeDatos);
+    copiatodo(Path, BaseDeDatos);
+  // copiatodo(unidad + '\' + DBase, BaseDeDatos);
   showmessage('Proceso terminado con éxito');
   Close;
 end;
 
 procedure TBackUpForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
 end;
 
 end.

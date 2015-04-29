@@ -3,7 +3,7 @@
         <ProjectGuid>{505F403D-91B2-473D-B907-BD7EC60EF46A}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>Proveedor.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

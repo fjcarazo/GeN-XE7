@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, ImprimirDM, StdCtrls, Buttons, DBCtrls, ExtCtrls, Grids, DBGrids,
-  IBCustomDataSet, IBQuery, jpeg;
+  jpeg, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TBuscarCuentaForm = class(TForm)

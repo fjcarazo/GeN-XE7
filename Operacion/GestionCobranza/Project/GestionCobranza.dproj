@@ -3,7 +3,7 @@
         <ProjectGuid>{7F1B84B0-BF72-4DC3-87DA-B4386639D0C8}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>GestionCobranza.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

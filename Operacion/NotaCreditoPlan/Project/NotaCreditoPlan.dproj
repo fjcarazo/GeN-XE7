@@ -3,7 +3,7 @@
         <ProjectGuid>{AD7376E2-BD29-4B02-899D-DD8ACA4A977E}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>NotaCreditoPlan.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

@@ -3,7 +3,7 @@
         <ProjectGuid>{3160E51D-2EF0-468A-BDB7-C6E8185AED32}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="..\..\Menu\Full\Project\GeN.dproj">
+        <Projects Include="..\..\Full.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -14,23 +14,23 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="GeN">
-        <MSBuild Projects="..\..\Menu\Full\Project\GeN.dproj"/>
+    <Target Name="Full">
+        <MSBuild Projects="..\..\Full.dproj"/>
     </Target>
-    <Target Name="GeN:Clean">
-        <MSBuild Projects="..\..\Menu\Full\Project\GeN.dproj" Targets="Clean"/>
+    <Target Name="Full:Clean">
+        <MSBuild Projects="..\..\Full.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="GeN:Make">
-        <MSBuild Projects="..\..\Menu\Full\Project\GeN.dproj" Targets="Make"/>
+    <Target Name="Full:Make">
+        <MSBuild Projects="..\..\Full.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="GeN"/>
+        <CallTarget Targets="Full"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="GeN:Clean"/>
+        <CallTarget Targets="Full:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="GeN:Make"/>
+        <CallTarget Targets="Full:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

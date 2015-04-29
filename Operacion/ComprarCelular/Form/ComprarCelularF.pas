@@ -362,44 +362,44 @@ end;
 
 procedure TComprarCelularForm.BitBtn1Click(Sender: TObject);
 begin
-  {FBuscaProve := TFBuscaProve.Create(self);
-  try
+  { FBuscaProve := TFBuscaProve.Create(self);
+    try
     FBuscaProve.ShowModal;
-  finally
+    finally
     Edit1.Text := FBuscaProve.ATProve.FieldByName('CodProve').AsString;
     with FBuscaProve do
     begin
-      ProveedorLabel.Caption := ATProve.FieldByName('Nombre').AsString;
-      Label3.Caption := ATProve.FieldByName('Direccion1').AsString;
-      Label4.Caption := ATProve.FieldByName('Direccion2').AsString;
-      Label13.Caption := ATProve.FieldByName('Telefono').AsString;
-      Label14.Caption := ATProve.FieldByName('Celular').AsString;
-      Label15.Caption := ATProve.FieldByName('Rubro').AsString;
-      Label19.Caption := ATProve.FieldByName('Terminos').AsString;
-      Label23.Caption :=
-        DateToStr(IncDay(now, ATProve.FieldByName('DiasCredito').AsInteger));
-      Label21.Caption := ATProve.FieldByName('DiasCredito').AsString;
-      GerenteLabel.Caption := ATProve.FieldByName('Gerente').AsString;
-      Label27.Caption := ATProve.FieldByName('CUIT').AsString;
-      // CUENTA
-      CtaNombre := ATProve.FieldByName('CtaNombre').AsString;
-      CtaTipo := ATProve.FieldByName('CtaTipo').AsString;
-      CtaAnticipo := ATProve.FieldByName('CtaAnticipo').AsString;
-      CtaIIBB := ATProve.FieldByName('CtaIIBB').AsString;
+    ProveedorLabel.Caption := ATProve.FieldByName('Nombre').AsString;
+    Label3.Caption := ATProve.FieldByName('Direccion1').AsString;
+    Label4.Caption := ATProve.FieldByName('Direccion2').AsString;
+    Label13.Caption := ATProve.FieldByName('Telefono').AsString;
+    Label14.Caption := ATProve.FieldByName('Celular').AsString;
+    Label15.Caption := ATProve.FieldByName('Rubro').AsString;
+    Label19.Caption := ATProve.FieldByName('Terminos').AsString;
+    Label23.Caption :=
+    DateToStr(IncDay(now, ATProve.FieldByName('DiasCredito').AsInteger));
+    Label21.Caption := ATProve.FieldByName('DiasCredito').AsString;
+    GerenteLabel.Caption := ATProve.FieldByName('Gerente').AsString;
+    Label27.Caption := ATProve.FieldByName('CUIT').AsString;
+    // CUENTA
+    CtaNombre := ATProve.FieldByName('CtaNombre').AsString;
+    CtaTipo := ATProve.FieldByName('CtaTipo').AsString;
+    CtaAnticipo := ATProve.FieldByName('CtaAnticipo').AsString;
+    CtaIIBB := ATProve.FieldByName('CtaIIBB').AsString;
 
-      PagareCheckBox.Checked := ATProve.FieldByName('PAGARE').AsBoolean;
+    PagareCheckBox.Checked := ATProve.FieldByName('PAGARE').AsBoolean;
 
-      if (EmpresaQuery.FieldByName('CondicionIVA').AsString = 'RI') and
-        (ATProve.FieldByName('IVA').AsString = 'RI') then
-        cbTipo.ItemIndex := 0
-      else if (ATProve.FieldByName('IVA').AsString = 'RI') then
-        cbTipo.ItemIndex := 1
-      else
-        cbTipo.ItemIndex := 2;
+    if (EmpresaQuery.FieldByName('CondicionIVA').AsString = 'RI') and
+    (ATProve.FieldByName('IVA').AsString = 'RI') then
+    cbTipo.ItemIndex := 0
+    else if (ATProve.FieldByName('IVA').AsString = 'RI') then
+    cbTipo.ItemIndex := 1
+    else
+    cbTipo.ItemIndex := 2;
     end;
     FBuscaProve.Free;
-  end;
-  CalculaTotales; }
+    end;
+    CalculaTotales; }
 end;
 
 procedure TComprarCelularForm.BitBtn5Click(Sender: TObject);
@@ -556,12 +556,12 @@ begin
     MntContado := FFormaPago.FEContado.Text;
     MntCheque := FFormaPago.FECheque.Text;
     MntCheque3ro := FFormaPago.ChequeTerceroEdit.Text;
-{    NroCheque := FFormaPago.Edit1.Text;
-    DetCheque := FFormaPago.Edit3.Text;
-    DiaCheque := FFormaPago.Edit5.Text;
-    MntTarjeta := FFormaPago.FETarjeta.Text;
-    NroTarjeta := FFormaPago.Edit2.Text;
-    DetTarjeta := FFormaPago.Edit4.Text;}
+    { NroCheque := FFormaPago.Edit1.Text;
+      DetCheque := FFormaPago.Edit3.Text;
+      DiaCheque := FFormaPago.Edit5.Text;
+      MntTarjeta := FFormaPago.FETarjeta.Text;
+      NroTarjeta := FFormaPago.Edit2.Text;
+      DetTarjeta := FFormaPago.Edit4.Text; }
     MntOtros := FFormaPago.FEOtro.Text;
     Saldo := Format('%8.2f', [FFormaPago.Saldo]);
     Pagado := FloatToStr(FFormaPago.Pagado);
@@ -573,14 +573,15 @@ begin
     Tipo := 'F';
   If FPagoOK then
   begin
-  with FormatSettings do begin
-    // MntContado:=FloatToStr( StrToFloat(Saldo)+StrToFloat(Saldo)+StrToFloat(Saldo));
-    ShortDateFormat := 'yyyy-mm-dd';
-    Fecha := DateToStr(now);
-    if Label21.Caption <> '' then
-      FechaVence := DateToStr(IncDay(now, (StrToInt(Label21.Caption))));
-    ShortDateFormat := 'dd/mm/yyyy';
-  end;
+    with FormatSettings do
+    begin
+      // MntContado:=FloatToStr( StrToFloat(Saldo)+StrToFloat(Saldo)+StrToFloat(Saldo));
+      ShortDateFormat := 'yyyy-mm-dd';
+      Fecha := DateToStr(now);
+      if Label21.Caption <> '' then
+        FechaVence := DateToStr(IncDay(now, (StrToInt(Label21.Caption))));
+      ShortDateFormat := 'dd/mm/yyyy';
+    end;
     // Obtener el numero de Compra
     QTemp.SqL.Text := 'Select Max(CodCompra) From Compra where Tipo = ' +
       QuotedStr(Tipo);
@@ -591,7 +592,7 @@ begin
       numfact := QTemp.Fields[0].AsInteger + 1;
     QTemp.Close;
     // Iniciar la Transaccion
-    {DM.AC1.BeginTrans;   }
+    { DM.AC1.BeginTrans; }
     try
       // Insertar en la tabla de Compra si NO tiene ORDEN
       QTemp.SqL.Text :=
@@ -938,12 +939,12 @@ begin
       // ***************************************************************************************************************************
 
       // Completa la Transaccion
-      {DM.AC1.CommitTrans; }
+      { DM.AC1.CommitTrans; }
 
     except
       on E: Exception do
       begin
-        {DM.AC1.RollbackTrans;}
+        { DM.AC1.RollbackTrans; }
         MessageDlg
           ('No fue posible completar la transacción, por favor contacte al administrador',
           mtError, [mbOK], 0);
@@ -1003,7 +1004,7 @@ end;
 
 procedure TComprarCelularForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
   EmpresaQuery.Open;
   ConfigQuery.Open;
 end;

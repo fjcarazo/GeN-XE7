@@ -5,8 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DataModule, Grids, DBGrids, DB, ExtCtrls, StdCtrls, Mask,
-  DBCtrls, Buttons, ComCtrls, IBQuery, IBCustomDataSet, IBTable, OleCtrls,
-  SHDocVw;
+  DBCtrls, Buttons, ComCtrls, OleCtrls, SHDocVw, IBX.IBQuery,
+  IBX.IBCustomDataSet, IBX.IBTable;
 
 const
   EAN_izqA: array [0 .. 9] of PChar = ('0001101', '0011001', '0010011',
@@ -313,7 +313,7 @@ end;
 
 procedure TFProductos.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(Self);
+  //DM := TDM.Create(Self);
   Tabla.Active := True;
   SubCategoriaT.Active := True;
   ProveedorT.Active := True;

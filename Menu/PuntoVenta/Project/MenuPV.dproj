@@ -3,7 +3,7 @@
         <ProjectGuid>{AEF3E103-98C2-4A5B-9256-9D948EC1FA66}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>MenuPV.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

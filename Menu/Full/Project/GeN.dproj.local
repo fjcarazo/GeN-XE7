@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>2010/06/24 22:44:23.218.dproj,D:\RAD Studio\Projects\DeGsoft\GeN\Menu\Completo\Project\Menu.dproj=D:\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2010/06/24 22:44:23.218.dproj,D:\RAD Studio\Projects\Project1.dproj=D:\RAD Studio\Projects\DeGsoft\GeN\Menu\Completo\Project\Menu.dproj</Transaction>
     <Transaction>2010/09/14 19:38:08.375.pas,C:\Documents and Settings\BackUp\Mis documentos\WORK\projects\DeGsoft\GeN\Demo\Demo.pas=</Transaction>
     <Transaction>2010/09/14 19:38:08.390.dfm,C:\Documents and Settings\BackUp\Mis documentos\WORK\projects\DeGsoft\GeN\Demo\Demo.dfm=</Transaction>
-    <Transaction>2015/04/21 20:46:32.000.055,C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Full\Project\GeN.dproj=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Full\Project\Menu.dproj</Transaction>
+    <Transaction>2015/04/21 20:46:32.000.055,C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Full\Project\Menu.dproj=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Full\Project\GeN.dproj</Transaction>
     <Transaction>2015/04/21 21:10:43.000.775,=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Operacion\VenderCodBarra\Form\VenderF.pas</Transaction>
     <Transaction>2015/04/21 21:15:02.000.095,=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Buscar\Cliente\Form\UFBuscaCliente.pas</Transaction>
     <Transaction>2015/04/21 21:15:58.000.096,=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Buscar\Cheque\Form\BuscarCheques.pas</Transaction>
@@ -87,8 +87,8 @@
     <Transaction>2015/04/21 21:50:08.000.318,=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Listados\RendicionCobrador\Form\RendicionCobradorLF.pas</Transaction>
     <Transaction>2015/04/21 21:50:09.000.915,=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Listados\RendicionCliente\Form\RendicionClienteLF.pas</Transaction>
     <Transaction>2015/04/21 21:50:11.000.527,=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Operacion\RendicionCarton\Form\RendicionClienteF.pas</Transaction>
-    <Transaction>2015/04/21 21:51:44.000.893,C:\Users\diego_000\Documents\GitHub\GeN-XE7\Operacion\RendicionCarton\Form\RendicionCarton.dfm=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Operacion\RendicionCarton\Form\RendicionClienteF.dfm</Transaction>
-    <Transaction>2015/04/21 21:51:44.000.893,C:\Users\diego_000\Documents\GitHub\GeN-XE7\Operacion\RendicionCarton\Form\RendicionCarton.pas=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Operacion\RendicionCarton\Form\RendicionClienteF.pas</Transaction>
+    <Transaction>2015/04/21 21:51:44.000.893,C:\Users\diego_000\Documents\GitHub\GeN-XE7\Operacion\RendicionCarton\Form\RendicionClienteF.pas=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Operacion\RendicionCarton\Form\RendicionCarton.pas</Transaction>
+    <Transaction>2015/04/21 21:51:44.000.893,C:\Users\diego_000\Documents\GitHub\GeN-XE7\Operacion\RendicionCarton\Form\RendicionClienteF.dfm=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Operacion\RendicionCarton\Form\RendicionCarton.dfm</Transaction>
     <Transaction>2015/04/21 21:52:58.000.514,=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Operacion\RendicionCliente\Form\RendicionClienteF.pas</Transaction>
     <Transaction>2015/04/21 21:54:17.000.703,C:\Users\diego_000\Documents\GitHub\GeN-XE7\Operacion\RendicionCarton\Form\RendicionCarton.pas=</Transaction>
     <Transaction>2015/04/21 21:55:11.000.547,=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Operacion\RendicionCarton\Form\RendicionCartonF.pas</Transaction>
@@ -119,11 +119,16 @@
     <Transaction>2015/04/21 22:07:10.000.672,=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Celular\Form\MenuCelularF.pas</Transaction>
     <Transaction>2015/04/21 22:09:54.000.612,=C:\Users\diego_000\Documents\GitHub\GeN-XE7\ABM\Marca\Form\MarcaF.pas</Transaction>
     <Transaction>2015/04/21 22:09:58.000.297,=C:\Users\diego_000\Documents\GitHub\GeN-XE7\AcercaDe\form\main.pas</Transaction>
-    <Transaction>2015/04/21 22:12:24.000.071,C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Full\Form\MainF.dfm=c:\users\diego_000\documents\github\gen-xe7\menu\full\form\UMainF.dfm</Transaction>
-    <Transaction>2015/04/21 22:12:24.000.071,C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Full\Form\MainF.pas=c:\users\diego_000\documents\github\gen-xe7\menu\full\form\UMainF.pas</Transaction>
-    <Transaction>2015/04/21 22:14:28.000.945,C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Full\Form\FullMainF.dfm=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Full\Form\MainF.dfm</Transaction>
-    <Transaction>2015/04/21 22:14:28.000.945,C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Full\Form\FullMainF.pas=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Full\Form\MainF.pas</Transaction>
+    <Transaction>2015/04/21 22:12:24.000.071,c:\users\diego_000\documents\github\gen-xe7\menu\full\form\UMainF.dfm=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Full\Form\MainF.dfm</Transaction>
+    <Transaction>2015/04/21 22:12:24.000.071,c:\users\diego_000\documents\github\gen-xe7\menu\full\form\UMainF.pas=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Full\Form\MainF.pas</Transaction>
+    <Transaction>2015/04/21 22:14:28.000.945,C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Full\Form\MainF.pas=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Full\Form\FullMainF.pas</Transaction>
+    <Transaction>2015/04/21 22:14:28.000.945,C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Full\Form\MainF.dfm=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Full\Form\FullMainF.dfm</Transaction>
     <Transaction>2015/04/21 22:23:29.000.492,=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Buscar\Venta\Form\BuscaFactura.pas</Transaction>
+    <Transaction>2015/04/24 19:33:46.000.329,C:\Users\diego_000\Documents\GitHub\GeN-XE7\Menu\Celular\Form\MenuCelularF.pas=</Transaction>
+    <Transaction>2015/04/24 19:35:00.000.308,C:\Users\diego_000\Documents\GitHub\GeN-XE7\Demo\Demo.pas=</Transaction>
+    <Transaction>2015/04/24 19:35:25.000.172,C:\Users\diego_000\Documents\GitHub\GeN-XE7\Licencia\Form\LicenciaF.pas=</Transaction>
+    <Transaction>2015/04/24 19:35:42.000.155,C:\Users\diego_000\Documents\GitHub\GeN-XE7\Modulo\Vigilancia\form\VigilanciaF.pas=</Transaction>
+    <Transaction>2015/04/27 16:51:32.078,=C:\Users\diego_000\Documents\GitHub\GeN-XE7\Operacion\RestaurarBase\Form\RestaurarBaseF.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="-1" SortType="1"/>
 </BorlandProject>

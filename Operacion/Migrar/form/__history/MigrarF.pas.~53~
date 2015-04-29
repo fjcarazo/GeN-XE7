@@ -1,0 +1,139 @@
+unit MigrarF;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, ADODB, StdCtrls, DataModule, IBCustomDataSet, IBQuery,
+  OperacionDM,
+  ComCtrls, Buttons;
+
+type
+  TMigrarForm = class(TForm)
+    AC1: TADOConnection;
+    ProcesarButton: TButton;
+    O: TADOQuery;
+    D: TIBQuery;
+    T: TIBQuery;
+    ProgressBar1: TProgressBar;
+    OpenDialog1: TOpenDialog;
+    Edit1: TEdit;
+    BitBtn1: TBitBtn;
+    procedure ProcesarButtonClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  MigrarForm: TMigrarForm;
+
+implementation
+
+{$R *.dfm}
+
+procedure TMigrarForm.BitBtn1Click(Sender: TObject);
+begin
+  OpenDialog1.Execute();
+  Edit1.Text := OpenDialog1.FileName;
+end;
+
+procedure TMigrarForm.FormShow(Sender: TObject);
+begin
+  DM := TDM.Create(self);
+  OperacionDataModule := TOperacionDataModule.Create(self);
+end;
+
+procedure TMigrarForm.ProcesarButtonClick(Sender: TObject);
+var
+  i: integer;
+  mar, col, cat, subcat, rub: string;
+
+  function existe(tabla: string): string;
+  var
+    m: string;
+  begin
+    T.SQL.Text := 'SELECT * FROM "' + tabla + '" WHERE DESCRIPCION=' +
+      QuotedStr(O.FieldByName(tabla).AsString);
+    T.Open;
+    if T.RecordCount = 0 then
+    begin
+      m := inttostr(OperacionDataModule.UltimoRegistro('"' + tabla + '"',
+        'CODIGO'));
+      D.SQL.Text := 'INSERT INTO "' + tabla + '" (CODIGO,DESCRIPCION) VALUES ('
+        + m + ',' + QuotedStr(O.FieldByName(tabla).AsString) + ')';
+      D.ExecSQL;
+    end
+    else
+      m := T.FieldByName('CODIGO').AsString;
+    result := m;
+  end;
+
+begin
+
+  AC1.ConnectionString := 'Provider=Microsoft.Jet.OLEDB.4.0;' + 'User ID=Admin;'
+    + 'Data Source=' + Edit1.Text + ';' + // C:\CiveLoo\Gen\Gen.DeG;'+
+    'Mode=Share Deny None;Extended Properties="";' +
+    'Persist Security Info=False;Jet OLEDB:System database="";' +
+    'Jet OLEDB:Registry Path="";' +
+    'Jet OLEDB:Database Password=ThtJ9C9t49vDmpq;' + 'Jet OLEDB:Engine Type=5;'
+    + 'Jet OLEDB:Database Locking Mode=1;' +
+    'Jet OLEDB:Global Partial Bulk Ops=2;' +
+    'Jet OLEDB:Global Bulk Transactions=1;' +
+    'Jet OLEDB:New Database Password="";' +
+    'Jet OLEDB:Create System Database=False;' +
+    'Jet OLEDB:Encrypt Database=False;' +
+    'Jet OLEDB:Compact Without Replica Repair=False;' + 'Jet OLEDB:SFP=False';
+  AC1.Connected := TRUE;
+
+  O.SQL.Text := 'SELECT * FROM Articulos';
+  O.Open;
+  ProgressBar1.Max := O.RecordCount;
+  for i := 0 to O.RecordCount - 1 do
+  begin
+    mar := existe('Marca');
+    col := existe('Color');
+    cat := existe('Categoria');
+    subcat := existe('SubCategoria');
+    rub := existe('Rubro');
+    D.SQL.Text := 'INSERT INTO "Articulo" ( DESCRIPCION, COSTO, ' +
+      ' ULTCOSTO, PRECIO1, PRECIO2, ' + ' PRECIO3, PRECIO4, PRECIO5, ' +
+      ' PRECIO6, PRECIO, ' + ' ULTPRECIO, MARCA, COLOR, ' +
+      ' CATEGORIA, SUBCATEGORIA, UBICACION, ' +
+      ' UNIDAD, DISPONIBLE, ENPRODUCCION, ' + ' NOTAS, IVA, TASA, ' +
+      ' IMPOTROS, IIBB, STOCKMINIMO, ' +
+      ' STOCKMAXIMO, STOCKVENDIDO, FECHACOMPULT, ' +
+      ' LISTA, PROCEDENCIA, CODIGOBARRA, ' + ' RUBRO, PROVEEDOR, GARANTIA, ' +
+      ' FECHA, PEDIDO, STOCK, ' + ' EXISTENTE, ACTUAL, MARCADOCONTADO, ' +
+      ' MARCADOLISTA, MARCADOFINAL, PREPARADO, ' +
+      ' CTANOMBRE, CTATIPO, CTAANTICIPO, ' + ' CTAIIBB, ESTADO, VENCE, ' +
+      ' VENCIMIENTO) VALUES (' + ' ' + QuotedStr(O.FieldByName('Descripcion')
+      .AsString) + ', ' + O.FieldByName('Costo').AsString + ', ' + ' ' +
+      O.FieldByName('Costo').AsString + ', ' + O.FieldByName('Precio1').AsString
+      + ', ' + O.FieldByName('Precio2').AsString + ', ' + ' ' +
+      O.FieldByName('Precio3').AsString + ', ' + O.FieldByName('Precio4')
+      .AsString + ', ' + O.FieldByName('Precio5').AsString + ', ' + ' ' +
+      O.FieldByName('Precio6').AsString + ', ' + O.FieldByName('PrecioCtaCte')
+      .AsString + ', ' + ' ' + O.FieldByName('UltPrecioCtaCte').AsString + ', '
+      + mar + ', ' + col + ', ' + ' ' + cat + ', ' + subcat + ', NULL, ' +
+      ' ''c/u'', ' + O.FieldByName('Disponible').AsString + ', NULL, ' +
+      ' NULL, ' + O.FieldByName('IVA').AsString + ', ' + O.FieldByName('Tasa')
+      .AsString + ', ' + ' ' + O.FieldByName('ImpOtros').AsString + ', ' +
+      O.FieldByName('ImpOtros').AsString + ', ' + O.FieldByName('StockMinimo')
+      .AsString + ', ' + ' ' + O.FieldByName('StockMaximo').AsString +
+      ', 0, ''07/07/2010'', ' + ' NULL, NULL, ''11000259'', ' + ' ' + rub +
+      ', 1, NULL, ' + ' ''07/22/2010 11:46:07'', NULL, NULL, ' +
+      ' NULL, NULL, NULL, ' + ' NULL, NULL, NULL, ' + ' 13, 13, 13, ' +
+      ' 66, NULL, NULL, ' + ' NULL)';
+    D.ExecSQL;
+    ProgressBar1.Position := i;
+    O.Next;
+  end;
+  D.Transaction.CommitRetaining;
+  Close;
+end;
+
+end.

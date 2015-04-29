@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, ADODB, StdCtrls, Buttons, Grids, DBGrids, DataModule, ExtCtrls,
-  IBCustomDataSet, IBQuery, jpeg, ImprimirDM;
+  jpeg, ImprimirDM, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TBuscaFacturaForm = class(TForm)
@@ -21,8 +21,7 @@ type
     DBGrid1: TDBGrid;
     todoBitBtn: TBitBtn;
     Image1: TImage;
-    procedure FormKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure DBGrid1KeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -36,8 +35,8 @@ type
     { Private declarations }
   public
     { Public declarations }
-    Codigo,CodProve,Tipo : String;
-    Cancela :boolean;
+    Codigo, CodProve, Tipo: String;
+    Cancela: boolean;
   end;
 
 var
@@ -50,97 +49,95 @@ implementation
 procedure TBuscaFacturaForm.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-if not DbGrid1.Focused = True then
- begin
- Tabla.SQL.Text:='SELECT ' + QuotedStr
-        (dm.ConfigQuery.FieldByName('NOMBRE').AsString) + ' As Empresa,' +
-        '  "Cliente".NOMBRE,' + '  "Cliente".TITULAR,' +
-        '  "Cliente".DIRECCION,' + '  "Cliente".DIRECCIONCOMERCIAL,' +
-        '  "Articulo".DESCRIPCION,' + '  "VentaItem".OPERACION,' +
-        '  "VentaItem".ARTICULO,' + '  "VentaItem".CANTIDAD,' +
-        '  "VentaItem".PRECIO,' +
-        '  ("VentaItem".PRECIO * "VentaItem".CANTIDAD ) as PREXCANT,' +
-        '  "VentaItem".SERVICIO,' + '  "VentaItem".DESCRIPCION AS DESCR,' +
-        '  "Venta".CODIGO,' + '  "Venta".LETRA,' + '  "Venta".FECHA,' +
-        '  "Venta".COMPROBANTE,' + '  "Venta".IVA3,' + '  "Venta".TOTAL,' +
-        '  "Venta".CONTADO,' + '  "Venta".CLIENTE,' + '  "Venta".SUBTOTAL,' +
-        '  "Venta".DESCUENTO,' + '  "Venta".IMPUESTO,' + '  "Venta".IVA2,' +
-        '  "Venta".IVA1,' + '  "Venta".EXCENTO,' + '  "Venta".SALDO,' +
-        '  "Venta".PAGADO' + ' FROM' + '  "Venta"' +
-        '  INNER JOIN "VentaItem" ON ("Venta".CODIGO = "VentaItem".OPERACION)' +
-        '  INNER JOIN "Articulo" ON ("VentaItem".ARTICULO = "Articulo".CODIGO)'+
-        '  INNER JOIN "Cliente" ON ("Venta".CLIENTE = "Cliente".CODIGO)' +
-        '  WHERE' + '  ("Venta".CODIGO like '+QuotedStr(ventaEdit.Text+'%')+
-        '  ) AND' + '  ("Venta".LETRA like '+QuotedStr(LetraEdit.Text+'%')+
-        '  )';
- Tabla.Open;
- end;
-  if Key = VK_Escape then Close;
+  if not DBGrid1.Focused = True then
+  begin
+    Tabla.SQL.Text := 'SELECT ' + QuotedStr(dm.ConfigQuery.FieldByName('NOMBRE')
+      .AsString) + ' As Empresa,' + '  "Cliente".NOMBRE,' +
+      '  "Cliente".TITULAR,' + '  "Cliente".DIRECCION,' +
+      '  "Cliente".DIRECCIONCOMERCIAL,' + '  "Articulo".DESCRIPCION,' +
+      '  "VentaItem".OPERACION,' + '  "VentaItem".ARTICULO,' +
+      '  "VentaItem".CANTIDAD,' + '  "VentaItem".PRECIO,' +
+      '  ("VentaItem".PRECIO * "VentaItem".CANTIDAD ) as PREXCANT,' +
+      '  "VentaItem".SERVICIO,' + '  "VentaItem".DESCRIPCION AS DESCR,' +
+      '  "Venta".CODIGO,' + '  "Venta".LETRA,' + '  "Venta".FECHA,' +
+      '  "Venta".COMPROBANTE,' + '  "Venta".IVA3,' + '  "Venta".TOTAL,' +
+      '  "Venta".CONTADO,' + '  "Venta".CLIENTE,' + '  "Venta".SUBTOTAL,' +
+      '  "Venta".DESCUENTO,' + '  "Venta".IMPUESTO,' + '  "Venta".IVA2,' +
+      '  "Venta".IVA1,' + '  "Venta".EXCENTO,' + '  "Venta".SALDO,' +
+      '  "Venta".PAGADO' + ' FROM' + '  "Venta"' +
+      '  INNER JOIN "VentaItem" ON ("Venta".CODIGO = "VentaItem".OPERACION)' +
+      '  INNER JOIN "Articulo" ON ("VentaItem".ARTICULO = "Articulo".CODIGO)' +
+      '  INNER JOIN "Cliente" ON ("Venta".CLIENTE = "Cliente".CODIGO)' +
+      '  WHERE' + '  ("Venta".CODIGO like ' + QuotedStr(ventaEdit.Text + '%') +
+      '  ) AND' + '  ("Venta".LETRA like ' +
+      QuotedStr(LetraEdit.Text + '%') + '  )';
+    Tabla.Open;
+  end;
+  if Key = VK_Escape then
+    Close;
 end;
 
 procedure TBuscaFacturaForm.FormShow(Sender: TObject);
 begin
-dm:=tdm.Create(self);
+  //dm := tdm.Create(self);
 end;
 
 procedure TBuscaFacturaForm.Image1Click(Sender: TObject);
 begin
- ImprimirDataModule := TImprimirDataModule.Create(self);
- ImprimirDataModule.CSV(Tabla.SQL.Text,'VENTAS');
- ImprimirDataModule.Free;
+  ImprimirDataModule := TImprimirDataModule.Create(self);
+  ImprimirDataModule.CSV(Tabla.SQL.Text, 'VENTAS');
+  ImprimirDataModule.Free;
 end;
 
 procedure TBuscaFacturaForm.NoBitBtnClick(Sender: TObject);
 begin
-   Cancela:=True;
-   Codigo := '';
-   Close;
+  Cancela := True;
+  Codigo := '';
+  Close;
 end;
 
 procedure TBuscaFacturaForm.SiBitBtnClick(Sender: TObject);
 begin
- Close;
+  Close;
 end;
 
 procedure TBuscaFacturaForm.todoBitBtnClick(Sender: TObject);
 begin
-Tabla.SQL.Text:='SELECT ' + QuotedStr
-        (dm.ConfigQuery.FieldByName('NOMBRE').AsString) + ' As Empresa,' +
-        '  "Cliente".NOMBRE,' + '  "Cliente".TITULAR,' +
-        '  "Cliente".DIRECCION,' + '  "Cliente".DIRECCIONCOMERCIAL,' +
-        '  "Articulo".DESCRIPCION,' + '  "VentaItem".OPERACION,' +
-        '  "VentaItem".ARTICULO,' + '  "VentaItem".CANTIDAD,' +
-        '  "VentaItem".PRECIO,' +
-        '  ("VentaItem".PRECIO * "VentaItem".CANTIDAD ) as PREXCANT,' +
-        '  "VentaItem".SERVICIO,' + '  "VentaItem".DESCRIPCION AS DESCR,' +
-        '  "Venta".CODIGO,' + '  "Venta".LETRA,' + '  "Venta".FECHA,' +
-        '  "Venta".COMPROBANTE,' + '  "Venta".IVA3,' + '  "Venta".TOTAL,' +
-        '  "Venta".CONTADO,' + '  "Venta".CLIENTE,' + '  "Venta".SUBTOTAL,' +
-        '  "Venta".DESCUENTO,' + '  "Venta".IMPUESTO,' + '  "Venta".IVA2,' +
-        '  "Venta".IVA1,' + '  "Venta".EXCENTO,' + '  "Venta".SALDO,' +
-        '  "Venta".PAGADO' + ' FROM' + '  "Venta"' +
-        '  INNER JOIN "VentaItem" ON ("Venta".CODIGO = "VentaItem".OPERACION)' +
-        '  INNER JOIN "Articulo" ON ("VentaItem".ARTICULO = "Articulo".CODIGO)'+
-        '  INNER JOIN "Cliente" ON ("Venta".CLIENTE = "Cliente".CODIGO)' +
-        '';
- Tabla.Open;
+  Tabla.SQL.Text := 'SELECT ' + QuotedStr(dm.ConfigQuery.FieldByName('NOMBRE')
+    .AsString) + ' As Empresa,' + '  "Cliente".NOMBRE,' + '  "Cliente".TITULAR,'
+    + '  "Cliente".DIRECCION,' + '  "Cliente".DIRECCIONCOMERCIAL,' +
+    '  "Articulo".DESCRIPCION,' + '  "VentaItem".OPERACION,' +
+    '  "VentaItem".ARTICULO,' + '  "VentaItem".CANTIDAD,' +
+    '  "VentaItem".PRECIO,' +
+    '  ("VentaItem".PRECIO * "VentaItem".CANTIDAD ) as PREXCANT,' +
+    '  "VentaItem".SERVICIO,' + '  "VentaItem".DESCRIPCION AS DESCR,' +
+    '  "Venta".CODIGO,' + '  "Venta".LETRA,' + '  "Venta".FECHA,' +
+    '  "Venta".COMPROBANTE,' + '  "Venta".IVA3,' + '  "Venta".TOTAL,' +
+    '  "Venta".CONTADO,' + '  "Venta".CLIENTE,' + '  "Venta".SUBTOTAL,' +
+    '  "Venta".DESCUENTO,' + '  "Venta".IMPUESTO,' + '  "Venta".IVA2,' +
+    '  "Venta".IVA1,' + '  "Venta".EXCENTO,' + '  "Venta".SALDO,' +
+    '  "Venta".PAGADO' + ' FROM' + '  "Venta"' +
+    '  INNER JOIN "VentaItem" ON ("Venta".CODIGO = "VentaItem".OPERACION)' +
+    '  INNER JOIN "Articulo" ON ("VentaItem".ARTICULO = "Articulo".CODIGO)' +
+    '  INNER JOIN "Cliente" ON ("Venta".CLIENTE = "Cliente".CODIGO)' + '';
+  Tabla.Open;
 end;
 
 procedure TBuscaFacturaForm.DBGrid1DblClick(Sender: TObject);
 begin
-   SiBitBtnClick(DBGrid1);
+  SiBitBtnClick(DBGrid1);
 end;
 
 procedure TBuscaFacturaForm.DBGrid1KeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-   IF Key = VK_DOWN then
-   DbGrid1.SetFocus;
+  IF Key = VK_DOWN then
+    DBGrid1.SetFocus;
 end;
 
 procedure TBuscaFacturaForm.FormDestroy(Sender: TObject);
 begin
-   Tabla.Close;
+  Tabla.Close;
 end;
 
 end.

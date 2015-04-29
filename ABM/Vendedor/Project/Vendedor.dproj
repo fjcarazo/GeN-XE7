@@ -3,7 +3,7 @@
         <ProjectGuid>{8A0BE2B2-6D0A-4BAA-9BFA-BEBE6144B16F}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>Vendedor.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

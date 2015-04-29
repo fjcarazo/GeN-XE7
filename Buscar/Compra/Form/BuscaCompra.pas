@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, StdCtrls, Buttons, Grids, DBGrids, DataModule, ExtCtrls,
-  IBCustomDataSet, IBQuery, jpeg, ImprimirDM, GIFImg;
+  jpeg, ImprimirDM, GIFImg, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TBuscaCompraForm = class(TForm)
@@ -82,7 +82,7 @@ end;
 
 procedure TBuscaCompraForm.FormShow(Sender: TObject);
 begin
-  dm := tdm.Create(self);
+  //dm := tdm.Create(self);
   SqL := 'SELECT ' + QuotedStr(dm.ConfigQuery.FieldByName('NOMBRE').AsString) +
     ' As Empresa,' + '  "Proveedor".NOMBRE,' + '  "Proveedor".TITULAR,' +
     '  "Proveedor".DIRECCION,' + '  "Proveedor".DIRECCIONCOMERCIAL,' +

@@ -3,7 +3,7 @@
         <ProjectGuid>{EFE74F9F-B845-4FA5-AEB4-1B882559FED9}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>PagoCobrador.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DataModule, ExtCtrls, StdCtrls, Mask, DBCtrls, ComCtrls, DB, ADODB,
-  Buttons, IBQuery, IBCustomDataSet, IBTable, OleCtrls, SHDocVw, ExtDlgs, jpeg;
+  Buttons, OleCtrls, SHDocVw, ExtDlgs, jpeg, IBX.IBQuery, IBX.IBCustomDataSet,
+  IBX.IBTable;
 
 type
   TEmpresaForm = class(TForm)
@@ -131,7 +132,7 @@ end;
 
 procedure TEmpresaForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(Self);
+  //DM := TDM.Create(Self);
   CuentaT.Open;
   Tabla.Open;
   Image1.Picture.LoadFromFile(path + 'img\empresa.bmp');

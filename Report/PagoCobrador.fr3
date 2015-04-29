@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<TfrxReport Version="4.10.3" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="4095" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="40101.8091813079" ReportOptions.Description.Text="" ReportOptions.LastChange="40520.6320118981" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end." PropData="044C656674022803546F7002600844617461736574730101063420446174615365743D22667278444244617461736574312220446174615365744E616D653D2266727844424461746173657431220000095661726961626C65730100055374796C650100">
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" PaperWidth="210" PaperHeight="297" PaperSize="9" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxReportTitle Name="ReportTitle1" Height="18.89765" Left="0" Top="18.89765" Width="718.1107"/>
+    <TfrxMasterData Name="MasterData1" Height="56.69295" Left="0" Top="238.11039" Width="718.1107" ColumnWidth="0" ColumnGap="0" DataSet="frxDBDataset1" DataSetName="frxDBDataset1" RowCount="0">
+      <TfrxMemoView Name="Memo8" Left="415.7483" Top="11.11812" Width="79.37013" Height="18.89765" ShowHint="False" DataSetName="RendidoCobradorfrxDBDataset" Text="$ [frxDBDataset1.&#34;RENDIDO&#34;]"/>
+      <TfrxMemoView Name="Memo9" Left="264.5671" Top="11.11812" Width="132.28355" Height="18.89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="Importe Liquidado:"/>
+      <TfrxMemoView Name="Memo21" Left="132.28355" Top="11.33859" Width="128.50402" Height="18.89765" ShowHint="False" Text="Fecha: [Date]"/>
+    </TfrxMasterData>
+    <TfrxPageFooter Name="PageFooter1" Height="11.33859" Left="0" Top="914.64626" Width="718.1107"/>
+    <TfrxHeader Name="Header1" Height="117.16543" Left="0" Top="98.26778" Width="718.1107">
+      <TfrxMemoView Name="Memo10" Left="0" Top="71.81107" Width="714.33117" Height="37.7953" ShowHint="False" DataSetName="RendidoCobradorfrxDBDataset" Font.Charset="1" Font.Color="0" Font.Height="-35" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" Text="[frxDBDataset1.&#34;NOMBRE&#34;]"/>
+      <TfrxMemoView Name="Memo23" Left="619.84292" Top="0" Width="94.48825" Height="18.89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="Original"/>
+      <TfrxMemoView Name="Memo4" Left="0" Top="15.73222" Width="714.33117" Height="56.69295" ShowHint="False" DataSetName="RendidoCobradorfrxDBDataset" Font.Charset="1" Font.Color="8421504" Font.Height="-35" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" Text="Rendición  de Cobranza de"/>
+    </TfrxHeader>
+    <TfrxFooter Name="Footer1" Height="132.28355" Left="0" Top="317.48052" Width="718.1107">
+      <TfrxMemoView Name="Memo11" Left="511.23655" Top="52.9134199999999" Width="170.07885" Height="18.89765" ShowHint="False" Text="Firma: .................................."/>
+      <TfrxMemoView Name="Memo14" Left="549.03185" Top="22.67718" Width="94.48825" Height="18.89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-16" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="Tesorero"/>
+      <TfrxMemoView Name="Memo16" Left="481.00031" Top="90.7087199999999" Width="198.31509" Height="18.89765" ShowHint="False" Text="Aclaración: .................................&#13;&#10;."/>
+      <TfrxLineView Name="Line1" Left="0" Top="129.72449" Width="718.1107" Height="0" ShowHint="False" Frame.Style="fsDash" Frame.Typ="4"/>
+    </TfrxFooter>
+    <TfrxMasterData Name="MasterData2" Height="56.69295" Left="0" Top="623.62245" Width="718.1107" ColumnWidth="0" ColumnGap="0" DataSet="frxDBDataset1" DataSetName="frxDBDataset1" RowCount="1">
+      <TfrxMemoView Name="Memo19" Left="415.7483" Top="18.89765" Width="79.37013" Height="18.89765" ShowHint="False" DataSetName="RendidoCobradorfrxDBDataset" Text="$ [frxDBDataset1.&#34;PAGADO&#34;]"/>
+      <TfrxMemoView Name="Memo20" Left="264.5671" Top="18.89765" Width="132.28355" Height="18.89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="Importe Liquidado:"/>
+      <TfrxMemoView Name="Memo22" Left="132.28355" Top="19.11812" Width="128.50402" Height="18.89765" ShowHint="False" Text="Fecha: [Date]"/>
+    </TfrxMasterData>
+    <TfrxFooter Name="Footer2" Height="151.1812" Left="0" Top="702.99258" Width="718.1107">
+      <TfrxMemoView Name="Memo1" Left="511.23655" Top="52.91342" Width="170.07885" Height="18.89765" ShowHint="False" Text="Firma: .................................."/>
+      <TfrxMemoView Name="Memo3" Left="549.03185" Top="15.11812" Width="94.48825" Height="18.89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-16" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="Cobrador"/>
+      <TfrxMemoView Name="Memo7" Left="481.00031" Top="90.70872" Width="198.31509" Height="18.89765" ShowHint="False" Text="Aclaración: .................................&#13;&#10;."/>
+    </TfrxFooter>
+    <TfrxHeader Name="Header2" Height="128.50402" Left="0" Top="472.44125" Width="718.1107">
+      <TfrxMemoView Name="Memo18" Left="0" Top="75.5906000000001" Width="714.33117" Height="37.7953" ShowHint="False" DataSetName="RendidoCobradorfrxDBDataset" Font.Charset="1" Font.Color="0" Font.Height="-35" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" Text="[frxDBDataset1.&#34;NOMBRE&#34;]"/>
+      <TfrxMemoView Name="Memo24" Left="619.84292" Top="0" Width="94.48825" Height="18.89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="Original"/>
+      <TfrxMemoView Name="Memo2" Left="0" Top="22.55875" Width="714.33117" Height="52.91342" ShowHint="False" DataSetName="RendidoCobradorfrxDBDataset" Font.Charset="1" Font.Color="8421504" Font.Height="-35" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" Text="Pago de comisión a"/>
+    </TfrxHeader>
+  </TfrxReportPage>
+  <TfrxReportPage Name="Page2" PaperWidth="210" PaperHeight="297" PaperSize="9" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxReportTitle Name="ReportTitle2" Height="18.89765" Left="0" Top="18.89765" Width="717.689912326667"/>
+    <TfrxMasterData Name="MasterData3" Height="56.69295" Left="0" Top="238.11039" Width="717.689912326667" ColumnWidth="0" ColumnGap="0" DataSetName="RendidoCobradorfrxDBDataset" RowCount="0">
+      <TfrxMemoView Name="Memo5" Left="415.7483" Top="11.11812" Width="79.37013" Height="18.89765" ShowHint="False" DataSetName="RendidoCobradorfrxDBDataset" Text="$ [RendidoCobradorfrxDBDataset.&#34;Importe&#34;]"/>
+      <TfrxMemoView Name="Memo6" Left="264.5671" Top="11.11812" Width="132.28355" Height="18.89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="Importe Liquidado:"/>
+      <TfrxMemoView Name="Memo12" Left="132.28355" Top="11.33859" Width="128.50402" Height="18.89765" ShowHint="False" Text="Fecha: [Date]"/>
+    </TfrxMasterData>
+    <TfrxPageFooter Name="PageFooter2" Height="11.33859" Left="0" Top="914.64626" Width="717.689912326667"/>
+    <TfrxHeader Name="Header3" Height="117.16543" Left="0" Top="98.26778" Width="717.689912326667">
+      <TfrxMemoView Name="Memo13" Left="0" Top="71.81107" Width="714.33117" Height="37.7953" ShowHint="False" DataSetName="RendidoCobradorfrxDBDataset" Font.Charset="1" Font.Color="0" Font.Height="-35" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" Text="[RendidoCobradorfrxDBDataset.&#34;Nombre&#34;]"/>
+      <TfrxMemoView Name="Memo15" Left="619.84292" Top="0" Width="94.48825" Height="18.89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="Duplicado"/>
+      <TfrxMemoView Name="Memo17" Left="0" Top="15.73222" Width="714.33117" Height="56.69295" ShowHint="False" DataSetName="RendidoCobradorfrxDBDataset" Font.Charset="1" Font.Color="8421504" Font.Height="-35" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" Text="Rendición  de Cobranza de"/>
+    </TfrxHeader>
+    <TfrxFooter Name="Footer3" Height="132.28355" Left="0" Top="317.48052" Width="717.689912326667">
+      <TfrxMemoView Name="Memo25" Left="511.23655" Top="52.91342" Width="170.07885" Height="18.89765" ShowHint="False" Text="Firma: .................................."/>
+      <TfrxMemoView Name="Memo26" Left="549.03185" Top="22.67718" Width="94.48825" Height="18.89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-16" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="Cobrador"/>
+      <TfrxMemoView Name="Memo27" Left="481.00031" Top="90.70872" Width="198.31509" Height="18.89765" ShowHint="False" Text="Aclaración: .................................&#13;&#10;."/>
+      <TfrxLineView Name="Line2" Left="0" Top="129.72449" Width="718.1107" Height="0" ShowHint="False" Frame.Style="fsDash" Frame.Typ="4"/>
+    </TfrxFooter>
+    <TfrxMasterData Name="MasterData4" Height="56.69295" Left="0" Top="623.62245" Width="717.689912326667" ColumnWidth="0" ColumnGap="0" DataSetName="RendidoCobradorfrxDBDataset" RowCount="0">
+      <TfrxMemoView Name="Memo28" Left="415.7483" Top="18.89765" Width="79.37013" Height="18.89765" ShowHint="False" DataSetName="RendidoCobradorfrxDBDataset" Text="$ [RendidoCobradorfrxDBDataset.&#34;Importe&#34;]"/>
+      <TfrxMemoView Name="Memo29" Left="264.5671" Top="18.89765" Width="132.28355" Height="18.89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="Importe Liquidado:"/>
+      <TfrxMemoView Name="Memo30" Left="132.28355" Top="19.11812" Width="128.50402" Height="18.89765" ShowHint="False" Text="Fecha: [Date]"/>
+    </TfrxMasterData>
+    <TfrxFooter Name="Footer4" Height="151.1812" Left="0" Top="702.99258" Width="717.689912326667">
+      <TfrxMemoView Name="Memo31" Left="511.23655" Top="52.91342" Width="170.07885" Height="18.89765" ShowHint="False" Text="Firma: .................................."/>
+      <TfrxMemoView Name="Memo32" Left="549.03185" Top="15.11812" Width="94.48825" Height="18.89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-16" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="Tesorero"/>
+      <TfrxMemoView Name="Memo33" Left="481.00031" Top="90.70872" Width="198.31509" Height="18.89765" ShowHint="False" Text="Aclaración: .................................&#13;&#10;."/>
+    </TfrxFooter>
+    <TfrxHeader Name="Header4" Height="128.50402" Left="0" Top="472.44125" Width="717.689912326667">
+      <TfrxMemoView Name="Memo34" Left="0" Top="75.5906000000001" Width="714.33117" Height="37.7953" ShowHint="False" DataSetName="RendidoCobradorfrxDBDataset" Font.Charset="1" Font.Color="0" Font.Height="-35" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" Text="[RendidoCobradorfrxDBDataset.&#34;Nombre&#34;]"/>
+      <TfrxMemoView Name="Memo35" Left="619.84292" Top="0" Width="94.48825" Height="18.89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="Duplicado"/>
+      <TfrxMemoView Name="Memo36" Left="0" Top="22.55875" Width="714.33117" Height="52.91342" ShowHint="False" DataSetName="RendidoCobradorfrxDBDataset" Font.Charset="1" Font.Color="8421504" Font.Height="-35" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" Text="Pago de comisión a"/>
+    </TfrxHeader>
+  </TfrxReportPage>
+</TfrxReport>

@@ -4,8 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, DB, ADODB, StdCtrls, Buttons, ComCtrls, ExtCtrls, Grids, DBGrids, DataModule,
-  IBCustomDataSet, IBQuery;
+  Dialogs, DB, ADODB, StdCtrls, Buttons, ComCtrls, ExtCtrls, Grids, DBGrids,
+  DataModule, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TListarPedidoForm = class(TForm)
@@ -130,7 +130,7 @@ end;
 
 procedure TListarPedidoForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
 end;
 
 procedure TListarPedidoForm.FormKeyUp(Sender: TObject; var Key: Word;

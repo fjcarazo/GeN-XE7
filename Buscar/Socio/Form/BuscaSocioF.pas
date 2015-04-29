@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DBCtrls, StdCtrls, DB, ADODB, Grids, DBGrids, ExtCtrls,
-  Buttons, DataModule, IBCustomDataSet, IBQuery, jpeg, ImprimirDM;
+  Buttons, DataModule, jpeg, ImprimirDM, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TBuscaSocioForm = class(TForm)

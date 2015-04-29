@@ -4,7 +4,7 @@ interface
 
 uses
   SysUtils, Classes, DB, IniFiles, Windows, Controls, Forms, Dialogs,
-  IBDatabase, IBCustomDataSet, IBQuery;
+  IBX.IBCustomDataSet, IBX.IBQuery, IBX.IBDatabase;
 
 type
 
@@ -24,7 +24,7 @@ type
     procedure TraerUsuario;
     procedure DejarUsuario;
     function ExecuteProcess(ProcessName, Path: String): Cardinal;
-    function Gratis(arch: String): boolean;
+    {function Gratis(arch: String): boolean;}
     { Public declarations }
   end;
 
@@ -56,7 +56,7 @@ implementation
 
 {$R *.dfm}
 
-function TDM.Gratis;
+{function TDM.Gratis;
 var
   i: Integer;
   a: string;
@@ -71,7 +71,7 @@ begin
     end;
   end;
   Result := False; // ?
-end;
+end;}
 
 function TDM.ExecuteProcess;
 var
@@ -105,13 +105,16 @@ end;
 
 procedure TDM.DejarUsuario;
 begin
-  if Transaccion.Params.Text <> 'read' then
+  if (Transaccion.Params.Text <> 'read') and (Transaccion.Params.Text <> '') then
   begin
     TraerUsuario;
+    if Control <> '' then
+    begin
     ConfigQuery.SQL.Text := 'update "Control" set MAQUINA=' + QuotedStr(Maquina)
       + ' where CODIGO=' + Control;
     ConfigQuery.ExecSQL;
     ConfigQuery.Transaction.Commit;
+    end;
   end;
 end;
 

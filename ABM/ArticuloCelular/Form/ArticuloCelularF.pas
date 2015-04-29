@@ -304,7 +304,7 @@ end;
 
 procedure TArticuloCelularForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
   Tabla.Active := True;
   ADOTCat.Active := True;
   ADOTSubCat.Active := True;

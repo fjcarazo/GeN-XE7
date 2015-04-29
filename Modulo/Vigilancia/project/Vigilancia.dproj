@@ -3,7 +3,7 @@
         <ProjectGuid>{63D239DF-2A61-42F6-86A9-4938038B654D}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>Vigilancia.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

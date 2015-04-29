@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, ADODB, DBCtrls, StdCtrls, Buttons, ExtCtrls, Grids, DBGrids,
-  IBCustomDataSet, IBQuery;
+  IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TABMCajaForm = class(TForm)
@@ -222,7 +222,7 @@ end;
 
 procedure TABMCajaForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
   EmpresaQuery.Open;
   CalculaTotales;
   Query.Open;

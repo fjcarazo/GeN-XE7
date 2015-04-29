@@ -5,8 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DataModule, DBCtrls, StdCtrls, DB, ImprimirDM, Grids, DBGrids,
-  ExtCtrls,
-  Buttons, IBCustomDataSet, IBQuery, jpeg;
+  ExtCtrls, Buttons, jpeg, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TBuscarCobradorForm = class(TForm)

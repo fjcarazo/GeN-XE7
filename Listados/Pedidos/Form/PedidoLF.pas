@@ -5,8 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, StdCtrls, Buttons, ComCtrls, ExtCtrls, Grids, DBGrids,
-  DataModule,
-  IBCustomDataSet, IBQuery, jpeg, ImprimirDM;
+  DataModule, jpeg, ImprimirDM, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TPedidoLForm = class(TForm)
@@ -112,7 +111,7 @@ end;
 
 procedure TPedidoLForm.FormShow(Sender: TObject);
 begin
-  DM := TDM.Create(Self);
+  //DM := TDM.Create(Self);
   DateTimePicker2.Date := Date + 1;
   StringGrid1.Cells[0, 0] := 'CODIGO';
   StringGrid1.Cells[1, 0] := 'CANTIDAD';

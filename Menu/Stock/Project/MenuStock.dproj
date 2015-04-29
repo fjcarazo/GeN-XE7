@@ -3,7 +3,7 @@
         <ProjectGuid>{0A626BB9-BF0E-4922-8301-421022829343}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>MenuStock.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

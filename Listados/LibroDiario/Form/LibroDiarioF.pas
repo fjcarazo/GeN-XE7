@@ -5,8 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, ComCtrls, StdCtrls, Buttons, ExtCtrls, DataModule, Grids,
-  DBGrids, ImprimirDM, DBCtrls,
-  IBCustomDataSet, IBQuery, OleCtrls, SHDocVw, jpeg;
+  DBGrids, ImprimirDM, DBCtrls, OleCtrls, SHDocVw, jpeg, IBX.IBCustomDataSet,
+  IBX.IBQuery;
 
 type
   TLibroDiarioLForm = class(TForm)
@@ -75,7 +75,7 @@ end;
 
 procedure TLibroDiarioLForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
   CuentaT.Open;
   CuentaT.Last;
   DTP2.Date := Now + 1;

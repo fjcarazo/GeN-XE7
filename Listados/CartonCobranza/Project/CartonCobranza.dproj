@@ -3,7 +3,7 @@
         <ProjectGuid>{B89C9439-8FB5-4F79-86C1-4DC4BF184567}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>CartonCobranza.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

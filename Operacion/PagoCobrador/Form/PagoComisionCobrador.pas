@@ -5,8 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ComCtrls, Grids, Buttons, DBGrids, DB, ADODB, DataModule,
-  IBCustomDataSet,
-  IBQuery, OleCtrls, SHDocVw;
+  OleCtrls, SHDocVw, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TPagoComisionCobradorForm = class(TForm)
@@ -196,7 +195,7 @@ end;
 
 procedure TPagoComisionCobradorForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
 end;
 
 procedure TPagoComisionCobradorForm.FormKeyPress(Sender: TObject;

@@ -5,8 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, ExtCtrls, DB, ADODB, DataModule, Grids,
-  DBGrids, ValEdit, DateUtils, ComCtrls, Printers, ImprimirDM, IBCustomDataSet,
-  IBQuery, OperacionDM;
+  DBGrids, ValEdit, DateUtils, ComCtrls, Printers, ImprimirDM, OperacionDM,
+  IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TVenderForm = class(TForm)
@@ -84,7 +84,6 @@ type
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure CantidadBitBtnClick(Sender: TObject);
     procedure VendedorBitBtnClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure cbTipoChange(Sender: TObject);
     procedure NuevoBitBtnClick(Sender: TObject);
     procedure FLEPorcDescEnter(Sender: TObject);
@@ -585,11 +584,14 @@ end;
 
 procedure TVenderForm.FormShow(Sender: TObject);
 begin
-  if (dm.ConfigQuery.FieldByName('IVA').AsString = 'RI') then
+ with dm do begin
+  ConfigQuery.open;
+  if (ConfigQuery.FieldByName('IVA').AsString = 'RI') then
     cbTipo.ItemIndex := 1
   else
     cbTipo.ItemIndex := 2;
   Nuevo;
+ end;
 end;
 
 procedure TVenderForm.FormKeyUp(Sender: TObject; var Key: Word;
@@ -701,11 +703,6 @@ var
 begin
   for i := 0 to Printer.Printers.Count - 1 do
     ComboBox1.Items.Add(Printer.Printers[i]);
-end;
-
-procedure TVenderForm.FormCreate(Sender: TObject);
-begin
-  dm := TDM.Create(self);
 end;
 
 end.

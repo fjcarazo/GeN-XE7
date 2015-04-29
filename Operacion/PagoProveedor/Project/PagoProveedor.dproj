@@ -3,7 +3,7 @@
         <ProjectGuid>{C0A9EB8E-2C0F-433F-B620-23C10A1D2367}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>PagoProveedor.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

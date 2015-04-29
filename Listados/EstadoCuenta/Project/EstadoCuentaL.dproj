@@ -3,7 +3,7 @@
         <ProjectGuid>{B1462BDC-7E9B-4528-A5B1-8F38DDE037F0}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>EstadoCuentaL.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

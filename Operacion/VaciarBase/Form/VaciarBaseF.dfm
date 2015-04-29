@@ -12,6 +12,7 @@ object VaciarBaseForm: TVaciarBaseForm
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
@@ -108,6 +109,7 @@ object VaciarBaseForm: TVaciarBaseForm
     TabOrder = 2
   end
   object Borrar: TIBScript
+    AutoDDL = False
     Terminator = ';'
     Script.Strings = (
       '/* delete Tables */'
@@ -1064,6 +1066,7 @@ object VaciarBaseForm: TVaciarBaseForm
       ''
       ''
       'COMMIT;')
+    Statistics = False
     Left = 16
     Top = 16
   end

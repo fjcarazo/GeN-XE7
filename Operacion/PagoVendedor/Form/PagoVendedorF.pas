@@ -5,8 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ComCtrls, Grids, Buttons, DBGrids, DB, ImprimirDM,
-  DataModule, ExtCtrls,
-  IBCustomDataSet, IBQuery, OleCtrls, SHDocVw;
+  DataModule, ExtCtrls, OleCtrls, SHDocVw, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TPagoVendedorForm = class(TForm)
@@ -146,7 +145,7 @@ end;
 
 procedure TPagoVendedorForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(self);
+  //DM := TDM.Create(self);
 end;
 
 procedure TPagoVendedorForm.FormShow(Sender: TObject);

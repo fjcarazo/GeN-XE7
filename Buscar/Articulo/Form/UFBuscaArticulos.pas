@@ -5,9 +5,9 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, StdCtrls, Buttons, DBCtrls, Grids, DBGrids, ExtCtrls, DataModule,
-  Mask, IBCustomDataSet, IBQuery, OleCtrls, SHDocVw, OleCtnrs, ExtDlgs,
+  Mask, OleCtrls, SHDocVw, OleCtnrs, ExtDlgs,
   ImprimirDM,
-  jpeg, GIFImg;
+  jpeg, GIFImg, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TFBuscaArticulo = class(TForm)
@@ -133,7 +133,7 @@ begin
     '  INNER JOIN "Proveedor" ON ("Articulo".PROVEEDOR = "Proveedor".CODIGO)' +
     '  WHERE (PROVEEDOR like ' + QuotedStr(ProveedorEdit.Text + '%') + ')' +
     '  ORDER BY   "Articulo".DESCRIPCION';
-
+  DM.ConfigQuery.Open;
   if (DM.ConfigQuery.FieldByName('CodigoBarra').AsString) = 'SI ' then
     CodigoEdit.SetFocus
   else

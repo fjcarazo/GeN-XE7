@@ -5,8 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, ImprimirDM, StdCtrls, Buttons, Grids, DBGrids, DataModule,
-  ExtCtrls,
-  IBCustomDataSet, IBQuery, jpeg;
+  ExtCtrls, jpeg, IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TBuscarRubroContableForm = class(TForm)

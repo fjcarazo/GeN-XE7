@@ -3,7 +3,7 @@
         <ProjectGuid>{32AACE97-A2F9-4008-AA02-5EBF39BA2350}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>Articulos.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>

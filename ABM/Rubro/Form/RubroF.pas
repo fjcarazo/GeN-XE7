@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DataModule, StdCtrls, Buttons, ExtCtrls, DBCtrls, Grids, DBGrids, DB,
-  Mask, IBCustomDataSet, IBTable, OleCtrls, SHDocVw;
+  Mask, OleCtrls, SHDocVw, IBX.IBCustomDataSet, IBX.IBTable;
 
 type
   TRubroForm = class(TForm)
@@ -40,7 +40,7 @@ implementation
 
 procedure TRubroForm.FormCreate(Sender: TObject);
 begin
-  DM := TDM.Create(Self);
+  //DM := TDM.Create(Self);
   Tabla.Active := true;
 end;
 

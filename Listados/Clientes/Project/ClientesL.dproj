@@ -3,7 +3,7 @@
         <ProjectGuid>{1508FA46-6A2E-40A6-A384-6060722FC6B5}</ProjectGuid>
         <ProjectVersion>16.0</ProjectVersion>
         <MainSource>ClientesL.dpr</MainSource>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <Base>True</Base>
         <TargetedPlatforms>1</TargetedPlatforms>
