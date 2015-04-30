@@ -54,7 +54,7 @@ begin
   try
     FBuscaArticulo.ShowModal;
   finally
-    SetLength(art, FBuscaArticulo.Tabla.RecordCount+1);
+    SetLength(art, FBuscaArticulo.Tabla.RecordCount);
     For i := 1 to FBuscaArticulo.Tabla.RecordCount do
     begin
       art[i] := (FBuscaArticulo.Tabla.FieldByName('CODIGO').AsInteger);
