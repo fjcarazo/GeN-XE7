@@ -99,8 +99,8 @@ object RendicionClienteForm: TRendicionClienteForm
       Top = 14
       Width = 89
       Height = 21
-      Date = 40081.492309201400000000
-      Time = 40081.492309201400000000
+      Date = 42368.492309201400000000
+      Time = 42368.492309201400000000
       TabOrder = 0
     end
     object Edit5: TEdit

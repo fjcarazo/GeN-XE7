@@ -72,6 +72,7 @@ end;
 procedure TCajaLForm.FormCreate(Sender: TObject);
 begin
   //DM := TDM.Create(self);
+  DM.ConfigQuery.Open;
   CuentaT.Open;
   CuentaT.Last;
   DTP2.Date := Now + 1;

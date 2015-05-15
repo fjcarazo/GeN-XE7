@@ -87,6 +87,7 @@ end;
 procedure TCobranzaExtraJudicialForm.FormCreate(Sender: TObject);
 begin
   //DM := TDM.Create(Self);
+  DM.ConfigQuery.Open;
 end;
 
 procedure TCobranzaExtraJudicialForm.FormKeyDown(Sender: TObject; var Key: Word;

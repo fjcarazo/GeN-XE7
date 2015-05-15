@@ -363,8 +363,8 @@ end;
 procedure TPagosForm.FormCreate(Sender: TObject);
 begin
   //DM := TDM.Create(self);
+  DM.ConfigQuery.Open;
   EmpresaQuery.Open;
-  ConfigQuery.Open;
 end;
 
 procedure TPagosForm.FormKeyUp(Sender: TObject; var Key: Word;

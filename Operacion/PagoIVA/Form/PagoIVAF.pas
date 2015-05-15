@@ -2,10 +2,10 @@ unit PagoIVAF;
 
 interface
 
-uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls, Buttons, DataModule, DB, ComCtrls, OleCtrls, SHDocVw,
-  IBX.IBCustomDataSet, IBX.IBQuery;
+uses Data.DB, IBX.IBCustomDataSet, IBX.IBQuery, Vcl.StdCtrls, Vcl.ComCtrls,
+  Vcl.Buttons, Vcl.Controls, System.Classes, Vcl.ExtCtrls,
+  Windows, Messages, SysUtils, Variants, Graphics, Forms,
+  Dialogs, DataModule, OleCtrls, SHDocVw;
 
 type
   TPagoIVAForm = class(TForm)
@@ -193,7 +193,8 @@ end;
 
 procedure TPagoIVAForm.FormCreate(Sender: TObject);
 begin
-  //dm := TDM.Create(Self);
+  // dm := TDM.Create(Self);
+  dm.ConfigQuery.Open;
 end;
 
 end.

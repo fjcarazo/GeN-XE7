@@ -79,8 +79,9 @@ end;
 
 procedure TLibroIVAComprasForm.FormCreate(Sender: TObject);
 begin
-  //DM := TDM.Create(Self);
+  // DM := TDM.Create(Self);
   DTP2.DateTime := Now;
+  DM.ConfigQuery.Open;
 end;
 
 procedure TLibroIVAComprasForm.DTP1CloseUp(Sender: TObject);
@@ -137,9 +138,12 @@ end;
 
 procedure TLibroIVAComprasForm.BitBtn3Click(Sender: TObject);
 begin
-  ImprimirDataModule := TImprimirDataModule.Create(Self);
-  ImprimirDataModule.SImpr(Tabla.SQL.Text, 'LibroIVACompras');
-  ImprimirDataModule.Free;
+  if Tabla.Active = true then
+  begin
+    ImprimirDataModule := TImprimirDataModule.Create(Self);
+    ImprimirDataModule.SImpr(Tabla.SQL.Text, 'LibroIVACompras');
+    ImprimirDataModule.Free;
+  end;
 end;
 
 end.

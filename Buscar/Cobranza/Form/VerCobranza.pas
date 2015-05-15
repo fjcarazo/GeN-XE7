@@ -23,7 +23,6 @@ type
     DBGrid1: TDBGrid;
     DS: TDataSource;
     GrillaQ: TIBQuery;
-    Tabla: TIBQuery;
     Image1: TImage;
     procedure CancelarBitBtnClick(Sender: TObject);
     procedure SeleccionarBitBtnClick(Sender: TObject);
@@ -93,7 +92,7 @@ end;
 procedure TVerCobranzaForm.Image1Click(Sender: TObject);
 begin
   ImprimirDataModule := TImprimirDataModule.Create(self);
-  ImprimirDataModule.CSV(Tabla.SQL.Text, 'ARTICULOS');
+  ImprimirDataModule.CSV(GrillaQ.SQL.Text, 'ARTICULOS');
   ImprimirDataModule.Free;
 end;
 
@@ -106,7 +105,8 @@ end;
 
 procedure TVerCobranzaForm.SeleccionarBitBtnClick(Sender: TObject);
 begin
-  close;
+  if GrillaQ.Active = True then
+    close;
 end;
 
 end.

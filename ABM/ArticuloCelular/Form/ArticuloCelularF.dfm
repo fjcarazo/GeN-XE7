@@ -194,10 +194,6 @@ object ArticuloCelularForm: TArticuloCelularForm
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Label2: TLabel
         Left = 10
         Top = 73

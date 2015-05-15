@@ -252,6 +252,7 @@ end;
 procedure TCtaCteProveedoresForm.FormCreate(Sender: TObject);
 begin
   //DM := TDM.Create(self);
+  DM.ConfigQuery.Open;
 end;
 
 procedure TCtaCteProveedoresForm.FormKeyUp(Sender: TObject; var Key: Word;

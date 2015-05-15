@@ -961,6 +961,7 @@ end;
 
 procedure TComprarCelularForm.FormShow(Sender: TObject);
 begin
+  DM.ConfigQuery.Open;
   SGFact.Cells[0, 0] := 'Código';
   SGFact.Cells[1, 0] := 'Descripción';
   SGFact.Cells[2, 0] := 'Flete';

@@ -57,6 +57,7 @@ type
     procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure VerTodosBitBtnClick(Sender: TObject);
     procedure imprimir_exportarImageClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -72,6 +73,11 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFBuscaArticulo.FormCreate(Sender: TObject);
+begin
+  DM.ConfigQuery.Open;
+end;
 
 procedure TFBuscaArticulo.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
@@ -133,7 +139,6 @@ begin
     '  INNER JOIN "Proveedor" ON ("Articulo".PROVEEDOR = "Proveedor".CODIGO)' +
     '  WHERE (PROVEEDOR like ' + QuotedStr(ProveedorEdit.Text + '%') + ')' +
     '  ORDER BY   "Articulo".DESCRIPCION';
-  DM.ConfigQuery.Open;
   if (DM.ConfigQuery.FieldByName('CodigoBarra').AsString) = 'SI ' then
     CodigoEdit.SetFocus
   else

@@ -870,7 +870,7 @@ end;
 
 procedure TCrearPedidoForm.FormShow(Sender: TObject);
 begin
-  dm.ConfigQuery.Open;
+  DM.ConfigQuery.Open;
   if (dm.ConfigQuery.FieldByName('IVA').AsString = 'RI') then
     cbTipo.ItemIndex := 1
   else

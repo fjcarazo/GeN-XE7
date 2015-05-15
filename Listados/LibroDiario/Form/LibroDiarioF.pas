@@ -75,7 +75,8 @@ end;
 
 procedure TLibroDiarioLForm.FormCreate(Sender: TObject);
 begin
-  //DM := TDM.Create(self);
+  // DM := TDM.Create(self);
+  DM.ConfigQuery.Open;
   CuentaT.Open;
   CuentaT.Last;
   DTP2.Date := Now + 1;
@@ -108,7 +109,6 @@ begin
   Debe.Caption := '0';
   Haber.Caption := '0';
   Saldo.Caption := '0';
-
   Tabla.SQL.Text := 'SELECT ' +
     '  ("LibroDiario".DEBE - "LibroDiario".HABER) AS SubTotal,' + '  ' +
     QuotedStr(DM.ConfigQuery.FieldByName('Nombre').AsString) + ' AS Empresa, ' +
@@ -153,9 +153,12 @@ end;
 
 procedure TLibroDiarioLForm.BitBtn3Click(Sender: TObject);
 begin
-  ImprimirDataModule := TImprimirDataModule.Create(self);
-  ImprimirDataModule.SImpr(Tabla.SQL.Text, 'LibroDiario');
-  ImprimirDataModule.Free;
+  if Tabla.Active = True then
+  begin
+    ImprimirDataModule := TImprimirDataModule.Create(self);
+    ImprimirDataModule.SImpr(Tabla.SQL.Text, 'LibroDiario');
+    ImprimirDataModule.Free;
+  end;
 end;
 
 end.

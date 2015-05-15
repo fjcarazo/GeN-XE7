@@ -454,6 +454,7 @@ end;
 procedure TNotaCreditoPlanForm.FormCreate(Sender: TObject);
 begin
   //DM := TDM.Create(self);
+  DM.ConfigQuery.Open;
 end;
 
 procedure TNotaCreditoPlanForm.FormKeyPress(Sender: TObject; var Key: Char);

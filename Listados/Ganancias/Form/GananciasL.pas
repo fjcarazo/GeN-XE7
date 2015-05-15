@@ -74,6 +74,7 @@ begin
   //DM := TDM.Create(self);
   CuentaTabla.Open;
   DTP2.DateTime := Now + 1;
+  DM.ConfigQuery.Open;
 end;
 
 procedure TGanaciaxVtaLForm.DTP1CloseUp(Sender: TObject);

@@ -404,7 +404,6 @@ begin
       CtaAnticipo := Tabla.FieldByName('CtaAnticipo').AsString;
 
       PagareCheckBox.Checked := Tabla.FieldByName('PAGARE').AsBoolean;
-      dm.ConfigQuery.Open;
       if (dm.ConfigQuery.FieldByName('IVA').AsString = 'RI') and
         (Tabla.FieldByName('IVA').AsString = 'RI') then
         cbTipo.ItemIndex := 0
@@ -604,6 +603,7 @@ end;
 procedure TComprarForm.FormCreate(Sender: TObject);
 begin
   //dm := TDM.Create(self);
+  DM.ConfigQuery.Open;
 end;
 
 procedure TComprarForm.FormKeyUp(Sender: TObject; var Key: Word;

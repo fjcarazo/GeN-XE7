@@ -590,8 +590,8 @@ object CrearCreditoForm: TCrearCreditoForm
       Top = 2
       Width = 85
       Height = 21
-      Date = 40110.475039594910000000
-      Time = 40110.475039594910000000
+      Date = 42005.475039594910000000
+      Time = 42005.475039594910000000
       TabOrder = 4
     end
   end

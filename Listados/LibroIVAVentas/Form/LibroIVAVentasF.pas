@@ -81,7 +81,8 @@ end;
 
 procedure TCuentasForm.FormCreate(Sender: TObject);
 begin
-  //DM := TDM.Create(Self);
+  // DM := TDM.Create(Self);
+  DM.ConfigQuery.Open;
   DTP2.DateTime := Now;
 end;
 
@@ -146,9 +147,12 @@ end;
 
 procedure TCuentasForm.BitBtn3Click(Sender: TObject);
 begin
-  ImprimirDataModule := TImprimirDataModule.Create(Self);
-  ImprimirDataModule.SImpr(Tabla.SQL.Text, 'libroIVAVentas');
-  ImprimirDataModule.Free;
+  if Tabla.Active = true then
+  begin
+    ImprimirDataModule := TImprimirDataModule.Create(Self);
+    ImprimirDataModule.SImpr(Tabla.SQL.Text, 'libroIVAVentas');
+    ImprimirDataModule.Free;
+  end;
 end;
 
 end.

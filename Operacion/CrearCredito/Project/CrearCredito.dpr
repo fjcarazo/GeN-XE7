@@ -20,6 +20,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.Title := 'Crear Credito';
+  Application.CreateForm(TDM, DM);
   Application.CreateForm(TCrearCreditoForm, CrearCreditoForm);
   Application.CreateForm(TImprimirDataModule, ImprimirDataModule);
   Application.CreateForm(TOperacionDataModule, OperacionDataModule);

@@ -54,32 +54,6 @@ object FLogin: TFLogin
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Label3: TLabel
-      Left = 192
-      Top = 28
-      Width = 43
-      Height = 13
-      Caption = 'Ej: admin'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWhite
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Label4: TLabel
-      Left = 192
-      Top = 96
-      Width = 43
-      Height = 13
-      Caption = 'Ej: admin'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWhite
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-    end
     object Label5: TLabel
       Left = 97
       Top = 206
@@ -158,7 +132,7 @@ object FLogin: TFLogin
       OnClick = AceptarBitBtnClick
     end
     object CancelarBitBtn: TBitBtn
-      Left = 163
+      Left = 164
       Top = 189
       Width = 80
       Height = 50

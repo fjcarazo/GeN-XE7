@@ -3,12 +3,10 @@ unit ImprimirDM;
 interface
 
 uses
-  SysUtils, Classes, frxClass, frxDBSet,
-  frxChBox, frxExportPDF, frxDesgn, frxExportText,
-  frxExportCSV, frxExportImage, frxExportRTF,
-  frxExportHTML, frxBarcode, Data.DB, IBX.IBCustomDataSet, IBX.IBQuery,
-  frxDMPExport,
-  DataModule, Dialogs;
+  SysUtils, Classes, DataModule, Dialogs, frxClass, frxCrypt, frxGZip,
+  frxGradient, frxChBox, frxRich, frxOLE, frxChart, frxExportCSV, frxExportHTML,
+  frxExportPDF, frxDMPExport, frxBarcode, frxDBSet, Data.DB,
+  IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TImprimirDataModule = class(TDataModule)
@@ -20,6 +18,14 @@ type
     frxPDFExport1: TfrxPDFExport;
     frxHTMLExport1: TfrxHTMLExport;
     frxCSVExport1: TfrxCSVExport;
+    frxChartObject1: TfrxChartObject;
+    frxOLEObject1: TfrxOLEObject;
+    frxRichObject1: TfrxRichObject;
+    frxCheckBoxObject1: TfrxCheckBoxObject;
+    frxGradientObject1: TfrxGradientObject;
+    frxDotMatrixExport2: TfrxDotMatrixExport;
+    frxGZipCompressor1: TfrxGZipCompressor;
+    frxCrypt1: TfrxCrypt;
     Function VTA(nro, let: string): string;
     Function OPER(nro, let: string): string;
     Function PRE(nro, let: string): string;
@@ -28,6 +34,7 @@ type
     Procedure Impr(vsql, reporte: string);
     Procedure CSV(sql, n: string);
     Procedure SImpr(vsql, reporte: string);
+    procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -102,6 +109,11 @@ begin
   end;
   m.Free;
   g.Free;
+end;
+
+procedure TImprimirDataModule.DataModuleCreate(Sender: TObject);
+begin
+  DM.ConfigQuery.Open;
 end;
 
 Procedure TImprimirDataModule.Impr;
@@ -194,14 +206,16 @@ end;
 
 Function TImprimirDataModule.PlanillaCobrador;
 begin
-  Result := '  "Cobrador".NOMBRE AS COBRADOR,' + '  "Cliente".ZONA,' +
-    '  "CtaCte".FECHA,' + '  "CtaCte".SALDO,' + '  "Cliente".NOMBRE AS CLIENTE,'
-    + '  "CtaCteItem".CUOTA,' + '  "CtaCte".OPERACION' + ' FROM' + '  "CtaCte"'
-    + '  INNER JOIN "CtaCteItem" ON ("CtaCte".CLIENTE = "CtaCteItem".CLIENTE) AND ("CtaCte".OPERACION = "CtaCteItem".OPERACION)'
-    + '  INNER JOIN "Cliente" ON ("CtaCteItem".CLIENTE = "Cliente".CODIGO)' +
-    '  INNER JOIN "Cobrador" ON ("CtaCte".COBRADOR = "Cobrador".CODIGO)' +
-    ' WHERE' + '  ("CtaCte".OPERACION = ' + nro + ')' + ' ORDER BY' +
-    '  "CtaCteItem".CUOTA' + '';
+  Result := '"Cobrador".NOMBRE AS COBRADOR, "Cliente".ZONA,'
+    +' "CtaCte".FECHA, "CtaCte".SALDO, "Cliente".NOMBRE AS CLIENTE,'
+    +' "CtaCteItem".IMPORTE, "CtaCte".ARTICULO as CB, "CtaCteItem".VENCE,'
+    +' "CtaCteItem".CUOTA, "CtaCte".OPERACION'
+    +' FROM "CtaCte"'
+    +' INNER JOIN "CtaCteItem" ON ("CtaCte".CLIENTE = "CtaCteItem".CLIENTE) AND ("CtaCte".OPERACION = "CtaCteItem".OPERACION)'
+    +' INNER JOIN "Cliente" ON ("CtaCteItem".CLIENTE = "Cliente".CODIGO)'
+    +' INNER JOIN "Cobrador" ON ("CtaCte".COBRADOR = "Cobrador".CODIGO)'
+    +' WHERE ("CtaCte".OPERACION = '+nro+')'
+    +' ORDER BY "CtaCteItem".CUOTA';
 end;
 
 Function TImprimirDataModule.Contrato;

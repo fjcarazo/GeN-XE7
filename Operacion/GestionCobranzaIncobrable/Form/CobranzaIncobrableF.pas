@@ -86,6 +86,7 @@ end;
 procedure TCobranzaIncobrableForm.FormCreate(Sender: TObject);
 begin
   //DM := TDM.Create(Self);
+  DM.ConfigQuery.Open;
 end;
 
 procedure TCobranzaIncobrableForm.FormKeyDown(Sender: TObject; var Key: Word;

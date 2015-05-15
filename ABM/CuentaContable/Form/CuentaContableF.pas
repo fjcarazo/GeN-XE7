@@ -133,7 +133,7 @@ end;
 
 procedure TCuentasContablesForm.GrabarBitBtnClick(Sender: TObject);
 begin
-  IF CuentaDBEdit.Text <> '' THEN
+  IF ((CuentaDBEdit.Text <> '') and ((Tabla.State = dsEdit) or (Tabla.State = dsInsert))) THEN
   BEGIN
     Tabla.Post;
     Tabla.Insert;

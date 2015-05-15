@@ -56,7 +56,6 @@ type
     CuentaCorriente1: TMenuItem;
     BACKUPCopiadeSeguridad1: TMenuItem;
     Login1: TMenuItem;
-    TrayIcon1: TTrayIcon;
     WebBrowser1: TWebBrowser;
     CREDITOS1: TMenuItem;
     CREARCREDITO1: TMenuItem;
@@ -211,18 +210,37 @@ end;
 
 procedure TFullMainForm.FormCreate(Sender: TObject);
 begin
-  //DM := TDM.Create(self);
+  // DM := TDM.Create(self);
 end;
 
 procedure TFullMainForm.FormShow(Sender: TObject);
 begin
   // CONECTAR BASE DE DATOS
   // CONTROL DE USUARIOS
-  FLogin := TFLogin.Create(self);
-  try
-    FLogin.ShowModal;
-  finally
-    FLogin.Free;
+  with DM do
+  begin
+    Query.SQL.Text :=
+      'select * from "Usuario" where  (NOMBRE=''admin'' and "password"=''admin'')';
+    Query.Open;
+    If Query.RecordCount = 0 then
+    begin
+      FLogin := TFLogin.Create(self);
+      try
+        FLogin.ShowModal;
+      finally
+        FLogin.Free;
+      end;
+    end
+    else
+    begin
+      Usuario := Query.FieldByName('CODIGO').AsString;
+      Permiso := Query.FieldByName('PERMISO').AsInteger;
+      Query.SQL.Text := 'insert into "Control" (USUARIO, MAQUINA) values (' +
+        Usuario + ', ' + QuotedStr(Maquina) + ')';
+      Query.ExecSQL;
+      Query.Transaction.Commit;
+      LoginOk := True;
+    end;
   end;
   WebBrowser1.Navigate(path + 'ayuda\index.htm');
   if LoginOk <> True then

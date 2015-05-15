@@ -87,6 +87,7 @@ type
     procedure cbTipoChange(Sender: TObject);
     procedure NuevoBitBtnClick(Sender: TObject);
     procedure FLEPorcDescEnter(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -584,14 +585,11 @@ end;
 
 procedure TVenderForm.FormShow(Sender: TObject);
 begin
- with dm do begin
-  ConfigQuery.open;
-  if (ConfigQuery.FieldByName('IVA').AsString = 'RI') then
+  if (DM.ConfigQuery.FieldByName('IVA').AsString = 'RI') then
     cbTipo.ItemIndex := 1
   else
     cbTipo.ItemIndex := 2;
   Nuevo;
- end;
 end;
 
 procedure TVenderForm.FormKeyUp(Sender: TObject; var Key: Word;
@@ -648,6 +646,11 @@ end;
 procedure TVenderForm.FEContadoExit(Sender: TObject);
 begin
   ProcesarBitBtn.SetFocus;
+end;
+
+procedure TVenderForm.FormCreate(Sender: TObject);
+begin
+  DM.ConfigQuery.Open;
 end;
 
 procedure TVenderForm.FormKeyPress(Sender: TObject; var Key: Char);

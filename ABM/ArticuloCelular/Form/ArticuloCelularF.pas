@@ -312,7 +312,7 @@ begin
   TRubro.Active := True;
   MarcaADOTable.Active := True;
   CategoriaADOTable.Active := True;
-  ConfigQuery.Open;
+  DM.ConfigQuery.Open;
   Precio1 := ConfigQuery.FieldByName('PP1').AsFloat / 100 + 1;
   Precio2 := ConfigQuery.FieldByName('PP2').AsFloat / 100 + 1;
   Precio3 := ConfigQuery.FieldByName('PP3').AsFloat / 100 + 1;

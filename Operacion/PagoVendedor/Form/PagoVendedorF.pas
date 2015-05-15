@@ -146,6 +146,7 @@ end;
 procedure TPagoVendedorForm.FormCreate(Sender: TObject);
 begin
   //DM := TDM.Create(self);
+  DM.ConfigQuery.Open;
 end;
 
 procedure TPagoVendedorForm.FormShow(Sender: TObject);

@@ -12,6 +12,7 @@ type
     BaseDatos: TIBDatabase;
     Transaccion: TIBTransaction;
     ConfigQuery: TIBQuery;
+    Query: TIBQuery;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -110,29 +111,29 @@ begin
     TraerUsuario;
     if Control <> '' then
     begin
-    ConfigQuery.SQL.Text := 'update "Control" set MAQUINA=' + QuotedStr(Maquina)
+    Query.SQL.Text := 'update "Control" set MAQUINA=' + QuotedStr(Maquina)
       + ' where CODIGO=' + Control;
-    ConfigQuery.ExecSQL;
-    ConfigQuery.Transaction.Commit;
+    Query.ExecSQL;
+    Query.Transaction.Commit;
     end;
   end;
 end;
 
 procedure TDM.TraerUsuario;
 begin
-  ConfigQuery.SQL.Text := 'select max(CODIGO) from "Control" where Maquina=' +
+  Query.SQL.Text := 'select max(CODIGO) from "Control" where Maquina=' +
     QuotedStr(Maquina);
-  ConfigQuery.Open;
-  Control := ConfigQuery.Fields[0].AsString;
+  Query.Open;
+  Control := Query.Fields[0].AsString;
   if Control <> '' then
   begin
-    ConfigQuery.SQL.Text := 'select * from "Control" where CODIGO=' + Control;
-    ConfigQuery.Open;
-    Usuario := ConfigQuery.FieldByName('USUARIO').AsString;
-    ConfigQuery.SQL.Text := 'select PERMISO from "Usuario" where Codigo='
+    Query.SQL.Text := 'select * from "Control" where CODIGO=' + Control;
+    Query.Open;
+    Usuario := Query.FieldByName('USUARIO').AsString;
+    Query.SQL.Text := 'select PERMISO from "Usuario" where Codigo='
       + Usuario;
-    ConfigQuery.Open;
-    Permiso := ConfigQuery.FieldByName('PERMISO').AsInteger;;
+    Query.Open;
+    Permiso := Query.FieldByName('PERMISO').AsInteger;;
   end;
 end;
 

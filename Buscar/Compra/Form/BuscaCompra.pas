@@ -33,6 +33,7 @@ type
     procedure todoBitBtnClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure imprimir_exportarImageClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -141,6 +142,11 @@ procedure TBuscaCompraForm.DBGrid1KeyDown(Sender: TObject; var Key: Word;
 begin
   IF Key = VK_DOWN then
     DBGrid1.SetFocus;
+end;
+
+procedure TBuscaCompraForm.FormCreate(Sender: TObject);
+begin
+  DM.ConfigQuery.Open;
 end;
 
 procedure TBuscaCompraForm.FormDestroy(Sender: TObject);

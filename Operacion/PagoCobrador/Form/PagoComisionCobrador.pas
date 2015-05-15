@@ -196,6 +196,7 @@ end;
 procedure TPagoComisionCobradorForm.FormCreate(Sender: TObject);
 begin
   //DM := TDM.Create(self);
+  DM.ConfigQuery.Open;
 end;
 
 procedure TPagoComisionCobradorForm.FormKeyPress(Sender: TObject;

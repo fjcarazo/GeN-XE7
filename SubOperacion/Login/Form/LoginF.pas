@@ -12,8 +12,6 @@ type
     Panel1: TPanel;
     Label1: TLabel;
     Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
     Label5: TLabel;
     nombreEdit: TEdit;
     passwordEdit: TEdit;
@@ -47,7 +45,7 @@ begin
   Query.SQL.Text := 'select * from "Usuario" where NOMBRE=' +
     QuotedStr(nombreEdit.Text);
   Query.Open;
-  If Query.RecordCount < 1 then
+  If Query.RecordCount = 0 then
   Begin
     Cuenta := Cuenta + 1;
     MessageDlg('Usuario no encontrado', mtError, [mbOK], 0);
@@ -67,7 +65,6 @@ begin
       Usuario + ', ' + QuotedStr(Maquina) + ')';
     Query.ExecSQL;
     Query.Transaction.Commit;
-    Close;
   end
   else
   Begin
@@ -76,8 +73,8 @@ begin
     passwordEdit.Text := '';
     Query.Active := False;
     If Cuenta = 3 then
-      Close;
   end;
+  Close;
 end;
 
 procedure TFLogin.CancelarBitBtnClick(Sender: TObject);

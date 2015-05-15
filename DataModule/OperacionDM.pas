@@ -337,16 +337,20 @@ begin
  if (dm.ConfigQuery.FieldByName('Imprimir').AsString) <> 'NO' then
   begin
    ImprimirDataModule := TImprimirDataModule.Create(self);
+   //VTA
    with ImprimirDataModule do
-    begin
-     //VTA
+   begin
      Impr( VTA(nro,let),'' );
-     //Planes
-     Impr( Contrato(nro,let),'ContratoLeasing' );
-     //Planilla de Cobrador
-     Impr( PlanillaCobrador(nro,''),'Carton' );
-    end;
    ImprimirDataModule.Free;
+   //Planes
+   ImprimirDataModule := TImprimirDataModule.Create(self);
+     Impr( Contrato(nro,let),'ContratoLeasing' );
+   ImprimirDataModule.Free;
+   //Planilla de Cobrador
+   ImprimirDataModule := TImprimirDataModule.Create(self);
+     Impr( PlanillaCobrador(nro,''),'Carton' );
+   ImprimirDataModule.Free;
+   end;
   end;
 end;
 
@@ -377,7 +381,8 @@ end;
 
 procedure TOperacionDataModule.DataModuleCreate(Sender: TObject);
 begin
-Oculto:='0';
+  DM.ConfigQuery.Open;
+  Oculto:='0';
 end;
 
 Procedure TOperacionDataModule.LibroIVAvta;// Insertar en el Libro IVA Ventas

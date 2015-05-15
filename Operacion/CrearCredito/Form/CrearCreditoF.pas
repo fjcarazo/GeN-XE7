@@ -4,9 +4,9 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, ExtCtrls, DB, Grids, OperacionDM,
-  DBGrids, ValEdit, DateUtils, ComCtrls, Printers, DataModule, ImprimirDM,
-  OleCtrls, SHDocVw, IBX.IBCustomDataSet, IBX.IBQuery;
+  Dialogs, StdCtrls, Buttons, ExtCtrls, DB, ADODB, DataModule, Grids,
+  DBGrids, ValEdit, DateUtils, ComCtrls, Printers, ImprimirDM, OperacionDM,
+  IBX.IBCustomDataSet, IBX.IBQuery;
 
 type
   TCrearCreditoForm = class(TForm)
@@ -856,7 +856,8 @@ begin
     end;
     end; }
 
-  Nuevo;
+  //Nuevo;
+  Close;
 end;
 
 procedure TCrearCreditoForm.CheckBox1Click(Sender: TObject);
@@ -906,7 +907,8 @@ end;
 
 procedure TCrearCreditoForm.FormCreate(Sender: TObject);
 begin
-  //dm := TDM.Create(self);
+  // dm := TDM.Create(self);
+  dm.ConfigQuery.Open;
 end;
 
 procedure TCrearCreditoForm.FormKeyPress(Sender: TObject; var Key: Char);

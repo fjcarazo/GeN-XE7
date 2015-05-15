@@ -253,7 +253,6 @@ object VerCobranzaForm: TVerCobranzaForm
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
-      ModalResult = 1
       NumGlyphs = 2
       ParentFont = False
       TabOrder = 0
@@ -400,15 +399,6 @@ object VerCobranzaForm: TVerCobranzaForm
       'ORDER BY'
       '  "CtaCteItem".VENCE')
     Left = 344
-    Top = 224
-  end
-  object Tabla: TIBQuery
-    Database = DM.BaseDatos
-    Transaction = DM.Transaccion
-    BufferChunks = 1000
-    CachedUpdates = False
-    ParamCheck = True
-    Left = 192
     Top = 224
   end
 end

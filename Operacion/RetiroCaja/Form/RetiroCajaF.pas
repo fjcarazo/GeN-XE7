@@ -49,6 +49,7 @@ uses OperacionDM;
 procedure TRetiroCajaForm.FormCreate(Sender: TObject);
 begin
   //DM := TDM.Create(Self);
+  DM.ConfigQuery.Open;
   SocioT.Open;
   SocioT.Last;
 end;

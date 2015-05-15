@@ -313,21 +313,24 @@ end;
 
 procedure TFProductos.FormCreate(Sender: TObject);
 begin
-  //DM := TDM.Create(Self);
+  // DM := TDM.Create(Self);
   Tabla.Active := True;
   SubCategoriaT.Active := True;
   ProveedorT.Active := True;
   RubroT.Active := True;
   MarcaT.Active := True;
   CategoriaT.Active := True;
-  ConfigQuery.Open;
-  Precio1 := ConfigQuery.FieldByName('PP1').AsFloat / 100 + 1;
-  Precio2 := ConfigQuery.FieldByName('PP2').AsFloat / 100 + 1;
-  Precio3 := ConfigQuery.FieldByName('PP3').AsFloat / 100 + 1;
-  Precio4 := ConfigQuery.FieldByName('PP4').AsFloat / 100 + 1;
-  Precio5 := ConfigQuery.FieldByName('PP5').AsFloat / 100 + 1;
-  Precio6 := ConfigQuery.FieldByName('PP6').AsFloat / 100 + 1;
-  PrecioCtaCte := ConfigQuery.FieldByName('PP').AsFloat / 100 + 1;
+  with DM do
+  begin
+    ConfigQuery.Open;
+    Precio1 := ConfigQuery.FieldByName('PP1').AsFloat / 100 + 1;
+    Precio2 := ConfigQuery.FieldByName('PP2').AsFloat / 100 + 1;
+    Precio3 := ConfigQuery.FieldByName('PP3').AsFloat / 100 + 1;
+    Precio4 := ConfigQuery.FieldByName('PP4').AsFloat / 100 + 1;
+    Precio5 := ConfigQuery.FieldByName('PP5').AsFloat / 100 + 1;
+    Precio6 := ConfigQuery.FieldByName('PP6').AsFloat / 100 + 1;
+    PrecioCtaCte := ConfigQuery.FieldByName('PP').AsFloat / 100 + 1;
+  end;
   QTemp.Close;
   CuentaQuery.Open;
   Tabla.Insert;
