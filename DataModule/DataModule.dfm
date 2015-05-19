@@ -4,8 +4,6 @@ object DM: TDM
   Height = 120
   Width = 282
   object BaseDatos: TIBDatabase
-    Connected = True
-    DatabaseName = 'C:\DeGsoft\GeN\GeN.FDB'
     Params.Strings = (
       'user_name=SYSDBA'
       'password=masterkey'
@@ -18,7 +16,6 @@ object DM: TDM
     Top = 16
   end
   object Transaccion: TIBTransaction
-    Active = True
     DefaultDatabase = BaseDatos
     DefaultAction = TARollback
     Params.Strings = (
