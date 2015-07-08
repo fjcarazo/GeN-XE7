@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "GeN"
-#define MyAppVersion "150706"
+#define MyAppVersion "150708"
 #define MyAppPublisher "Civeloo"
 #define MyAppURL "http://www.civeloo.com/"
 #define MyAppExeName "GeN.exe"
@@ -24,7 +24,7 @@ DefaultGroupName={#MyAppPublisher}\{#MyAppName}
 DisableProgramGroupPage=yes
 LicenseFile=C:\DeGsoft\GeN\LICENSE-2.0.txt
 OutputDir=C:\Users\diego_000\OneDrive\Shared favorites\GeN
-OutputBaseFilename=Setup{#MyAppName}v{#MyAppVersion}
+OutputBaseFilename=Instalar{#MyAppName}
 SetupIconFile=C:\DeGsoft\GeN\DeGsoft.ico
 Compression=lzma
 SolidCompression=true
