@@ -13,4 +13,4 @@ CONTAMOS CON SU COLABORACIÓN PARA PODER SEGUIR TRABAJANDO. USTED PUEDE DESCARGA
 @degsoft
 
 * Support or Contact
-help_desk@civeloo.com
+consultas@civeloo.com
